@@ -1,0 +1,10 @@
+D:\web2\Bookstartzz\Bookstarzz\Prueva\bin\Debug\Prueva.dll
+D:\web2\Bookstartzz\Bookstarzz\Prueva\bin\Debug\Prueva.pdb
+D:\web2\Bookstartzz\Bookstarzz\Prueva\bin\Debug\MySql.Data.dll
+D:\web2\Bookstartzz\Bookstarzz\Prueva\bin\Debug\Google.Protobuf.dll
+D:\web2\Bookstartzz\Bookstarzz\Prueva\bin\Debug\MySql.Data.xml
+D:\web2\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.csprojAssemblyReference.cache
+D:\web2\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.csproj.CoreCompileInputs.cache
+D:\web2\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.csproj.CopyComplete
+D:\web2\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Prueva.dll
+D:\web2\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Prueva.pdb
