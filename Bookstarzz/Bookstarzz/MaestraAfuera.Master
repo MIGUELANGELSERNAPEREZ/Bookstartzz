@@ -1,61 +1,49 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Maestra.master.cs" Inherits="Bookstarzz.Maestra" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MaestraAfuera.master.cs" Inherits="Bookstarzz.MaestraAfuera" %>
 
 <!DOCTYPE html>
 
 <html>
 <head runat="server">
-    <title>BookStratzz</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-
-    <asp:ContentPlaceHolder ID="head" runat="server">     
+    <title>Bookstartzz</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <link  href="css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    <!-- Inicio del menu-->
- <div>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-    <a class="navbar-brand"  style="font-size:25px;"   href="#">Bookstartzz</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <header>    
+         <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <a class="navbar-brand" style="font-size: 25px;"   href="#">Bookstartzz</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-    </button>
+        </button>
 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="FrmRegistrarUsu">Registrate <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="FrmLogin">Iniciar Sesion</a>
+      </li>
 
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="#">Información</a>
-        </li>
-        <li class="nav-item dropdown active">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Libros
-            </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Niños</a>
-          <a class="dropdown-item" href="#">Adolecentes</a>
-          <a class="dropdown-item" href="#">Personas mayores</a>
-        </div>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Conocenos</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-    </form>
+  
   </div>
-</nav><!-- Final del Menu-->
-     <!-- gueco para los distintos cuerpos de las clases-->
+</nav>
+    </header>
+        <div>
             <asp:ContentPlaceHolder ID="body" runat="server">
-
+            
             </asp:ContentPlaceHolder>
         </div>
 
-    <!-- Footer -->
+        <!-- Footer -->
     <footer class="page-footer font-small blue-grey lighten-5">
 
-    <div style="background-color: hotpink;">
+    <div style="background-color: #21d192;">
         <div class="container">
 
       <!-- Grid row-->
@@ -187,13 +175,11 @@
 </footer>
 <!-- Footer -->
 
-    <!--    Scripts-->
+
+     <!--    Scripts-->
 
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/bootstrap.js"></script>
-    <!-- Parte del footer o pies de pagina dé las paginas-->
-    <asp:ContentPlaceHolder ID="Script" runat="server">
-    </asp:ContentPlaceHolder>
-
+    
 </body>
 </html>
