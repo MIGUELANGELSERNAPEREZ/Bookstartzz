@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.88
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookstarzz", "Bookstarzz\Bookstarzz.csproj", "{6B155149-E063-4F2F-8C22-321C2888FAED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend", "Prueva\Backend.csproj", "{191C79B5-D037-494F-ABE5-A6C457DEDBBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B155149-E063-4F2F-8C22-321C2888FAED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B155149-E063-4F2F-8C22-321C2888FAED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B155149-E063-4F2F-8C22-321C2888FAED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B155149-E063-4F2F-8C22-321C2888FAED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{191C79B5-D037-494F-ABE5-A6C457DEDBBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{191C79B5-D037-494F-ABE5-A6C457DEDBBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{191C79B5-D037-494F-ABE5-A6C457DEDBBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{191C79B5-D037-494F-ABE5-A6C457DEDBBE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD75BF83-A6BF-42CE-9684-5A3817629D3D}
+	EndGlobalSection
+EndGlobal
