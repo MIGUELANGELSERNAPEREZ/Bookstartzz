@@ -42,5 +42,35 @@ namespace Backend.Modelos
 
             return objUsu;
         }
+
+        public int insertUser(Usuario obj)
+        {
+            int valor = 0;
+            try
+            {
+
+            MySqlCommand consulta = new MySqlCommand();
+            consulta.CommandText = "INSERT INTO users(Nombre,ApellidoP,ApellidoM," +
+                "Email,Contrasena,tipo)VALUES(@nombre,@apellidoP,@apellidoM," +
+                "@email,sha1(@pass),1);";
+
+            consulta.Parameters.AddWithValue("@nombre",obj.Nombre);
+            consulta.Parameters.AddWithValue("@apellidoP", obj.ApellidoP);
+            consulta.Parameters.AddWithValue("@apellidoM", obj.ApellidoM);
+            consulta.Parameters.AddWithValue("@email", obj.Email);
+            consulta.Parameters.AddWithValue("@pass", obj.Password);
+
+            valor = DaoConexion.ejecutarSentencia(consulta,false);
+
+            DaoConexion.desconectar();
+            }
+            catch (Exception m)
+            {
+                Console.WriteLine(m);
+            }
+
+            return valor;
+
+        }
     }
 }
