@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="form-row justify-content-center">
-            <asp:Button ID="btnIniciarSesion" class="btn btn-primary" runat="server" Text="Iniciar Sesión" OnClick="btnIniciarSesion_Click" />
+            <asp:Button ID="btnIniciarSesion" class="btn btn-primary" runat="server" Text="Iniciar Sesión" OnClick="btnIniciarSesion_Click" />             
         </div>
     </form>
     </div>

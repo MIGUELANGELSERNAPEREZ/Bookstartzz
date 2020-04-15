@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Backend.clases;
+using Backend.Modelos;
 
 namespace Bookstarzz
 {
@@ -11,12 +13,41 @@ namespace Bookstarzz
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            divMensaje.Visible = false;
         }
 
         protected void btnIniciarSesion_Click(object sender, EventArgs e)
         {
+            if (txtEmail.Text!="" && txtPassword.Text!="")
+            {
+                Usuario objUser = new Usuario();
+                objUser.Email = txtEmail.Text;
+                objUser.Password = txtPassword.Text;
 
+                Usuario IdUser = new DaoUsuario().getUser(objUser);
+                if (IdUser!=null)
+                {
+                    Session["id_user"] = IdUser.IdUsuario;
+                    //si es usuario
+                    if (IdUser.Tipo == 1)
+                    {
+                        Response.Redirect("FrmMenu.aspx");
+                    }
+                    else
+                    {
+                       
+                        //es administrador
+                    }
+                }
+                else
+                {
+                    //el usuario no existe
+                }
+            }
+            else
+            {
+                // es necesario agregar contenido a las cajas de texto
+            }
         }
     }
 }

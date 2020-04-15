@@ -18,7 +18,7 @@ namespace Backend.Modelos
 
             MySqlCommand consulta = new  MySqlCommand();
             consulta.CommandText = "SELECT idUsuario, Email, contrasena, tipo FROM users " +
-                "WHERE Email = @email and Contrasena = @contrasena;";
+                "WHERE Email = @email and Contrasena = sha1(@contrasena);";
             consulta.Parameters.AddWithValue("email",obj.Email);
             consulta.Parameters.AddWithValue("Contrasena",obj.Password);
 

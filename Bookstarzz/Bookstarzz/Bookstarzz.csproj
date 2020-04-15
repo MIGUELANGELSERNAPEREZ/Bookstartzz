@@ -67,8 +67,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\estilo.css" />
     <Content Include="FrmLogin.aspx" />
     <Content Include="FrmMenu.aspx" />
+    <Content Include="FrmRegistrarUser.aspx" />
     <Content Include="imagenes\kitten-large.png" />
     <Content Include="imagenes\kitten-medium.png" />
     <Content Include="imagenes\kitten-small.png" />
@@ -94,6 +97,13 @@
     </Compile>
     <Compile Include="FrmMenu.aspx.designer.cs">
       <DependentUpon>FrmMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRegistrarUser.aspx.cs">
+      <DependentUpon>FrmRegistrarUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmRegistrarUser.aspx.designer.cs">
+      <DependentUpon>FrmRegistrarUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Maestra.Master.cs">
       <DependentUpon>Maestra.Master</DependentUpon>
@@ -126,9 +136,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="css\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Prueva\Backend.csproj">
       <Project>{191c79b5-d037-494f-abe5-a6c457dedbbe}</Project>

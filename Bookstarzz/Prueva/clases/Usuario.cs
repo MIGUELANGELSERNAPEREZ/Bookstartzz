@@ -36,7 +36,14 @@ namespace Backend.clases
             this.ApellidoM = campos[3].ToString();
             this.Email = campos[4].ToString();
             this.Password = campos[5].ToString();
-            this.Tipo = int.Parse(campos[6].ToString());
+            if (campos[6].ToString().Equals("user"))
+            {
+                this.Tipo = 1;
+            }
+            else
+            {
+                this.Tipo = 2;
+            }
         }
 
         public Usuario() { }
@@ -46,7 +53,17 @@ namespace Backend.clases
             this.IdUsuario = int.Parse(campos[0].ToString());
             this.Email = campos[1].ToString();
             this.Password = campos[2].ToString();
-            this.Tipo = int.Parse(campos[3].ToString());
+
+            if (campos[3].ToString().Equals("user"))
+            {
+                this.Tipo = 1;
+            }
+            else
+            {
+                this.Tipo = 2;
+            }
+
+            
         }
     }
 }
