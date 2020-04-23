@@ -71,7 +71,7 @@ namespace Bookstarzz
                  "2.- La contraseña debe de tener 8 caracteres.'); </script>");
             }
 
-            if (txtEmail.Value!="" && txtEmail.Value.Length <= 45)
+            if (txtEmail.Value!="" && txtEmail.Value.Length <= 40)
             {
                 asiertos++;
             }
@@ -81,7 +81,35 @@ namespace Bookstarzz
                     "2.- El correo debe de tener maximo 45 caracteres'); </script>");
             }
 
+            if (txtUsuario.Value!="" && txtUsuario.Value.Length <= 20)
+            {
+                asiertos++;
+            }
+            else
+            {
+                Response.Write("<script>alert('1.- El Usuario es obligatorio" +
+                                    "2.- El Usuario debe de tener maximo 20 caracteres'); </script>");
+            }
 
+            if (txtTel.Value!="" && txtTel.Value.Length == 10)
+            {
+                asiertos++;
+            }
+            else
+            {
+                Response.Write("<script>alert('1.- El Telefono es obligatorio" +
+                    "2.- El Telefono debe de tener 10 caracteres'); </script>");
+            }
+
+            if (TxtTargeta.Value!="" && TxtTargeta.Value.Length == 20)
+            {
+                asiertos++;
+            }
+            else
+            {
+                Response.Write("<script>alert('1.- La Taregeta es obligatorio" +
+                                   "2.- La Taregta debe de tener 20 caracteres'); </script>");
+            }
 
             return asiertos;
         }
@@ -90,23 +118,43 @@ namespace Bookstarzz
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
 
-            if (validar() == 5)
+            if (validar() == 8)
             {
                 Usuario objUser = new Usuario(txtNombre.Value,
                     txtApellidoP.Value, TxtApellidoM.Value, txtEmail.Value,
-                    TxtPass.Value, 1);
+                    TxtPass.Value, 1, txtUsuario.Value, txtTel.Value, TxtTargeta.Value);
 
-                int estado = new DaoUsuario().insertUser(objUser);
-                if (estado > 0)
+                Usuario existente = new DaoUsuario().getUser(objUser);
+
+                if (existente != null)
                 {
-                    Response.Write("<script>" +
-             "window.addEventListener('load', function () {$('#mdlConfirmar').modal('show');});</script>");
+                    //el usuario ya existe. notificamos de su existencia
+
+                    if (objUser.Email.Equals(existente.Email))
+                    {
+                        Response.Write("<script> alert('El email ya existe. cambialo porfavor!!');" 
+                            +" </script>");
+                        
+                    }
+                    
+                    
                 }
                 else
                 {
-                    Response.Write("<script>alert('no se puedo agregar');</script>");
-                }
+                    // el usuario no existe ya lo agregamos
+                    int estado = new DaoUsuario().insertUser(objUser);
+                    if (estado > 0)
+                    {
+                        Response.Write("<script>" +
+                 "window.addEventListener('load', function () {$('#mdlConfirmar').modal('show');});</script>");
+                        Response.Redirect("FrmLogin.aspx");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('no se puedo agregar');</script>");
+                    }
 
+                }
             }
         }
     }

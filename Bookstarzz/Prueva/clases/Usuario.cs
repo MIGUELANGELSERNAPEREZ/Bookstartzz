@@ -15,10 +15,12 @@ namespace Backend.clases
         public string Email { get; set; }
         public string Password { get; set; }
         public int Tipo { get; set; }
-
+        public string UsuarioN { get; set; }
+        public string Telefono { get; set; }
+        public string Targeta { get; set; }
 
         public Usuario(string nombre, string ApellidoP, string ApellidoM, String email,
-            string password, int tipo)
+            string password, int tipo,string usuarioN, string telefono, string targeta)
         {
             this.Nombre = nombre;
             this.ApellidoP = ApellidoP;
@@ -26,6 +28,9 @@ namespace Backend.clases
             this.Email = email;
             this.Password = password;
             this.Tipo = tipo;
+            this.UsuarioN = usuarioN;
+            this.Telefono = telefono;
+            this.Targeta = targeta;
         }
 
         public Usuario(Object[]campos)
@@ -44,6 +49,10 @@ namespace Backend.clases
             {
                 this.Tipo = 2;
             }
+            this.UsuarioN = campos[7].ToString();
+            this.Telefono = campos[8].ToString();
+            this.Targeta = campos[9].ToString();
+
         }
 
         public Usuario() { }

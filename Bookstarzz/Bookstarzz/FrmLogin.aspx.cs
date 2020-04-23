@@ -24,7 +24,7 @@ namespace Bookstarzz
                 objUser.Email = txtEmail.Text;
                 objUser.Password = txtPassword.Text;
 
-                Usuario IdUser = new DaoUsuario().getUser(objUser);
+                Usuario IdUser = new DaoUsuario().getLogin(objUser);
                 if (IdUser!=null)
                 {
                     Session["id_user"] = IdUser.IdUsuario;

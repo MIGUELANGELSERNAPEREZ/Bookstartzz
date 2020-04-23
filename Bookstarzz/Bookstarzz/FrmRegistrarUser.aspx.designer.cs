@@ -55,7 +55,7 @@ namespace Bookstarzz {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText TxtPass;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword TxtPass;
         
         /// <summary>
         /// txtConfirmar control.
@@ -64,7 +64,34 @@ namespace Bookstarzz {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtConfirmar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtConfirmar;
+        
+        /// <summary>
+        /// txtUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtUsuario;
+        
+        /// <summary>
+        /// txtTel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtTel;
+        
+        /// <summary>
+        /// TxtTargeta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText TxtTargeta;
         
         /// <summary>
         /// btnAgregar control.

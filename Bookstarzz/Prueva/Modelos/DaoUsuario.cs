@@ -10,7 +10,7 @@ namespace Backend.Modelos
 {
     public class DaoUsuario
     {
-        public Usuario getUser(Usuario obj)
+        public Usuario getLogin(Usuario obj)
         {
             Usuario objUsu = null;
             try
@@ -37,11 +37,45 @@ namespace Backend.Modelos
             catch (Exception m)
             {
                 Console.WriteLine(m);
-                
+                return objUsu;
+            }  
+        }
+
+        public Usuario getUser(Usuario obj)
+        {
+            Usuario objUsu = null;
+            try
+            {
+
+                MySqlCommand consulta = new MySqlCommand();
+                consulta.CommandText = "SELECT * FROM users WHERE email = (@email)" +
+                    " or usuario = (@usuario) or telefono = (@telefono) or" +
+                    " tarjeta = (@tarjeta);";
+                consulta.Parameters.AddWithValue("@email", obj.Email);
+                consulta.Parameters.AddWithValue("@usuario", obj.UsuarioN);
+                consulta.Parameters.AddWithValue("@telefono", obj.Telefono);
+                consulta.Parameters.AddWithValue("@tarjeta", obj.Targeta);
+
+                DataTable tabla = DaoConexion.ejecutarConsulta(consulta);
+
+                if (tabla.Rows.Count > 0 && tabla != null)
+                {
+                    objUsu = new Usuario(tabla.Rows[0].ItemArray);
+                }
+
+                DaoConexion.desconectar();
+
+                return objUsu;
+            }
+            catch (Exception m)
+            {
+                Console.WriteLine(m);
+                return objUsu;
             }
 
-            return objUsu;
+            
         }
+
 
         public int insertUser(Usuario obj)
         {
@@ -51,16 +85,19 @@ namespace Backend.Modelos
 
             MySqlCommand consulta = new MySqlCommand();
             consulta.CommandText = "INSERT INTO users(Nombre,ApellidoP,ApellidoM," +
-                "Email,Contrasena,tipo)VALUES(@nombre,@apellidoP,@apellidoM," +
-                "@email,sha1(@pass),1);";
+                "Email,Contrasena,tipo,usuario,telefono,tarjeta)VALUES(@nombre,@apellidoP,@apellidoM," +
+                "@email,sha1(@pass),1,@usuario,@telefono,@targeta);";
 
             consulta.Parameters.AddWithValue("@nombre",obj.Nombre);
             consulta.Parameters.AddWithValue("@apellidoP", obj.ApellidoP);
             consulta.Parameters.AddWithValue("@apellidoM", obj.ApellidoM);
             consulta.Parameters.AddWithValue("@email", obj.Email);
             consulta.Parameters.AddWithValue("@pass", obj.Password);
-
-            valor = DaoConexion.ejecutarSentencia(consulta,false);
+            consulta.Parameters.AddWithValue("@usuario", obj.UsuarioN);
+            consulta.Parameters.AddWithValue("@telefono", obj.Telefono);
+            consulta.Parameters.AddWithValue("@targeta", obj.Targeta);
+            
+                valor = DaoConexion.ejecutarSentencia(consulta,false);
 
             DaoConexion.desconectar();
             }
@@ -72,5 +109,7 @@ namespace Backend.Modelos
             return valor;
 
         }
+
+        
     }
 }
