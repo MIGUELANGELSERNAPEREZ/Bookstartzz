@@ -10,6 +10,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <h1> Bienvenido</h1>
+   
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Script" runat="server">
+<script src="frmMenu.js"></script> 
 </asp:Content>

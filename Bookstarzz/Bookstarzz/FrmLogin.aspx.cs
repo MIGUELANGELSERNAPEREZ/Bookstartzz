@@ -28,14 +28,17 @@ namespace Bookstarzz
                 if (IdUser!=null)
                 {
                     Session["id_user"] = IdUser.IdUsuario;
+                    Session["session"] = null;
                     //si es usuario
                     if (IdUser.Tipo == 1)
                     {
+                        Session["session"] = "usu";
                         Response.Redirect("FrmMenu.aspx");
+                        
                     }
                     else
                     {
-                       
+                        Session["session"] = "admi";
                         //es administrador
                     }
                 }

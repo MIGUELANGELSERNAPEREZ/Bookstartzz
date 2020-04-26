@@ -42,8 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clases\Libros.cs" />
     <Compile Include="clases\Usuario.cs" />
     <Compile Include="Modelos\DaoConexion.cs" />
+    <Compile Include="Modelos\DaoLibros.cs" />
     <Compile Include="Modelos\DaoUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -10,6 +10,8 @@ namespace Backend.Modelos
 {
     public class DaoUsuario
     {
+        // regresa un usuario con los datos necesarios para comparar si el
+        // usuario a registrarse es existente
         public Usuario getLogin(Usuario obj)
         {
             Usuario objUsu = null;
@@ -76,7 +78,38 @@ namespace Backend.Modelos
             
         }
 
+        public List<Usuario> getAll()
+        {
+            List<Usuario> lista = new List<Usuario>();
+            Usuario obj = null;
+            try
+            {
+                MySqlCommand sentencia = new MySqlCommand();
+                sentencia.CommandText = "SELECT * FROM users;";
 
+                DataTable tabla = DaoConexion.ejecutarConsulta(sentencia);
+                if (tabla.Rows.Count > 0 && tabla!= null)
+                {
+                    for (int i = 0; i < tabla.Rows.Count; i++)
+                    {
+                        obj = new Usuario(tabla.Rows[i].ItemArray);
+                        lista.Add(obj);
+                    }
+
+                }
+
+                return lista;
+            }
+            catch (Exception m)
+            {
+                Console.WriteLine(m);
+                return null;
+            }
+            finally
+            {
+                DaoConexion.desconectar();
+            }
+        }
         public int insertUser(Usuario obj)
         {
             int valor = 0;
