@@ -25,7 +25,7 @@ namespace Bookstarzz.ws
             if (Session["session"]!=null)
             {
                 string tipo = Session["session"].ToString();
-                if (tipo.Equals("usu") || tipo.Equals("usu")))
+                if (tipo.Equals("usu") || tipo.Equals("usu"))
                 {
                     JavaScriptSerializer jss = new JavaScriptSerializer();
                     return jss.Serialize(new DaoLibros().getPopulares());
