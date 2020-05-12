@@ -20,7 +20,10 @@
             <ul class="glide__slides">
               <li class="cuadros" style = "background-image: url(libros/harri1.jpg);"> 1 Harry poter</li>
               <li class="cuadros">2 Harry poter</li>
-              <li class="cuadros">3 Harry poter</li>
+              <li class="cuadros"> 
+                  <img src="" alt="ERROR" id="pum"/>
+                  3 Harry poter
+              </li>
               <li class="cuadros">4 Harry poter</li>
               <li class="cuadros">5 Harry poter</li>
             </ul>
@@ -63,6 +66,19 @@
         })
         glide.mount()
     </script>
+
+
+     <script>
+
+         $(document).ready(function () {
+             debugger;
+             $('#pum').attr("src", "libros/it.jpg");
+             // $("#pop").css("background-image","libros/eso.jpg");         
+         });
+
+
+     </script>
+
 
 </asp:Content>
 
