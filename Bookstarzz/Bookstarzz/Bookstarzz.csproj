@@ -74,13 +74,63 @@
     <Content Include="App_Data\MyDatabase_log.ldf">
       <DependentUpon>MyDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="bin\Bookstarzz.dll" />
+    <Content Include="bin\Bookstarzz.pdb" />
+    <Content Include="bin\Google.Protobuf.dll" />
+    <Content Include="bin\itextsharp.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\MySql.Data.dll" />
+    <Content Include="bin\MySql.Data.xml" />
+    <Content Include="bin\Prueva.dll" />
+    <Content Include="bin\Prueva.pdb" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\csi.exe" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="bin\roslyn\System.AppContext.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Console.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.StackTrace.dll" />
+    <Content Include="bin\roslyn\System.IO.Compression.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\roslyn\System.IO.Pipes.AccessControl.dll" />
+    <Content Include="bin\roslyn\System.IO.Pipes.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\System.Security.AccessControl.dll" />
+    <Content Include="bin\roslyn\System.Security.Claims.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="bin\roslyn\System.Security.Principal.Windows.dll" />
+    <Content Include="bin\roslyn\System.Text.Encoding.CodePages.dll" />
+    <Content Include="bin\roslyn\System.ValueTuple.dll" />
+    <Content Include="bin\roslyn\System.Xml.ReaderWriter.dll" />
+    <Content Include="bin\roslyn\System.Xml.XmlDocument.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.XDocument.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\estilo.css" />
     <Content Include="css\main.css" />
+    <Content Include="FrmConfiguracion.aspx" />
+    <Content Include="FrmGenerarReportes.aspx" />
+    <Content Include="FrmGestionTitulos.aspx" />
     <Content Include="FrmLogin.aspx" />
     <Content Include="FrmMenu.aspx" />
     <Content Include="FrmMenu.js" />
+    <Content Include="FrmPedidos.aspx" />
     <Content Include="FrmRegistrarUser.aspx" />
     <Content Include="glide-3.2.4\build\banner.js" />
     <Content Include="glide-3.2.4\build\build.js" />
@@ -173,12 +223,37 @@
     <Content Include="libros\harry potter 1.jpg" />
     <Content Include="libros\harry potter y el calis de fuego.jpg" />
     <Content Include="libros\harry potter y el prisionero de azkaban.jpg" />
+    <Content Include="logo.jpg" />
+    <Content Include="obj\Debug\Bookstarzz.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\Bookstarzz.dll" />
+    <Content Include="obj\Debug\Bookstarzz.pdb" />
     <Content Include="popper\popper.min.js" />
     <Content Include="Web.config" />
     <Content Include="ws\WSLibros.asmx" />
     <Content Include="ws\WSUsuarios.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmConfiguracion.aspx.cs">
+      <DependentUpon>FrmConfiguracion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmConfiguracion.aspx.designer.cs">
+      <DependentUpon>FrmConfiguracion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGenerarReportes.aspx.cs">
+      <DependentUpon>FrmGenerarReportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmGenerarReportes.aspx.designer.cs">
+      <DependentUpon>FrmGenerarReportes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestionTitulos.aspx.cs">
+      <DependentUpon>FrmGestionTitulos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmGestionTitulos.aspx.designer.cs">
+      <DependentUpon>FrmGestionTitulos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.aspx.cs">
       <DependentUpon>FrmLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -192,6 +267,13 @@
     </Compile>
     <Compile Include="FrmMenu.aspx.designer.cs">
       <DependentUpon>FrmMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPedidos.aspx.cs">
+      <DependentUpon>FrmPedidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmPedidos.aspx.designer.cs">
+      <DependentUpon>FrmPedidos.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmRegistrarUser.aspx.cs">
       <DependentUpon>FrmRegistrarUser.aspx</DependentUpon>
@@ -245,6 +327,22 @@
     <Content Include="glide-3.2.4\src\assets\sass\glide.theme.scss" />
     <Content Include="glide-3.2.4\src\assets\sass\_variables.scss" />
     <Content Include="glide-3.2.4\tests\config.json" />
+    <Content Include="bin\Bookstarzz.dll.config" />
+    <Content Include="bin\roslyn\csc.exe.config" />
+    <Content Include="bin\roslyn\csc.rsp" />
+    <Content Include="bin\roslyn\csi.exe.config" />
+    <Content Include="bin\roslyn\csi.rsp" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.Managed.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\vbc.exe.config" />
+    <Content Include="bin\roslyn\vbc.rsp" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="obj\Debug\Bookstarzz.csproj.CopyComplete" />
+    <Content Include="obj\Debug\Bookstarzz.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\Bookstarzz.csprojAssemblyReference.cache" />
+    <Content Include="obj\Debug\build.force" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -253,7 +351,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Prueva\Backend.csproj">
       <Project>{191c79b5-d037-494f-abe5-a6c457dedbbe}</Project>
