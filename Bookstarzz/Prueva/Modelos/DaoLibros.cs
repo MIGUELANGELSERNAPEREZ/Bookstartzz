@@ -42,5 +42,40 @@ namespace Backend.Modelos
             }
             return list;
         }
+
+
+        public int inserLibro(Libros obj)
+        {
+            int valor = 0;
+            try
+            {
+
+                MySqlCommand consulta = new MySqlCommand();
+                consulta.CommandText = "INSERT INTO Libros(nombre, autor, categoria, editorial, ISBN, fechaPublicacion, precio, numeroPaginas, descripcion, clasificacion) VALUES(" +
+                    "@nombre, @autor, @categoria, @editorial, @ISBN, @fechaPublicacion, @precio, @numeroPaginas, @descripcion, @clasificacion);";
+
+                consulta.Parameters.AddWithValue("@nombre", obj.Nombre);
+                consulta.Parameters.AddWithValue("@autor", obj.Autor);
+                consulta.Parameters.AddWithValue("@categoria", obj.Categoria);
+                consulta.Parameters.AddWithValue("@editorial", obj.Editorial);
+                consulta.Parameters.AddWithValue("@ISBN", obj.ISBN);
+                consulta.Parameters.AddWithValue("@fechaPublicacion", obj.FechaPublicacion);
+                consulta.Parameters.AddWithValue("@precio", obj.Presio);
+                consulta.Parameters.AddWithValue("@numeroPaginas", obj.NPaginas);
+                consulta.Parameters.AddWithValue("@descripcion", obj.Descripcion);
+                consulta.Parameters.AddWithValue("@clasificacion", obj.Clasificacion);
+
+                valor = DaoConexion.ejecutarSentencia(consulta, false);
+
+                DaoConexion.desconectar();
+            }
+            catch (Exception m)
+            {
+                Console.WriteLine(m);
+            }
+
+            return valor;
+
+        }
     }
 }
