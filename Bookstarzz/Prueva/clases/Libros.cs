@@ -24,12 +24,17 @@ namespace Backend.clases
         public int NPaginas { get; set; }
         public string Descripcion { get; set; }
         public int Visitas { get; set; }
-        public int Clasificacion { get; set; }
+        public string Clasificacion { get; set; }
+
+        public Libros()
+        {
+
+        }
 
         public Libros(string nombre, string autor, string categoria,
             string editorial, string isbn, DateTime fechaPublicacion,
             decimal presio, int nPaginas, string descripcion, int visitas
-            , int clasificacion)
+            , string clasificacion)
         {
             this.Nombre = nombre;
             this.Autor = autor;
@@ -57,7 +62,7 @@ namespace Backend.clases
             this.NPaginas = int.Parse(campos[8].ToString());
             this.Descripcion = campos[9].ToString();
             this.Visitas = int.Parse(campos[10].ToString());
-            this.Clasificacion = int.Parse(campos[11].ToString());
+            this.Clasificacion = campos[11].ToString();
 
         }
 

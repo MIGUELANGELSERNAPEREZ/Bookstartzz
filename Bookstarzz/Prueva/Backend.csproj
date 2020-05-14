@@ -42,12 +42,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clases\Categorias.cs" />
+    <Compile Include="clases\Cuenta.cs" />
     <Compile Include="clases\Libros.cs" />
+    <Compile Include="clases\Pedidos.cs" />
     <Compile Include="clases\Usuario.cs" />
+    <Compile Include="Modelos\DaoCategorias.cs" />
     <Compile Include="Modelos\DaoConexion.cs" />
+    <Compile Include="Modelos\DaoCuenta.cs" />
     <Compile Include="Modelos\DaoLibros.cs" />
+    <Compile Include="Modelos\DaoPedidos.cs" />
     <Compile Include="Modelos\DaoUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Google.Protobuf.dll" />
+    <Content Include="bin\Debug\MySql.Data.dll" />
+    <Content Include="bin\Debug\MySql.Data.xml" />
+    <Content Include="bin\Debug\Prueva.dll" />
+    <Content Include="bin\Debug\Prueva.pdb" />
+    <Content Include="obj\Debug\Backend.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\Prueva.dll" />
+    <Content Include="obj\Debug\Prueva.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="obj\Debug\Backend.csproj.CopyComplete" />
+    <None Include="obj\Debug\Backend.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\Backend.csprojAssemblyReference.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\Prueva.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\Prueva.csprojAssemblyReference.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
