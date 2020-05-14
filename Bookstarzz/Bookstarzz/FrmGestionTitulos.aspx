@@ -22,7 +22,7 @@
                     <div>
                         <asp:Label ID="Label4" runat="server" Text="Clasificacion"></asp:Label>
                         <asp:DropDownList ID="dropDownClasificacion" runat="server">
-                            <asp:ListItem Selected="True" Value="Boys" runat="server">Niños</asp:ListItem>
+                            <asp:ListItem Selected="True" Value="Niños" runat="server">Niños</asp:ListItem>
                             <asp:ListItem Value="Adolecentes" runat="server">Adolecentes</asp:ListItem>
                             <asp:ListItem Value="Adultos" runat="server">Adultos</asp:ListItem>
                         </asp:DropDownList>
