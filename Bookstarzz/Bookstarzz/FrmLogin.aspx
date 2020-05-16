@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MaestraAfuera.Master" AutoEventWireup="true" CodeBehind="FrmLogin.aspx.cs" Inherits="Bookstarzz.FrmLogin" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="css/estilo.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     
@@ -18,6 +19,8 @@
         </div>
         <div class="form-row justify-content-center">
         <div class="col-md-4 mb-3">
+            <h1>Inicia Sesion</h1>
+            <br />
           <label for="txtEmail">Email</label>
             <asp:TextBox ID="txtEmail" TextMode="Email" autocomplete="off" class="form-control" runat="server" required></asp:TextBox>
               <div class="invalid-feedback">
@@ -27,17 +30,21 @@
         </div>
         <div class="form-row justify-content-center">
             <div class="col-md-4 mb-3">
-              <label for="txtPassword">Contraseña</label>
-            
-                <asp:TextBox ID="txtPassword" TextMode="Password" class="form-control"  autocomplete="off" runat="server" required MaxLength="20"></asp:TextBox>
-              <div class="invalid-feedback">
+              <label for="txtPassword">Contraseña</label>            
+                <asp:TextBox ID="txtPassword" TextMode="Password" class="form-control"
+                    autocomplete="off" runat="server" required MaxLength="20"></asp:TextBox>
+             
+                <div class="invalid-feedback">
                 El correo electrónico es obligatorio y debe tener un formato válido
               </div>
             </div>
         </div>
+        <br />
         <div class="form-row justify-content-center">
             <asp:Button ID="btnIniciarSesion" class="btn btn-primary" runat="server" Text="Iniciar Sesión" OnClick="btnIniciarSesion_Click" />             
         </div>
+        <br />
+        <br />
     </form>
     </div>
     

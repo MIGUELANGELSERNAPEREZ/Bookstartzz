@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Backend.clases
 {
     public class Libros
@@ -57,7 +58,12 @@ namespace Backend.clases
             this.NPaginas = int.Parse(campos[8].ToString());
             this.Descripcion = campos[9].ToString();
             this.Visitas = int.Parse(campos[10].ToString());
-            this.Clasificacion = int.Parse(campos[11].ToString());
+
+            if (campos[11].ToString().Equals("Adolecente"))
+            {
+                this.Clasificacion = 2;
+            }
+            
 
         }
 

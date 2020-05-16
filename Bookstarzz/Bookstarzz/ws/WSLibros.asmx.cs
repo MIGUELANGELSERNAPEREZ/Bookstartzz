@@ -15,24 +15,24 @@ namespace Bookstarzz.ws
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
-    // [System.Web.Script.Services.ScriptService]
+    [System.Web.Script.Services.ScriptService]
     public class WSLibros : System.Web.Services.WebService
     {
 
         [WebMethod (EnableSession = true)]
       public string getPopulares() {
 
-            if (Session["session"]!=null)
-            {
-                string tipo = Session["session"].ToString();
-                if (tipo.Equals("usu") || tipo.Equals("usu"))
-                {
+            //if (Session["session"]!=null)
+            //{
+            //    string tipo = Session["session"].ToString();
+            //    if (tipo.Equals("usu") || tipo.Equals("admi"))
+            //    {
                     JavaScriptSerializer jss = new JavaScriptSerializer();
                     return jss.Serialize(new DaoLibros().getPopulares());
-                }
+            //    }
 
-            }
-            return "";
+            //}
+            //return "";
         }
     }
 }

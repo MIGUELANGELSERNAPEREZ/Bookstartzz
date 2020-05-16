@@ -6,82 +6,77 @@
     <link rel="stylesheet" href="glide-3.2.4/dist/css/glide.core.min.css">
     <link rel="stylesheet" href="glide-3.2.4/dist/css/glide.theme.min.css">  
 
+
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="body_bloque_1" runat="server">
+    <!-- todo este bloque ayuda a que esta pagina pueda acceder al web service--> 
+    <form id="formMenu" runat="server">
 
-    <h1 class="text-center text-light">Bookstartzz</h1>
-     <h2 class="text-center text-light">Mas populares <span class="badge badge-warning">GLIDE JS</span></h2> 
-      
-    <div style="height:100px"></div>
+    <asp:ScriptManager ID="ScriptManagerMenu" runat="server">
+        <Services>
+            <asp:ServiceReference Path="~/ws/WSLibros.asmx" />
+            <asp:ServiceReference Path="~/ws/WSCategorias.asmx" />
+        </Services>
+    </asp:ScriptManager>
+    </form>
+<!-- todo este bloque ayuda a que esta pagina pueda acceder al web service--> 
     
-    <div class="glide">
-        <div class="glide__track" data-glide-el="track">
-            <ul class="glide__slides">
-              <li class="cuadros" style = "background-image: url(libros/harri1.jpg);"> 1 Harry poter</li>
-              <li class="cuadros">2 Harry poter</li>
-              <li class="cuadros"> 
-                  <img src="" alt="ERROR" id="pum"/>
-                  3 Harry poter
-              </li>
-              <li class="cuadros">4 Harry poter</li>
-              <li class="cuadros">5 Harry poter</li>
-            </ul>
-         </div>
+        <!-- Sidebar -->
+
+        <ul class="list-group">
+          <a class="list-group-item list-group-item-action active" style="font-size:20px;">
+                Categorias
+          </a>
+        </ul>
+        <!-- Fin del sidebar -->
+
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="body_bloque_2" runat="server">    
     
-        <!-- Estilo flechas de navegación -->
-        <div class="glide__arrows" data-glide-el="controls">
-            <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-            <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
-        </div>  
+    <!--<div style="height:100px"></div>-->
+    
+    <div class="container-fluid pl-0 pt-3">
+        <div class="row">   
+            <div class="col">
+    
+                 <!-- inicia el carusel -->
+               <div class="glide">
+                <div class="glide__track" data-glide-el="track">
+                    <ul class="glide__slides">
+            <!-- Aqui van img pero se construyen en FrmMenu.js en tiempo
+                de ejecucion-->
+                    </ul>
+                </div>
+    
+                    <!-- Estilo flechas de navegación -->
+                <div class="glide__arrows" data-glide-el="controls">
+                    <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
+                    <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+                </div>  
         
-        <!-- Estilo bullets (puntos) -->
-        <div class="glide__bullets" data-glide-el="controls[nav]">
-            <button class="glide__bullet" data-glide-dir="=0"></button>
-            <button class="glide__bullet" data-glide-dir="=1"></button>
-            <button class="glide__bullet" data-glide-dir="=2"></button>
-            <button class="glide__bullet" data-glide-dir="=3"></button>     
-            <button class="glide__bullet" data-glide-dir="=4"></button>     
-        </div>
+                <!-- Estilo bullets (puntos) -->
+                <div class="glide__bullets" data-glide-el="controls[nav]">
+
+           
+                </div>
         
-    </div>  
-          
-    <!-- jQuery, Popper.js, Bootstrap JS -->
+             </div>
+                    <!-- termina el carusel-->
+        </div><!--fin de la columna-->
+      </div><!--fin de la fila-->
+    </div><!--fin del container-->
+
+</asp:Content>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="Script" runat="server">    
+    
+     <!-- jQuery, Popper.js, Bootstrap JS -->
     <script src="popper/popper.min.js"></script>
     
     <!-- Glide JS -->    
     <script src="glide-3.2.4/dist/glide.min.js"></script>
-
-    <script>    
-        var glide = new Glide('.glide', {
-            type: 'slider', //hay dos tipos slider y carrousel
-            startAt: 3, //adónde inicia el slider
-            focusAt: 'center',
-            autoplay: 2000, //inicia automatic en miliseg
-            perView: 4, //cantidad de slide en pantalla
-            breakpoints: { //para el tamaño de pantalla
-                800: { perView: 2 },
-                480: { perView: 1 }
-            }
-        })
-        glide.mount()
-    </script>
-
-
-     <script>
-
-         $(document).ready(function () {
-             debugger;
-             $('#pum').attr("src", "libros/it.jpg");
-             // $("#pop").css("background-image","libros/eso.jpg");         
-         });
-
-
-     </script>
-
-
-</asp:Content>
-
-<asp:Content ID="Content3" ContentPlaceHolderID="Script" runat="server">
+    
     <script src="frmMenu.js"></script> 
 </asp:Content>

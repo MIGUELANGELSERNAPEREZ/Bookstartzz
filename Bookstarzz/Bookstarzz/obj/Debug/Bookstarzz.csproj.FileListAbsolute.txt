@@ -115,3 +115,4 @@ D:\web2\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.csproj.CoreCompil
 D:\web2\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.csproj.CopyComplete
 D:\web2\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.dll
 D:\web2\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.pdb
+D:\web2\Bookstartzz\Bookstarzz\Bookstarzz\bin\itextsharp.xml

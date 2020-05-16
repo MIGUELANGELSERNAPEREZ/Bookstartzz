@@ -1,3 +1,14 @@
-label{
+.labels{
 	font-size:20px;
 }
+
+#FormMenu{
+    border: solid 4px;
+    width:700px;
+}
+
+label {
+    font-size: 25px;
+    
+}
+

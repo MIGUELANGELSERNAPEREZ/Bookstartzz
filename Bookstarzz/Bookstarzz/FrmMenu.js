@@ -1,90 +1,88 @@
 ﻿$(document).ready(function () {
-    cargarCaruserl();   
+    // traemos los dados del web service de Libros para 
+    //de los 10 libros mas vistos hasta ahora como recomenadacion
+    //al usuario. esta info la mandamos a la funcion cargarcarusel
+    Bookstarzz.ws.WSLibros.getPopulares(cargarCaruserl, function (e) { });
+    Bookstarzz.ws.WSCategorias.getAll(crearSidebar, function (e) { });   
 });
 
-function cargarCaruserl() {
-    FrontEnd.ws.WSLibros.getPopulares(function (result) {
-        if (result) {
-            cargarDatos(JSON.parse(result));
-            console.log(result);
-        } else {
-            window.location.replace("FrmLogin.aspx");
+
+function cargarCaruserl(result) {
+   
+ //validamos si el web services nos regresa la cadena esperada
+    if (result) {
+        
+        const ruta = "libros/"; // creamos una ruta donde se encuentran nuestras img
+        let arreglo = JSON.parse(result); // hacemos un parse a json
+        let nombre = "";
+
+        //vamos a recorrer cada objeto que tiene el arreglo
+        arreglo.forEach(
+            function (libro) {
+             // le quitamos los espacios al titulo del libro para 
+            //no tener problemas al buscar el nombre de la imagen
+            for (var i = 0; i < libro.Nombre.length; i++) {
+                
+                if (libro.Nombre[i] != " ") {
+                    nombre += libro.Nombre[i];
+                } 
+                }
+                //enceguida de la clase .glide_slides agregaremos un
+                //img al cual le agregaremos la ruta de nuestra img
+                //para plasmarla. ademas de agregarle la clase que 
+                // modificara su estructura
+            $(".glide__slides").append($("<img\>").attr(
+                "src", ruta + nombre + ".jpg"));
+                $("img").addClass("cuadros");
+               
+                nombre = "";
+               // console.log(libro.Nombre);
+               //$("img").append($("<li\>").html(libro.Nombre));
+            });
+
+        for (var i = 0; i < 10; i++) {
+            $(".glide__bullets").append("<button/>").addClass(
+                "glide__bullet");
+            $(".glide__bullets").attr("data-glide-dir",i);            
+
         }
-    },
-        function (error) {
-            $("#cntMsg").text("Error: no se ha podido realizar la operación");
-            $("#cntMsg").parent().show();
-        }
-    );
+
+        //iniciamos a crear la funcionalidad de nuestro carusel
+        var glide = new Glide('.glide', {
+            type: 'carousel', //hay dos tipos slider y carrousel
+            startAt: 5, //adónde inicia el slider
+            focusAt: 'center',
+            autoplay: 2000, //inicia automatic en miliseg
+            perView: 4, //cantidad de slide en pantalla
+            breakpoints: { //para el tamaño de pantalla
+                800: { perView: 2 },
+                480: { perView: 1 }
+            }
+        })
+        glide.mount()
+
+    } else {       
+        alert("false");
+
+            window.location("FrmLogin.aspx");
+        
+    }
+    
 }
 
-function cargarDatos(datos) {
-    //Almacenamos la referencia a la tabla con el plugin aplicado, ya que la usaremos para los filtros
-    tablaMunicipios = $('#tblMunicipios').dataTable({
-        //Asignamos la colección de datos en JSON que se mostrarán en la tabla
-        data: datos,
-        //La tabla ajusta cada columna de acuerdo a los datos contenidos en ellas
-        //pero podemos también asignar un ancho fijo de esta manera, targets representa los 
-        //índices de las columnas a los que se les aplicará este tamaño
-        columnDefs: [
-            { width: "15%", targets: [0] },
-            { width: "25%", targets: [1] },
-            { width: "20%", targets: [2, 3] }
-        ],
-        columns: [
-            //el valor colocado en title es el texto que aparecerá en la columna y el valor colocado en 
-            //data deberá ser el nombre de la propiedad del pojo que recibirémos en la colección de datos
-            { title: "Clave Municipio", data: "IdMunicipio" }, //Si quiere mostrarse el id se descomenta esta linea
-            { title: "Municipio", data: "Nombre" },
-            { title: "Estado", data: "Estado" },
-            { //Esta columna coloca los botones que representarán las operaciones de cada renglón
-                //Este tipo de especificación también nos permite manipular la visualización de una columna
-                //por ejemplo, hay veces que en una propiedad del objeto que es entera o trae datos representativos
-                //como el Genero, solemos colocar solo M y F, y cuando los mostramos en la tabla queremos que se vea 
-                //como Masculino y Femenino
+function crearSidebar(result) {
+    debugger;
+    console.log(result);
+    if (result) {
+        let arreglo = JSON.parse(result);
+        arreglo.forEach(
+            function (categoria) {
+                debugger;
+                $(".list-group").append($("<a\>").addClass("list-group-item list-group-item-action").html(categoria.Nombre).attr("href","#"));          
 
-                title: "", data: null, render:
-                    //En este otro caso data trae el objeto que se carga en la fila, por ello podemos 
-                    //acceder a todos los valores que vengan en el objeto
-                    function (data, type, row) {
-                        return '<div class="row justify-content-center">' +
-                            '<button type="button" onclick="editar(' + data.IdMunicipio + ')" class="btn btn-primary">Editar</button>' +
-                            '<button type="button" onclick="eliminar(' + data.IdMunicipio + ', \'' + data.Nombre + '\')" class="btn btn-danger">Eliminar</button>' +
-                            '</div>';
-                    }
-            }
-        ],
-        //Cuando queremos hacer alguna adecuación del aspecto de la fila, por ejemplo, colorear una celda o 
-        //toda la fila de acuerdo al valor de algún atributo
-        //"fnRowCallback": function (row, data, displayIndex) {
-        //sentencias de revisión de datos y adecuaciones de aspecto
-        //},
-        "fnInitComplete": function (oSettings, json) {
-            /*Configuración de los filtros individuales*/
-            var fila = $(this).children("thead").children("tr").clone();
-            var pie = $("<tfoot/>").append(fila).css("display", "table-header-group");
-            $(this).children("thead").after(pie);
-            $(fila).children().each(function () {
-                $(this).prop("class", null);
             });
 
-            $(fila).children("th").each(function () {
-                var title = $(this).text();
-                $(this).html('<input type="text" class="filtro form-control input-sm"' +
-                    ' style = "width:90%;" placeholder = "Buscar ' + title + '" /> ');
-            });
-            //Quitar filtro en la ultima columna (la de operaciones)
-            $(fila).children("th:last").html('');
-            //Activa el filtrado
-            var tabla = this;
-            tabla.api().columns().eq(0).each(function (colIdx) {
-                $('#tblMunicipios tfoot th:eq(' + colIdx + ') input').on('keyup change', function () {
-                    tabla.api().column(colIdx).search(this.value).draw();
-                });
-                $('input', tabla.api().column(colIdx).footer()).on('click', function (e) {
-                    e.stopPropagation();
-                });
-            });
-        }
-    });
+    } else {
+        alert("Regreso Vasio");
+    } 
 }

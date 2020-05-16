@@ -12,14 +12,12 @@
 </head>
 <body>
     <!-- Inicio del menu-->
- <div>
+ 
   <nav class="navbar navbar-expand-lg navbar-dark bg-success">
     <a class="navbar-brand"  style="font-size:25px;"   href="#">Bookstartzz</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
-
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
        <ul class="navbar-nav mr-auto">
@@ -46,13 +44,44 @@
     </form>
   </div>
 </nav><!-- Final del Menu-->
+
+    <!-- titulo de la agina-->
+    <center>
+    <h1 style="color:black;">
+        Bookstartzz</h1>
+    <h2 style="color:black">
+        Mas populares 
+    <span class="badge badge-warning">Libros</span></h2>
+    </center> 
+
+    <!-- fin del titulo-->
+
+
      <!-- gueco para los distintos cuerpos de las clases-->
-            <asp:ContentPlaceHolder ID="body" runat="server">
 
-            </asp:ContentPlaceHolder>
-        </div>
+     <div class="container-fluid px-0">
+         <div class="row"> 
+             <div class="col-2 pr-0">
+                 <!-- Todo el contendo de la parte izquierda de la pagina -->
+                  <asp:ContentPlaceHolder ID="body_bloque_1" runat="server">
 
-    <!-- Footer -->
+                  </asp:ContentPlaceHolder>
+                
+                <!-- Fin del sidebar -->
+             </div><!-- finaliza el col-2-->
+             <div class="col-10">
+                  <!-- En este container va todo lo de la página -->
+                 <asp:ContentPlaceHolder ID="body_bloque_2" runat="server">
+
+                 </asp:ContentPlaceHolder>
+
+             </div><!-- finaliza el col-10-->
+
+         </div><!-- fin del row-->
+     </div><!--fin del container-->
+           
+      
+                       <!-- Footer -->
     <footer class="page-footer font-small blue-grey lighten-5">
 
     <div style="background-color: hotpink;">

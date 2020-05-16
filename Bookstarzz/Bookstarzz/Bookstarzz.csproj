@@ -70,14 +70,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\MyDatabase.mdf" />
-    <Content Include="App_Data\MyDatabase_log.ldf">
-      <DependentUpon>MyDatabase.mdf</DependentUpon>
-    </Content>
+    <Content Include="bin\itextsharp.dll" />
+    <Content Include="bin\itextsharp.xml" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\estilo.css" />
     <Content Include="css\main.css" />
+    <Content Include="FrmGenerarReportes.aspx" />
     <Content Include="FrmLogin.aspx" />
     <Content Include="FrmMenu.aspx" />
     <Content Include="FrmMenu.js" />
@@ -165,20 +164,31 @@
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery-3.4.1.js" />
-    <Content Include="libros\fondo.jpg" />
-    <Content Include="libros\harri potter y la camara secreta.jpg" />
-    <Content Include="libros\harri potter y la orden del fenix.jpg" />
-    <Content Include="libros\harri potter y las reliquias de la muerte.jpg" />
-    <Content Include="libros\harri1.jpg" />
+    <Content Include="libros\Cars.jpg" />
+    <Content Include="libros\HarryPotter7.jpg" />
+    <Content Include="libros\HarryPotterylacamarasecreta.jpg" />
+    <Content Include="libros\Harrypotterylaordendelfenix.jpg" />
+    <Content Include="libros\HarryPotterylasreliquiasdelamuerte.jpg" />
+    <Content Include="libros\HarryPotterylapiedrafilosofal.jpg" />
     <Content Include="libros\harry potter 1.jpg" />
-    <Content Include="libros\harry potter y el calis de fuego.jpg" />
-    <Content Include="libros\harry potter y el prisionero de azkaban.jpg" />
+    <Content Include="libros\HarryPotteryelcalizdefuego.jpg" />
+    <Content Include="libros\HarryPotteryelpricionerodeazkaban.jpg" />
+    <Content Include="libros\It.jpg" />
+    <Content Include="libros\Resplandor.jpg" />
     <Content Include="popper\popper.min.js" />
     <Content Include="Web.config" />
+    <Content Include="ws\WSCategorias.asmx" />
     <Content Include="ws\WSLibros.asmx" />
     <Content Include="ws\WSUsuarios.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmGenerarReportes.aspx.cs">
+      <DependentUpon>FrmGenerarReportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmGenerarReportes.aspx.designer.cs">
+      <DependentUpon>FrmGenerarReportes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.aspx.cs">
       <DependentUpon>FrmLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -215,6 +225,10 @@
       <DependentUpon>MaestraAfuera.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ws\WSCategorias.asmx.cs">
+      <DependentUpon>WSCategorias.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ws\WSLibros.asmx.cs">
       <DependentUpon>WSLibros.asmx</DependentUpon>
       <SubType>Component</SubType>

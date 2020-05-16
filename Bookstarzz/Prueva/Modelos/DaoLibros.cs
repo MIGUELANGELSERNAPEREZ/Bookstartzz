@@ -23,7 +23,7 @@ namespace Backend.Modelos
 
                 DataTable tabla = DaoConexion.ejecutarConsulta(sentencia);
 
-                if (tabla.Rows.Count > 0 && tabla!= null)
+                if (tabla.Rows.Count > 0 && tabla != null)
                 {
                     for (int i = 0; i < tabla.Rows.Count; i++)
                     {
@@ -42,5 +42,6 @@ namespace Backend.Modelos
             }
             return list;
         }
+
     }
 }
