@@ -26,11 +26,11 @@ namespace Bookstarzz
             objlibros.Nombre = txtNombre.Text;
             objlibros.Autor = txtAutor.Text;
             objlibros.NPaginas = int.Parse(txtNumPaginas.Text);
-            objlibros.Clasificacion = dropDownClasificacion.SelectedIndex;
+            objlibros.Clasificacion = dropDownClasificacion.SelectedIndex+1;
             objlibros.Categoria = txtCategoria.Text;
             objlibros.Editorial = txtEditorial.Text;
             objlibros.ISBN = txtISBN.Text;
-            objlibros.FechaPublicacion = DateTime.Parse(calendarFechaPub.SelectedDate.ToString("d", CultureInfo.CreateSpecificCulture("ja-JP")));
+            objlibros.FechaPublicacion = DateTime.Parse(txtCalendario.Text);
             objlibros.Presio = decimal.Parse(txtPrecio.Text);
             objlibros.Descripcion = txtDescripcion.Text;
             DaoLibros daoLibros = new DaoLibros();
@@ -46,7 +46,7 @@ namespace Bookstarzz
             //objlibros.Categoria = txtCategoria.Text;
             //objlibros.Editorial = txtEditorial.Text;
             //objlibros.ISBN = txtISBN.Text;
-            //objlibros.FechaPublicacion = DateTime.Parse(calendarFechaPub.SelectedDate.ToString("d", CultureInfo.CreateSpecificCulture("ja-JP")));
+            //objlibros.FechaPublicacion = DateTime.Parse(txtCalendario.Text);
             //objlibros.Presio = decimal.Parse(txtPrecio.Text);
             //objlibros.Descripcion = txtDescripcion.Text;
             //DaoLibros daoLibros = new DaoLibros();

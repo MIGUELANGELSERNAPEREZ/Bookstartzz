@@ -4,7 +4,7 @@
     <link href="css/datatables.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_bloque_1" runat="server">
-    
+
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="body_bloque_2" runat="server">
     <form id="form1" runat="server">

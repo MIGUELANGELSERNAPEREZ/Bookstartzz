@@ -30,6 +30,7 @@ namespace Bookstarzz.ws
                 //if (Session["session"].ToString().Equals("1") || Session["session"].ToString().Equals("2"))
                 //{
                     JavaScriptSerializer jss = new JavaScriptSerializer();
+
                     return  jss.Serialize(new DaoCategorias().getAll());
 
             //    }
