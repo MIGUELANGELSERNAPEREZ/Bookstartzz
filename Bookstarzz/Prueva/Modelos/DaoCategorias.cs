@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,3 +56,17 @@ namespace Backend.Modelos
 
     }
 }
+=======
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Backend.Modelos
+{
+    public class DaoCategorias
+    {
+    }
+}
+>>>>>>> d3a8d22e5fcc769df4340a568a0dbb5b438103bd
