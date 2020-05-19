@@ -36,7 +36,6 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="body_bloque_2" runat="server">    
     
     <!--<div style="height:100px"></div>-->
-    
     <div class="container-fluid pl-0 pt-3">
         <div class="row">   
             <div class="col">
@@ -101,7 +100,7 @@
         </div> <!--fin de la fila-->
 
     </div><!--fin del container-->
-
+    <div id="contenidito"></div>
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="Script" runat="server">    
@@ -112,5 +111,5 @@
     <!-- Glide JS -->    
     <script src="glide-3.2.4/dist/glide.min.js"></script>
     
-    <script src="frmMenu.js"></script> 
+    <script src="FrmMenu.js"></script> 
 </asp:Content>

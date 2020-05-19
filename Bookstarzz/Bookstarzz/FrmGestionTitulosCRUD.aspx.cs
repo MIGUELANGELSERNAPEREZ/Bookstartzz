@@ -42,7 +42,7 @@ namespace Bookstarzz
             //objlibros.Nombre = txtNombre.Text;
             //objlibros.Autor = txtAutor.Text;
             //objlibros.NPaginas = int.Parse(txtNumPaginas.Text);
-            //objlibros.Clasificacion = dropDownClasificacion.SelectedValue.ToString();
+            //objlibros.Clasificacion = dropDownClasificacion.SelectedIndex+1;
             //objlibros.Categoria = txtCategoria.Text;
             //objlibros.Editorial = txtEditorial.Text;
             //objlibros.ISBN = txtISBN.Text;

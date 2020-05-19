@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_bloque_1" runat="server">
-
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="body_bloque_2" runat="server">
     <form id="formGestionTCRUD" runat="server">
@@ -69,7 +68,6 @@
             </div>
         </div>
     </form>
-    <!-- jQuery, Popper.js, Bootstrap JS -->
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Script" runat="server">
     <script src="js/jquery-3.4.1.js"></script>

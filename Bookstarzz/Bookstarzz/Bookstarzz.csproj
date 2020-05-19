@@ -92,6 +92,7 @@
     <Content Include="FrmConfiguracion.aspx" />
     <Content Include="FrmGenerarReportes.aspx" />
     <Content Include="FrmGestionTitulos.aspx" />
+    <Content Include="FrmGestionTitulos.js" />
     <Content Include="FrmGestionTitulosCRUD.aspx" />
     <Content Include="FrmGestionTitulosCRUD.js" />
     <Content Include="FrmLogin.aspx" />
@@ -186,6 +187,7 @@
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\datatables.js" />
     <Content Include="js\jquery-3.4.1.js" />
+    <Content Include="js\popper.min.js" />
     <Content Include="libros\Cars.jpg" />
     <Content Include="libros\HarryPotter7.jpg" />
     <Content Include="libros\HarryPotterylacamarasecreta.jpg" />
@@ -208,6 +210,13 @@
     <Content Include="ws\WSUsuarios.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contenedor.Master.cs">
+      <DependentUpon>Contenedor.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contenedor.Master.designer.cs">
+      <DependentUpon>Contenedor.Master</DependentUpon>
+    </Compile>
     <Compile Include="FrmConfiguracion.aspx.cs">
       <DependentUpon>FrmConfiguracion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -327,6 +336,7 @@
     <Content Include="obj\Debug\Bookstarzz.csproj.CoreCompileInputs.cache" />
     <Content Include="obj\Debug\Bookstarzz.csprojAssemblyReference.cache" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="Contenedor.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -4,6 +4,11 @@
     //al usuario. esta info la mandamos a la funcion cargarcarusel
     Bookstarzz.ws.WSLibros.getPopulares(cargarCaruserl, function (e) { });
     Bookstarzz.ws.WSCategorias.getAll(crearSidebar, function (e) { });   
+    //cntGestionTitulos es el id del nav en la pagina maestra Maestra.Master
+    //contenidito es el id del div ubicado adentro del bloque_2 en FrmMenu
+    $("#cntGestionTitulos").click(function () {
+        $("#contenidito").load("FrmGestionTitulos.aspx");
+    });
 });
 
 
