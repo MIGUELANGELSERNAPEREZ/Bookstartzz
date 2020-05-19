@@ -31,6 +31,7 @@ function cargarCaruserl(result) {
                 //img al cual le agregaremos la ruta de nuestra img
                 //para plasmarla. ademas de agregarle la clase que 
                 // modificara su estructura
+                
             $(".glide__slides").append($("<img\>").attr(
                 "src", ruta + nombre + ".jpg"));
                 $("img").addClass("cuadros");
@@ -84,5 +85,6 @@ function crearSidebar(result) {
 
     } else {
         alert("Regreso Vasio");
+
     } 
 }

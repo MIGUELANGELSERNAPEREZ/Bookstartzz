@@ -24,8 +24,6 @@ namespace Backend.Modelos
                 string sentencia = "SELECT * FROM categorias;";
                 MySqlCommand consulta = new MySqlCommand(sentencia);
 
-                DaoConexion.conectar();
-
                 DataTable tabla = DaoConexion.ejecutarConsulta(consulta);
 
                 if (tabla.Rows.Count > 0)

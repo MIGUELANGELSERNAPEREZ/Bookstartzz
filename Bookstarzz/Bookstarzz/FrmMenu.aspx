@@ -66,6 +66,40 @@
                     <!-- termina el carusel-->
         </div><!--fin de la columna-->
       </div><!--fin de la fila-->
+
+        <div class="row"> <!--Inicio de la fila-->
+
+            <div class="col-3">
+                <img src="libros/It.jpg" alt="Error" />
+
+            </div>
+            <div class="col-3">
+                <img src="libros/It.jpg" alt="Error" />
+
+            </div>
+            <div class="col-3">
+                <img src="libros/It.jpg" alt="Error" />
+
+            </div>
+
+        </div> <!--fin de la fila-->
+        <div class="row"> <!--Inicio de la fila-->
+
+            <div class="col-3">
+                <img src="libros/It.jpg" alt="Error" />
+
+            </div>
+            <div class="col-3">
+                <img src="libros/It.jpg" alt="Error" />
+
+            </div>
+            <div class="col-3">
+                <img src="libros/It.jpg" alt="Error" />
+
+            </div>
+
+        </div> <!--fin de la fila-->
+
     </div><!--fin del container-->
 
 </asp:Content>

@@ -59,7 +59,7 @@ namespace Backend.clases
             this.Descripcion = campos[9].ToString();
             this.Visitas = int.Parse(campos[10].ToString());
 
-            if (campos[11].ToString().Equals("Adolecente"))
+            if (campos[11].ToString().Equals("Adolecentes"))
             {
                 this.Clasificacion = 2;
             }
