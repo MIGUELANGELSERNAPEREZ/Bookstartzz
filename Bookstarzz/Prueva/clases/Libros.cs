@@ -27,6 +27,11 @@ namespace Backend.clases
         public int Visitas { get; set; }
         public int Clasificacion { get; set; }
 
+        public Libros()
+        {
+
+        }
+
         public Libros(string nombre, string autor, string categoria,
             string editorial, string isbn, DateTime fechaPublicacion,
             decimal presio, int nPaginas, string descripcion, int visitas

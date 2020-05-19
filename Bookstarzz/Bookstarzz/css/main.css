@@ -1,5 +1,5 @@
 body{
-    //background: linear-gradient(to right, black, white);
+    /*background: linear-gradient(to right, white, white);*/
 }
 
 /*clase cuadros, para cada slide*/
@@ -17,15 +17,7 @@ body{
 }
 
 /*Cuando el cuadro obtiene el foco cambia el color*/
-    .cuadros[class*=active] {
-        box-shadow: none;
-        background: linear-gradient(to right, orange, red);
-        border: solid 20px chartreuse;
-       
-    }
-
-
-img:hover {
-    -webkit-transform: scale(1.3);
-    transform: scale(1.3);
+.cuadros[class*=active] {   
+    box-shadow: none;
+    background: linear-gradient(to right, orange, red);
 }

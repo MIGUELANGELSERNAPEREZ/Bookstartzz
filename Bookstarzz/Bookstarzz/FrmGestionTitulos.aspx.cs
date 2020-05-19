@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.EnterpriseServices;
 using System.Globalization;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -10,29 +12,30 @@ using Backend.Modelos;
 
 namespace Bookstarzz
 {
-    public partial class FrmGestionTitulos : System.Web.UI.Page
+    public partial class FrmTitulos : System.Web.UI.Page
     {
+
+        protected DaoLibros daoLibros = new DaoLibros();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+                BindGridList();
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void BindGridList()
         {
-            Libros objlibros = new Libros();
-            objlibros.Nombre = txtNombre.Text;
-            objlibros.Autor = txtAutor.Text;
-            objlibros.NPaginas = int.Parse(txtNumPaginas.Text);
-            objlibros.Clasificacion = dropDownClasificacion.SelectedValue.ToString();
-            objlibros.Categoria = txtCategoria.Text;
-            objlibros.Editorial = txtEditorial.Text;
-            objlibros.ISBN = txtISBN.Text;
-            objlibros.FechaPublicacion = DateTime.Parse(calendarFechaPub.SelectedDate.ToString("d", CultureInfo.CreateSpecificCulture("ja-JP")));
-            objlibros.Presio = decimal.Parse(txtPrecio.Text);
-            objlibros.Descripcion = txtDescripcion.Text;
-            
-            DaoLibros daoLibros = new DaoLibros();
-            daoLibros.inserLibro(objlibros);
+            grdVistaTitulos.AutoGenerateColumns = false; //EVITA QUE AGREGUE LAS COLUMNAS DEL POJO A LA TABLA
+            grdVistaTitulos.DataSource = daoLibros.getAll();
+            grdVistaTitulos.DataBind(); //ENLAZA LA LISTA CON LA TABLA
         }
+
+        protected void grdVistaTitulos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdVistaTitulos.PageIndex = e.NewPageIndex;
+            BindGridList();
+
+        }
+
     }
 }

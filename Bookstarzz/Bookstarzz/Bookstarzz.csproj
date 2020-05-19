@@ -72,14 +72,32 @@
   <ItemGroup>
     <Content Include="bin\itextsharp.dll" />
     <Content Include="bin\itextsharp.xml" />
+    <Content Include="css\bootstrap-datepicker.css" />
+    <Content Include="css\bootstrap-datepicker.min.css" />
+    <Content Include="css\bootstrap-datepicker.standalone.css" />
+    <Content Include="css\bootstrap-datepicker.standalone.min.css" />
+    <Content Include="css\bootstrap-datepicker3.css" />
+    <Content Include="css\bootstrap-datepicker3.min.css" />
+    <Content Include="css\bootstrap-datepicker3.standalone.css" />
+    <Content Include="css\bootstrap-datepicker3.standalone.min.css" />
+    <Content Include="css\bootstrap-grid.css" />
+    <Content Include="css\bootstrap-grid.min.css" />
+    <Content Include="css\bootstrap-reboot.css" />
+    <Content Include="css\bootstrap-reboot.min.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\datatables.css" />
     <Content Include="css\estilo.css" />
     <Content Include="css\main.css" />
+    <Content Include="FrmConfiguracion.aspx" />
     <Content Include="FrmGenerarReportes.aspx" />
+    <Content Include="FrmGestionTitulos.aspx" />
+    <Content Include="FrmGestionTitulosCRUD.aspx" />
+    <Content Include="FrmGestionTitulosCRUD.js" />
     <Content Include="FrmLogin.aspx" />
     <Content Include="FrmMenu.aspx" />
     <Content Include="FrmMenu.js" />
+    <Content Include="FrmPedidos.aspx" />
     <Content Include="FrmRegistrarUser.aspx" />
     <Content Include="glide-3.2.4\build\banner.js" />
     <Content Include="glide-3.2.4\build\build.js" />
@@ -159,10 +177,14 @@
     <Content Include="imagenes\kitten-medium.png" />
     <Content Include="imagenes\kitten-small.png" />
     <Content Include="imagenes\logo.jpg" />
+    <Content Include="js\bootstrap-datepicker.es.min.js" />
+    <Content Include="js\bootstrap-datepicker.js" />
+    <Content Include="js\bootstrap-datepicker.min.js" />
     <Content Include="js\bootstrap.bundle.js" />
     <Content Include="js\bootstrap.bundle.min.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\datatables.js" />
     <Content Include="js\jquery-3.4.1.js" />
     <Content Include="libros\Cars.jpg" />
     <Content Include="libros\HarryPotter7.jpg" />
@@ -175,6 +197,10 @@
     <Content Include="libros\HarryPotteryelpricionerodeazkaban.jpg" />
     <Content Include="libros\It.jpg" />
     <Content Include="libros\Resplandor.jpg" />
+    <Content Include="logo.jpg" />
+    <Content Include="obj\Debug\Bookstarzz.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\Bookstarzz.dll" />
+    <Content Include="obj\Debug\Bookstarzz.pdb" />
     <Content Include="popper\popper.min.js" />
     <Content Include="Web.config" />
     <Content Include="ws\WSCategorias.asmx" />
@@ -182,12 +208,33 @@
     <Content Include="ws\WSUsuarios.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmConfiguracion.aspx.cs">
+      <DependentUpon>FrmConfiguracion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmConfiguracion.aspx.designer.cs">
+      <DependentUpon>FrmConfiguracion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FrmGenerarReportes.aspx.cs">
       <DependentUpon>FrmGenerarReportes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="FrmGenerarReportes.aspx.designer.cs">
       <DependentUpon>FrmGenerarReportes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestionTitulos.aspx.cs">
+      <DependentUpon>FrmGestionTitulos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmGestionTitulos.aspx.designer.cs">
+      <DependentUpon>FrmGestionTitulos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestionTitulosCRUD.aspx.cs">
+      <DependentUpon>FrmGestionTitulosCRUD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmGestionTitulosCRUD.aspx.designer.cs">
+      <DependentUpon>FrmGestionTitulosCRUD.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.aspx.cs">
       <DependentUpon>FrmLogin.aspx</DependentUpon>
@@ -202,6 +249,13 @@
     </Compile>
     <Compile Include="FrmMenu.aspx.designer.cs">
       <DependentUpon>FrmMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPedidos.aspx.cs">
+      <DependentUpon>FrmPedidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmPedidos.aspx.designer.cs">
+      <DependentUpon>FrmPedidos.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmRegistrarUser.aspx.cs">
       <DependentUpon>FrmRegistrarUser.aspx</DependentUpon>
@@ -259,6 +313,20 @@
     <Content Include="glide-3.2.4\src\assets\sass\glide.theme.scss" />
     <Content Include="glide-3.2.4\src\assets\sass\_variables.scss" />
     <Content Include="glide-3.2.4\tests\config.json" />
+    <Content Include="css\bootstrap-datepicker.css.map" />
+    <Content Include="css\bootstrap-datepicker.standalone.css.map" />
+    <Content Include="css\bootstrap-datepicker3.css.map" />
+    <Content Include="css\bootstrap-datepicker3.standalone.css.map" />
+    <Content Include="css\bootstrap-grid.css.map" />
+    <Content Include="css\bootstrap-grid.min.css.map" />
+    <Content Include="css\bootstrap-reboot.css.map" />
+    <Content Include="css\bootstrap-reboot.min.css.map" />
+    <Content Include="css\bootstrap.css.map" />
+    <Content Include="css\bootstrap.min.css.map" />
+    <Content Include="obj\Debug\Bookstarzz.csproj.CopyComplete" />
+    <Content Include="obj\Debug\Bookstarzz.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\Bookstarzz.csprojAssemblyReference.cache" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -267,7 +335,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Prueva\Backend.csproj">
       <Project>{191c79b5-d037-494f-abe5-a6c457dedbbe}</Project>

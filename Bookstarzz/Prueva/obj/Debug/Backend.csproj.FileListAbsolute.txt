@@ -14,4 +14,3 @@ C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\obj\Deb
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.csproj.CopyComplete
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Prueva.dll
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Prueva.pdb
-C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.csprojAssemblyReference.cache
