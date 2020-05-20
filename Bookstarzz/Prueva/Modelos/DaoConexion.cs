@@ -14,24 +14,26 @@ namespace Backend.Modelos
 
         public static bool conectar()
         {
-
             try
             {
+
                 if (conexion == null || conexion.State != ConnectionState.Open)
                 {
-
                     conexion = new MySqlConnection();
-                    conexion.ConnectionString = "Server=localhost;Database=bookstartzz;uid=root;pwd=root;SslMode=none";
+                    conexion.ConnectionString = "Server=localhost;" +
+                    "Database=bookstartzz;" +
+                    "uid=root;" +
+                    "pwd=root;";// sslmode=none";
+
                     conexion.Open();
                 }
                 return true;
             }
             catch (MySqlException ex)
             {
-                Console.WriteLine(ex.Message);
-                return false;
+                throw new Exception("No se pudo estableser la conexion" +
+                    "con el servidor");
             }
-
         }
 
         public static DataTable ejecutarConsulta(MySqlCommand consulta)
@@ -46,7 +48,6 @@ namespace Backend.Modelos
             }
             return null;
         }
-
 
         public static int ejecutarSentencia(MySqlCommand sentencia, bool esInsertar)
         {
@@ -71,3 +72,7 @@ namespace Backend.Modelos
     }
 
 }
+
+
+
+

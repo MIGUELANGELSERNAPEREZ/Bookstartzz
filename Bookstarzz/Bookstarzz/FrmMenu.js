@@ -3,12 +3,12 @@
     //de los 10 libros mas vistos hasta ahora como recomenadacion
     //al usuario. esta info la mandamos a la funcion cargarcarusel
     Bookstarzz.ws.WSLibros.getPopulares(cargarCaruserl, function (e) { });
-    Bookstarzz.ws.WSCategorias.getAll(crearSidebar, function (e) { });   
+       
 });
 
 
 function cargarCaruserl(result) {
-   
+    Bookstarzz.ws.WSCategorias.getAll(crearSidebar, function (e) { });
  //validamos si el web services nos regresa la cadena esperada
     if (result) {
         
@@ -72,15 +72,49 @@ function cargarCaruserl(result) {
 }
 
 function crearSidebar(result) {
-    debugger;
+    Bookstarzz.ws.WSLibros.getNuevos(crearLibrosNuevos, function (e) { });
     console.log(result);
     if (result) {
         let arreglo = JSON.parse(result);
         arreglo.forEach(
             function (categoria) {
-                debugger;
-                $(".list-group").append($("<a\>").addClass("list-group-item list-group-item-action").html(categoria.Nombre).attr("href","#"));          
+                $(".list-group").append($("<a\>").addClass("list-group-item list-group-item-action").html(categoria.nombreCategoria).attr("href", "#"));          
 
+            });
+
+    } else {
+        alert("Regreso Vasio");
+
+    } 
+}
+
+
+function crearLibrosNuevos( result ) {
+    console.log(result);
+    if (result) {
+        const ruta = "libros/";
+        let arreglo = JSON.parse(result);
+        let cont = 0;
+        let nombre = "";
+        arreglo.forEach(
+            function (libro) {
+                for (var i = 0; i < libro.Nombre.length; i++) {
+
+                    if (libro.Nombre[i] != " ") {
+                        nombre += libro.Nombre[i];
+                    }
+                }
+                debugger;
+                if (cont < 3) {
+                    $(".uno").append($("<div\>").addClass("col-4").append($("<img\>").attr("src", ruta + nombre + ".jpg").addClass("cuadros")));
+                    
+                } else if (cont > 2 && cont < 6) {
+                    $(".dos").append($("<div\>").addClass("col-4").append($("<img\>").attr("src", ruta + nombre + ".jpg").addClass("cuadros")));
+                } else {
+                    $(".tres").append($("<div\>").addClass("col-4").append($("<img\>").attr("src", ruta + nombre + ".jpg").addClass("cuadros")));
+                }
+                cont++;
+                nombre = "";
             });
 
     } else {

@@ -67,40 +67,25 @@
         </div><!--fin de la columna-->
       </div><!--fin de la fila-->
 
-        <div class="row"> <!--Inicio de la fila-->
+      </div> <!--fin del container-->
 
-            <div class="col-3">
-                <img src="libros/It.jpg" alt="Error" />
+    <div class="container-fluid pl-0 pt-3">
+        <br />
+        <br />
+        <div class="container">
+            <h2 >Ejemplares ya disponibles</h2>
+        </div>
+        <br />
+        <br />
+        <!--LIBROS NUEVOS SE MUESTRAN EN ESTA PARTE -->
+        <div class="row uno" border="2"> </div> <!--fin de la fila-->
+        <div class="row dos"> </div> <!--fin de la fila-->
+        <div class="row tres"> </div> <!--fin de la fila-->
+        <br />
+        <a href="#" type="button" class="btn btn-primary btn-lg btn-block"> Ver Mas</a>
+    </div>
 
-            </div>
-            <div class="col-3">
-                <img src="libros/It.jpg" alt="Error" />
-
-            </div>
-            <div class="col-3">
-                <img src="libros/It.jpg" alt="Error" />
-
-            </div>
-
-        </div> <!--fin de la fila-->
-        <div class="row"> <!--Inicio de la fila-->
-
-            <div class="col-3">
-                <img src="libros/It.jpg" alt="Error" />
-
-            </div>
-            <div class="col-3">
-                <img src="libros/It.jpg" alt="Error" />
-
-            </div>
-            <div class="col-3">
-                <img src="libros/It.jpg" alt="Error" />
-
-            </div>
-
-        </div> <!--fin de la fila-->
-
-    </div><!--fin del container-->
+    
 
 </asp:Content>
 

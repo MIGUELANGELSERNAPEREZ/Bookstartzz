@@ -36,6 +36,7 @@ namespace Bookstarzz.ws
         }
 
 
+        [WebMethod(EnableSession = true)]
         public string getNuevos()
         {
 

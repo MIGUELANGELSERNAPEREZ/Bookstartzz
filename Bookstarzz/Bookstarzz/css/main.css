@@ -3,21 +3,30 @@ body{
 }
 
 /*clase cuadros, para cada slide*/
-.cuadros{   
+.cuadros {
     border-radius: .16667em;
     text-align: center;
     height: 350px;
     line-height: 150px;
     -webkit-box-shadow: inset 0 0 0 2px hsla(0,0%,100%,.5);
     box-shadow: inset 0 0 0 2px hsla(0,0%,100%,.5);
-    color: white;  /*letras*/
+    color: white; /*letras*/
     background: chartreuse; /*color del cuadro*/
     font-size: 1em;
     font-weight: 900;
+    overflow: hidden;
 }
 
 /*Cuando el cuadro obtiene el foco cambia el color*/
-.cuadros[class*=active] {   
-    box-shadow: none;
-    background: linear-gradient(to right, orange, red);
+    .cuadros[class*=active] {
+        box-shadow: none;
+       /* background: linear-gradient(to right, orange, red);*/
+        -webkit-transform: scale(1.3);
+        transform: scale(1.3);
+    }
+
+img:hover {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
 }
+
