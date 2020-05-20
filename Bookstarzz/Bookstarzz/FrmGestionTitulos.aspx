@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Maestra.Master" AutoEventWireup="true" CodeBehind="FrmGestionTitulos.aspx.cs" Inherits="Bookstarzz.FrmTitulos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Contenedor.Master" AutoEventWireup="true" CodeBehind="FrmGestionTitulos.aspx.cs" Inherits="Bookstarzz.FrmTitulos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="css/datatables.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_bloque_1" runat="server">
-    
+
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="body_bloque_2" runat="server">
     <form id="form1" runat="server">
@@ -30,37 +30,5 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Script" runat="server">
     <script src="js/datatables.js"></script>
-    <script>
-        $(document).ready(function () {
-            /*
-             *CORRECCION: El plugin requiere que la tabla tenga un thead con los encabezados de la
-             * tabla y el gridview no genera este elemento, al traducir el gridview a tabla solo genera
-             * un tbody y un tfooter, por lo que en el siguiente código adecúo la tabla antes de 
-             * activar el plugin
-             * */
-            let tabla = $('#grdVistaTitulos');
-            //Obtengo la fila de los encabezados en el gridview colocó en el tbody (la primera)
-            let fila = $(tabla).find("tbody tr:first").clone();
-            //La elimino del tbody
-            $(tabla).find("tbody tr:first").remove();
-            //Creo un elemento thead y le añado la fila de encabezados
-            let encabezado = $("<thead/>").append(fila);
-            //Añado el thead a la tabla antes del tbody
-            $(tabla).children('tbody').before(encabezado);
-            //Activamos el plugin
-            $('#grdVistaTitulos').DataTable();
-
-
-        });
-        //function agregar() {
-        //    $("#divContenido").load("FrmMunicipio.aspx");
-        //}
-
-        //function editar(btn) {
-        //    let id = $(btn).closest("tr").children().first().text();
-        //    $("#divContenido").load("FrmMunicipio.aspx", { "ClaveMun": id });
-        //}
-
-    </script>
-
+    <script src="js/FrmGestionTitulos.js"></script>
 </asp:Content>

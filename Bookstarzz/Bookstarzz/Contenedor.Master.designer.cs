@@ -11,7 +11,7 @@ namespace Bookstarzz
 {
 
 
-    public partial class Maestra
+    public partial class Contenedor
     {
 
         /// <summary>

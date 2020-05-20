@@ -14,7 +14,6 @@ namespace Backend.Modelos
 {
     public class DaoLibros
     {
-
         public List<Libros> getAll()
         {
             Libros obj = null;
@@ -45,7 +44,6 @@ namespace Backend.Modelos
             }
             return list;
         }
-
 
         public List<Libros> getPopulares()
         {
@@ -78,7 +76,6 @@ namespace Backend.Modelos
             return list;
         }
 
-
         public List<Libros> getNuevos()
         {
             Libros obj = null;
@@ -110,7 +107,6 @@ namespace Backend.Modelos
             return list;
         }
 
-
         public int insertLibro(Libros obj)
         {
             int valor = 0;
@@ -134,17 +130,18 @@ namespace Backend.Modelos
 
                 valor = DaoConexion.ejecutarSentencia(consulta, false);
 
-                DaoConexion.desconectar();
             }
             catch (Exception m)
             {
                 Console.WriteLine(m);
             }
-
+            finally
+            {
+                DaoConexion.desconectar();
+            }
             return valor;
 
         }
-
         public int updateLibro(Libros obj)
         {
             int valor = 0;
@@ -170,13 +167,15 @@ namespace Backend.Modelos
 
                 valor = DaoConexion.ejecutarSentencia(consulta, false);
 
-                DaoConexion.desconectar();
             }
             catch (Exception m)
             {
                 Console.WriteLine(m);
             }
-
+            finally
+            {
+                DaoConexion.desconectar();
+            }
             return valor;
 
         }
@@ -194,17 +193,18 @@ namespace Backend.Modelos
 
                 valor = DaoConexion.ejecutarSentencia(consulta, false);
 
-                DaoConexion.desconectar();
             }
             catch (Exception m)
             {
                 Console.WriteLine(m);
             }
-
+            finally
+            {
+                DaoConexion.desconectar();
+            }
             return valor;
 
         }
-
 
     }
 }
