@@ -24,22 +24,13 @@ namespace Bookstarzz
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
 
         /// <summary>
-        /// Control body_bloque_1.
+        /// Control contenidoFRMs.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder body_bloque_1;
-
-        /// <summary>
-        /// Control body_bloque_2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder body_bloque_2;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder contenidoFRMs;
 
         /// <summary>
         /// Control Script.

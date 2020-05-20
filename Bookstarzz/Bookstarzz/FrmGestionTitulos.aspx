@@ -30,5 +30,5 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Script" runat="server">
     <script src="js/datatables.js"></script>
-    <script src="js/FrmGestionTitulos.js"></script>
+    <script src="FrmGestionTitulos.js"></script>
 </asp:Content>

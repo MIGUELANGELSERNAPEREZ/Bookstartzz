@@ -89,6 +89,8 @@
     <Content Include="css\datatables.css" />
     <Content Include="css\estilo.css" />
     <Content Include="css\main.css" />
+    <Content Include="FrmBookstarzz.aspx" />
+    <Content Include="FrmBookstarzz.js" />
     <Content Include="FrmConfiguracion.aspx" />
     <Content Include="FrmGenerarReportes.aspx" />
     <Content Include="FrmGestionTitulos.aspx" />
@@ -216,6 +218,13 @@
     </Compile>
     <Compile Include="Contenedor.Master.designer.cs">
       <DependentUpon>Contenedor.Master</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBookstarzz.aspx.cs">
+      <DependentUpon>FrmBookstarzz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmBookstarzz.aspx.designer.cs">
+      <DependentUpon>FrmBookstarzz.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmConfiguracion.aspx.cs">
       <DependentUpon>FrmConfiguracion.aspx</DependentUpon>

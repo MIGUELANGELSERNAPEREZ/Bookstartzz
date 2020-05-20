@@ -12,10 +12,28 @@
 </head>
 <body>
     <div>
-        <asp:ContentPlaceHolder ID="body_bloque_1" runat="server">
-        </asp:ContentPlaceHolder>
-        <asp:ContentPlaceHolder ID="body_bloque_2" runat="server">
-        </asp:ContentPlaceHolder>
+        <div class="container-fluid px-0">
+            <div class="row">
+                <div class="col-2 pr-0">
+                    <!-- Todo el contendo de la parte izquierda de la pagina -->
+                    <asp:ContentPlaceHolder ID="body_bloque_1" runat="server">
+                    </asp:ContentPlaceHolder>
+
+                    <!-- Fin del sidebar -->
+                </div>
+                <!-- finaliza el col-2-->
+                <div class="col-10">
+                    <!-- En este container va todo lo de la página -->
+                    <asp:ContentPlaceHolder ID="body_bloque_2" runat="server">
+                    </asp:ContentPlaceHolder>
+
+                </div>
+                <!-- finaliza el col-10-->
+
+            </div>
+            <!-- fin del row-->
+        </div>
+        <!--fin del container-->
     </div>
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/bootstrap.js"></script>
