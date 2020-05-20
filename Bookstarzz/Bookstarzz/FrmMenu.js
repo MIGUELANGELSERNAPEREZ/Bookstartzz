@@ -6,7 +6,6 @@
        
 });
 
-
 function cargarCaruserl(result) {
     Bookstarzz.ws.WSCategorias.getAll(crearSidebar, function (e) { });
  //validamos si el web services nos regresa la cadena esperada
