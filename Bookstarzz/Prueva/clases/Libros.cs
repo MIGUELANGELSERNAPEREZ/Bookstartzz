@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,7 +18,6 @@ namespace Backend.clases
         public int IdLibro { get; set; }
         public string Nombre { get; set; }
         public string Autor { get; set; }
-        public string Categoria { get; set; }
         public string Editorial { get; set; }
         public string ISBN{ get; set; }
         public DateTime FechaPublicacion { get; set; }
@@ -32,14 +32,14 @@ namespace Backend.clases
 
         }
 
-        public Libros(string nombre, string autor, string categoria,
+        public Libros(int idLibro, string nombre, string autor,
             string editorial, string isbn, DateTime fechaPublicacion,
             decimal presio, int nPaginas, string descripcion, int visitas
             , int clasificacion)
         {
+            this.IdLibro = idLibro;
             this.Nombre = nombre;
             this.Autor = autor;
-            this.Categoria = categoria;
             this.Editorial = editorial;
             this.ISBN = isbn;
             this.FechaPublicacion = fechaPublicacion;
@@ -55,21 +55,25 @@ namespace Backend.clases
             this.IdLibro = int.Parse(campos[0].ToString());
             this.Nombre = campos[1].ToString();
             this.Autor = campos[2].ToString();
-            this.Categoria = campos[3].ToString();
-            this.Editorial = campos[4].ToString();
-            this.ISBN = campos[5].ToString();
-            this.FechaPublicacion = DateTime.Parse(campos[6].ToString());
-            this.Presio = Decimal.Parse(campos[7].ToString());
-            this.NPaginas = int.Parse(campos[8].ToString());
-            this.Descripcion = campos[9].ToString();
-            this.Visitas = int.Parse(campos[10].ToString());
-
-            if (campos[11].ToString().Equals("Adolecentes"))
+            this.Editorial = campos[3].ToString();
+            this.ISBN = campos[4].ToString();
+            this.FechaPublicacion = DateTime.Parse(campos[5].ToString());
+            this.Presio = Decimal.Parse(campos[6].ToString());
+            this.NPaginas = int.Parse(campos[7].ToString());
+            this.Descripcion = campos[8].ToString();
+            this.Visitas = int.Parse(campos[9].ToString());
+            if (campos[10].ToString().Equals("Niños"))
+            {
+                this.Clasificacion = 1;
+            }
+            if (campos[10].ToString().Equals("Adolecentes"))
             {
                 this.Clasificacion = 2;
             }
-            
-
+            if (campos[10].ToString().Equals("Adultos"))
+            {
+                this.Clasificacion = 3;
+            }
         }
 
     }
