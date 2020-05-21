@@ -21,20 +21,21 @@ namespace Bookstarzz
 
         protected void btnCRUD_Click(object sender, EventArgs e)
         {
+            //TODO EL CODIGO DE ESTE METODO ES CUANDO NO SE EJECUTA AJAX
+
             //INSERTAR
-            Libros objlibros = new Libros();
-            objlibros.Nombre = txtNombre.Text;
-            objlibros.Autor = txtAutor.Text;
-            objlibros.NPaginas = int.Parse(txtNumPaginas.Text);
-            objlibros.Clasificacion = dropDownClasificacion.SelectedIndex+1;
-            objlibros.Categoria = txtCategoria.Text;
-            objlibros.Editorial = txtEditorial.Text;
-            objlibros.ISBN = txtISBN.Text;
-            objlibros.FechaPublicacion = DateTime.Parse(txtCalendario.Text);
-            objlibros.Presio = decimal.Parse(txtPrecio.Text);
-            objlibros.Descripcion = txtDescripcion.Text;
-            DaoLibros daoLibros = new DaoLibros();
-            daoLibros.insertLibro(objlibros);
+            //Libros objlibros = new Libros();
+            //objlibros.Nombre = txtNombre.Text;
+            //objlibros.Autor = txtAutor.Text;
+            //objlibros.NPaginas = int.Parse(txtNumPaginas.Text);
+            //objlibros.Clasificacion = dropDownClasificacion.SelectedIndex+1;
+            //objlibros.Editorial = txtEditorial.Text;
+            //objlibros.ISBN = txtISBN.Text;
+            //objlibros.FechaPublicacion = DateTime.Parse(txtCalendario.Text);
+            //objlibros.Presio = decimal.Parse(txtPrecio.Text);
+            //objlibros.Descripcion = txtDescripcion.Text;
+            //DaoLibros daoLibros = new DaoLibros();
+            //daoLibros.insertLibro(objlibros);
 
             //MODIFICAR
             //Libros objlibros = new Libros();
@@ -43,7 +44,6 @@ namespace Bookstarzz
             //objlibros.Autor = txtAutor.Text;
             //objlibros.NPaginas = int.Parse(txtNumPaginas.Text);
             //objlibros.Clasificacion = dropDownClasificacion.SelectedIndex+1;
-            //objlibros.Categoria = txtCategoria.Text;
             //objlibros.Editorial = txtEditorial.Text;
             //objlibros.ISBN = txtISBN.Text;
             //objlibros.FechaPublicacion = DateTime.Parse(txtCalendario.Text);
@@ -59,7 +59,8 @@ namespace Bookstarzz
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("FrmMenu.aspx");
+            //Redireccion sin usar AJAX
+            //Response.Redirect("FrmMenu.aspx");
         }
     }
 }

@@ -19,21 +19,23 @@ namespace Bookstarzz
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-                BindGridList();
+            //Metodo para llenar la tabla (sin AJAX ni WebService)
+            //if (!IsPostBack)
+            //    BindGridList();
         }
 
+        //Metodo para llenar la tabla (sin AJAX ni WebService)
         protected void BindGridList()
         {
-            grdVistaTitulos.AutoGenerateColumns = false; //EVITA QUE AGREGUE LAS COLUMNAS DEL POJO A LA TABLA
-            grdVistaTitulos.DataSource = daoLibros.getAll();
-            grdVistaTitulos.DataBind(); //ENLAZA LA LISTA CON LA TABLA
+            //grdVistaTitulos.AutoGenerateColumns = false; //EVITA QUE AGREGUE LAS COLUMNAS DEL POJO A LA TABLA
+            //grdVistaTitulos.DataSource = daoLibros.getAll();
+            //grdVistaTitulos.DataBind(); //ENLAZA LA LISTA CON LA TABLA
         }
-
+        //Evento de tabla sin AJAX ni WebService
         protected void grdVistaTitulos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            grdVistaTitulos.PageIndex = e.NewPageIndex;
-            BindGridList();
+            //grdVistaTitulos.PageIndex = e.NewPageIndex;
+            //BindGridList();
 
         }
 

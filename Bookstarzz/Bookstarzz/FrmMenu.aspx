@@ -10,7 +10,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="body_bloque_1" runat="server">
     <!-- todo este bloque ayuda a que esta pagina pueda acceder al web service-->
-        <form id="formMenu" runat="server">
+    <form id="formMenu" runat="server">
 
     <asp:ScriptManager ID="ScriptManagerMenu" runat="server">
         <Services>

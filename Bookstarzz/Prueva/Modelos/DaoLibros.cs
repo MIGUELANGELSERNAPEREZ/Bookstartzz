@@ -9,11 +9,64 @@ using System.Data;
 using Backend.Modelos;
 using System.Security.Cryptography.X509Certificates;
 using MySqlX.XDevAPI.Relational;
+using System.Xml;
+using System.Diagnostics;
+using System.Globalization;
 
 namespace Backend.Modelos
 {
     public class DaoLibros
     {
+
+        public Libros getOne(int id)
+        {
+            try
+            {
+                MySqlCommand sentencia = new MySqlCommand("SELECT * FROM libros WHERE idLibro="+id);
+
+                DataTable tabla = DaoConexion.ejecutarConsulta(sentencia);
+                Libros objLibros = null;
+                if (tabla != null && tabla.Rows.Count > 0)
+                {
+                    DataRow fila = tabla.Rows[0];
+                    int clasificacion = 0;
+
+                    //CultureInfo us = new CultureInfo("en-US");
+                    //string fechaTexto = fila["fechaPublicacion"].ToString();
+                    //string formatoFecha = "yyyy'-'MM'-'dd";
+
+                    //DateTime.ParseExact(fechaTexto, formatoFecha, us)
+
+                    if (fila["clasificacion"].ToString().Equals("Niños"))
+                    {
+                        clasificacion = 1;
+                    }
+                    if (fila["clasificacion"].ToString().Equals("Adolecentes"))
+                    {
+                        clasificacion = 2;
+                    }
+                    if (fila["clasificacion"].ToString().Equals("Adultos"))
+                    {
+                        clasificacion = 3;
+                    }
+
+                    objLibros = new Libros(id, fila["nombre"].ToString(), fila["autor"].ToString(),
+                        fila["editorial"].ToString(), fila["isbn"].ToString(), DateTime.Parse(fila["fechaPublicacion"].ToString()), 
+                        decimal.Parse(fila["precio"].ToString()), int.Parse(fila["numeroPaginas"].ToString()),
+                        fila["descripcion"].ToString(), int.Parse(fila["visitas"].ToString()), clasificacion);
+                }
+                return objLibros;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                DaoConexion.desconectar();
+            }
+        }
+
         public List<Libros> getAll()
         {
             Libros obj = null;
@@ -109,17 +162,15 @@ namespace Backend.Modelos
 
         public int insertLibro(Libros obj)
         {
-            int valor = 0;
             try
             {
 
                 MySqlCommand consulta = new MySqlCommand();
-                consulta.CommandText = "INSERT INTO Libros(nombre, autor, categoria, editorial, ISBN, fechaPublicacion, precio, numeroPaginas, descripcion, clasificacion) VALUES(" +
-                    "@nombre, @autor, @categoria, @editorial, @ISBN, @fechaPublicacion, @precio, @numeroPaginas, @descripcion, @clasificacion);";
+                consulta.CommandText = "INSERT INTO Libros(nombre, autor, editorial, ISBN, fechaPublicacion, precio, numeroPaginas, descripcion, clasificacion) VALUES(" +
+                    "@nombre, @autor, @editorial, @ISBN, @fechaPublicacion, @precio, @numeroPaginas, @descripcion, @clasificacion);";
 
                 consulta.Parameters.AddWithValue("@nombre", obj.Nombre);
                 consulta.Parameters.AddWithValue("@autor", obj.Autor);
-                consulta.Parameters.AddWithValue("@categoria", obj.Categoria);
                 consulta.Parameters.AddWithValue("@editorial", obj.Editorial);
                 consulta.Parameters.AddWithValue("@ISBN", obj.ISBN);
                 consulta.Parameters.AddWithValue("@fechaPublicacion", obj.FechaPublicacion);
@@ -128,35 +179,32 @@ namespace Backend.Modelos
                 consulta.Parameters.AddWithValue("@descripcion", obj.Descripcion);
                 consulta.Parameters.AddWithValue("@clasificacion", obj.Clasificacion);
 
-                valor = DaoConexion.ejecutarSentencia(consulta, false);
+                int valor = DaoConexion.ejecutarSentencia(consulta, true);
 
+                return valor;
             }
             catch (Exception m)
             {
-                Console.WriteLine(m);
+                return 0;
             }
             finally
             {
                 DaoConexion.desconectar();
             }
-            return valor;
-
         }
-        public int updateLibro(Libros obj)
+        public bool updateLibro(Libros obj)
         {
-            int valor = 0;
             try
             {
 
                 MySqlCommand consulta = new MySqlCommand();
-                consulta.CommandText = "UPDATE Libros SET nombre = @nombre, autor = @autor, categoria = @categoria," +
+                consulta.CommandText = "UPDATE Libros SET nombre = @nombre, autor = @autor," +
                     "editorial = @editorial, ISBN = @ISBN, fechaPublicacion = @fechaPublicacion, precio = @precio," +
                     "numeroPaginas = @numeroPaginas, descripcion = @descripcion, clasificacion = @clasificacion WHERE idLibro = @idLibro;";
 
                 consulta.Parameters.AddWithValue("@idLibro", obj.IdLibro);
                 consulta.Parameters.AddWithValue("@nombre", obj.Nombre);
                 consulta.Parameters.AddWithValue("@autor", obj.Autor);
-                consulta.Parameters.AddWithValue("@categoria", obj.Categoria);
                 consulta.Parameters.AddWithValue("@editorial", obj.Editorial);
                 consulta.Parameters.AddWithValue("@ISBN", obj.ISBN);
                 consulta.Parameters.AddWithValue("@fechaPublicacion", obj.FechaPublicacion);
@@ -165,24 +213,29 @@ namespace Backend.Modelos
                 consulta.Parameters.AddWithValue("@descripcion", obj.Descripcion);
                 consulta.Parameters.AddWithValue("@clasificacion", obj.Clasificacion);
 
-                valor = DaoConexion.ejecutarSentencia(consulta, false);
+                if (DaoConexion.ejecutarSentencia(consulta, false) > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                    
 
             }
             catch (Exception m)
             {
-                Console.WriteLine(m);
+                return false;
             }
             finally
             {
                 DaoConexion.desconectar();
             }
-            return valor;
-
         }
 
-        public int deleteLibro(int id)
+        public bool deleteLibro(int id)
         {
-            int valor = 0;
             try
             {
 
@@ -191,18 +244,20 @@ namespace Backend.Modelos
 
                 consulta.Parameters.AddWithValue("@idLibro", id);
 
-                valor = DaoConexion.ejecutarSentencia(consulta, false);
+                if (DaoConexion.ejecutarSentencia(consulta, false) > 0)
+                    return true;
+                else
+                    return false;
 
             }
             catch (Exception m)
             {
-                Console.WriteLine(m);
+                return false;
             }
             finally
             {
                 DaoConexion.desconectar();
             }
-            return valor;
 
         }
 

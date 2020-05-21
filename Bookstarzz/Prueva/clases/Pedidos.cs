@@ -15,10 +15,9 @@ namespace Backend.clases
         public string formato { get; set; }
         public DateTime fechaCompra { get; set; }
         public string estatusPedido { get; set; }
-        public string titulosAdquiridos { get; set; }
 
         public Pedidos(int idPedido, int idUsuario, string direccion, string ciudad, string formato,
-            DateTime fechaCompra, string estatusPedido, string titulosAdquiridos)
+            DateTime fechaCompra, string estatusPedido)
         {
             this.idPedido = idPedido;
             this.idUsuario = idUsuario;
@@ -27,7 +26,6 @@ namespace Backend.clases
             this.formato = formato;
             this.fechaCompra = fechaCompra;
             this.estatusPedido = estatusPedido;
-            this.titulosAdquiridos = titulosAdquiridos;
         }
 
         public Pedidos(Object[] campos)
@@ -39,7 +37,6 @@ namespace Backend.clases
             this.formato = campos[4].ToString();
             this.fechaCompra = DateTime.Parse(campos[5].ToString());
             this.estatusPedido = campos[6].ToString();
-            this.titulosAdquiridos = campos[7].ToString();
 
         }
     }

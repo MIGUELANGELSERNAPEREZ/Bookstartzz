@@ -103,7 +103,7 @@ function crearLibrosNuevos( result ) {
                         nombre += libro.Nombre[i];
                     }
                 }
-                debugger;
+                //debugger;
                 if (cont < 3) {
                     $(".uno").append($("<div\>").addClass("col-4").append($("<img\>").attr("src", ruta + nombre + ".jpg").addClass("cuadros")));
                     

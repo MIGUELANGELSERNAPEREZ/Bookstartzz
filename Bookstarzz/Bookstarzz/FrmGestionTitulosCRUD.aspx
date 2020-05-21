@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Maestra.Master" AutoEventWireup="true" CodeBehind="FrmGestionTitulosCRUD.aspx.cs" Inherits="Bookstarzz.FrmGestionTitulos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Contenedor.Master" AutoEventWireup="true" CodeBehind="FrmGestionTitulosCRUD.aspx.cs" Inherits="Bookstarzz.FrmGestionTitulos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="css/main.css">
@@ -8,12 +8,22 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="body_bloque_2" runat="server">
     <form id="formGestionTCRUD" runat="server">
+        <!--Este input recibe un valor en caso de que la accion sea Modificar -->
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+            <Services>
+                <asp:ServiceReference Path="~/ws/WSLibros.asmx" />
+            </Services>
+        </asp:ScriptManager>
+        <input type="hidden" id="txtIdLibro" value="<%= Request["inpIdLibro"] != null ? Request["inpIdLibro"] : "0" %>" />
         <div>
-            <h1>GESTION DE TITULOS</h1>
+            <h1 id="tituloFRM"></h1>
             <div>
                 <div class="form-group">
                     <div>
-                        <asp:TextBox class="form-control" ID="txtidLibro" autocomplete="off" runat="server"></asp:TextBox><br />
+                        <asp:Label ID="lblIDLib" runat="server" Text="ID"></asp:Label>
+                        <asp:TextBox class="form-control" ID="txtIDLib" autocomplete="off" runat="server"></asp:TextBox><br />
+                    </div>
+                    <div>
                         <asp:Label ID="lblNombre" runat="server" Text="Nombre"></asp:Label>
                         <asp:TextBox class="form-control" ID="txtNombre" autocomplete="off" runat="server"></asp:TextBox><br />
                     </div>
@@ -35,10 +45,6 @@
 
                     </div>
                     <div>
-                        <asp:Label ID="lblCategoria" runat="server" Text="Categoria"></asp:Label>
-                        <asp:TextBox class="form-control" ID="txtCategoria" autocomplete="off" runat="server"></asp:TextBox><br />
-                    </div>
-                    <div>
                         <asp:Label ID="lblEditorial" runat="server" Text="Editorial"></asp:Label>
                         <asp:TextBox class="form-control" ID="txtEditorial" autocomplete="off" runat="server"></asp:TextBox><br />
                     </div>
@@ -58,11 +64,9 @@
                         <asp:Label ID="lblDescripcion" runat="server" Text="Descripcion"></asp:Label>
                         <asp:TextBox class="form-control" ID="txtDescripcion" TextMode="MultiLine" Rows="10" autocomplete="off" resize="none" runat="server"></asp:TextBox><br />
                     </div>
-                    <div>
-                        <asp:Button type="button" class="btn btn-success" ID="btnCRUD" runat="server" Text="ACEPTAR" OnClick="btnCRUD_Click" />
-                    </div>
-                    <div>
-                        <asp:Button type="button" class="btn btn-danger" ID="btnCancelar" runat="server" Text="CANCELAR" OnClick="btnCancelar_Click" />
+                    <div class="form-row my-3  justify-content-around">
+                        <button id="btnAceptar" type="button" class="btn btn-success btn-lg">Aceptar</button>
+                        <button id="btnCancelar" type="button" class="btn btn-danger btn-lg">Cancelar</button>
                     </div>
                 </div>
             </div>
