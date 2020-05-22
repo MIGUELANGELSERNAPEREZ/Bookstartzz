@@ -9,6 +9,7 @@
         if (true) {
             if (parseInt($("#txtIdLibro").val()) > 0) {//La function(resul) trae true o false y solo funciona con boton de tipo submit
                 Bookstarzz.ws.WSLibros.updateLibro(llenarModelo(), function (result) {
+                    alert("HOLA " + result);
                     if (result == true) {
                         limpiar();
                         $("#contenidoVista").load("FrmGestionTitulos.aspx");

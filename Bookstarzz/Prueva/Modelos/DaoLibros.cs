@@ -8,7 +8,6 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using Backend.Modelos;
 using System.Security.Cryptography.X509Certificates;
-using MySqlX.XDevAPI.Relational;
 using System.Xml;
 using System.Diagnostics;
 using System.Globalization;
@@ -166,13 +165,14 @@ namespace Backend.Modelos
             {
                 int valor = 0;
                 MySqlCommand consulta = new MySqlCommand();
-                consulta.CommandText = "INSERT INTO Libros(nombre, autor, editorial, isbn, fechaPublicacion, precio, numeroPaginas, descripcion, clasificacion) VALUES(" +
-                    "@nombre, @autor, @editorial, @isbn, @fechaPublicacion, @precio, @numeroPaginas, @descripcion, @clasificacion);";
+                consulta.CommandText = "INSERT INTO Libros(nombre, autor, editorial, isbn, fechaPublicacion, precio, numeroPaginas, descripcion, clasificacion) " +
+                                       "VALUES(@nombre, @autor, @editorial, @isbn, @fechaPublicacion, @precio, @numeroPaginas, @descripcion, @clasificacion);";
                 consulta.Parameters.AddWithValue("@nombre", obj.Nombre);
                 consulta.Parameters.AddWithValue("@autor", obj.Autor);
                 consulta.Parameters.AddWithValue("@editorial", obj.Editorial);
                 consulta.Parameters.AddWithValue("@isbn", obj.ISBN);
-                consulta.Parameters.AddWithValue("@fechaPublicacion", obj.FechaPublicacion);
+                string fecha = obj.FechaPublicacion.ToString("yyyy-MM-dd"); //Convertimos fecha al formato necesario para guardar en MySQL
+                consulta.Parameters.AddWithValue("@fechaPublicacion", fecha);
                 consulta.Parameters.AddWithValue("@precio", obj.Presio);
                 consulta.Parameters.AddWithValue("@numeroPaginas", obj.NPaginas);
                 consulta.Parameters.AddWithValue("@descripcion", obj.Descripcion);

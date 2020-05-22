@@ -37,13 +37,17 @@ function cargarGestionTitulos() {
     );
 }
 
-
-function cargarDatos(datos) {
+function normalizarFecha(datos) {
     //Ciclo usado para transformar los milisegundos de DateTime en una Fecha normal
     //Metodo moment es de la libreria moment.js
     for (let i = 0; i < datos.length; i++) {
         datos[i]['FechaPublicacion'] = moment(datos[i]['FechaPublicacion']).format("YYYY-MM-DD");
     }
+    return datos;
+}
+
+function cargarDatos(datos) {
+    normalizarFecha(datos);
 
     //Almacenamos la referencia a la tabla con el plugin aplicado, ya que la usaremos para los filtros
     tablaLibrosDT = $('#tblGestionTitulos').dataTable({
@@ -170,7 +174,9 @@ function recargarDatos() {
     tablaLibrosDT.fnClearTable();
     Bookstarzz.ws.WSLibros.getAll(function (result) {
         if (result) {
-            tablaLibrosDT.fnAddData(JSON.parse(result));
+            let objJSON = JSON.parse(result);
+            
+            tablaLibrosDT.fnAddData(normalizarFecha(objJSON));
         } else {
             window.location.replace("FrmLogin.aspx");
         }

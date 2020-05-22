@@ -16,9 +16,11 @@ D:\web2\proyecto\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.csproj.CoreComp
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.csproj.CopyComplete
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Prueva.dll
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Prueva.pdb
-C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\bin\Debug\Prueva.dll
-C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\bin\Debug\Prueva.pdb
+C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\bin\Debug\Backend.dll.config
+C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\bin\Debug\Backend.dll
+C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\bin\Debug\Backend.pdb
+C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.csprojAssemblyReference.cache
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.csproj.CoreCompileInputs.cache
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.csproj.CopyComplete
-C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Prueva.dll
-C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Prueva.pdb
+C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.dll
+C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.pdb
