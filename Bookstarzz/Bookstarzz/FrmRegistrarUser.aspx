@@ -63,18 +63,11 @@
     <input type="tel" name="txtTelefono" class="form-control" value="" runat="server" id="txtTel" required
         maxlength="10" minlength="10" placeholder="4451001856S"/>
       <br />    
-    <asp:label text="Targeta" class="labels" runat="server"/> <br />
-    <input type="text" name="txtTargeta" class="form-control"  runat="server" id="TxtTargeta" required
-        maxlength="20" minlength="20" placeholder=""/>
-      
-
-      <br />
-      <br />
-
+  
     <asp:button text="Agregar" runat="server" id="btnAgregar" 
         class="btn btn-success btn-lg" OnClick="btnAgregar_Click"/>
 
-    <button type="button"id="BtnCancelar" class="btn btn-danger btn-lg btn-block"
+    <button type="button"id="BtnCancelar" class="btn btn-danger btn-lg"
         OnClick="btnCancelar();">Cancelar</button>
     <br />
   </form>

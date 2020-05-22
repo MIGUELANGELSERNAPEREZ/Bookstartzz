@@ -143,6 +143,60 @@ namespace Backend.Modelos
 
         }
 
+        public bool Update(Usuario obj)
+        {
+
+            string sentencia = "UPDATE users SET Nombre = @nombre,"
+                                + "ApellidoP = @apellidoP,"
+                                + "ApellidoM = @apellidoM,"
+                                + "Email = @email,"
+                                + "contrasena = @contrasena,"
+                                + "tipo = @tipo"
+                                + "usuario = @usuario"
+                                + "telefono = @tel,"
+                                + "tarjeta = @tarjeta"
+                                + "WHERE idUsuario = @idUsuario;";
+
+            try
+            {
+
+                MySqlCommand consulta = new MySqlCommand(sentencia);
+                consulta.Parameters.AddWithValue("@nombre", obj.Nombre);
+                consulta.Parameters.AddWithValue("@apellidoP", obj.Nombre);
+                consulta.Parameters.AddWithValue("@apellidoM", obj.Nombre);
+                consulta.Parameters.AddWithValue("@email", obj.Nombre);
+                consulta.Parameters.AddWithValue("@tipo", obj.Nombre);
+                consulta.Parameters.AddWithValue("@usuario", obj.Nombre);
+                consulta.Parameters.AddWithValue("@tel", obj.Nombre);
+                consulta.Parameters.AddWithValue("@tarjeta", obj.Nombre);
+
+                int valor = DaoConexion.ejecutarSentencia(consulta, false);
+
+                if (valor == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+            finally
+            {
+                DaoConexion.desconectar();
+            }
+
+            return false;
+        }
+
+
+
+
         
     }
 }

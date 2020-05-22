@@ -165,12 +165,10 @@ D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\vbc.exe.config
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\vbc.rsp
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\VBCSCompiler.exe
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\VBCSCompiler.exe.config
-D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\Prueva.dll
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\MySql.Data.dll
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\Google.Protobuf.dll
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\Prueva.pdb
-D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.csprojAssemblyReference.cache
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.csproj.CoreCompileInputs.cache
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.csproj.CopyComplete

@@ -94,15 +94,6 @@ namespace Bookstarzz {
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtTel;
         
         /// <summary>
-        /// TxtTargeta control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText TxtTargeta;
-        
-        /// <summary>
         /// btnAgregar control.
         /// </summary>
         /// <remarks>

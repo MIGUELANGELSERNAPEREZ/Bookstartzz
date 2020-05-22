@@ -101,15 +101,6 @@ namespace Bookstarzz
                     "2.- El Telefono debe de tener 10 caracteres'); </script>");
             }
 
-            if (TxtTargeta.Value!="" && TxtTargeta.Value.Length == 20)
-            {
-                asiertos++;
-            }
-            else
-            {
-                Response.Write("<script>alert('1.- La Taregeta es obligatorio" +
-                                   "2.- La Taregta debe de tener 20 caracteres'); </script>");
-            }
 
             return asiertos;
         }
@@ -118,11 +109,11 @@ namespace Bookstarzz
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
 
-            if (validar() == 8)
+            if (validar() == 7)
             {
                 Usuario objUser = new Usuario(txtNombre.Value,
                     txtApellidoP.Value, TxtApellidoM.Value, txtEmail.Value,
-                    TxtPass.Value, 1, txtUsuario.Value, txtTel.Value, TxtTargeta.Value);
+                    TxtPass.Value, 1, txtUsuario.Value, txtTel.Value,"Indefinido");
 
                 Usuario existente = new DaoUsuario().getUser(objUser);
 
