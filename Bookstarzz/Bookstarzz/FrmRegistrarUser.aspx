@@ -2,6 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="css/estilo.css" rel="stylesheet" />
 </asp:Content>
+
+
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
      <!-- Small modal Agregar-->
 
@@ -27,6 +29,16 @@
     <h1>Registrate</h1>
     
   <form  runat="server" id="FormMenu">
+
+      <!-- acceder al webService-->
+<asp:ScriptManager ID="ScriptManager1" runat="server">
+    
+   <Services>
+            <asp:ServiceReference Path="~/ws/WSUsuarios.asmx" />
+   </Services>
+
+</asp:ScriptManager>
+      
       <div class="form-group">
     <asp:label text="Nombre" runat="server" class="labels"/> <br />
     <input type="text" class="form-control" name="txtNombre" value="" runat="server" id="txtNombre"
@@ -64,10 +76,10 @@
         maxlength="10" minlength="10" placeholder="4451001856S"/>
       <br />    
   
-    <asp:button text="Agregar" runat="server" id="btnAgregar" 
-        class="btn btn-success btn-lg" OnClick="btnAgregar_Click"/>
+   <button type="button"id="BtnAgregar" name="BtnAgrega" class="btn btn-success  btn-lg"
+        OnClick="btnAgregar();">Agregar</button>
 
-    <button type="button"id="BtnCancelar" class="btn btn-danger btn-lg"
+    <button type="button"id="BtnCancelar" name="btnCancelar" class="btn btn-danger btn-lg"
         OnClick="btnCancelar();">Cancelar</button>
     <br />
   </form>
@@ -75,8 +87,12 @@
     <script>
         function btnCancelar() {
             window.location = "FrmLogin.aspx";
+            debugger;
         }
-
     </script>
 
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="Scripts" runat="server">
+    <script src="FrmRegistrarUser.js"></script>
 </asp:Content>

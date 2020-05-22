@@ -146,6 +146,7 @@
     <Content Include="FrmMenu.js" />
     <Content Include="FrmPedidos.aspx" />
     <Content Include="FrmRegistrarUser.aspx" />
+    <Content Include="FrmRegistrarUser.js" />
     <Content Include="glide-3.2.4\build\banner.js" />
     <Content Include="glide-3.2.4\build\build.js" />
     <Content Include="glide-3.2.4\build\build.min.js" />

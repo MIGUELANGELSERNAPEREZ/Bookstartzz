@@ -43,7 +43,7 @@ namespace Backend.Modelos
             }  
         }
 
-        public Usuario getUser(Usuario obj)
+        public Usuario userExist(Usuario obj)
         {
             Usuario objUsu = null;
             try
@@ -51,12 +51,10 @@ namespace Backend.Modelos
 
                 MySqlCommand consulta = new MySqlCommand();
                 consulta.CommandText = "SELECT * FROM users WHERE email = (@email)" +
-                    " or usuario = (@usuario) or telefono = (@telefono) or" +
-                    " tarjeta = (@tarjeta);";
+                    " or usuario = (@usuario) or telefono = (@telefono);";
                 consulta.Parameters.AddWithValue("@email", obj.Email);
                 consulta.Parameters.AddWithValue("@usuario", obj.UsuarioN);
                 consulta.Parameters.AddWithValue("@telefono", obj.Telefono);
-                consulta.Parameters.AddWithValue("@tarjeta", obj.Targeta);
 
                 DataTable tabla = DaoConexion.ejecutarConsulta(consulta);
 
@@ -195,8 +193,42 @@ namespace Backend.Modelos
         }
 
 
+        public bool Delete(int id)
+        {
 
+            string sentencia = "Delete FROM users where idUsuario= @id";                               
+
+            try
+            {
+
+                MySqlCommand consulta = new MySqlCommand(sentencia);
+                consulta.Parameters.AddWithValue("@id", id);
+                
+                int valor = DaoConexion.ejecutarSentencia(consulta, false);
+
+                if (valor == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+            finally
+            {
+                DaoConexion.desconectar();
+            }
+
+            return false;
+        }
 
         
+
     }
 }
