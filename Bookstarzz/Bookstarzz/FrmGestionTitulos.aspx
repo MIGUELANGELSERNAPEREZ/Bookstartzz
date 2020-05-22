@@ -1,13 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Contenedor.Master" AutoEventWireup="true" CodeBehind="FrmGestionTitulos.aspx.cs" Inherits="Bookstarzz.FrmTitulos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="css/main.css">
     <link href="css/datatables.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_bloque_1" runat="server">
-
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="body_bloque_2" runat="server">
-    <form id="form1" runat="server">
+    <form id="formGestionT" runat="server">
 
              <!-------------------INICIA MODAL---------------------->
     <div class="modal" id="mdlConfirmar" tabindex="-1" role="dialog">
@@ -38,7 +38,9 @@
                 <asp:ServiceReference Path="~/ws/WSLibros.asmx" />
             </Services>
         </asp:ScriptManager>
-        <h1>TITULOS</h1>
+        <center>
+            <h1 id="h1GestionTitulos">GESTION DE TITULOS</h1>
+        </center>
         <%--Los DataField son de la clase Libro, no de MySQL--%>
 <%--        <asp:GridView ID="grdVistaTitulos" CssClass="table table-bordered table-striped" runat="server">
             <Columns>
@@ -65,5 +67,8 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Script" runat="server">
     <script src="js/datatables.js"></script>
+    <%--Librerias para transformar datos de objetos DateTime--%>
+    <script src="js/moment.js"></script>
+    <script src="js/moment-with-locales.js"></script>
     <script src="FrmGestionTitulos.js"></script>
 </asp:Content>

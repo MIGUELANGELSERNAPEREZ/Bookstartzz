@@ -11,7 +11,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body_bloque_1" runat="server">
     <!-- todo este bloque ayuda a que esta pagina pueda acceder al web service-->
     <form id="formMenu" runat="server">
-
     <asp:ScriptManager ID="ScriptManagerMenu" runat="server">
         <Services>
             <asp:ServiceReference Path="~/ws/WSLibros.asmx" />
@@ -34,7 +33,11 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="body_bloque_2" runat="server">
 
     <!--<div style="height:100px"></div>-->
-    
+    <div>
+                <center>
+            <h2 style="color:black">Mas populares <span class="badge badge-warning">Libros</span></h2>
+        </center>
+    </div>
     <div class="container-fluid pl-0 pt-3">
         <div class="row">
             <div class="col">

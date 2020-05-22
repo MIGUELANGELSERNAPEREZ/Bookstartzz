@@ -2,11 +2,13 @@
 
 <!DOCTYPE html>
 
-<html>
+<html class="h-100">
 <head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>BookStratzz</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-
+    <link href="css/estilo.css" rel="stylesheet" /> <%--Hoja de estilos aplicable a todas las paginas--%>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -15,16 +17,13 @@
     <!-- Inicio del menu-->
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-        <a class="navbar-brand" style="font-size: 25px;" href="#">Bookstartzz</a>
+        <a class="navbar-brand" style="font-size: 25px;" href="#" id="cntFrmMenu">Bookstartzz</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" id="cntFrmMenu">Inicio <span class="sr-only">(current)</span></a>
-                </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Información</a>
                 </li>
@@ -55,20 +54,11 @@
     </nav>
     <!-- Final del Menu-->
 
-    <!-- titulo de la agina-->
-    <center>
-    <h1 style="color:black;">
-        Bookstartzz</h1>
-    <h2 style="color:black">
-        Mas populares 
-    <span class="badge badge-warning">Libros</span></h2>
-    </center>
-
-    <!-- fin del titulo-->
-
     <!-- EN ESTA PARTE VA TODO EL CONTENIDO DE LA PAGINA, CARGADO DESDE EL CONTENEDOR.MASTER-->
-    <asp:ContentPlaceHolder ID="contenidoFRMs" runat="server">
-    </asp:ContentPlaceHolder>
+    <div> 
+        <asp:ContentPlaceHolder ID="contenidoFRMs" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
 
     <!-- Footer -->
     <footer class="page-footer font-small blue-grey lighten-5">

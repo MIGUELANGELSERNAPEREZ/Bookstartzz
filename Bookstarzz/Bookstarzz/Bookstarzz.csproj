@@ -233,6 +233,8 @@
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\datatables.js" />
     <Content Include="js\jquery-3.4.1.js" />
+    <Content Include="js\moment-with-locales.js" />
+    <Content Include="js\moment.js" />
     <Content Include="js\popper.min.js" />
     <Content Include="libros\Cars.jpg" />
     <Content Include="libros\HarryPotter7.jpg" />
