@@ -1,8 +1,20 @@
+
 .labels{
 	font-size:20px;
 }
 
 #FormMenu {
     border: solid 3px black;
-    width:700px;
+	width:700px;
+}
+/*Resetenado estilo*/
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/*Estilos FrmGestionTitulos*/
+#h1GestionTitulos {
+	font-size: 1.5rem;
+
 }

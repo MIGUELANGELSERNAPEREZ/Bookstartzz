@@ -2,19 +2,20 @@
 
 <!DOCTYPE html>
 
-<html>
-<head runat="server">
+<html class="h-100">
+    <head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>BookStratzz</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body class="d-flex flex-column h-100">
     <div>
-        <div class="container-fluid px-0">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-2 pr-0">
+                <div id="divBloque1">
                     <!-- Todo el contendo de la parte izquierda de la pagina -->
                     <asp:ContentPlaceHolder ID="body_bloque_1" runat="server">
                     </asp:ContentPlaceHolder>
@@ -22,7 +23,7 @@
                     <!-- Fin del sidebar -->
                 </div>
                 <!-- finaliza el col-2-->
-                <div class="col-10">
+                <div id="divBloque2", class="col-10">
                     <!-- En este container va todo lo de la página -->
                     <asp:ContentPlaceHolder ID="body_bloque_2" runat="server">
                     </asp:ContentPlaceHolder>

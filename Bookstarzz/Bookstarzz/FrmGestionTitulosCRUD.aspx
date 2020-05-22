@@ -8,20 +8,24 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="body_bloque_2" runat="server">
     <form id="formGestionTCRUD" runat="server">
-        <!--Este input recibe un valor en caso de que la accion sea Modificar -->
+        <div class="container p-3 mb-2"> 
         <asp:ScriptManager ID="ScriptManager1" runat="server">
             <Services>
                 <asp:ServiceReference Path="~/ws/WSLibros.asmx" />
             </Services>
         </asp:ScriptManager>
+        <center>
+                    <!--Este input recibe un valor en caso de que la accion sea Modificar -->
         <input type="hidden" id="txtIdLibro" value="<%= Request["inpIdLibro"] != null ? Request["inpIdLibro"] : "0" %>" />
         <div>
-            <h1 id="tituloFRM"></h1>
+            <center>
+                <h1 id="tituloFRM"></h1>
+            </center>
             <div>
                 <div class="form-group">
                     <div>
-                        <asp:Label ID="lblIDLib" runat="server" Text="ID"></asp:Label>
-                        <asp:TextBox class="form-control" ID="txtIDLib" autocomplete="off" runat="server"></asp:TextBox><br />
+                        <asp:Label ID="lblIDLib" runat="server" Text="ID" hidden="true"></asp:Label>
+                        <asp:TextBox class="form-control" ID="txtIDLib" autocomplete="off" hidden="true" readOnly="true" runat="server"></asp:TextBox><br />
                     </div>
                     <div>
                         <asp:Label ID="lblNombre" runat="server" Text="Nombre"></asp:Label>
@@ -71,11 +75,17 @@
                 </div>
             </div>
         </div>
+        </center>
+
+        </div>
     </form>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Script" runat="server">
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/bootstrap-datepicker.min.js"></script>
     <script src="js/bootstrap-datepicker.es.min.js"></script>
+    <%--Librerias para transformar datos de objetos DateTime--%>
+    <script src="js/moment.js"></script>
+    <script src="js/moment-with-locales.js"></script>
     <script src="FrmGestionTitulosCRUD.js"></script>
 </asp:Content>

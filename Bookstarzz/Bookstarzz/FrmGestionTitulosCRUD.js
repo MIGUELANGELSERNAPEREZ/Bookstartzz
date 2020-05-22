@@ -24,7 +24,9 @@
                 );
             } else {
                 Bookstarzz.ws.WSLibros.insertLibro(llenarModelo(), function (result) {
+                    alert("HOLA " + result);
                     if (parseInt(result) > 0) {
+                        
                         limpiar();
                         $("#contenidoVista").load("FrmGestionTitulos.aspx");
                     } else {
@@ -61,25 +63,26 @@ function dateP() {
 
 function llenarModelo() {
     let obj = {};
-    //let clasificacion;
+    let clasificacion;
     if (parseInt($("#txtIdLibro").val()) > 0) {
         obj.IdLibro = $("#body_bloque_2_txtIDLib").val();
     }
     obj.Nombre = $("#body_bloque_2_txtNombre").val();
     obj.Autor = $("#body_bloque_2_txtAutor").val();
-    obj.NPaginas = $("#body_bloque_2_txtNumPaginas").val();
-    //if ($("#body_bloque_2_dropDownClasificacion").val() == "Niños") {
-    //    clasificacion = 1;
-    //}
-    //if ($("#body_bloque_2_dropDownClasificacion").val() == "Adolecentes") {
-    //    clasificacion = 2;
-    //}
-    //if ($("#body_bloque_2_dropDownClasificacion").val() == "Adultos") {
-    //    clasificacion = 3;
-    //}
-    obj.Clasificacion = 1;
+    obj.NPaginas = $("#body_bloque_2_txtNumPaginas").val().trim();
+    //Se convierte a entero el valor de la clasificacion, ya que asi lo guarda el objeto Libros
+    if ($("#body_bloque_2_dropDownClasificacion").val() == "Niños") {
+        clasificacion = 1;
+    }
+    if ($("#body_bloque_2_dropDownClasificacion").val() == "Adolecentes") {
+        clasificacion = 2;
+    }
+    if ($("#body_bloque_2_dropDownClasificacion").val() == "Adultos") {
+        clasificacion = 3;
+    }
+    obj.Clasificacion = clasificacion; //Se asigna el entero
     obj.Editorial = $("#body_bloque_2_txtEditorial").val();
-    obj.ISBN = $("#body_bloque_2_txtISBN").val();
+    obj.ISBN = $("#body_bloque_2_txtISBN").val().trim();
     obj.FechaPublicacion = $("#body_bloque_2_txtCalendario").val();
     obj.Presio = $("#body_bloque_2_txtPrecio").val();
     obj.Descripcion = $("#body_bloque_2_txtDescripcion").val();
@@ -90,18 +93,26 @@ function llenarInterfaz() {
     const id = $("#txtIdLibro").val();
     if (id > 0) {
         $("#tituloFRM").text("GESTION DE TITULOS - MODIFICAR");
+        $("#body_bloque_2_lblIDLib").attr("hidden", false); //Se habilita input de id para verse
+        $("#body_bloque_2_txtIDLib").attr("hidden", false); //Se habilita input de id para verse
         Bookstarzz.ws.WSLibros.getOne(id, llenarUI, function (e) {
             //$("#cntMsg").text("Error: al intentar obtener la información");
             //$("#cntMsg").parent().show();
         });
+    }
+    else {
+        $("#tituloFRM").text("GESTION DE TITULOS - AGREGAR");
     }
 }
 
 function llenarUI(resul) {
     if (resul) {
         let clasificacion;
+        let fecha;//Este es para guardar la fecha ya transformada
         //Se llena con body_bloque_2_ seguido del id por la notacion de controles ASP
         let obj = JSON.parse(resul);
+        //Se procede a transformar la fecha de milisegundos y se guarda en la variable fecha. Y esta se pasa al #body_bloque_2_txtCalendario
+        fecha = moment(obj.FechaPublicacion).format("YYYY-MM-DD");
         $("#body_bloque_2_txtIDLib").val(obj.IdLibro);
         $("#body_bloque_2_txtNombre").val(obj.Nombre);
         $("#body_bloque_2_txtAutor").val(obj.Autor);
@@ -118,7 +129,7 @@ function llenarUI(resul) {
         $("#body_bloque_2_dropDownClasificacion").val(clasificacion);
         $("#body_bloque_2_txtEditorial").val(obj.Editorial);
         $("#body_bloque_2_txtISBN").val(obj.ISBN);
-        $("#body_bloque_2_txtCalendario").val(obj.FechaPublicacion);
+        $("#body_bloque_2_txtCalendario").val(fecha);
         $("#body_bloque_2_txtPrecio").val(obj.Presio);
         $("#body_bloque_2_txtDescripcion").val(obj.Descripcion);
     } else {

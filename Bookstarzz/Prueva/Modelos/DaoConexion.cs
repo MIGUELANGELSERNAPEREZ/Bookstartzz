@@ -56,9 +56,18 @@ namespace Backend.Modelos
             {
                 sentencia.Connection = conexion;
                 if (esInsertar)
+                {
+                    string r = sentencia.Parameters.ToString();
+                    string f = r;
                     valor = int.Parse(sentencia.ExecuteScalar().ToString());
+                    int v = valor;
+                }
+
                 else
+                {
                     valor = sentencia.ExecuteNonQuery();
+                }
+                    
             }
             return valor;
         }

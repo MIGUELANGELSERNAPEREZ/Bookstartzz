@@ -1,5 +1,6 @@
 ﻿var tablaLibrosDT;
 $(document).ready(function () {
+    $("#divBloque2").removeClass("col-10"); //Remueve primero la clase para quitar el estilo de cuerpo contenido antes de dibujar la tabla; heredada de la pagina maestra Contenedor
     cargarGestionTitulos();
     //Esto comentado es sin AJAX(metodos en webservices)
     //Cargo el metodo para adecuar la tabla antes de lanzar el plugin Datatables
@@ -13,7 +14,6 @@ $(document).ready(function () {
 
     //Boton eliminar del modal
     $("#btnConfirmarEliminar").click(cofirmEliminar);
-    cargarMunicipios();
 });
 
 //Funcion para limpiar el contenedor principal donde se carga la pagina
@@ -39,6 +39,12 @@ function cargarGestionTitulos() {
 
 
 function cargarDatos(datos) {
+    //Ciclo usado para transformar los milisegundos de DateTime en una Fecha normal
+    //Metodo moment es de la libreria moment.js
+    for (let i = 0; i < datos.length; i++) {
+        datos[i]['FechaPublicacion'] = moment(datos[i]['FechaPublicacion']).format("YYYY-MM-DD");
+    }
+
     //Almacenamos la referencia a la tabla con el plugin aplicado, ya que la usaremos para los filtros
     tablaLibrosDT = $('#tblGestionTitulos').dataTable({
         //Asignamos la colección de datos en JSON que se mostrarán en la tabla
@@ -47,12 +53,12 @@ function cargarDatos(datos) {
         //pero podemos también asignar un ancho fijo de esta manera, targets representa los 
         //índices de las columnas a los que se les aplicará este tamaño
         columnDefs: [
-            { width: "15%", targets: [0] },
-            { width: "25%", targets: [1] },
-            { width: "20%", targets: [2, 3] },
-            { width: "21%", targets: [4, 5] },
-            { width: "22%", targets: [6, 7] },
-            { width: "23%", targets: [8, 9, 10] }
+            { width: "5%", targets: [0] },
+            { width: "10%", targets: [1, 2] },
+            { width: "15%", targets: [3] },
+            { width: "20%", targets: [4] },
+            { width: "5%", targets: [5, 6, 7, 8] },
+            { width: "20%", targets: [9] }
         ],
         columns: [
             //el valor colocado en title es el texto que aparecerá en la columna y el valor colocado en 
@@ -60,12 +66,10 @@ function cargarDatos(datos) {
             { title: "ID", data: "IdLibro" }, //Si quiere mostrarse el id se descomenta esta linea
             { title: "Nombre", data: "Nombre" },
             { title: "Autor", data: "Autor" },
-            { title: "Editorial", data: "Editorial" },
             { title: "ISBN", data: "ISBN" },
             { title: "Fecha de publicación", data: "FechaPublicacion" },
             { title: "Precio", data: "Presio" },
             { title: "Páginas", data: "NPaginas" },
-            { title: "Descripción", data: "Descripcion" },
             { title: "Visitas", data: "Visitas" },
             { title: "Clasificación", data: "Clasificacion" },
             { //Esta columna coloca los botones que representarán las operaciones de cada renglón
@@ -84,39 +88,39 @@ function cargarDatos(datos) {
                             '</div>';
                     }
             }
-        ],
+        ]/*,*/
         //Cuando queremos hacer alguna adecuación del aspecto de la fila, por ejemplo, colorear una celda o 
         //toda la fila de acuerdo al valor de algún atributo
         //"fnRowCallback": function (row, data, displayIndex) {
         //sentencias de revisión de datos y adecuaciones de aspecto
         //},
-        "fnInitComplete": function (oSettings, json) {
-            /*Configuración de los filtros individuales*/
-            var fila = $(this).children("thead").children("tr").clone();
-            var pie = $("<tfoot/>").append(fila).css("display", "table-header-group");
-            $(this).children("thead").after(pie);
-            $(fila).children().each(function () {
-                $(this).prop("class", null);
-            });
+        //"fnInitComplete": function (oSettings, json) {
+        //    /*Configuración de los filtros individuales*/
+        //    var fila = $(this).children("thead").children("tr").clone();
+        //    var pie = $("<tfoot/>").append(fila).css("display", "table-header-group");
+        //    $(this).children("thead").after(pie);
+        //    $(fila).children().each(function () {
+        //        $(this).prop("class", null);
+        //    });
 
-            $(fila).children("th").each(function () {
-                var title = $(this).text();
-                $(this).html('<input type="text" class="filtro form-control input-sm"' +
-                    ' style = "width:90%;" placeholder = "Buscar ' + title + '" /> ');
-            });
-            //Quitar filtro en la ultima columna (la de operaciones)
-            $(fila).children("th:last").html('');
-            //Activa el filtrado
-            var tabla = this;
-            tabla.api().columns().eq(0).each(function (colIdx) {
-                $('#tblGestionTitulos tfoot th:eq(' + colIdx + ') input').on('keyup change', function () {
-                    tabla.api().column(colIdx).search(this.value).draw();
-                });
-                $('input', tabla.api().column(colIdx).footer()).on('click', function (e) {
-                    e.stopPropagation();
-                });
-            });
-        }
+        //    $(fila).children("th").each(function () {
+        //        var title = $(this).text();
+        //        $(this).html('<input type="text" class="filtro form-control input-sm"' +
+        //            ' style = "width:90%;" placeholder = "Buscar ' + title + '" /> ');
+        //    });
+        //    //Quitar filtro en la ultima columna (la de operaciones)
+        //    $(fila).children("th:last").html('');
+        //    //Activa el filtrado
+        //    var tabla = this;
+        //    tabla.api().columns().eq(0).each(function (colIdx) {
+        //        $('#tblGestionTitulos tfoot th:eq(' + colIdx + ') input').on('keyup change', function () {
+        //            tabla.api().column(colIdx).search(this.value).draw();
+        //        });
+        //        $('input', tabla.api().column(colIdx).footer()).on('click', function (e) {
+        //            e.stopPropagation();
+        //        });
+        //    });
+        //}
     });
 }
 
