@@ -121,9 +121,12 @@
     <Content Include="bin\Debug\System.Runtime.CompilerServices.Unsafe.dll" />
     <Content Include="bin\Debug\System.Runtime.CompilerServices.Unsafe.xml" />
     <Content Include="obj\Debug\Backend.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\Backend.dll" />
+    <Content Include="obj\Debug\Backend.pdb" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="bin\Debug\Backend.dll.config" />
     <None Include="obj\Debug\Backend.csproj.CopyComplete" />
     <None Include="obj\Debug\Backend.csproj.CoreCompileInputs.cache" />
     <None Include="obj\Debug\Backend.csprojAssemblyReference.cache" />
