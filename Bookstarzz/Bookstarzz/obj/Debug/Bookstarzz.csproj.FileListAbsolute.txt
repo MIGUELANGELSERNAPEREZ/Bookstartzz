@@ -165,10 +165,7 @@ D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\vbc.exe.config
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\vbc.rsp
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\VBCSCompiler.exe
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\VBCSCompiler.exe.config
-D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\Prueva.dll
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\MySql.Data.dll
-D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\Google.Protobuf.dll
-D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\Prueva.pdb
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.csprojAssemblyReference.cache
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.csproj.CoreCompileInputs.cache
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.csproj.CopyComplete
@@ -249,3 +246,23 @@ C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\obj
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.csproj.CopyComplete
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.dll
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.pdb
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\Backend.dll
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\BouncyCastle.Crypto.dll
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\K4os.Compression.LZ4.dll
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\K4os.Compression.LZ4.Streams.dll
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\K4os.Hash.xxHash.dll
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\Renci.SshNet.dll
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\System.Buffers.dll
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\System.Memory.dll
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\System.Numerics.Vectors.dll
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\Backend.pdb
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\Backend.dll.config
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\K4os.Compression.LZ4.xml
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\K4os.Compression.LZ4.Streams.xml
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\K4os.Hash.xxHash.xml
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\Renci.SshNet.xml
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\System.Buffers.xml
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\System.Memory.xml
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\System.Numerics.Vectors.xml
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\System.Runtime.CompilerServices.Unsafe.xml

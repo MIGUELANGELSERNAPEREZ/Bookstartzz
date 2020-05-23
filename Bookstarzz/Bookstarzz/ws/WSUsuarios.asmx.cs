@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Web.Script.Serialization;
 using System.Web.Services;
 using Backend.clases;
@@ -35,76 +36,74 @@ namespace Bookstarzz.ws
         }
 
         [WebMethod(EnableSession = true)]
-        public string insert(Usuario obj)
+        public int insert(string info)
         {
-            if (obj.Nombre != "" && obj.Nombre.Length <= 30)
+            JavaScriptSerializer jss = new JavaScriptSerializer();
+            Usuario obj = jss.Deserialize<Usuario>(info);
+
+            if (valido(obj))
             {
-                if (obj.ApellidoP != "" && obj.ApellidoP.Length <= 30)
+                Usuario usu = new DaoUsuario().userExist(obj);
+                if (usu == null)
                 {
-                    if (obj.ApellidoM != "" && obj.ApellidoM.Length <= 30)
-                    {
-                        if (obj.Password != "" && obj.Password.Length == 8)
-                        {
-
-                            if (obj.Email != "" && obj.Email.Length <= 40)
-                            {
-                                if (obj.UsuarioN != "" && obj.UsuarioN.Length <= 20)
-                                {
-                                    if (obj.Telefono != "" && obj.Telefono.Length == 10)
-                                    {
-                                        Usuario usu  = new DaoUsuario().userExist(obj);
-                                        if (usu == null)
-                                        {
-                                            int val = new DaoUsuario().insertUser(obj);
-                                            if (val > 1)
-                                            {
-                                                return "agregado";
-                                            }
-                                        }
-                                        else
-                                        {
-                                            return "existente";
-                                        }                                        
-                                       
-                                    }
-                                    else
-                                    {
-                                        return "objetoNoValido";
-                                    }
-
-
-                                }
-                                else
-                                {
-                                    return "objetoNoValido";
-                                }
-                            }
-                            else
-                            {
-                                return "objetoNoValido";
-                            }
-
-                        }
-                        else
-                        {
-                            return "objetoNoValido";
-                        }
-                    }
-                    else
-                    {
-                        return "objetoNoValido"; ;
-                    }
+                      
+                   return new DaoUsuario().insertUser(obj); ;
+                    
                 }
                 else
                 {
-                    return "objetoNoValido";
+                    throw new Exception("El usuario ya existe");
                 }
             }
-            else
+
+            throw new SecurityException("Acceso restringido");
+        }
+
+
+        public bool valido(Usuario obj)
+        {
+            
+            if (obj.Telefono == "" && obj.Telefono.Length != 10)
             {
-                return "objetoNoValido";
+
+                throw new Exception("Los datos proporcionados no son válidos, verifica la información");
             }
-            return "objetoNoValido";
+
+            if (obj.UsuarioN == "" && obj.UsuarioN.Length > 20)
+            {
+
+                throw new Exception("Los datos proporcionados no son válidos, verifica la información");
+            }
+
+            if (obj.Email == "" && obj.Email.Length > 40)
+            {
+                throw new Exception("Los datos proporcionados no son válidos, verifica la información");
+            }
+
+            if (obj.Password == "" && obj.Password.Length != 8)
+            {
+                throw new Exception("Los datos proporcionados no son válidos, verifica la información");
+
+            }
+
+            if (obj.ApellidoM == "" && obj.ApellidoM.Length > 30)
+            {
+                throw new Exception("Los datos proporcionados no son válidos, verifica la información");
+            }
+
+            if (obj.ApellidoP == "" && obj.ApellidoP.Length > 30)
+            {
+                throw new Exception("Los datos proporcionados no son válidos, verifica la información");
+            }
+            
+
+            if (obj.Nombre == "" && obj.Nombre.Length > 30)
+            {
+                throw new Exception("Los datos proporcionados no son válidos, verifica la información");
+            }
+              
+
+            return true;
         }
     }
 }
