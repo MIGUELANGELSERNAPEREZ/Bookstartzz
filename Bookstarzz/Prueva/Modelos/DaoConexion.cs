@@ -58,7 +58,6 @@ namespace Backend.Modelos
                 if (esInsertar)
                 {
                     valor = int.Parse(sentencia.ExecuteScalar().ToString());
-                    int v = valor;
                 }
 
                 else

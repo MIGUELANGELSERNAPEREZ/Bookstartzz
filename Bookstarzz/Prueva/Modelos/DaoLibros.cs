@@ -166,7 +166,7 @@ namespace Backend.Modelos
                 int valor = 0;
                 MySqlCommand consulta = new MySqlCommand();
                 consulta.CommandText = "INSERT INTO Libros(nombre, autor, editorial, isbn, fechaPublicacion, precio, numeroPaginas, descripcion, clasificacion) " +
-                                       "VALUES(@nombre, @autor, @editorial, @isbn, @fechaPublicacion, @precio, @numeroPaginas, @descripcion, @clasificacion);";
+                                       "VALUES(@nombre, @autor, @editorial, @isbn, @fechaPublicacion, @precio, @numeroPaginas, @descripcion, @clasificacion); SELECT LAST_INSERT_ID();";
                 consulta.Parameters.AddWithValue("@nombre", obj.Nombre);
                 consulta.Parameters.AddWithValue("@autor", obj.Autor);
                 consulta.Parameters.AddWithValue("@editorial", obj.Editorial);
@@ -177,6 +177,7 @@ namespace Backend.Modelos
                 consulta.Parameters.AddWithValue("@numeroPaginas", obj.NPaginas);
                 consulta.Parameters.AddWithValue("@descripcion", obj.Descripcion);
                 consulta.Parameters.AddWithValue("@clasificacion", obj.Clasificacion);
+
 
                 valor = DaoConexion.ejecutarSentencia(consulta, true);
 
