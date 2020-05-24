@@ -69,9 +69,9 @@
         <!--fin de la fila-->
 
       </div> <!--fin del container-->
-        <div class="row">
+        
+    <div class="row">
             <!--Inicio de la fila-->
-
     <div class="container-fluid pl-0 pt-3">
         <br />
         <br />
@@ -81,43 +81,17 @@
         <br />
         <br />
         <!--LIBROS NUEVOS SE MUESTRAN EN ESTA PARTE -->
-        <div class="row uno" border="2"> </div> <!--fin de la fila-->
+        <div class="row uno"> </div> <!--fin de la fila-->
         <div class="row dos"> </div> <!--fin de la fila-->
         <div class="row tres"> </div> <!--fin de la fila-->
         <br />
         <a href="#" type="button" class="btn btn-primary btn-lg btn-block"> Ver Mas</a>
-    </div>
 
+        </div>
+        <!--fin de la fila-->
+
+    </div>
     
-
-            </div>
-            <div class="col-3">
-                <img src="libros/It.jpg" alt="Error" />
-
-            </div>
-
-        </div>
-        <!--fin de la fila-->
-        <div class="row">
-            <!--Inicio de la fila-->
-
-            <div class="col-3">
-                <img src="libros/It.jpg" alt="Error" />
-
-            </div>
-            <div class="col-3">
-                <img src="libros/It.jpg" alt="Error" />
-
-            </div>
-            <div class="col-3">
-                <img src="libros/It.jpg" alt="Error" />
-
-            </div>
-
-        </div>
-        <!--fin de la fila-->
-
-    </div>
     <!--fin del container-->
 </asp:Content>
 

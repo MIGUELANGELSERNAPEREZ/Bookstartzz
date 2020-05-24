@@ -18,16 +18,23 @@
 
  <!-- Small modal Existente-->
 
-<div class="modal fade bd-example-modal-sm" id="mdlExiste"  tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-sm" id="mdlModificar"  tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
-        <h2>EL usuario ya existe!!</h2>
+        <h2>Actualizacion correcta!!</h2>
     </div>
   </div>
 </div>
 
    <center>
     <h1>Registrate</h1>
+
+   <div class="alert alert-danger hide" role="alert">
+      <strong>Error:</strong> <span id="cntMsg">Ha ocurrido un error al intentar cargar la información</span>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     
   <form  runat="server" id="FormMenu">
 
@@ -46,53 +53,53 @@
 
       <div class="form-group">
         <asp:label text="Nombre" runat="server" class="labels"/> <br />
-        <input type="text" class="form-control" name="txtNombre" value="" runat="server" id="txtNombre"
+        <input type="text" class="form-control" name="txtNombre" id="txtNombre"
             required="" maxlength="30" placeholder="Escribe tu nombre"/>
     </div>
     <br />
 
     <div class="form-group">
         <asp:label text="Apellido Paterno" class="labels" runat="server"/> <br />
-        <input type="text" class="form-control" name="txtApellidoP" value="" runat="server" id="txtApellidoP"
+        <input type="text" class="form-control" name="txtApellidoP" id="txtApellidoP"
             required maxlength="30" placeholder="Escribe tu apellido paterno"/>
     </div>
     <br />
 
     <div class="form-group">
         <asp:label text="Apellido Materno" class="labels" runat="server"/> <br />
-        <input type="text" class="form-control" name="txtApellidoM" value="" runat="server" id="TxtApellidoM"
+        <input type="text" class="form-control" name="txtApellidoM" id="txtApellidoM"
             required maxlength="30" placeholder="Escribe tu apellido Materno"/>
     </div>
         <br />
     <div class="form-group">
         <asp:label text="Email" class="labels" runat="server"/> <br />
-        <input type="email" class="form-control" name="txtEmail" value="" runat="server" id="txtEmail"
+        <input type="email" class="form-control" name="txtEmail" id="txtEmail"
             placeholder="name@example.com" required maxlength="40"/>
     
      </div>   
         <br />
       <div class="form-group">
         <asp:label text="Contraseña" class="labels" runat="server"/> <br />
-        <input type="password" class="form-control" name="txtPass" value="" runat="server" id="TxtPass" required
+        <input type="password" class="form-control" name="txtPass" id="txtPass" required
             maxlength="8"/>
     </div>
        <br />
       <div class="form-group">
         <asp:label text="Confirmar" class="labels" runat="server"/> <br />
-        <input type="password" class="form-control" name="txtConfirmar" value="" runat="server" id="txtConfirmar" required
+        <input type="password" class="form-control" name="txtConfirmar" id="txtConfirmar" required
             maxlength="8"/>
        </div>
       <br />
       <div class="form-group">
         <asp:label text="Usuario" class="labels" runat="server"/> <br />
-        <input type="text" class="form-control" name="txtUsuario" value="" runat="server" id="txtUsuario" required
+        <input type="text" class="form-control" name="txtUsuario" id="txtUsuario" required
             maxlength="20" placeholder="ejeplo usu123"/>
     </div>
     <br />
 
       <div class="form-group">
         <asp:label text="Telefono" class="labels" runat="server"/> <br />
-        <input type="tel" name="txtTelefono" class="form-control" value="" runat="server" id="txtTel" required
+        <input type="tel" name="txtTelefono" class="form-control" id="txtTel" required
             maxlength="10" minlength="10" placeholder="4451001856S"/>
       </div>
           <br />    
@@ -109,5 +116,6 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="Scripts" runat="server">
+    <script src="validaciones/bootstrapValidator.js"></script>
     <script src="FrmRegistrarUser.js"></script>
 </asp:Content>

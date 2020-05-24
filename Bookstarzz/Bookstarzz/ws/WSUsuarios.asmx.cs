@@ -36,7 +36,7 @@ namespace Bookstarzz.ws
         }
 
         [WebMethod(EnableSession = true)]
-        public int insert(string info)
+        public string insert(string info)
         {
             JavaScriptSerializer jss = new JavaScriptSerializer();
             Usuario obj = jss.Deserialize<Usuario>(info);
@@ -46,13 +46,13 @@ namespace Bookstarzz.ws
                 Usuario usu = new DaoUsuario().userExist(obj);
                 if (usu == null)
                 {
-                      
-                   return new DaoUsuario().insertUser(obj); ;
+                      int val = new DaoUsuario().insertUser(obj);
+                    return "" + val;
                     
                 }
                 else
                 {
-                    throw new Exception("El usuario ya existe");
+                    return jss.Serialize(usu);
                 }
             }
 

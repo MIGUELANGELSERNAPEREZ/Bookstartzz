@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="css/estilo.css" rel="stylesheet" /> <%--Hoja de estilos aplicable a todas las paginas--%>
     <asp:ContentPlaceHolder ID="head" runat="server">
+    
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -57,6 +58,7 @@
     <!-- EN ESTA PARTE VA TODO EL CONTENIDO DE LA PAGINA, CARGADO DESDE EL CONTENEDOR.MASTER-->
     <div> 
         <asp:ContentPlaceHolder ID="contenidoFRMs" runat="server">
+        
         </asp:ContentPlaceHolder>
     </div>
 

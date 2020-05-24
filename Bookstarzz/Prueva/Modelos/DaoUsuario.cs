@@ -116,8 +116,8 @@ namespace Backend.Modelos
 
             MySqlCommand consulta = new MySqlCommand();
             consulta.CommandText = "INSERT INTO users(Nombre,ApellidoP,ApellidoM," +
-                "Email,Contrasena,tipo,usuario,telefono,tarjeta)VALUES(@nombre,@apellidoP,@apellidoM," +
-                "@email,sha1(@pass),1,@usuario,@telefono,@targeta);";
+                "Email,Contrasena,tipo,usuario,telefono)VALUES(@nombre,@apellidoP,@apellidoM," +
+                "@email,sha1(@pass),1,@usuario,@telefono);";
 
             consulta.Parameters.AddWithValue("@nombre",obj.Nombre);
             consulta.Parameters.AddWithValue("@apellidoP", obj.ApellidoP);
@@ -126,7 +126,6 @@ namespace Backend.Modelos
             consulta.Parameters.AddWithValue("@pass", obj.Password);
             consulta.Parameters.AddWithValue("@usuario", obj.UsuarioN);
             consulta.Parameters.AddWithValue("@telefono", obj.Telefono);
-            consulta.Parameters.AddWithValue("@targeta", obj.Targeta);
             
                 valor = DaoConexion.ejecutarSentencia(consulta,false);
 
