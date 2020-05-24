@@ -287,7 +287,7 @@
     <Content Include="obj\Debug\Bookstarzz.pdb" />
     <Content Include="popper\popper.min.js" />
     <Content Include="validaciones\bootstrapValidator.js_.txt" />
-    <Content Include="validaciones\bootstrapValidator.min_.css" />
+    <Content Include="validaciones\bootstrapValidator.min.css" />
     <Content Include="Web.config" />
     <Content Include="ws\WSCategorias.asmx" />
     <Content Include="ws\WSLibros.asmx" />
