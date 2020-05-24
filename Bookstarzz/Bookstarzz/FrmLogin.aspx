@@ -10,9 +10,9 @@
     </div>
     <div class="container px-3 py-3 mb-2">
     <form id="form1" runat="server" novalidate>
-        <div id="divMensaje" class="alert alert-danger" runat="server">
+<%--        <div id="divMensaje" class="alert alert-danger" runat="server">
             Ha ocurrido un error
-        </div>
+        </div>--%>
 
         <div id="divMsg" class="alert alert-danger" style="display:none;">
             Ha ocurrido un error
@@ -50,12 +50,11 @@
     
     <script>
         window.addEventListener('load', function () {
-            var btn = document.getElementById("btnIniciarSesion");
+            var btn = document.getElementById("body_btnIniciarSesion");
             btn.addEventListener('click', function (evento) {
-                
                 //Obtener los controles a validar
-                var txtEmail = document.getElementById("txtEmail");
-                var txtPass = document.getElementById("txtPassword");
+                var txtEmail = document.getElementById("body_txtEmail");
+                var txtPass = document.getElementById("body_txtPassword");
                 try {
                     //Limpiar los estilos de validación
                     txtEmail.classList.remove('is-valid', 'is-invalid');
@@ -64,9 +63,10 @@
                     //Obtener los valores ingresados en los controles
                     var email = txtEmail.value.trim();
                     var pass = txtPass.value.trim();
-
+                  
                     //Verificar si se ha ingresado datos en ellos
                     if (email == "" || pass == "") {
+                        alert("algo ocurrio");
                         if (email == "") {
                             txtEmail.classList.add('is-invalid');
                         } else {

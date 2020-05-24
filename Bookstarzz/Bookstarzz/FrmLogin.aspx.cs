@@ -13,7 +13,7 @@ namespace Bookstarzz
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            divMensaje.Visible = false;
+            //divMensaje.Visible = false;
         }
 
         protected void btnIniciarSesion_Click(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace Bookstarzz
                     if (IdUser.Tipo == 1)
                     {
                         Session["session"] = "usu";
-                        Response.Redirect("FrmMenu.aspx");
+                        Response.Redirect("FrmBookstarzz.aspx");
                         
                     }
                     else
