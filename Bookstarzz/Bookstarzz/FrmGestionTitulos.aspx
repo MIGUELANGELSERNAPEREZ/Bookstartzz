@@ -62,7 +62,8 @@
             <button id="btnAgregar" type="button" class="btn btn-primary">Agregar</button>
         </div>
         <%--Tabla que sera llenada con el script FrmGestionTitulos, usando el WebService--%>
-        <table id="tblGestionTitulos" class="table table-striped table-bordered"></table>
+         <table id="tblGestionTitulos" class="table table-striped table-bordered"></table>
+        
     </form>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Script" runat="server">

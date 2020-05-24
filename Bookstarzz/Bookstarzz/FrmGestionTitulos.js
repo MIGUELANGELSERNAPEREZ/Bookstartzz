@@ -51,6 +51,29 @@ function cargarDatos(datos) {
 
     //Almacenamos la referencia a la tabla con el plugin aplicado, ya que la usaremos para los filtros
     tablaLibrosDT = $('#tblGestionTitulos').dataTable({
+
+        //Cambiamos el lenguaje del DataTable
+        language: {
+            "decimal": "",
+            "emptyTable": "No hay información",
+            "info": "Mostrando _START_ a _END_ de _TOTAL_ libros",
+            "infoEmpty": "Mostrando 0 a 0 de 0 libros",
+            "infoFiltered": "(Filtrado de _MAX_ total libros)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar _MENU_ libros",
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "search": "Buscar:",
+            "zeroRecords": "Sin resultados encontrados",
+            "paginate": {
+                "first": "Primero",
+                "last": "Ultimo",
+                "next": "Siguiente",
+                "previous": "Anterior"
+            }
+        },
+
         //Asignamos la colección de datos en JSON que se mostrarán en la tabla
         data: datos,
         //La tabla ajusta cada columna de acuerdo a los datos contenidos en ellas

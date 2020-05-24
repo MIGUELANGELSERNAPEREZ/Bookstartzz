@@ -23,7 +23,7 @@
                     <!-- Fin del sidebar -->
                 </div>
                 <!-- finaliza el col-2-->
-                <div id="divBloque2", class="col-10">
+                <div id="divBloque2", class="col-10 container-fluid">
                     <!-- En este container va todo lo de la página -->
                     <asp:ContentPlaceHolder ID="body_bloque_2" runat="server">
                     </asp:ContentPlaceHolder>
