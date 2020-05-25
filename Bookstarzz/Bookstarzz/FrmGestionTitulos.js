@@ -1,6 +1,11 @@
 ﻿var tablaLibrosDT;
 $(document).ready(function () {
-    $("#divBloque2").removeClass("col-10"); //Remueve primero la clase para quitar el estilo de cuerpo contenido antes de dibujar la tabla; heredada de la pagina maestra Contenedor
+    //Reiniciamos los estilos para este Frm en especifico
+    $("#divBloque2").removeClass("col-10"); 
+    $("#divBloque1").removeClass("col-2 pr-0");
+    $("#divBloque2").addClass("container-fluid");
+    $("#divBloque1").addClass("col");
+
     cargarGestionTitulos();
     //Esto comentado es sin AJAX(metodos en webservices)
     //Cargo el metodo para adecuar la tabla antes de lanzar el plugin Datatables

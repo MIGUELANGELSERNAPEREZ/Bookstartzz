@@ -1,5 +1,10 @@
 ﻿$(document).ready(function () {
-    $("#divBloque1").removeClass("col"); //Removemos el estilo de la columna de categorias
+    //Reiniciamos los estilos para este Frm en especifico
+    $("#divBloque2").removeClass("col-10");
+    $("#divBloque1").removeClass("col-2 pr-0");
+    $("#divBloque2").addClass("container-fluid");
+    $("#divBloque1").addClass("col");
+
     dateP();//Inicializa el datepicker
     llenarInterfaz();
     mensaje(); //Se llama el metetodo de mensajes
