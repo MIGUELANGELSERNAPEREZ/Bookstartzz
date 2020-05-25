@@ -1,50 +1,90 @@
 ﻿$(document).ready(function () {
+    $("#divBloque1").removeClass("col"); //Removemos el estilo de la columna de categorias
     dateP();//Inicializa el datepicker
     llenarInterfaz();
+    mensaje(); //Se llama el metetodo de mensajes
     $("#btnCancelar").click(function () {
         limpiar();
         $("#contenidoVista").load("FrmGestionTitulos.aspx");
     });
     $("#btnAceptar").click(function () {
-        if (true) {
+        $("#formGestionTCRUD").data("bootstrapValidator").validate(); //Validar por defecto de Bootstrap
+        if ($("#formGestionTCRUD").data("bootstrapValidator").isValid()) {
             if (parseInt($("#txtIdLibro").val()) > 0) {//La function(resul) trae true o false y solo funciona con boton de tipo submit
                 Bookstarzz.ws.WSLibros.updateLibro(llenarModelo(), function (result) {
-                    alert("HOLA " + result);
-                    
                     if (result == true) {
                         limpiar();
                         $("#contenidoVista").load("FrmGestionTitulos.aspx");
                     } else {
-                        //$("#cntMsg").text("Error: no se ha podido realizar la operación");
-                        //$("#cntMsg").parent().show();
+                        //Mensaje de error lado servidor
+                        window.scrollTo(0, 0);
+                        $("#txtInpMensaje").val("3");
+                        mensaje();
                     }
                 },
                     function (error) {
-                        //$("#cntMsg").text("Error: no se ha podido realizar la operación");
-                        //$("#cntMsg").parent().show();
+                        //Mensaje de error lado servidor
+                        window.scrollTo(0, 0);
+                        $("#txtInpMensaje").val("3");
+                        mensaje();
                     }
                 );
             } else {
                 Bookstarzz.ws.WSLibros.insertLibro(llenarModelo(), function (result) {
-                    alert("HOLA " + result);
                     if (parseInt(result) > 0) {
-                        
                         limpiar();
-                        $("#contenidoVista").load("FrmGestionTitulos.aspx");
+                        $("#contenidoVista").load("FrmGestionTitulosCRUD.aspx", { "txtInpMensaje": "1" });
                     } else {
-                        //$("#cntMsg").text("Error: no se ha podido realizar la operación");
-                        //$("#cntMsg").parent().show();
+                        //Mensaje de error lado servidor
+                        window.scrollTo(0, 0);
+                        $("#txtInpMensaje").val("3");
+                        mensaje();
                     }
                 },
                     function (error) {
-                        //$("#cntMsg").text("Error: no se ha podido realizar la operación");
-                        //$("#cntMsg").parent().show();
+                        //Mensaje de error lado servidor
+                        window.scrollTo(0, 0);
+                        $("#txtInpMensaje").val("3");
+                        mensaje();
                     }
                 );
             }
         }
+        else {
+            //En caso de que el Boostrap validator detecte datos erroneos en formulario, manda mensaje de error
+            window.scrollTo(0, 0);
+            $("#txtInpMensaje").val("2");
+            mensaje();
+        }
     });
+    validacionBootsVal(); //Activamos el plugin de Bootstrap validator
 });
+
+//Metodo utilizado para validar en caso de una insercion y enviar un mensaje
+function mensaje() {
+    //Codigos de mensaje: 0: no hay nada; 1 se inserto; 2 error lado cliente; 3 error lado servidor
+    const id = $("#txtInpMensaje").val();
+    if (id == 1) {
+        $("#cntMsg").text("El libro se agregó con éxito"); //Se agrega el texto
+        $("#divMsg").addClass("alert-success"); //Se agrega la clase de success al div
+        $("#divMsg").css("display", "block"); //Se habilita el div para mostrarse
+        setTimeout(function () {
+            $("#divMsg").css("display", "none").fadeOut(); //Se asigna un tiempo de 3 segundos para cerrar automaticamente el div
+        }, 3000);
+    }
+    if (id == 2) {
+        $("#tipoMsg").text("Error: "); //Se agrega el texto
+        $("#cntMsg").text("Verifica que la informacion introducida sea correcta y vuelve a intentarlo"); //Se agrega el texto
+        $("#divMsg").addClass("alert-danger"); //Se agrega la clase de success al div
+        $("#divMsg").css("display", "block"); //Se habilita el div para mostrarse
+    }
+    if (id == 3) {
+        $("#tipoMsg").text("Error: "); //Se agrega el texto
+        $("#cntMsg").text("Ha ocurrido un problema interno al intentar obtener la informacion"); //Se agrega el texto
+        $("#divMsg").addClass("alert-danger"); //Se agrega la clase de success al div
+        $("#divMsg").css("display", "block"); //Se habilita el div para mostrarse
+    }
+}
 
 //Funcion para limpiar el contenedor principal donde se carga la pagina
 function limpiar() {
@@ -98,8 +138,10 @@ function llenarInterfaz() {
         $("#body_bloque_2_lblIDLib").attr("hidden", false); //Se habilita input de id para verse
         $("#body_bloque_2_txtIDLib").attr("hidden", false); //Se habilita input de id para verse
         Bookstarzz.ws.WSLibros.getOne(id, llenarUI, function (e) {
-            //$("#cntMsg").text("Error: al intentar obtener la información");
-            //$("#cntMsg").parent().show();
+            //Mensaje de error lado servidor
+            window.scrollTo(0, 0);
+            $("#txtInpMensaje").val("3");
+            mensaje();
         });
     }
     else {
@@ -139,23 +181,145 @@ function llenarUI(resul) {
     }
 }
 
-//function valido() {
-//    let noval = 0;
-//    $("#txtNombre").removeClass("is-valid", "is-invalid");
-//    $("#txtAutor").removeClass("is-valid", "is-invalid");
-//    $("#txtNumPaginas").removeClass("is-valid", "is-invalid");
-//    $("#dropDownClasificacion").removeClass("is-valid", "is-invalid");
-//    $("#txtEditorial").removeClass("is-valid", "is-invalid");
-//    $("#txtISBN").removeClass("is-valid", "is-invalid");
-//    $("#txtCalendario").removeClass("is-valid", "is-invalid");
-//    $("#txtPrecio").removeClass("is-valid", "is-invalid");
-//    $("#txtDescripcion").removeClass("is-valid", "is-invalid");
-//    if ($("#txtNombre").val().trim().length >= 1 &&
-//        $("#txtNombre").val().trim().length <= 50) {
-//        $("#txtNombre").addClass("is-valid");
-//    } else {
-//        $("#txtNombre").addClass("is-invalid");
-//        noval++;
-//    }
-//    return noval == 0 ? true : false;
-//}
+
+function validacionBootsVal() {
+    $("#formGestionTCRUD").bootstrapValidator({
+        feedbackIcons: {
+            valid: "glyphicon glyphicon-ok",
+            invalid: "glyphicon glyphicon-remove",
+            validating: "glyphicon glyphicon-refresh"
+        },
+        fields: {
+            ctl00$body_bloque_2$txtNombre: {
+                message: "El elemento no es valido",
+                validators: {
+                    notEmpty: {
+                        message: "El elemento es requerido y no puede quedar vacio"
+                    },
+                    stringLength: {
+                        min: 5,
+                        max: 50,
+                        message: "El elemento debe tener entre 5 y 50 caracteres"
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9\s]+$/,
+                        message: "El elemento debe contener caracteres alfanumericos"
+                    }
+                }
+            },
+            ctl00$body_bloque_2$txtAutor: {
+                message: "El elemento no es valido",
+                validators: {
+                    notEmpty: {
+                        message: "El elemento es requerido y no puede quedar vacio"
+                    },
+                    stringLength: {
+                        min: 5,
+                        max: 50,
+                        message: "El elemento debe tener entre 5 y 50 caracteres"
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9\s]+$/,
+                        message: "El elemento debe contener caracteres alfanumericos"
+                    }
+                }
+            },
+            ctl00$body_bloque_2$txtNumPaginas: {
+                message: "El elemento no es valido",
+                validators: {
+                    notEmpty: {
+                        message: "El elemento es requerido y no puede quedar vacio"
+                    },
+                    stringLength: {
+                        min: 1,
+                        max: 11,
+                        message: "El elemento debe tener entre 1 y 11 caracteres"
+                    },
+                    regexp: {
+                        regexp: /^[0-9]+$/,
+                        message: "El elemento debe contener solo caracteres numericos"
+                    }
+                }
+            },
+            ctl00$body_bloque_2$txtEditorial: {
+                message: "El elemento no es valido",
+                validators: {
+                    notEmpty: {
+                        message: "El elemento es requerido y no puede quedar vacio"
+                    },
+                    stringLength: {
+                        min: 5,
+                        max: 30,
+                        message: "El elemento debe tener entre 5 y 30 caracteres"
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9\s]+$/,
+                        message: "El elemento debe contener caracteres alfanumericos"
+                    }
+                }
+            },
+            ctl00$body_bloque_2$txtISBN: {
+                message: "El elemento no es valido",
+                validators: {
+                    notEmpty: {
+                        message: "El elemento es requerido y no puede quedar vacio"
+                    },
+                    stringLength: {
+                        min: 5,
+                        max: 30,
+                        message: "El elemento debe tener entre 5 y 30 caracteres"
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9]+$/,
+                        message: "El elemento debe contener caracteres alfanumericos. No se admiten espacios"
+                    }
+                }
+            },
+            ctl00$body_bloque_2$txtCalendario: {
+                validators: {
+                    notEmpty: {
+                        message: "El elemento es requerido y no puede quedar vacio"
+                    },
+                    date: {
+                        format: "YYYY-MM-DD",
+                        message: "Fecha no válida"
+                    }
+                }
+            },
+            ctl00$body_bloque_2$txtPrecio: {
+                message: "El elemento no es valido",
+                validators: {
+                    notEmpty: {
+                        message: "El elemento es requerido y no puede quedar vacio"
+                    },
+                    stringLength: {
+                        min: 1,
+                        max: 10,
+                        message: "El elemento debe tener entre 1 y 10 caracteres"
+                    },
+                    regexp: {
+                        regexp: /^[0-9]+([.][0-9]+)?$/,
+                        message: "El elemento debe contener solo punto y caracteres numericos"
+                    }
+                }
+            },
+            ctl00$body_bloque_2$txtDescripcion: {
+                message: "El elemento no es valido",
+                validators: {
+                    notEmpty: {
+                        message: "El elemento es requerido y no puede quedar vacio"
+                    },
+                    stringLength: {
+                        min: 5,
+                        max: 300,
+                        message: "El elemento debe tener entre 5 y 300 caracteres"
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9\s]+$/,
+                        message: "El elemento debe contener caracteres alfanumericos"
+                    }
+                }
+            }
+        }
+    });
+}

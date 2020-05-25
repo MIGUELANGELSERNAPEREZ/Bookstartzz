@@ -163,8 +163,10 @@
     <Content Include="css\bootstrap-reboot.min.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\bootstrapValidator.css" />
     <Content Include="css\datatables.css" />
     <Content Include="css\estilo.css" />
+    <Content Include="css\font-awesome.css" />
     <Content Include="css\main.css" />
     <Content Include="FrmBookstarzz.aspx" />
     <Content Include="FrmBookstarzz.js" />
@@ -266,6 +268,7 @@
     <Content Include="js\bootstrap.bundle.min.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\bootstrapValidator.js" />
     <Content Include="js\datatables.js" />
     <Content Include="js\jquery-3.4.1.js" />
     <Content Include="js\moment-with-locales.js" />
@@ -287,6 +290,7 @@
     <Content Include="obj\Debug\Bookstarzz.dll" />
     <Content Include="obj\Debug\Bookstarzz.pdb" />
     <Content Include="popper\popper.min.js" />
+    <Content Include="validaciones\bootstrapValidator.js" />
     <Content Include="validaciones\bootstrapValidator.js_.txt" />
     <Content Include="validaciones\bootstrapValidator.min.css" />
     <Content Include="Web.config" />

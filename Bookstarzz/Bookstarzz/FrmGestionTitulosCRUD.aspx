@@ -3,10 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/bootstrapValidator.css">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_bloque_1" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="body_bloque_2" runat="server">
+    <div id="divMsg" class="alert" style="display:none;" role="alert">
+      <strong id="tipoMsg"></strong> <span id="cntMsg"></span>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <form id="formGestionTCRUD" runat="server">
         <div class="container p-3 mb-2"> 
         <asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -15,27 +23,29 @@
             </Services>
         </asp:ScriptManager>
         <center>
-                    <!--Este input recibe un valor en caso de que la accion sea Modificar -->
+        <!--Este input recibe un valor en caso de que la accion sea Modificar -->
         <input type="hidden" id="txtIdLibro" value="<%= Request["inpIdLibro"] != null ? Request["inpIdLibro"] : "0" %>" />
+        <%--Este input recibe un valor en caso de que haya una recarga de la pagina por el metodo de insercion--%>
+        <input type="hidden" id="txtInpMensaje" value="<%= Request["txtInpMensaje"] != null ? Request["txtInpMensaje"] : "0" %>" />
         <div>
             <center>
                 <h1 id="tituloFRM"></h1>
             </center>
             <div>
-                <div class="form-group">
-                    <div>
+                <div>
+                    <div class="form-group">
                         <asp:Label ID="lblIDLib" runat="server" Text="ID" hidden="true"></asp:Label>
                         <asp:TextBox class="form-control" ID="txtIDLib" autocomplete="off" hidden="true" readOnly="true" runat="server"></asp:TextBox><br />
                     </div>
-                    <div>
+                    <div class="form-group">
                         <asp:Label ID="lblNombre" runat="server" Text="Nombre"></asp:Label>
                         <asp:TextBox class="form-control" ID="txtNombre" autocomplete="off" runat="server"></asp:TextBox><br />
                     </div>
-                    <div>
+                    <div class="form-group">
                         <asp:Label ID="lblAutor" runat="server" Text="Autor"></asp:Label>
                         <asp:TextBox class="form-control" ID="txtAutor" autocomplete="off" runat="server"></asp:TextBox><br />
                     </div>
-                    <div>
+                    <div class="form-group">
                         <asp:Label ID="lblNumPaginas" runat="server" Text="Numero de paginas"></asp:Label>
                         <asp:TextBox class="form-control" ID="txtNumPaginas" autocomplete="off" placeholder="0" runat="server"></asp:TextBox><br />
                     </div>
@@ -48,23 +58,23 @@
                         </asp:DropDownList>
 
                     </div>
-                    <div>
+                    <div class="form-group">
                         <asp:Label ID="lblEditorial" runat="server" Text="Editorial"></asp:Label>
                         <asp:TextBox class="form-control" ID="txtEditorial" autocomplete="off" runat="server"></asp:TextBox><br />
                     </div>
-                    <div>
+                    <div class="form-group">
                         <asp:Label ID="lblISBN" runat="server" Text="ISBN"></asp:Label>
                         <asp:TextBox class="form-control" ID="txtISBN" autocomplete="off" runat="server"></asp:TextBox><br />
                     </div>
-                    <div>
+                    <div class="form-group">
                         <asp:Label ID="lblCalendarFechaPub" runat="server" Text="Fecha de publicacion"></asp:Label>
                         <asp:TextBox class="form-control" ID="txtCalendario" autocomplete="off" placeholder="yyyy-mm-dd" runat="server"></asp:TextBox>
                     </div>
-                    <div>
+                    <div class="form-group">
                         <asp:Label ID="lblPrecio" runat="server" Text="Precio"></asp:Label>
                         <asp:TextBox class="form-control" ID="txtPrecio" autocomplete="off" placeholder="$0.00" runat="server"></asp:TextBox><br />
                     </div>
-                    <div>
+                    <div class="form-group">
                         <asp:Label ID="lblDescripcion" runat="server" Text="Descripcion"></asp:Label>
                         <asp:TextBox class="form-control" ID="txtDescripcion" TextMode="MultiLine" Rows="10" autocomplete="off" resize="none" runat="server"></asp:TextBox><br />
                     </div>
@@ -87,5 +97,6 @@
     <%--Librerias para transformar datos de objetos DateTime--%>
     <script src="js/moment.js"></script>
     <script src="js/moment-with-locales.js"></script>
+    <script src="js/bootstrapValidator.js"></script>
     <script src="FrmGestionTitulosCRUD.js"></script>
 </asp:Content>

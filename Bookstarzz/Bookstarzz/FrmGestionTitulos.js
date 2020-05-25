@@ -37,17 +37,28 @@ function cargarGestionTitulos() {
     );
 }
 
-function normalizarFecha(datos) {
+//Funcion usada para normalizar ciertos tipos de datos al momento de ser presentados en la taba
+function normalizar(datos) {
     //Ciclo usado para transformar los milisegundos de DateTime en una Fecha normal
     //Metodo moment es de la libreria moment.js
     for (let i = 0; i < datos.length; i++) {
         datos[i]['FechaPublicacion'] = moment(datos[i]['FechaPublicacion']).format("YYYY-MM-DD");
+        //Ifs usados para transformar el numero de la clasificacion
+        if (datos[i]['Clasificacion'] == 1) {
+            datos[i]['Clasificacion'] = "Niños";
+        }
+        if (datos[i]['Clasificacion'] == 2) {
+            datos[i]['Clasificacion'] = "Adolescentes";
+        }
+        if (datos[i]['Clasificacion'] == 3) {
+            datos[i]['Clasificacion'] = "Adultos";
+        }
     }
     return datos;
 }
 
 function cargarDatos(datos) {
-    normalizarFecha(datos);
+    normalizar(datos);
 
     //Almacenamos la referencia a la tabla con el plugin aplicado, ya que la usaremos para los filtros
     tablaLibrosDT = $('#tblGestionTitulos').dataTable({
@@ -199,7 +210,7 @@ function recargarDatos() {
         if (result) {
             let objJSON = JSON.parse(result);
             
-            tablaLibrosDT.fnAddData(normalizarFecha(objJSON));
+            tablaLibrosDT.fnAddData(normalizar(objJSON));
         } else {
             window.location.replace("FrmLogin.aspx");
         }
