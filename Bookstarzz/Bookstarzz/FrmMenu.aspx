@@ -32,12 +32,11 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="body_bloque_2" runat="server">
 
-    <!--<div style="height:100px"></div>-->
-    <div>
-                <center>
+    
+        <center>
             <h2 style="color:black">Mas populares <span class="badge badge-warning">Libros</span></h2>
         </center>
-    </div>
+   
     <div class="container-fluid pl-0 pt-3">
         <div class="row">
             <div class="col">
@@ -70,29 +69,29 @@
 
       </div> <!--fin del container-->
         
-    <div class="row">
+        <div class="row">
             <!--Inicio de la fila-->
-    <div class="container-fluid pl-0 pt-3">
-        <br />
-        <br />
-        <div class="container">
-            <h2 >Ejemplares ya disponibles</h2>
-        </div>
-        <br />
-        <br />
-        <!--LIBROS NUEVOS SE MUESTRAN EN ESTA PARTE -->
-        <div class="row uno"> </div> <!--fin de la fila-->
-        <div class="row dos"> </div> <!--fin de la fila-->
-        <div class="row tres"> </div> <!--fin de la fila-->
-        <br />
-        <a href="#" type="button" class="btn btn-primary btn-lg btn-block"> Ver Mas</a>
+            <div class="container-fluid pl-0 pt-3">
+                <br />
+                <br />
+                <div class="container">
+                    <h2 >Ejemplares ya disponibles</h2>
+                </div>
+                <br />
+                <br />
+                <!--LIBROS NUEVOS SE MUESTRAN EN ESTA PARTE -->
+                <div class="row uno"> </div> <!--fin de la fila-->
+                <div class="row dos"> </div> <!--fin de la fila-->
+                <div class="row tres"> </div> <!--fin de la fila-->
+                <br />
+                <a href="#" type="button" class="btn btn-primary btn-lg btn-block"> Ver Mas</a>
 
-        </div>
-        <!--fin de la fila-->
-
+            </div>
+        
+            <!--fin del container-->
     </div>
+        <!--fin de la fila-->
     
-    <!--fin del container-->
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="Script" runat="server">
