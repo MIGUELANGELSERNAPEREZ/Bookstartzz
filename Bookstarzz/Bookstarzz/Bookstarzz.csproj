@@ -176,6 +176,7 @@
     <Content Include="FrmGestionTitulos.js" />
     <Content Include="FrmGestionTitulosCRUD.aspx" />
     <Content Include="FrmGestionTitulosCRUD.js" />
+    <Content Include="FrmLibro.aspx" />
     <Content Include="FrmListaUsuarios.aspx" />
     <Content Include="FrmLogin.aspx" />
     <Content Include="FrmMenu.aspx" />
@@ -372,6 +373,13 @@
     </Compile>
     <Compile Include="FrmGestionTitulosCRUD.aspx.designer.cs">
       <DependentUpon>FrmGestionTitulosCRUD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLibro.aspx.cs">
+      <DependentUpon>FrmLibro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmLibro.aspx.designer.cs">
+      <DependentUpon>FrmLibro.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmListaUsuarios.aspx.cs">
       <DependentUpon>FrmListaUsuarios.aspx</DependentUpon>

@@ -191,6 +191,7 @@ D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\System.Buffers.xml
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\System.Memory.xml
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\System.Numerics.Vectors.xml
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\System.Text.Encoding.CodePages.dll
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin\Bookstarzz.dll.config
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin\Bookstarzz.dll
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin\Bookstarzz.pdb
@@ -229,7 +230,6 @@ C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\System.Security.Cryptography.Primitives.dll
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\System.Security.Principal.Windows.dll
-C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\System.Text.Encoding.CodePages.dll
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\System.ValueTuple.dll
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\System.Xml.ReaderWriter.dll
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\System.Xml.XmlDocument.dll
