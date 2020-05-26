@@ -34,7 +34,7 @@ function cargarGestionTitulos() {
             window.location.replace("FrmLogin.aspx");
         }
     }
-        //},
+        //}, //Este mensaje va para el Login
         //    function (error) {
         //        $("#cntMsg").text("Error: no se ha podido realizar la operación");
         //        $("#cntMsg").parent().show();
