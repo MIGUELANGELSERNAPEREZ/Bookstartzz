@@ -1,6 +1,11 @@
 ﻿var tablaLibrosDT;
 $(document).ready(function () {
-    $("#divBloque2").removeClass("col-10"); //Remueve primero la clase para quitar el estilo de cuerpo contenido antes de dibujar la tabla; heredada de la pagina maestra Contenedor
+    //Reiniciamos los estilos para este Frm en especifico
+    $("#divBloque2").removeClass("col-10"); 
+    $("#divBloque1").removeClass("col-2 pr-0");
+    $("#divBloque2").addClass("container-fluid");
+    $("#divBloque1").addClass("col");
+
     cargarGestionTitulos();
     //Esto comentado es sin AJAX(metodos en webservices)
     //Cargo el metodo para adecuar la tabla antes de lanzar el plugin Datatables
@@ -37,17 +42,28 @@ function cargarGestionTitulos() {
     );
 }
 
-function normalizarFecha(datos) {
+//Funcion usada para normalizar ciertos tipos de datos al momento de ser presentados en la taba
+function normalizar(datos) {
     //Ciclo usado para transformar los milisegundos de DateTime en una Fecha normal
     //Metodo moment es de la libreria moment.js
     for (let i = 0; i < datos.length; i++) {
         datos[i]['FechaPublicacion'] = moment(datos[i]['FechaPublicacion']).format("YYYY-MM-DD");
+        //Ifs usados para transformar el numero de la clasificacion
+        if (datos[i]['Clasificacion'] == 1) {
+            datos[i]['Clasificacion'] = "Niños";
+        }
+        if (datos[i]['Clasificacion'] == 2) {
+            datos[i]['Clasificacion'] = "Adolescentes";
+        }
+        if (datos[i]['Clasificacion'] == 3) {
+            datos[i]['Clasificacion'] = "Adultos";
+        }
     }
     return datos;
 }
 
 function cargarDatos(datos) {
-    normalizarFecha(datos);
+    normalizar(datos);
 
     //Almacenamos la referencia a la tabla con el plugin aplicado, ya que la usaremos para los filtros
     tablaLibrosDT = $('#tblGestionTitulos').dataTable({
@@ -199,7 +215,7 @@ function recargarDatos() {
         if (result) {
             let objJSON = JSON.parse(result);
             
-            tablaLibrosDT.fnAddData(normalizarFecha(objJSON));
+            tablaLibrosDT.fnAddData(normalizar(objJSON));
         } else {
             window.location.replace("FrmLogin.aspx");
         }
