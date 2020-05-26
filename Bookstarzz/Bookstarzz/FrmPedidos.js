@@ -10,6 +10,7 @@ $(document).ready(function () {
     //Esto comentado es sin AJAX(metodos en webservices)
     //Cargo el metodo para adecuar la tabla antes de lanzar el plugin Datatables
     //adecuarTabla();
+    cargarUsuarios();
 });
 
 //Funcion para limpiar el contenedor principal donde se carga la pagina
@@ -21,6 +22,23 @@ function cargarPedidos() {
     Bookstarzz.ws.WSPedidos.getAllPedidos(function (result) {
         if (result) {
             cargarDatos(JSON.parse(result));
+        } else {
+            window.location.replace("FrmLogin.aspx");
+        }
+    }
+        //}, //Este mensaje va para el Login
+        //    function (error) {
+        //        $("#cntMsg").text("Error: no se ha podido realizar la operación");
+        //        $("#cntMsg").parent().show();
+        //    }
+    );
+}
+
+function cargarUsuarios() {
+    Bookstarzz.ws.WSUsuarios.getAll(function (result) {
+        if (result) {
+            debugger;
+            llenarDetallePedido(JSON.parse(result));
         } else {
             window.location.replace("FrmLogin.aspx");
         }
@@ -86,5 +104,12 @@ function cargarDatos(datos) {
             { title: "Estatus del pedido", data: "estatusPedido" }
         ]
     });
+}
+
+function llenarDetallePedido(objJSON) {
+    alert("HOLA");
+    var n = objJSON[0]['Nombre'];
+    alert(n);
+    $("#body_bloque_2_txtDetallesPedido").append(n);
 }
 

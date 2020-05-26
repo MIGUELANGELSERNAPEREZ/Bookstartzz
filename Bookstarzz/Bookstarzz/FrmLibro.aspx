@@ -70,6 +70,7 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="Script" runat="server">
     <!-- jQuery, Popper.js, Bootstrap JS -->
     <script src="popper/popper.min.js"></script>
-
+    <script src="js/moment.js"></script>
+    <script src="js/moment-with-locales.js"></script>
     <script src="FrmLibro.js"></script>
 </asp:Content>
