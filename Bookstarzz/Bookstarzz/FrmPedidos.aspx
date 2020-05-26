@@ -35,7 +35,7 @@
         <%--Se incluye la referencia al WebService--%>
         <asp:ScriptManager ID="ScriptManager1" runat="server">
             <Services>
-                <asp:ServiceReference Path="~/ws/WSUsuarios.asmx" />
+                <%--<asp:ServiceReference Path="~/ws/WSUsuarios.asmx" />--%>
                 <asp:ServiceReference Path="~/ws/WSPedidos.asmx" />
             </Services>
         </asp:ScriptManager>

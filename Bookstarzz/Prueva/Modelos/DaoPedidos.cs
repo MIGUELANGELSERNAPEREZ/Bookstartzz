@@ -50,54 +50,33 @@ namespace Backend.Modelos
         }
 
 
-        //public Libros getOne(int id)
-        //{
-        //    try
-        //    {
-        //        MySqlCommand sentencia = new MySqlCommand("SELECT * FROM libros WHERE idLibro=" + id);
+        public Pedidos getOne(int id)
+        {
+            try
+            {
+                MySqlCommand sentencia = new MySqlCommand("SELECT * FROM Pedidos WHERE idPedido=" + id);
 
-        //        DataTable tabla = DaoConexion.ejecutarConsulta(sentencia);
-        //        Libros objLibros = null;
-        //        if (tabla != null && tabla.Rows.Count > 0)
-        //        {
-        //            DataRow fila = tabla.Rows[0];
-        //            int clasificacion = 0;
+                DataTable tabla = DaoConexion.ejecutarConsulta(sentencia);
+                Pedidos objPedidos = null;
+                if (tabla != null && tabla.Rows.Count > 0)
+                {
+                    DataRow fila = tabla.Rows[0];
 
-        //            //CultureInfo us = new CultureInfo("en-US");
-        //            //string fechaTexto = fila["fechaPublicacion"].ToString();
-        //            //string formatoFecha = "yyyy'-'MM'-'dd";
-
-        //            //DateTime.ParseExact(fechaTexto, formatoFecha, us)
-
-        //            if (fila["clasificacion"].ToString().Equals("Niños"))
-        //            {
-        //                clasificacion = 1;
-        //            }
-        //            if (fila["clasificacion"].ToString().Equals("Adolecentes"))
-        //            {
-        //                clasificacion = 2;
-        //            }
-        //            if (fila["clasificacion"].ToString().Equals("Adultos"))
-        //            {
-        //                clasificacion = 3;
-        //            }
-
-        //            objLibros = new Libros(id, fila["nombre"].ToString(), fila["autor"].ToString(),
-        //                fila["editorial"].ToString(), fila["isbn"].ToString(), DateTime.Parse(fila["fechaPublicacion"].ToString()),
-        //                decimal.Parse(fila["precio"].ToString()), int.Parse(fila["numeroPaginas"].ToString()),
-        //                fila["descripcion"].ToString(), int.Parse(fila["visitas"].ToString()), clasificacion);
-        //        }
-        //        return objLibros;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return null;
-        //    }
-        //    finally
-        //    {
-        //        DaoConexion.desconectar();
-        //    }
-        //}
+                    objPedidos = new Pedidos(id, int.Parse(fila["idUsuario"].ToString()),
+                        fila["direccion"].ToString(), fila["ciudad"].ToString(), fila["formato"].ToString(),
+                        DateTime.Parse(fila["fechaCompra"].ToString()), fila["estatusPedido"].ToString());
+                }
+                return objPedidos;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                DaoConexion.desconectar();
+            }
+        }
 
         //public List<Libros> getAll()
         //{

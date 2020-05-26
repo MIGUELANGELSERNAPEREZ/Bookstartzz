@@ -6,11 +6,8 @@ $(document).ready(function () {
     $("#divBloque2").addClass("container-fluid");
     $("#divBloque1").addClass("col");
 
-    cargarPedidos();
-    //Esto comentado es sin AJAX(metodos en webservices)
-    //Cargo el metodo para adecuar la tabla antes de lanzar el plugin Datatables
-    //adecuarTabla();
-    cargarUsuarios();
+    cargarPedidos(); //Llammamos el WebService que cargara el DataTable con los pedidos
+
 });
 
 //Funcion para limpiar el contenedor principal donde se carga la pagina
@@ -34,28 +31,12 @@ function cargarPedidos() {
     );
 }
 
-function cargarUsuarios() {
-    Bookstarzz.ws.WSUsuarios.getAll(function (result) {
-        if (result) {
-            debugger;
-            llenarDetallePedido(JSON.parse(result));
-        } else {
-            window.location.replace("FrmLogin.aspx");
-        }
-    }
-        //}, //Este mensaje va para el Login
-        //    function (error) {
-        //        $("#cntMsg").text("Error: no se ha podido realizar la operación");
-        //        $("#cntMsg").parent().show();
-        //    }
-    );
-}
-
-
 function cargarDatos(datos) {
-
+    normalizar(datos);
     //Almacenamos la referencia a la tabla con el plugin aplicado, ya que la usaremos para los filtros
     tablaPedidosDT = $('#tblPedidos').dataTable({
+
+        select: true,
 
         //Cambiamos el lenguaje del DataTable
         language: {
@@ -85,11 +66,11 @@ function cargarDatos(datos) {
         //pero podemos también asignar un ancho fijo de esta manera, targets representa los 
         //índices de las columnas a los que se les aplicará este tamaño
         columnDefs: [
-            { width: "10%", targets: [0] },
-            { width: "40%", targets: [1, 2] },
+            { width: "5%", targets: [0] },
+            { width: "35%", targets: [1, 2] },
             { width: "10%", targets: [3] },
             { width: "5%", targets: [4] },
-            { width: "15%", targets: [5] },
+            { width: "20%", targets: [5] },
             { width: "20%", targets: [6] }
         ],
         columns: [
@@ -104,12 +85,56 @@ function cargarDatos(datos) {
             { title: "Estatus del pedido", data: "estatusPedido" }
         ]
     });
+
+    //En caso de que un renglon se seleccione, se detecta el id del pedido y se manda a llenarDetallePedido
+    $('#tblPedidos tbody').on('click', 'tr', function () {
+        const id = $(this).find('td').first().text();
+        llenarDetallePedido(id);
+    });
 }
 
-function llenarDetallePedido(objJSON) {
-    alert("HOLA");
-    var n = objJSON[0]['Nombre'];
-    alert(n);
-    $("#body_bloque_2_txtDetallesPedido").append(n);
+//Funcion que se encarga de llenar el textarea con la informacion especifica del pedido
+function llenarDetallePedido(id) {
+    $("#body_bloque_2_txtDetallesPedido").text("");
+    Bookstarzz.ws.WSPedidos.getOne(id, function (result) {
+        if (result) {
+            const saltoLinea = "\r\n"; //Se crea asi, por que un salto de linea <br> no funciona como tal en contenedores TextBoxASP
+            let objPedidos = normalizar(JSON.parse(result));
+            let direccion = objPedidos["direccion"];
+            let ciudad = objPedidos["ciudad"];
+            let formato = objPedidos["formato"];
+            let idPedido = objPedidos["idPedido"];
+            let fechaCompra = objPedidos["fechaCompra"];
+            let estatusPedido = objPedidos["estatusPedido"];
+            //$("#body_bloque_2_txtDetallesPedido").append("<br>" + direccion);
+            $("#body_bloque_2_txtDetallesPedido").html("DIRECCION: "+direccion + saltoLinea +
+                "CIUDAD: "+ciudad + saltoLinea + "FORMATO: "+formato + saltoLinea + "FOLIO: "+idPedido + saltoLinea +
+                "FECHA DE COMPRA: "+fechaCompra + saltoLinea + "ESTATUS DEL PEDIDO: "+estatusPedido);
+        } else {
+            window.location.replace("FrmLogin.aspx");
+        }
+
+    }
+    );
+        //let user = resultUser; /*result[0]['Nombre']*/
+        //var pedido = resultPedido;
+        //alert(n);
+        //$("#body_bloque_2_txtDetallesPedido").append(n);
+ }
+
+
+//Funcion usada para normalizar ciertos tipos de datos al momento de ser presentados
+function normalizar(datos) {
+    //Ciclo usado para transformar los milisegundos de DateTime en una Fecha normal
+    //Metodo moment es de la libreria moment.js
+    for (let i = 0; i < datos.length; i++) {
+        datos[i]['fechaCompra'] = moment(datos[i]['fechaCompra']).format("YYYY-MM-DD");
+        //Ifs usados para transformar el numero de la clasificacion
+    }
+    //Linea para cuando entra desde metodo de llenarDetallePedido
+    datos['fechaCompra'] = moment(datos['fechaCompra']).format("YYYY-MM-DD");
+    return datos;
 }
+
+
 
