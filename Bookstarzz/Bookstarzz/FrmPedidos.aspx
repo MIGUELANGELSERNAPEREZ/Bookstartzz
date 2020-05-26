@@ -35,6 +35,7 @@
         <%--Se incluye la referencia al WebService--%>
         <asp:ScriptManager ID="ScriptManager1" runat="server">
             <Services>
+                <asp:ServiceReference Path="~/ws/WSUsuarios.asmx" />
                 <asp:ServiceReference Path="~/ws/WSPedidos.asmx" />
             </Services>
         </asp:ScriptManager>
@@ -43,8 +44,12 @@
         </center>
 
         <%--Tabla que sera llenada con el script FrmGestionTitulos, usando el WebService--%>
-         <table id="tblPedidos" class="table table-striped table-bordered"></table>
-        
+        <div>
+            <table id="tblPedidos" class="table table-striped table-bordered"></table>
+        </div>
+        <div class="form-group">
+            <asp:TextBox class="form-control" ID="txtDetallesPedido" Readonly="true" TextMode="MultiLine" Rows="10" autocomplete="off" resize="none" runat="server"></asp:TextBox><br />
+        </div>
     </form>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Script" runat="server">

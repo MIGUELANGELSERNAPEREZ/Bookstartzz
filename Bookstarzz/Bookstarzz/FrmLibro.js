@@ -9,13 +9,20 @@
 
 });
 
+//Funcion para normalizar la fecha
+function normalizar(datos) {
+    //EL metodo moment es propio de la libreria moment.js para convertir fechas
+    datos['FechaPublicacion'] = moment(datos['FechaPublicacion']).format("YYYY-MM-DD");
+    return datos;
+}
+
 function infoLibro(id) {
     
     Bookstarzz.ws.WSLibros.getOne(id ,function (result) {
 
         if (result) {
-            
-            let arreglo = JSON.parse(result);
+
+            let arreglo = normalizar(JSON.parse(result)); //Mandamos el JSON al metodo normalizar, que devuelve el objeto con la fecha ya normalizada
             let nombre = "";
 
             $("#titulo").val(arreglo.Nombre);
