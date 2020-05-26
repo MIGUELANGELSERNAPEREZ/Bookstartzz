@@ -81,8 +81,11 @@
                 <br />
                 <!--LIBROS NUEVOS SE MUESTRAN EN ESTA PARTE -->
                 <div class="row uno"> </div> <!--fin de la fila-->
+                    <br />
                 <div class="row dos"> </div> <!--fin de la fila-->
+                    <br />
                 <div class="row tres"> </div> <!--fin de la fila-->
+                
                 <br />
                 <a href="#" type="button" class="btn btn-primary btn-lg btn-block"> Ver Mas</a>
 

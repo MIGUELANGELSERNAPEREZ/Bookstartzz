@@ -135,7 +135,7 @@ namespace Backend.Modelos
             try
             {
                 MySqlCommand sentencia = new MySqlCommand();
-                sentencia.CommandText = "SELECT * FROM libros ORDER BY idLibro DESC LIMIT 10;";
+                sentencia.CommandText = "SELECT * FROM libros ORDER BY idLibro DESC LIMIT 9;";
 
                 DataTable tabla = DaoConexion.ejecutarConsulta(sentencia);
 

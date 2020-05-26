@@ -3,8 +3,10 @@
     //de los 10 libros mas vistos hasta ahora como recomenadacion
     //al usuario. esta info la mandamos a la funcion cargarcarusel
     Bookstarzz.ws.WSLibros.getPopulares(cargarCaruserl, function (e) { });
-       
+    
 });
+
+
 
 function cargarCaruserl(result) {
     Bookstarzz.ws.WSCategorias.getAll(crearSidebar, function (e) { });
@@ -14,6 +16,7 @@ function cargarCaruserl(result) {
         const ruta = "libros/"; // creamos una ruta donde se encuentran nuestras img
         let arreglo = JSON.parse(result); // hacemos un parse a json
         let nombre = "";
+        
 
         //vamos a recorrer cada objeto que tiene el arreglo
         arreglo.forEach(
@@ -30,14 +33,16 @@ function cargarCaruserl(result) {
                 //img al cual le agregaremos la ruta de nuestra img
                 //para plasmarla. ademas de agregarle la clase que 
                 // modificara su estructura
-                
-            $(".glide__slides").append($("<img\>").attr(
-                "src", ruta + nombre + ".jpg"));
-                $("img").addClass("cuadros");
+
+                $(".glide__slides").append($("<img\>").attr("src", ruta + nombre + ".jpg").addClass("cuadros").attr("id", libro.IdLibro));
+
+                $("#" + libro.IdLibro).bind("click", function () {
+                    alert($(this).attr("id"));
+                });
                
                 nombre = "";
-               // console.log(libro.Nombre);
-               //$("img").append($("<li\>").html(libro.Nombre));
+               
+               
             });
 
         for (var i = 0; i < 10; i++) {
@@ -105,13 +110,27 @@ function crearLibrosNuevos( result ) {
                 }
                 //debugger;
                 if (cont < 3) {
-                    $(".uno").append($("<div\>").addClass("col-4").append($("<img\>").attr("src", ruta + nombre + ".jpg").addClass("cuadros")));
-                    
+                    debugger;
+
+                    $(".uno").append($("<div\>").addClass("col-4").append($("<img\>").attr("src", ruta + nombre + ".jpg").addClass("cuadros").attr("id", libro.IdLibro)));
+                    //img = $(".uno").append($("<div\>").addClass("col-4").append($("<img\>")));
+
                 } else if (cont > 2 && cont < 6) {
-                    $(".dos").append($("<div\>").addClass("col-4").append($("<img\>").attr("src", ruta + nombre + ".jpg").addClass("cuadros")));
+                    
+                    //img = $(".dos").append($("<div\>").addClass("col-4").append($("<img\>")));
+                    $(".dos").append($("<div\>").addClass("col-4").append($("<img\>").attr("src", ruta + nombre + ".jpg").addClass("cuadros").attr("id", libro.IdLibro)));
                 } else {
-                    $(".tres").append($("<div\>").addClass("col-4").append($("<img\>").attr("src", ruta + nombre + ".jpg").addClass("cuadros")));
+
+                    //img = $(".uno").append($("<div\>").addClass("col-4").append($("<img\>")));
+                    $(".tres").append($("<div\>").addClass("col-4").append($("<img\>").attr("src", ruta + nombre + ".jpg").addClass("cuadros").attr("id", libro.IdLibro)));
                 }
+
+                let id = libro.IdLibro.toString();
+
+                $("#"+id).bind("click", function () {
+                    alert($(this).attr("id"));
+                });
+
                 cont++;
                 nombre = "";
             });
@@ -121,3 +140,55 @@ function crearLibrosNuevos( result ) {
 
     } 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let img;
