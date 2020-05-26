@@ -1,4 +1,4 @@
-﻿var tablaLibrosDT;
+﻿var tablaPedidosDT;
 $(document).ready(function () {
     //Reiniciamos los estilos para este Frm en especifico
     $("#divBloque2").removeClass("col-10"); 
@@ -6,7 +6,7 @@ $(document).ready(function () {
     $("#divBloque2").addClass("container-fluid");
     $("#divBloque1").addClass("col");
 
-    cargarGestionTitulos();
+    cargarPedidos();
     //Esto comentado es sin AJAX(metodos en webservices)
     //Cargo el metodo para adecuar la tabla antes de lanzar el plugin Datatables
     //adecuarTabla();
@@ -26,7 +26,7 @@ function limpiar() {
     $("#contenidoVista").empty();
 }
 
-function cargarGestionTitulos() {
+function cargarPedidos() {
     Bookstarzz.ws.WSLibros.getAll(function (result) {
         if (result) {
             cargarDatos(JSON.parse(result));
@@ -66,7 +66,7 @@ function cargarDatos(datos) {
     normalizar(datos);
 
     //Almacenamos la referencia a la tabla con el plugin aplicado, ya que la usaremos para los filtros
-    tablaLibrosDT = $('#tblGestionTitulos').dataTable({
+    tablaPedidosDT = $('#tblGestionTitulos').dataTable({
 
         //Cambiamos el lenguaje del DataTable
         language: {
@@ -210,12 +210,12 @@ function cofirmEliminar() {
 
 
 function recargarDatos() {
-    tablaLibrosDT.fnClearTable();
+    tablaPedidosDT.fnClearTable();
     Bookstarzz.ws.WSLibros.getAll(function (result) {
         if (result) {
             let objJSON = JSON.parse(result);
             
-            tablaLibrosDT.fnAddData(normalizar(objJSON));
+            tablaPedidosDT.fnAddData(normalizar(objJSON));
         } else {
             window.location.replace("FrmLogin.aspx");
         }

@@ -183,6 +183,7 @@
     <Content Include="FrmMenu.aspx" />
     <Content Include="FrmMenu.js" />
     <Content Include="FrmPedidos.aspx" />
+    <Content Include="FrmPedidos.js" />
     <Content Include="FrmRegistrarUser.aspx" />
     <Content Include="FrmRegistrarUser.js" />
     <Content Include="glide-3.2.4\build\banner.js" />
@@ -340,6 +341,7 @@
     <Content Include="Web.config" />
     <Content Include="ws\WSCategorias.asmx" />
     <Content Include="ws\WSLibros.asmx" />
+    <Content Include="ws\WSPedidos.asmx" />
     <Content Include="ws\WSUsuarios.asmx" />
   </ItemGroup>
   <ItemGroup>
@@ -449,6 +451,10 @@
     </Compile>
     <Compile Include="ws\WSLibros.asmx.cs">
       <DependentUpon>WSLibros.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ws\WSPedidos.asmx.cs">
+      <DependentUpon>WSPedidos.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ws\WSUsuarios.asmx.cs">

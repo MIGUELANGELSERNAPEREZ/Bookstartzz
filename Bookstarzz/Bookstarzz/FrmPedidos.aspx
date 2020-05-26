@@ -35,34 +35,15 @@
         <%--Se incluye la referencia al WebService--%>
         <asp:ScriptManager ID="ScriptManager1" runat="server">
             <Services>
-                <asp:ServiceReference Path="~/ws/WSLibros.asmx" />
+                <asp:ServiceReference Path="~/ws/WSPedidos.asmx" />
             </Services>
         </asp:ScriptManager>
         <center>
             <h1 id="h1GestionTitulos">PEDIDOS</h1>
         </center>
-        <%--Los DataField son de la clase Libro, no de MySQL--%>
-<%--        <asp:GridView ID="grdVistaTitulos" CssClass="table table-bordered table-striped" runat="server">
-            <Columns>
-                <asp:BoundField DataField="IdLibro" HeaderText="Clave" />
-                <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-                <asp:BoundField DataField="Autor" HeaderText="Autor" />
-                <asp:BoundField DataField="Editorial" HeaderText="Editorial" />
-                <asp:BoundField DataField="ISBN" HeaderText="ISBN" />
-                <asp:BoundField DataField="FechaPublicacion" HeaderText="Fecha de publicación" />
-                <asp:BoundField DataField="Presio" HeaderText="Precio" />
-                <asp:BoundField DataField="NPaginas" HeaderText="Páginas" />
-                <asp:BoundField DataField="Descripcion" HeaderText="Descripción" />
-                <asp:BoundField DataField="Visitas" HeaderText="Visitas" />
-                <asp:BoundField DataField="Clasificacion" HeaderText="Clasificación" />
-            </Columns>
-        </asp:GridView>--%>
-        <%--Boton que apunta a FrmGestionTitulosCRUD--%>
-        <div class="row justify-content-center my-2">
-            <button id="btnAgregar" type="button" class="btn btn-primary">Agregar</button>
-        </div>
+
         <%--Tabla que sera llenada con el script FrmGestionTitulos, usando el WebService--%>
-         <table id="tblGestionTitulos" class="table table-striped table-bordered"></table>
+         <table id="tblPedidos" class="table table-striped table-bordered"></table>
         
     </form>
 </asp:Content>
@@ -71,5 +52,5 @@
     <%--Librerias para transformar datos de objetos DateTime--%>
     <script src="js/moment.js"></script>
     <script src="js/moment-with-locales.js"></script>
-    <script src="FrmGestionTitulos.js"></script>
+    <script src="FrmPedidos.js"></script>
 </asp:Content>

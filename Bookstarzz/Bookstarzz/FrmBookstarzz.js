@@ -8,6 +8,10 @@
         limpiar();
         $("#contenidoVista").load("FrmGestionTitulos.aspx");
     });
+    $("#cntPedidos").click(function () {
+        limpiar();
+        $("#contenidoVista").load("FrmPedidos.aspx");
+    });
 });
 
 //Funcion para limpiar el div#contenidoVista; en FrmBookstarzz
