@@ -127,8 +127,10 @@ function crearLibrosNuevos( result ) {
 
                 let id = libro.IdLibro.toString();
 
-                $("#"+id).bind("click", function () {
-                    alert($(this).attr("id"));
+                $("#" + id).bind("click", function () {
+                    debugger;
+                    //alert($(this).attr("id"));
+                    $("#contenidoVista").load("FrmLibro.aspx", { "id": id });
                 });
 
                 cont++;
@@ -163,32 +165,3 @@ function crearLibrosNuevos( result ) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let img;

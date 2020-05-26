@@ -89,6 +89,8 @@
                 <br />
                 <a href="#" type="button" class="btn btn-primary btn-lg btn-block"> Ver Mas</a>
 
+                <br />
+
             </div>
         
             <!--fin del container-->

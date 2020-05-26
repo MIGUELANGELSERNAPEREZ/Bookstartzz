@@ -176,6 +176,8 @@
     <Content Include="FrmGestionTitulos.js" />
     <Content Include="FrmGestionTitulosCRUD.aspx" />
     <Content Include="FrmGestionTitulosCRUD.js" />
+    <Content Include="FrmLibro.aspx" />
+    <Content Include="FrmLibro.js" />
     <Content Include="FrmListaUsuarios.aspx" />
     <Content Include="FrmLogin.aspx" />
     <Content Include="FrmMenu.aspx" />
@@ -275,6 +277,7 @@
     <Content Include="js\moment.js" />
     <Content Include="js\popper.min.js" />
     <Content Include="libros\Cars.jpg" />
+    <Content Include="libros\CincoMinutosMas.jpg" />
     <Content Include="libros\CrepuscoloEclipse.jpg" />
     <Content Include="libros\CrepusculoAmanecer.jpg" />
     <Content Include="libros\CrepusculoLunaNueva.jpg" />
@@ -287,8 +290,11 @@
     <Content Include="libros\ElPrincipito.jpg" />
     <Content Include="libros\ElProceso.jpg" />
     <Content Include="libros\ElRayoVerde.jpg" />
+    <Content Include="libros\ElViaje.jpg" />
     <Content Include="libros\EnlaColoniaPenitenciaria.gif" />
     <Content Include="libros\EnsayosobrelaCeguera.jpg" />
+    <Content Include="libros\FriosaurioRex.jpg" />
+    <Content Include="libros\Guapa.jpg" />
     <Content Include="libros\HarryPotter7.jpg" />
     <Content Include="libros\HarryPotterylacamarasecreta.jpg" />
     <Content Include="libros\Harrypotterylaordendelfenix.jpg" />
@@ -301,18 +307,24 @@
     <Content Include="libros\LaCondenayelFogonero.gif" />
     <Content Include="libros\LaIslaMisteriosa.jpg" />
     <Content Include="libros\LaladronadeLibros.jpg" />
+    <Content Include="libros\LaTigresaTotoPierdesusRayas.jpg" />
     <Content Include="libros\LaVueltaalMundoParaAbrazarteporlaEspalda.jpg" />
     <Content Include="libros\Lolita.jpg" />
     <Content Include="libros\LosCuatroAcuerdos.jpg" />
     <Content Include="libros\LosCuatroJinetesdelApocalipsis.jpg" />
     <Content Include="libros\Metamorfosis.jpg" />
+    <Content Include="libros\MisPlatosPreferidos.jpg" />
+    <Content Include="libros\NoMeDaMiedolaTormenta.jpg" />
+    <Content Include="libros\NoQuieroSerBajito.jpg" />
     <Content Include="libros\Ochentaideasparabesarteelcuello.jpg" />
     <Content Include="libros\Pidemeloquequieras.jpg" />
+    <Content Include="libros\QuieresSerMiamigo.jpg" />
     <Content Include="libros\Resplandor.jpg" />
     <Content Include="libros\Saltamontes.jpg" />
     <Content Include="libros\SisiesContigo.jpg" />
     <Content Include="libros\SteveJobs.jpg" />
     <Content Include="libros\TengoGanasdeTi.jpg" />
+    <Content Include="libros\TodosBostezan.jpg" />
     <Content Include="libros\TresmetrossobreelCielo.jpg" />
     <Content Include="libros\TresvecesTu.jpg" />
     <Content Include="libros\VueltaalMundo80Dias.jpg" />
@@ -372,6 +384,13 @@
     </Compile>
     <Compile Include="FrmGestionTitulosCRUD.aspx.designer.cs">
       <DependentUpon>FrmGestionTitulosCRUD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLibro.aspx.cs">
+      <DependentUpon>FrmLibro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmLibro.aspx.designer.cs">
+      <DependentUpon>FrmLibro.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmListaUsuarios.aspx.cs">
       <DependentUpon>FrmListaUsuarios.aspx</DependentUpon>
