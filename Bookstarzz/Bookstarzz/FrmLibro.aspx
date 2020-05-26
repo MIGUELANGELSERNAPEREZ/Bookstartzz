@@ -2,10 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <link href="css/main.css" rel="stylesheet" />
+    <link href="css/estilo.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_bloque_1" runat="server">
 
-    <div class="container-fluid">
+    <div class="container-fluid" style="top: 70px;">
        <div class="row">
            <div class="col-2">
                 
@@ -15,7 +16,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body_bloque_2" runat="server">
 
-    <div class="container-fluid pl-0 pt-3">
+    <div class="container-fluid pl-0 pt-3" style="top: 70px; left: 200px;">
         <div class="row">
             <div class="col">
 
@@ -40,6 +41,9 @@
                 </div>
                 <div class="form-group">
                     <label>N°Paginas <input type="text" id="paginas" name="paginas" class="form-control" /></label>
+                </div>
+                <div class="form-group">
+                    <label>Presio <input type="text" id="presio" name="presio" class="form-control" /></label>
                 </div>
                 <div class="form-group">
                     <label>Autor <input type="text" id="autor" name="autor" class="form-control" /></label>

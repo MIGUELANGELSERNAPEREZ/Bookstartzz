@@ -25,6 +25,7 @@ function infoLibro(id) {
             $("#sinopsis").val(arreglo.Descripcion);
             $("#clasificacion").val(arreglo.Clasificacion);
             $("#paginas").val(arreglo.NPaginas);
+            $("#presio").val(arreglo.Presio);
 
             for (var i = 0; i < arreglo.Nombre.length; i++) {
 
