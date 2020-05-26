@@ -275,6 +275,10 @@
     <Content Include="js\moment.js" />
     <Content Include="js\popper.min.js" />
     <Content Include="libros\Cars.jpg" />
+    <Content Include="libros\CincoMinutosMas.jpg" />
+    <Content Include="libros\ElViaje.jpg" />
+    <Content Include="libros\FriosaurioRex.jpg" />
+    <Content Include="libros\Guapa.jpg" />
     <Content Include="libros\HarryPotter7.jpg" />
     <Content Include="libros\HarryPotterylacamarasecreta.jpg" />
     <Content Include="libros\Harrypotterylaordendelfenix.jpg" />
@@ -284,7 +288,13 @@
     <Content Include="libros\HarryPotteryelcalizdefuego.jpg" />
     <Content Include="libros\HarryPotteryelpricionerodeazkaban.jpg" />
     <Content Include="libros\It.jpg" />
+    <Content Include="libros\LaTigresaTotoPierdesusRayas.jpg" />
+    <Content Include="libros\MisPlatosPreferidos.jpg" />
+    <Content Include="libros\NoMeDaMiedolaTormenta.jpg" />
+    <Content Include="libros\NoQuieroSerBajito.jpg" />
+    <Content Include="libros\QuieresSerMiamigo.jpg" />
     <Content Include="libros\Resplandor.jpg" />
+    <Content Include="libros\TodosBostezan.jpg" />
     <Content Include="logo.jpg" />
     <Content Include="obj\Debug\Bookstarzz.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Bookstarzz.dll" />
