@@ -16,10 +16,9 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body_bloque_2" runat="server">
 
-    <div class="container-fluid pl-0 pt-3" style="top: 70px; left: 200px;">
+    <div class="container-fluid pl-0 pt-3">
         <div class="row">
             <div class="col">
-
               <form id="FormLibro" runat="server">
                    <asp:ScriptManager ID="ScriptManagerLibro" runat="server">
                         <Services>
@@ -55,17 +54,22 @@
                     <label>Clasificacion <input type="text" id="clasificacion" name="clasificacion" class="form-control"/></label>
                 </div>
                 
-               </form>
-
-                <br />
+                  <br />
                  
                 <Button type="button" id="btnLeer" name="btnLeer" class="btn btn-primary btn-lg">Leer</Button>
                 <Button type="button" id="btnDescargar" name="btnDescargar" class="btn btn-success btn-lg">Leer</Button>
                 <Button type="button" id="btnAgregar" name="btnAgregar" class="btn btn-warning btn-lg">Leer</Button>
-                
-            </div>
-        </div>
-     </div>
+                  
+               
+              </form>
+
+               
+            </div> <!--fin col-->
+        </div>  <!--fin row-->
+     </div>  <!--fin container-->
+
+    <br />
+    <br />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Script" runat="server">
     <!-- jQuery, Popper.js, Bootstrap JS -->
