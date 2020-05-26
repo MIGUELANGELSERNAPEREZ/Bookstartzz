@@ -275,10 +275,6 @@
     <Content Include="js\moment.js" />
     <Content Include="js\popper.min.js" />
     <Content Include="libros\Cars.jpg" />
-<<<<<<< Updated upstream
-=======
-    <Content Include="libros\CincoMinutosMas.jpg" />
->>>>>>> Stashed changes
     <Content Include="libros\CrepuscoloEclipse.jpg" />
     <Content Include="libros\CrepusculoAmanecer.jpg" />
     <Content Include="libros\CrepusculoLunaNueva.jpg" />
@@ -291,16 +287,8 @@
     <Content Include="libros\ElPrincipito.jpg" />
     <Content Include="libros\ElProceso.jpg" />
     <Content Include="libros\ElRayoVerde.jpg" />
-<<<<<<< Updated upstream
     <Content Include="libros\EnlaColoniaPenitenciaria.gif" />
     <Content Include="libros\EnsayosobrelaCeguera.jpg" />
-=======
-    <Content Include="libros\ElViaje.jpg" />
-    <Content Include="libros\EnlaColoniaPenitenciaria.gif" />
-    <Content Include="libros\EnsayosobrelaCeguera.jpg" />
-    <Content Include="libros\FriosaurioRex.jpg" />
-    <Content Include="libros\Guapa.jpg" />
->>>>>>> Stashed changes
     <Content Include="libros\HarryPotter7.jpg" />
     <Content Include="libros\HarryPotterylacamarasecreta.jpg" />
     <Content Include="libros\Harrypotterylaordendelfenix.jpg" />
@@ -313,35 +301,18 @@
     <Content Include="libros\LaCondenayelFogonero.gif" />
     <Content Include="libros\LaIslaMisteriosa.jpg" />
     <Content Include="libros\LaladronadeLibros.jpg" />
-<<<<<<< Updated upstream
-=======
-    <Content Include="libros\LaTigresaTotoPierdesusRayas.jpg" />
->>>>>>> Stashed changes
     <Content Include="libros\LaVueltaalMundoParaAbrazarteporlaEspalda.jpg" />
     <Content Include="libros\Lolita.jpg" />
     <Content Include="libros\LosCuatroAcuerdos.jpg" />
     <Content Include="libros\LosCuatroJinetesdelApocalipsis.jpg" />
     <Content Include="libros\Metamorfosis.jpg" />
-<<<<<<< Updated upstream
     <Content Include="libros\Ochentaideasparabesarteelcuello.jpg" />
     <Content Include="libros\Pidemeloquequieras.jpg" />
-=======
-    <Content Include="libros\MisPlatosPreferidos.jpg" />
-    <Content Include="libros\NoMeDaMiedolaTormenta.jpg" />
-    <Content Include="libros\NoQuieroSerBajito.jpg" />
-    <Content Include="libros\Ochentaideasparabesarteelcuello.jpg" />
-    <Content Include="libros\Pidemeloquequieras.jpg" />
-    <Content Include="libros\QuieresSerMiamigo.jpg" />
->>>>>>> Stashed changes
     <Content Include="libros\Resplandor.jpg" />
     <Content Include="libros\Saltamontes.jpg" />
     <Content Include="libros\SisiesContigo.jpg" />
     <Content Include="libros\SteveJobs.jpg" />
     <Content Include="libros\TengoGanasdeTi.jpg" />
-<<<<<<< Updated upstream
-=======
-    <Content Include="libros\TodosBostezan.jpg" />
->>>>>>> Stashed changes
     <Content Include="libros\TresmetrossobreelCielo.jpg" />
     <Content Include="libros\TresvecesTu.jpg" />
     <Content Include="libros\VueltaalMundo80Dias.jpg" />
