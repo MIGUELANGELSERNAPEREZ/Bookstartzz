@@ -34,7 +34,7 @@ function leerLibro() {
             let titulo = $("#titulo").html();
             let ruta = quitarEspacios(titulo);
         $(".container-pdf").css({ "width": "100%", "height": "900px" });
-        $(".container-pdf").append($("<embed\>").attr("id", "vista").attr("type", "application/pdf").attr("src", "libros/" + ruta + ".pdf").css({ "width": "100%", "height": "100%" }));
+        $(".container-pdf").append($("<embed\>").attr("id", "vista").attr("type", "application/pdf").attr("src", "pdfs/" + ruta + ".pdf").css({ "width": "100%", "height": "100%" }));
                
     }
     
@@ -111,5 +111,5 @@ function infoLibro(id) {
 
 function btnDescargar(nombre) {
     let ruta = quitarEspacios(nombre);
-    $("#btnDescargar").attr("download", ruta).attr("href", "libros/" + ruta + ".pdf");
+    $("#btnDescargar").attr("download", ruta).attr("href", "pdfs/" + ruta + ".pdf");
 }
