@@ -98,11 +98,11 @@ namespace Backend.Modelos
 
                 return lista;
             }
-            catch (Exception m)
+            catch (MySqlException ex)
             {
-                Console.WriteLine(m);
-                return null;
+                throw new Exception("Se ha presentado un problema al obtener los datos");
             }
+
             finally
             {
                 DaoConexion.desconectar();
@@ -178,10 +178,11 @@ namespace Backend.Modelos
                     return false;
                 }
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                Console.WriteLine(ex);
+                throw new Exception("Se ha presentado un problema al obtener los datos");
             }
+
 
             finally
             {
@@ -214,10 +215,11 @@ namespace Backend.Modelos
                     return false;
                 }
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                Console.WriteLine(ex);
+                throw new Exception("Se ha presentado un problema al obtener los datos");
             }
+
 
             finally
             {
@@ -227,7 +229,39 @@ namespace Backend.Modelos
             return false;
         }
 
-        
+        public Usuario getOne(int id)
+        {
+
+            Usuario obj = null;
+
+            try
+            {
+                MySqlCommand consulta = new MySqlCommand();
+                consulta.CommandText = "SELECT * FROM users where IdUsuario = @id;";
+                consulta.Parameters.AddWithValue("@id", id);
+
+                DataTable tabla = DaoConexion.ejecutarConsulta(consulta);
+                if (tabla.Rows.Count > 0)
+                {
+                    obj = new Usuario(tabla.Rows[0].ItemArray);
+                }
+
+
+            }
+            catch (MySqlException ex)
+            {
+                throw new Exception("Se ha presentado un problema al obtener los datos");
+            }
+
+            finally
+            {
+                DaoConexion.desconectar();
+
+            }
+
+            return obj;
+
+        }
 
     }
 }

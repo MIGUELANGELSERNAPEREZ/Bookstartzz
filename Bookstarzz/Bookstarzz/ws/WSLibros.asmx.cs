@@ -66,7 +66,7 @@ namespace Bookstarzz.ws
                 }
 
             }
-            return null;
+            throw new SecurityException("Acceso restringido");
         }
 
         [WebMethod(EnableSession = true)]
@@ -130,7 +130,7 @@ namespace Bookstarzz.ws
                     }
                 }
             }
-            return 0;
+            throw new SecurityException("Acceso restringido");
         }
 
         [WebMethod(EnableSession = true)]
@@ -157,8 +157,9 @@ namespace Bookstarzz.ws
                         }
                     }
                 }
+                throw new SecurityException("Acceso restringido");
             }
-            return false;
+            throw new SecurityException("Acceso restringido");
         }
 
         [WebMethod(EnableSession = true)]

@@ -1,21 +1,7 @@
 ﻿$(document).ready(function () {
     debugger
     //si el administrador accede a la pagina debmos de validar que se redireccionara a la pagina correcta
-    if (parseInt( $("#txtSesion").val()) > 0) {
-
-        $("#BtnCancelar").click(function () {
-            $("#contenidoVista").load("FrmListaUsuarios.aspx");
-        });
-
-    } else {
-
-        $("#BtnCancelar").click(function () {
-            window.location = "FrmLogin.aspx";
-        });
-    }
-
-    // si el administrado quiere editar 
-    if (parseInt($("#txtEditar").val()) > 0) {
+    if (parseInt($("#txtSesion").val()) > 0 || parseInt($("#txtEditar").val()) > 0) {
 
         $("#BtnCancelar").click(function () {
             $("#contenidoVista").load("FrmListaUsuarios.aspx");
@@ -29,14 +15,19 @@
     }
 
 
+    if (parseInt($("#txtEditar").val()) > 0) {       
+        editar(parseInt($("#txtEditar").val()));
+    }
+
+    
 
     $("#BtnAgregar").click(function () {
         $("#FormMenu").data('bootstrapValidator').validate();
 
         if ($("#FormMenu").data('bootstrapValidator').isValid()) {
-            if (parseInt($("#txtIdUsuario").val()) > 0) {
+            if (parseInt($("#txtEditar").val()) > 0) {
                 Bookstarzz.ws.WSUsuarios.update(modificar(), function (result) {
-                    if (result == true) {
+                    if (result == 1) {
                         $("#mdlModificar").modal("show");
                     } else {
                         $("#cntMsg").text("Error: no se ha podido realizar la operación");
@@ -194,6 +185,44 @@
         }
     });   
 });
+
+
+function editar(id) {
+    debugger;
+    if (id != null) {
+        
+        Bookstarzz.ws.WSUsuarios.getOne(id, function (result) {
+
+            if (result) {
+
+                let arreglo = JSON.parse(result);
+
+                //llenamos los inputs con el libro traido
+                $("#txtNombre").val(arreglo.Nombre);
+                $("#txtApellidoP").val(arreglo.ApellidoP);
+                $("#txtApellidoM").val(arreglo.ApellidoM);
+                $("#txtEmail").val(arreglo.Email);
+                $("#txtUsuario").val(arreglo.UsuarioN);
+                $("#txtPass").val(arreglo.Password);
+                $("#txtConfirmar").val(arreglo.Password);
+                $("#txtTel").val(arreglo.Telefono);
+
+               
+            } else {
+
+                $("#contenidoVista").load("FrmListaUsuarios.aspx");
+            }
+
+        },
+
+            function (error) {
+                $("#contenidoVista").load("FrmMenu.aspx", { "typeError": "Libro no disponible" });
+            }
+        );
+    } else {
+        window.location.replace("FrmLogin.aspx");
+    }
+}
 
 function agregar() {
     debugger;

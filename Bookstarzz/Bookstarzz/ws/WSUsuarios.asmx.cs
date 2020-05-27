@@ -39,26 +39,56 @@ namespace Bookstarzz.ws
         [WebMethod(EnableSession = true)]
         public string insert(string info)
         {
+            if (Session["session"] != null)
+            {
+
+
+                JavaScriptSerializer jss = new JavaScriptSerializer();
+                Usuario obj = jss.Deserialize<Usuario>(info);
+
+                if (valido(obj))
+                {
+                    Usuario usu = new DaoUsuario().userExist(obj);
+                    if (usu == null)
+                    {
+                        int val = new DaoUsuario().insertUser(obj);
+                        return "" + val;
+
+                    }
+                    else
+                    {
+                        return jss.Serialize(usu);
+                    }
+                }
+
+            }
+            throw new SecurityException("Acceso restringido");
+        }
+
+
+        public int update(string info)
+        {
             JavaScriptSerializer jss = new JavaScriptSerializer();
             Usuario obj = jss.Deserialize<Usuario>(info);
 
             if (valido(obj))
             {
-                Usuario usu = new DaoUsuario().userExist(obj);
-                if (usu == null)
+
+                if (new DaoUsuario().Update(obj))
                 {
-                      int val = new DaoUsuario().insertUser(obj);
-                    return "" + val;
-                    
+                    return 1;
                 }
                 else
                 {
-                    return jss.Serialize(usu);
+                    return 0;
                 }
+                
+               
             }
 
             throw new SecurityException("Acceso restringido");
         }
+
 
 
         public bool valido(Usuario obj)
@@ -106,5 +136,22 @@ namespace Bookstarzz.ws
 
             return true;
         }
+
+        [WebMethod(EnableSession = true)]
+        public String getOne(int id)
+        {
+            if (Session["session"] != null)
+            {
+                string tipoUsuario = Session["session"].ToString();
+                if (tipoUsuario.Equals("admi"))
+                {
+                    JavaScriptSerializer jss = new JavaScriptSerializer();
+                    return jss.Serialize(new DaoUsuario().getOne(id));
+                }
+            }
+
+            throw new SecurityException("Acceso restringido");
+        }
+
     }
 }

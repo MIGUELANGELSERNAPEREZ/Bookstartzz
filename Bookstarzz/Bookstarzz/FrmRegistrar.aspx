@@ -103,8 +103,8 @@
                     <input type="tel" name="txtTelefono" class="form-control" id="txtTel" required
                         maxlength="10" minlength="10" placeholder="4451001856S"/>
                   </div>
-                      <br />    
-  
+                       <br />
+                   
                <button type="button" id="BtnAgregar" name="BtnAgregar"
                    class="btn btn-success  btn-lg">Agregar</button>
 

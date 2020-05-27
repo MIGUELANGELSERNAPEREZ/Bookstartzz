@@ -99,7 +99,8 @@ function cargarDatos(datos) {
 }
 
 function editar(id) {
-    $("#divContenido").load("sireti/gestion_municipios/FrmMunicipioAjax.aspx", { "ClaveMun": id });
+    debugger;
+    $("#contenidoVista").load("FrmRegistrar.aspx", { "editar": 1 });
 }
 
 function eliminar(id, mun) {
