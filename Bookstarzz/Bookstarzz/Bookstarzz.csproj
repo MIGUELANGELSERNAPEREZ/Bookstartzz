@@ -171,6 +171,7 @@
     <Content Include="FrmBookstarzz.aspx" />
     <Content Include="FrmBookstarzz.js" />
     <Content Include="FrmCentral.aspx" />
+    <Content Include="FrmCentral.js" />
     <Content Include="FrmConfiguracion.aspx" />
     <Content Include="FrmGenerarReportes.aspx" />
     <Content Include="FrmGestionTitulos.aspx" />
@@ -262,10 +263,13 @@
     <Content Include="glide-3.2.4\tests\unit\object.test.js" />
     <Content Include="glide-3.2.4\tests\unit\string.test.js" />
     <Content Include="glide-3.2.4\tests\unit\unit.test.js" />
+    <Content Include="imagenes\gestion_titulos.jpg" />
     <Content Include="imagenes\kitten-large.png" />
     <Content Include="imagenes\kitten-medium.png" />
     <Content Include="imagenes\kitten-small.png" />
     <Content Include="imagenes\logo.jpg" />
+    <Content Include="imagenes\usuario.png" />
+    <Content Include="imagenes\usuarios.png" />
     <Content Include="js\bootstrap-datepicker.es.min.js" />
     <Content Include="js\bootstrap-datepicker.js" />
     <Content Include="js\bootstrap-datepicker.min.js" />
