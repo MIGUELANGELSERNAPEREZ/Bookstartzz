@@ -20,8 +20,9 @@
             if (parseInt($("#txtIdLibro").val()) > 0) {//La function(resul) trae true o false y solo funciona con boton de tipo submit
                 Bookstarzz.ws.WSLibros.updateLibro(llenarModelo(), function (result) {
                     if (result == true) {
+                        var idGlobal = $("#txtIdLibro").val();
                         limpiar();
-                        $("#contenidoVista").load("FrmGestionTitulos.aspx", { "txtMsg": 1 });
+                        $("#contenidoVista").load("FrmGestionTitulos.aspx", { "txtMsg": 1, "txtIdGlobal": idGlobal });
                     } else {
                         //Mensaje de error lado servidor
                         window.scrollTo(0, 0);
@@ -203,9 +204,9 @@ function validacionBootsVal() {
                         message: "El elemento es requerido y no puede quedar vacio"
                     },
                     stringLength: {
-                        min: 5,
+                        min: 2,
                         max: 50,
-                        message: "El elemento debe tener entre 5 y 50 caracteres"
+                        message: "El elemento debe tener entre 2 y 50 caracteres"
                     },
                     regexp: {
                         regexp: /^[a-zA-ZñÑ0-9\s]+$/,
@@ -220,9 +221,9 @@ function validacionBootsVal() {
                         message: "El elemento es requerido y no puede quedar vacio"
                     },
                     stringLength: {
-                        min: 5,
+                        min: 2,
                         max: 50,
-                        message: "El elemento debe tener entre 5 y 50 caracteres"
+                        message: "El elemento debe tener entre 2 y 50 caracteres"
                     },
                     regexp: {
                         regexp: /^[a-zA-ZñÑ0-9\s]+$/,
@@ -254,9 +255,9 @@ function validacionBootsVal() {
                         message: "El elemento es requerido y no puede quedar vacio"
                     },
                     stringLength: {
-                        min: 5,
+                        min: 2,
                         max: 30,
-                        message: "El elemento debe tener entre 5 y 30 caracteres"
+                        message: "El elemento debe tener entre 2 y 30 caracteres"
                     },
                     regexp: {
                         regexp: /^[a-zA-ZñÑ0-9\s]+$/,
@@ -271,9 +272,9 @@ function validacionBootsVal() {
                         message: "El elemento es requerido y no puede quedar vacio"
                     },
                     stringLength: {
-                        min: 5,
+                        min: 2,
                         max: 30,
-                        message: "El elemento debe tener entre 5 y 30 caracteres"
+                        message: "El elemento debe tener entre 2 y 30 caracteres"
                     },
                     regexp: {
                         regexp: /^[a-zA-ZñÑ0-9]+$/,
@@ -316,9 +317,9 @@ function validacionBootsVal() {
                         message: "El elemento es requerido y no puede quedar vacio"
                     },
                     stringLength: {
-                        min: 5,
+                        min: 2,
                         max: 300,
-                        message: "El elemento debe tener entre 5 y 300 caracteres"
+                        message: "El elemento debe tener entre 2 y 300 caracteres"
                     },
                     regexp: {
                         regexp: /^[a-zA-ZñÑ0-9\s]+$/,

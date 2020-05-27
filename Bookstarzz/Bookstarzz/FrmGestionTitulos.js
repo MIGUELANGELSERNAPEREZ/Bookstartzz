@@ -1,4 +1,6 @@
 ﻿var tablaPedidosDT;
+var libroMsgGeneral; //Se ocupa para mandarlo en el mnesaje de eliminar
+var idGlobal; //Se usa para imprimirse en los mensajes de exito enn caso de una actualizacion desde FRMGestionTitulosCRUD
 $(document).ready(function () {
     //Reiniciamos los estilos para este Frm en especifico
     $("#divBloque2").removeClass("col-10");
@@ -188,11 +190,11 @@ function eliminar(id, mun) {
 
 
 function cofirmEliminar() {
+    libroMsgGeneral = $("#spnLibro").text(); //Se asigna a la variable que sera para imprimirlo en mensaje
     $("#mdlConfirmar").modal('hide');
     let id = $("#inpIdLibro").val();
     Bookstarzz.ws.WSLibros.deleteLibro(id, function (result) {
         if (result) {
-
             recargarDatos();
             $("#txtMsg").val("3");
             window.scrollTo(0, 0);
@@ -210,13 +212,11 @@ function cofirmEliminar() {
     );
 }
 
-
 function recargarDatos() {
     tablaPedidosDT.fnClearTable();
     Bookstarzz.ws.WSLibros.getAll(function (result) {
         if (result) {
             let objJSON = JSON.parse(result);
-
             tablaPedidosDT.fnAddData(normalizar(objJSON));
         } else {
             window.location.replace("FrmLogin.aspx");
@@ -234,7 +234,8 @@ function mensaje() {
     //Codigos de mensaje: 1 se modificaron datos exitosamente; 2 error lado servidor
     const id = $("#txtMsg").val();
     if (id == 1) {
-        $("#cntMsg").text("El registro se modificó exitosamente"); //Se agrega el texto
+        idGlobal = $("#txtIdGlobal").val();
+        $("#cntMsg").text("El registro '"+ idGlobal+ "' se modificó exitosamente"); //Se agrega el texto
         $("#divMsg").addClass("alert-success"); //Se agrega la clase de success al div
         $("#divMsg").css("display", "block"); //Se habilita el div para mostrarse
         setTimeout(function () {
@@ -248,7 +249,7 @@ function mensaje() {
         $("#divMsg").css("display", "block"); //Se habilita el div para mostrarse
     }
     if (id == 3) {
-        $("#cntMsg").text("El registro se eliminó exitosamente"); //Se agrega el texto
+        $("#cntMsg").text("El libro '" + libroMsgGeneral + "' se eliminó exitosamente"); //Se agrega el texto
         $("#divMsg").addClass("alert-success"); //Se agrega la clase de success al div
         $("#divMsg").css("display", "block"); //Se habilita el div para mostrarse
         setTimeout(function () {

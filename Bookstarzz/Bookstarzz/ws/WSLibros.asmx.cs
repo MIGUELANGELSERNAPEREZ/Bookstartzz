@@ -23,14 +23,21 @@ namespace Bookstarzz.ws
         [WebMethod(EnableSession = true)]
         public String getOne(int idLibro)
         {
-
             if (Session["session"] != null)
             {
                 string tipo = Session["session"].ToString();
                 if (tipo.Equals("usu") || tipo.Equals("admi"))
                 {
-                    JavaScriptSerializer jss = new JavaScriptSerializer();
-                    return jss.Serialize(new DaoLibros().getOne(idLibro));
+                    try
+                    {
+                        JavaScriptSerializer jss = new JavaScriptSerializer();
+                        return jss.Serialize(new DaoLibros().getOne(idLibro));
+                    }
+                    catch
+                    {
+                        return "";
+                    }
+                    
                 }
 
             }
@@ -100,13 +107,23 @@ namespace Bookstarzz.ws
                 string tipo = Session["session"].ToString();
                 if (tipo.Equals("admi"))
                 {
-
                     JavaScriptSerializer jss = new JavaScriptSerializer();
-                    return new DaoLibros().insertLibro(jss.Deserialize<Libros>(info));
+                    Libros obj = jss.Deserialize<Libros>(info);
+                    if (valido(obj))
+                    {
+                        try
+                        {
+                            int val = 0;
+                            return val = new DaoLibros().insertLibro(obj);
+                        }
+                        catch
+                        {
+                            return 0;
+                        }
+                    }
                 }
-
             }
-            throw new SecurityException("Ha ocurrido un error interno al procesar la informacion");
+            return 0;
         }
 
         [WebMethod(EnableSession = true)]
@@ -118,13 +135,23 @@ namespace Bookstarzz.ws
                 string tipo = Session["session"].ToString();
                 if (tipo.Equals("admi"))
                 {
-
                     JavaScriptSerializer jss = new JavaScriptSerializer();
-                    return new DaoLibros().updateLibro(jss.Deserialize<Libros>(info));
+                    Libros obj = jss.Deserialize<Libros>(info);
+                    if (valido(obj))
+                    {
+                        try
+                        {
+                            bool val = false;
+                            return val = new DaoLibros().updateLibro(obj);
+                        }
+                        catch
+                        {
+                            return false;
+                        }
+                    }
                 }
-
             }
-            throw new SecurityException("Ha ocurrido un error interno al procesar la informacion");
+            return false;
         }
 
         [WebMethod(EnableSession = true)]
@@ -137,11 +164,17 @@ namespace Bookstarzz.ws
                 if (tipo.Equals("admi"))
                 {
 
-                    return new DaoLibros().deleteLibro(id);
+                    try
+                    {
+                        return new DaoLibros().deleteLibro(id);
+                    }
+                    catch
+                    {
+                        return false;
+                    }
                 }
-
             }
-            throw new SecurityException("Ha ocurrido un error interno al procesar la informacion");
+            return false;
         }
 
         [WebMethod(EnableSession = true)]
@@ -161,6 +194,47 @@ namespace Bookstarzz.ws
             }
             throw new SecurityException("Acceso restringido");
         }
+
+        public bool valido(Libros obj)
+        {
+
+            if (obj.Nombre == "" || obj.Nombre.Length > 50)
+            {
+
+                return false;
+            }
+
+            if (obj.Autor == "" || obj.Autor.Length > 50)
+            {
+
+                return false;
+            }
+
+            if (obj.Editorial == "" || obj.Editorial.Length > 30)
+            {
+                return false;
+            }
+
+            if (obj.ISBN == "" || obj.ISBN.Length > 30)
+            {
+                return false;
+
+            }
+
+            if (obj.FechaPublicacion == null)
+            {
+                return false;
+            }
+
+
+            if (obj.Descripcion == "" || obj.Descripcion.Length > 300)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
     }
 }
 

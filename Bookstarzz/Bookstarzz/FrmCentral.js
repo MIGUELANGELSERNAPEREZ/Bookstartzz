@@ -1,9 +1,12 @@
-﻿function btnUsuarios() {
+﻿$(document).ready(function () {
+    $("#btnEntrar").click(function () {
+        limpiar();
+        $("#contenidoVista").load("FrmBookstarzz.aspx");
+    });
+});
 
-    $("#contenidoVista").load("FrmLiistaUsuarios.aspx");
+//Funcion para limpiar el contenedor principal donde se carga la pagina
+function limpiar() {
+    $("#contenidoVista").empty();
 }
 
-function btnGestion() {
-
-    $("#contenidoVista").load("FrmGestionTitulos.aspx");
-}
