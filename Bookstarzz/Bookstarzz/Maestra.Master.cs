@@ -11,7 +11,11 @@ namespace Bookstarzz
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["session"] != null)
+            {
+                string tipo = Session["session"].ToString();
+                txtTipo.Text = tipo; //Se asigna al control oculto el tipo de sesion en el que esta
+            }
         }
     }
 }
