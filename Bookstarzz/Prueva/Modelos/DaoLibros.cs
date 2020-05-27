@@ -87,9 +87,9 @@ namespace Backend.Modelos
                     }
                 }
             }
-            catch (Exception m)
+            catch (MySqlException e)
             {
-                Console.WriteLine(m);
+                throw new Exception("Se ha presentado un problema al obtener los datos");
             }
             finally
             {
