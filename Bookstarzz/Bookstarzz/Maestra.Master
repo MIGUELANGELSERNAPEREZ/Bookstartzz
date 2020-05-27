@@ -22,8 +22,11 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <%--Control necesario para guardar el tipo de usuario que esta entrando, redirigida desde FrmLogin--%>
+            <asp:TextBox ID="txtTipo" visible="false" runat="server"></asp:TextBox>
+
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Información</a>
@@ -37,12 +40,24 @@
                         <a class="dropdown-item" href="#">Personas mayores</a>
                     </div>
                 </li>
+
+                <%--Inicia bloque de condigo para ver opciones solo admin--%>
+                <%
+                    if (txtTipo.Text.Equals("admi"))
+                    {
+                %>
                 <li class="nav-item active">
                     <a class="nav-link" href="#" id="cntGestionTitulos">Gestion de titulos <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="#" id="cntPedidos">Pedidos <span class="sr-only">(current)</span></a>
                 </li>
+                 <%
+                    }
+                    
+                %>
+                <%--Termina bloque de condigo para ver opciones solo admin--%>
+                
                 <li class="nav-item active">
                     <a class="nav-link" href="FrmConfiguracion.aspx">Configuracion <span class="sr-only">(current)</span></a>
                 </li>

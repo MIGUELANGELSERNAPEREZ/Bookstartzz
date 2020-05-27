@@ -95,53 +95,53 @@ namespace Bookstarzz.ws
         public int insertLibro(String info)
         {
 
-            //if (Session["session"] != null)
-            //{
-            //    string tipo = Session["session"].ToString();
-            //    if (tipo.Equals("usu") || tipo.Equals("admi"))
-            //    {
+            if (Session["session"] != null)
+            {
+                string tipo = Session["session"].ToString();
+                if (tipo.Equals("admi"))
+                {
 
-            JavaScriptSerializer jss = new JavaScriptSerializer();
-            return new DaoLibros().insertLibro(jss.Deserialize<Libros>(info));
-            //}
+                    JavaScriptSerializer jss = new JavaScriptSerializer();
+                    return new DaoLibros().insertLibro(jss.Deserialize<Libros>(info));
+                }
 
-            //}
-            //return "";
+            }
+            throw new SecurityException("Ha ocurrido un error interno al procesar la informacion");
         }
 
         [WebMethod(EnableSession = true)]
         public bool updateLibro(String info)
         {
 
-            //if (Session["session"]!=null)
-            //{
-            //    string tipo = Session["session"].ToString();
-            //    if (tipo.Equals("usu") || tipo.Equals("admi"))
-            //    {
+            if (Session["session"] != null)
+            {
+                string tipo = Session["session"].ToString();
+                if (tipo.Equals("admi"))
+                {
 
-            JavaScriptSerializer jss = new JavaScriptSerializer();
-            return new DaoLibros().updateLibro(jss.Deserialize<Libros>(info));
-            //    }
+                    JavaScriptSerializer jss = new JavaScriptSerializer();
+                    return new DaoLibros().updateLibro(jss.Deserialize<Libros>(info));
+                }
 
-            //}
-            //return "";
+            }
+            throw new SecurityException("Ha ocurrido un error interno al procesar la informacion");
         }
 
         [WebMethod(EnableSession = true)]
         public bool deleteLibro(int id)
         {
 
-            //if (Session["session"]!=null)
-            //{
-            //    string tipo = Session["session"].ToString();
-            //    if (tipo.Equals("usu") || tipo.Equals("admi"))
-            //    {
+            if (Session["session"] != null)
+            {
+                string tipo = Session["session"].ToString();
+                if (tipo.Equals("admi"))
+                {
 
-            return new DaoLibros().deleteLibro(id);
-            //    }
+                    return new DaoLibros().deleteLibro(id);
+                }
 
-            //}
-            //return "";
+            }
+            throw new SecurityException("Ha ocurrido un error interno al procesar la informacion");
         }
 
         [WebMethod(EnableSession = true)]
