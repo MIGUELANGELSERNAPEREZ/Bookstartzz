@@ -39,6 +39,8 @@
                 <asp:ServiceReference Path="~/ws/WSPedidos.asmx" />
             </Services>
         </asp:ScriptManager>
+        <%--Este input guarda el id que servira para modificar el estatus del pedido--%>
+        <input type="hidden" id="txtIdPedido" value="" />
         <center>
             <h1 id="h1GestionTitulos">PEDIDOS</h1>
         </center>
@@ -49,6 +51,9 @@
         </div>
         <div class="form-group">
             <asp:TextBox class="form-control" ID="txtDetallesPedido" Readonly="true" TextMode="MultiLine" Rows="10" autocomplete="off" resize="none" runat="server"></asp:TextBox><br />
+        </div>
+        <div class="row justify-content-center my-2">
+            <button id="btnEntregado" type="button" class="btn btn-primary" >Marcar como entregado</button>
         </div>
     </form>
 </asp:Content>

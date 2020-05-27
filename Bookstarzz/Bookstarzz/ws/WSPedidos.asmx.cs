@@ -127,23 +127,23 @@ namespace Bookstarzz.ws
         //    //return "";
         //}
 
-        //[WebMethod(EnableSession = true)]
-        //public bool updateLibro(String info)
-        //{
+        [WebMethod(EnableSession = true)]
+        public bool updateEstatusPedido(String info)
+        {
 
-        //    //if (Session["session"]!=null)
-        //    //{
-        //    //    string tipo = Session["session"].ToString();
-        //    //    if (tipo.Equals("usu") || tipo.Equals("admi"))
-        //    //    {
+            //if (Session["session"]!=null)
+            //{
+            //    string tipo = Session["session"].ToString();
+            //    if (tipo.Equals("usu") || tipo.Equals("admi"))
+            //    {
 
-        //    JavaScriptSerializer jss = new JavaScriptSerializer();
-        //    return new DaoLibros().updateLibro(jss.Deserialize<Libros>(info));
-        //    //    }
+            JavaScriptSerializer jss = new JavaScriptSerializer();
+            return new DaoPedidos().updateEstatusPedido(jss.Deserialize<Pedidos>(info));
+            //    }
 
-        //    //}
-        //    //return "";
-        //}
+            //}
+            //return "";
+        }
 
         //[WebMethod(EnableSession = true)]
         //public bool deleteLibro(int id)

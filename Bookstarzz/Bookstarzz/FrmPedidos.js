@@ -6,6 +6,13 @@ $(document).ready(function () {
     $("#divBloque2").addClass("container-fluid");
     $("#divBloque1").addClass("col");
 
+    //Se deshabilitan los botones
+    deshabilitaBtn();
+
+    $("#btnEntregado").click(function () {
+        modificarEstatus("entregado");
+    });
+
     cargarPedidos(); //Llammamos el WebService que cargara el DataTable con los pedidos
 
 });
@@ -88,9 +95,19 @@ function cargarDatos(datos) {
 
     //En caso de que un renglon se seleccione, se detecta el id del pedido y se manda a llenarDetallePedido
     $('#tblPedidos tbody').on('click', 'tr', function () {
-        const id = $(this).find('td').first().text();
+        deshabilitaBtn();
+        const id = $(this).find('td').first().text(); //Obtenemos el id sacandolo del diseño de la tabla
+        const estatus = ($(this).find('td').last().text()); //Obtenemos el estatus sacandolo del diseño de la tabla
+        if (estatus == "preparado") {
+            $("#btnEntregado").attr("disabled", false); //Activamos el boton para entregar
+        }
         llenarDetallePedido(id);
     });
+}
+
+//Funcion para deshabilitar el boton entregado
+function deshabilitaBtn() {
+    $("#btnEntregado").attr("disabled", true);
 }
 
 //Funcion que se encarga de llenar el textarea con la informacion especifica del pedido
@@ -109,7 +126,9 @@ function llenarDetallePedido(id) {
             //$("#body_bloque_2_txtDetallesPedido").append("<br>" + direccion);
             $("#body_bloque_2_txtDetallesPedido").html("DIRECCION: "+direccion + saltoLinea +
                 "CIUDAD: "+ciudad + saltoLinea + "FORMATO: "+formato + saltoLinea + "FOLIO: "+idPedido + saltoLinea +
-                "FECHA DE COMPRA: "+fechaCompra + saltoLinea + "ESTATUS DEL PEDIDO: "+estatusPedido);
+                "FECHA DE COMPRA: " + fechaCompra + saltoLinea + "ESTATUS DEL PEDIDO: " + estatusPedido);
+
+            $("#txtIdPedido").val(id);//Asignamos aqui el id del pedido en este input oculto
         } else {
             window.location.replace("FrmLogin.aspx");
         }
@@ -134,6 +153,53 @@ function normalizar(datos) {
     //Linea para cuando entra desde metodo de llenarDetallePedido
     datos['fechaCompra'] = moment(datos['fechaCompra']).format("YYYY-MM-DD");
     return datos;
+}
+
+//Funcion que modifica el estatus del pedido
+function modificarEstatus(estatus) {
+    const id = $("#txtIdPedido").val();
+    let objPedidos = {};
+    if (estatus == "entregado") {
+        objPedidos.idPedido = id;
+        objPedidos.estatusPedido = estatus;
+        Bookstarzz.ws.WSPedidos.updateEstatusPedido(JSON.stringify(objPedidos), function (result) {
+            if (result == true) {
+                recargarDatos();
+                deshabilitaBtn();
+            } else {
+                //Mensaje de error lado servidor
+                //window.scrollTo(0, 0);
+                //$("#txtInpMensaje").val("3");
+                //mensaje();
+            }
+        },
+            function (error) {
+                ////Mensaje de error lado servidor
+                //window.scrollTo(0, 0);
+                //$("#txtInpMensaje").val("3");
+                //mensaje();
+            }
+        );
+    }
+}
+
+
+function recargarDatos() {
+    tablaPedidosDT.fnClearTable();
+    Bookstarzz.ws.WSPedidos.getAllPedidos(function (result) {
+        if (result) {
+            let objJSON = JSON.parse(result);
+
+            tablaPedidosDT.fnAddData(normalizar(objJSON));
+        } else {
+            window.location.replace("FrmLogin.aspx");
+        }
+    },
+        function (error) {
+            //$("#cntMsg").text("Error: no se ha podido realizar la operación");
+            //$("#cntMsg").parent().show();
+        }
+    );
 }
 
 

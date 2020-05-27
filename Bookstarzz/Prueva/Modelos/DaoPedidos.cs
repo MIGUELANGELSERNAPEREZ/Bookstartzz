@@ -204,47 +204,37 @@ namespace Backend.Modelos
         //        DaoConexion.desconectar();
         //    }
         //}
-        //public bool updateLibro(Libros obj)
-        //{
-        //    try
-        //    {
+        public bool updateEstatusPedido(Pedidos obj)
+        {
+            try
+            {
 
-        //        MySqlCommand consulta = new MySqlCommand();
-        //        consulta.CommandText = "UPDATE Libros SET nombre = @nombre, autor = @autor," +
-        //            "editorial = @editorial, ISBN = @ISBN, fechaPublicacion = @fechaPublicacion, precio = @precio," +
-        //            "numeroPaginas = @numeroPaginas, descripcion = @descripcion, clasificacion = @clasificacion WHERE idLibro = @idLibro;";
+                MySqlCommand consulta = new MySqlCommand();
+                consulta.CommandText = "UPDATE Pedidos SET estatusPedido = @estatusPedido WHERE idPedido = @idPedido";
 
-        //        consulta.Parameters.AddWithValue("@idLibro", obj.IdLibro);
-        //        consulta.Parameters.AddWithValue("@nombre", obj.Nombre);
-        //        consulta.Parameters.AddWithValue("@autor", obj.Autor);
-        //        consulta.Parameters.AddWithValue("@editorial", obj.Editorial);
-        //        consulta.Parameters.AddWithValue("@ISBN", obj.ISBN);
-        //        consulta.Parameters.AddWithValue("@fechaPublicacion", obj.FechaPublicacion);
-        //        consulta.Parameters.AddWithValue("@precio", obj.Presio);
-        //        consulta.Parameters.AddWithValue("@numeroPaginas", obj.NPaginas);
-        //        consulta.Parameters.AddWithValue("@descripcion", obj.Descripcion);
-        //        consulta.Parameters.AddWithValue("@clasificacion", obj.Clasificacion);
+                consulta.Parameters.AddWithValue("@idPedido", obj.idPedido);
+                consulta.Parameters.AddWithValue("@estatusPedido", obj.estatusPedido);
 
-        //        if (DaoConexion.ejecutarSentencia(consulta, false) > 0)
-        //        {
-        //            return true;
-        //        }
-        //        else
-        //        {
-        //            return false;
-        //        }
+                if (DaoConexion.ejecutarSentencia(consulta, false) > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
 
 
-        //    }
-        //    catch (Exception m)
-        //    {
-        //        return false;
-        //    }
-        //    finally
-        //    {
-        //        DaoConexion.desconectar();
-        //    }
-        //}
+            }
+            catch (Exception m)
+            {
+                return false;
+            }
+            finally
+            {
+                DaoConexion.desconectar();
+            }
+        }
 
         //public bool deleteLibro(int id)
         //{
