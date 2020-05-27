@@ -1,7 +1,7 @@
 ﻿var tablaPedidosDT;
 $(document).ready(function () {
     //Reiniciamos los estilos para este Frm en especifico
-    $("#divBloque2").removeClass("col-10"); 
+    $("#divBloque2").removeClass("col-10");
     $("#divBloque1").removeClass("col-2 pr-0");
     $("#divBloque2").addClass("container-fluid");
     $("#divBloque1").addClass("col");
@@ -34,12 +34,13 @@ function cargarPedidos() {
         } else {
             window.location.replace("FrmLogin.aspx");
         }
-    }
-        //}, //Este mensaje va para el Login
-        //    function (error) {
-        //        $("#cntMsg").text("Error: no se ha podido realizar la operación");
-        //        $("#cntMsg").parent().show();
-        //    }
+    },
+        //Mensaje de error lado del servidor
+        function (error) {
+            $("#txtMsg").val("2");
+            window.scrollTo(0, 0);
+            mensaje();
+        }
     );
 }
 
@@ -193,18 +194,18 @@ function cofirmEliminar() {
         if (result) {
 
             recargarDatos();
-            //$("#cntMsgExito").parent().show();
-            //window.setTimeout(function () {
-            //    $("#cntMsgExito").parent().alert('close');
-            //}, 10000);
+            $("#txtMsg").val("3");
+            window.scrollTo(0, 0);
+            mensaje();
 
         } else {
             window.location.replace("FrmLogin.aspx");
         }
     },
         function (error) {
-            //$("#cntMsg").text("Error: no se ha podido realizar la operación");
-            //$("#cntMsg").parent().show();
+            $("#txtMsg").val("2");
+            window.scrollTo(0, 0);
+            mensaje();
         }
     );
 }
@@ -215,23 +216,39 @@ function recargarDatos() {
     Bookstarzz.ws.WSLibros.getAll(function (result) {
         if (result) {
             let objJSON = JSON.parse(result);
-            
+
             tablaPedidosDT.fnAddData(normalizar(objJSON));
         } else {
             window.location.replace("FrmLogin.aspx");
         }
     },
         function (error) {
-            //$("#cntMsg").text("Error: no se ha podido realizar la operación");
-            //$("#cntMsg").parent().show();
+            $("#txtMsg").val("2");
+            window.scrollTo(0, 0);
+            mensaje();
         }
     );
 }
 //Funcion que dispara un mensaje
 function mensaje() {
+    //Codigos de mensaje: 1 se modificaron datos exitosamente; 2 error lado servidor
     const id = $("#txtMsg").val();
-    if (id == "exito") {
+    if (id == 1) {
         $("#cntMsg").text("El registro se modificó exitosamente"); //Se agrega el texto
+        $("#divMsg").addClass("alert-success"); //Se agrega la clase de success al div
+        $("#divMsg").css("display", "block"); //Se habilita el div para mostrarse
+        setTimeout(function () {
+            $("#divMsg").css("display", "none").fadeOut(); //Se asigna un tiempo de 3 segundos para cerrar automaticamente el div
+        }, 3000);
+    }
+    if (id == 2) {
+        $("#tipoMsg").text("Error: "); //Se agrega el texto
+        $("#cntMsg").text("Ha ocurrido un problema interno al intentar obtener la informacion"); //Se agrega el texto
+        $("#divMsg").addClass("alert-danger"); //Se agrega la clase de success al div
+        $("#divMsg").css("display", "block"); //Se habilita el div para mostrarse
+    }
+    if (id == 3) {
+        $("#cntMsg").text("El registro se eliminó exitosamente"); //Se agrega el texto
         $("#divMsg").addClass("alert-success"); //Se agrega la clase de success al div
         $("#divMsg").css("display", "block"); //Se habilita el div para mostrarse
         setTimeout(function () {

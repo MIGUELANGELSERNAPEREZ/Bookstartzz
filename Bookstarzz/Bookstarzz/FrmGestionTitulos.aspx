@@ -28,7 +28,7 @@
                 </button>
                 </div>
                 <div class="modal-body">
-                <p>¿Estás seguro que deseas eliminar el libro: <strong><span id="spnLibro"></span></strong>?</p>
+                <p>¿Estás seguro que deseas eliminar: <strong><span id="spnLibro"></span></strong>del catalogo de LIBROS?</p>
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

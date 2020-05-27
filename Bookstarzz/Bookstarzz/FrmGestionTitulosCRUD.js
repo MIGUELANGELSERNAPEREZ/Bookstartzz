@@ -8,10 +8,12 @@
     dateP();//Inicializa el datepicker
     llenarInterfaz();
     mensaje(); //Se llama el metetodo de mensajes
+
     $("#btnCancelar").click(function () {
         limpiar();
         $("#contenidoVista").load("FrmGestionTitulos.aspx");
     });
+
     $("#btnAceptar").click(function () {
         $("#formGestionTCRUD").data("bootstrapValidator").validate(); //Validar por defecto de Bootstrap
         if ($("#formGestionTCRUD").data("bootstrapValidator").isValid()) {
@@ -19,7 +21,7 @@
                 Bookstarzz.ws.WSLibros.updateLibro(llenarModelo(), function (result) {
                     if (result == true) {
                         limpiar();
-                        $("#contenidoVista").load("FrmGestionTitulos.aspx", { "txtMsg": "exito"});
+                        $("#contenidoVista").load("FrmGestionTitulos.aspx", { "txtMsg": 1 });
                     } else {
                         //Mensaje de error lado servidor
                         window.scrollTo(0, 0);
@@ -185,7 +187,6 @@ function llenarUI(resul) {
         window.location.redirect("/");
     }
 }
-
 
 function validacionBootsVal() {
     $("#formGestionTCRUD").bootstrapValidator({
