@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+    verificarSesion();
     //Reiniciamos los estilos para este Frm en especifico
     $("#divBloque2").removeClass("col-10");
     $("#divBloque1").removeClass("col-2 pr-0");
@@ -24,10 +25,8 @@
                         limpiar();
                         $("#contenidoVista").load("FrmGestionTitulos.aspx", { "txtMsg": 1, "txtIdGlobal": idGlobal });
                     } else {
-                        //Mensaje de error lado servidor
-                        window.scrollTo(0, 0);
-                        $("#txtInpMensaje").val("3");
-                        mensaje();
+                        //Redirecciona al login
+                        window.location.replace("FrmLogin.aspx");
                     }
                 },
                     function (error) {
@@ -43,10 +42,8 @@
                         limpiar();
                         $("#contenidoVista").load("FrmGestionTitulosCRUD.aspx", { "txtInpMensaje": "1" });
                     } else {
-                        //Mensaje de error lado servidor
-                        window.scrollTo(0, 0);
-                        $("#txtInpMensaje").val("3");
-                        mensaje();
+                        //Redirecciona al login
+                        window.location.replace("FrmLogin.aspx");
                     }
                 },
                     function (error) {
@@ -67,6 +64,25 @@
     });
     validacionBootsVal(); //Activamos el plugin de Bootstrap validator
 });
+
+//Unicamente mandando llamar a getAll nos damos cuenta si hay sesion o no
+function verificarSesion() {
+    Bookstarzz.ws.WSLibros.getAll(function (result) {
+        if (result) {
+            cargarDatos(JSON.parse(result));
+        } else {
+            //Redirecciona al login
+            window.location.replace("FrmLogin.aspx");
+        }
+    },
+        //Mensaje de error lado del servidor
+        function (e) {
+            $("#txtMsg").val("2");
+            window.scrollTo(0, 0);
+            mensaje();
+        }
+    );
+}
 
 //Metodo utilizado para validar en caso de una insercion y enviar un mensaje
 function mensaje() {

@@ -34,6 +34,7 @@ function cargarPedidos() {
         if (result) {
             cargarDatos(JSON.parse(result));
         } else {
+            //Redirecciona al login
             window.location.replace("FrmLogin.aspx");
         }
     },
@@ -201,6 +202,7 @@ function cofirmEliminar() {
             mensaje();
 
         } else {
+            //Redirecciona al login
             window.location.replace("FrmLogin.aspx");
         }
     },
@@ -219,6 +221,7 @@ function recargarDatos() {
             let objJSON = JSON.parse(result);
             tablaPedidosDT.fnAddData(normalizar(objJSON));
         } else {
+            //Redirecciona al login
             window.location.replace("FrmLogin.aspx");
         }
     },

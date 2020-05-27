@@ -31,6 +31,7 @@ function cargarPedidos() {
         if (result) {
             cargarDatos(JSON.parse(result));
         } else {
+            //Redirecciona al login
             window.location.replace("FrmLogin.aspx");
         }
     },
@@ -148,6 +149,7 @@ function llenarDetallePedido(id) {
 
             $("#txtIdPedido").val(id);//Asignamos aqui el id del pedido en este input oculto
         } else {
+            //Redirecciona al login
             window.location.replace("FrmLogin.aspx");
         }
 
@@ -189,10 +191,8 @@ function modificarEstatus(estatus) {
                 $("#txtMsg").val("1");
                 mensaje();
             } else {
-                //Mensaje de error lado servidor
-                window.scrollTo(0, 0);
-                $("#txtMsg").val("2");
-                mensaje();
+                //Redirecciona al login
+                window.location.replace("FrmLogin.aspx");
             }
         },
             function (error) {
@@ -214,6 +214,7 @@ function recargarDatos() {
             llenarDetallePedido(id);
             tablaPedidosDT.fnAddData(normalizar(objJSON));
         } else {
+            //Redirecciona al login
             window.location.replace("FrmLogin.aspx");
         }
     },
