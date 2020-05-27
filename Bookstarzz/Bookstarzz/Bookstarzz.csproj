@@ -170,6 +170,8 @@
     <Content Include="css\main.css" />
     <Content Include="FrmBookstarzz.aspx" />
     <Content Include="FrmBookstarzz.js" />
+    <Content Include="FrmCarrito.aspx" />
+    <Content Include="FrmCarrito.js" />
     <Content Include="FrmConfiguracion.aspx" />
     <Content Include="FrmGenerarReportes.aspx" />
     <Content Include="FrmGestionTitulos.aspx" />
@@ -366,6 +368,13 @@
     </Compile>
     <Compile Include="FrmBookstarzz.aspx.designer.cs">
       <DependentUpon>FrmBookstarzz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCarrito.aspx.cs">
+      <DependentUpon>FrmCarrito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmCarrito.aspx.designer.cs">
+      <DependentUpon>FrmCarrito.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmConfiguracion.aspx.cs">
       <DependentUpon>FrmConfiguracion.aspx</DependentUpon>

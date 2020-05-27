@@ -17,8 +17,16 @@
 
     <!-- Inicio del menu-->
 
+    <%--La siguiente condicional soluciona un error que impedia la carga de la pagina dando clic a la palabra BOOKSTARZZ--%>
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-        <a class="navbar-brand" style="font-size: 25px;" href="#" id="cntFrmMenu">Bookstartzz</a>
+        <% 
+            if (txtTipo.Text.Equals("usu") || txtTipo.Text.Equals("admi"))
+            {
+        %>
+                <a class="navbar-brand" style="font-size: 25px;" href="FrmBookstarzz.aspx" id="cntFrmMenu">Bookstartzz</a>
+        <%
+            }
+        %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -47,10 +55,10 @@
                     {
                 %>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#" id="cntGestionTitulos">Gestion de titulos <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#" id="cntGestionTitulos">Gestion de titulos <span class="sr-only"></span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#" id="cntPedidos">Pedidos <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#" id="cntPedidos">Pedidos <span class="sr-only"></span></a>
                 </li>
 
                 <li class="nav-item active">
@@ -63,7 +71,7 @@
                 <%--Termina bloque de condigo para ver opciones solo admin--%>
                 
                 <li class="nav-item active">
-                    <a class="nav-link" href="FrmConfiguracion.aspx">Configuracion <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#" id="cntConfiguracion">Configuracion <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
 
