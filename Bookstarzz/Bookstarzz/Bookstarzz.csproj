@@ -180,6 +180,7 @@
     <Content Include="FrmLibro.js" />
     <Content Include="FrmListaUsuarios.aspx" />
     <Content Include="FrmLogin.aspx" />
+    <Content Include="FrmLogin.js" />
     <Content Include="FrmMenu.aspx" />
     <Content Include="FrmMenu.js" />
     <Content Include="FrmPedidos.aspx" />
@@ -294,6 +295,7 @@
     <Content Include="libros\ElViaje.jpg" />
     <Content Include="libros\EnlaColoniaPenitenciaria.gif" />
     <Content Include="libros\EnsayosobrelaCeguera.jpg" />
+    <Content Include="libros\error.gif" />
     <Content Include="libros\FriosaurioRex.jpg" />
     <Content Include="libros\Guapa.jpg" />
     <Content Include="libros\HarryPotter7.jpg" />
@@ -331,6 +333,7 @@
     <Content Include="libros\VueltaalMundo80Dias.jpg" />
     <Content Include="libros\YateDijeAdiosAhoraComoteOlvido.jpg" />
     <Content Include="logo.jpg" />
+    <Content Include="Maestra.js" />
     <Content Include="obj\Debug\Bookstarzz.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Bookstarzz.dll" />
     <Content Include="obj\Debug\Bookstarzz.pdb" />

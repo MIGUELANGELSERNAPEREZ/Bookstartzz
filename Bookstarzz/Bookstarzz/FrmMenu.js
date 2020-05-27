@@ -1,21 +1,37 @@
 ﻿let clic = 0;
 $(document).ready(function () {
+    debugger;
     // traemos los dados del web service de Libros para 
     //de los 10 libros mas vistos hasta ahora como recomenadacion
     //al usuario. esta info la mandamos a la funcion cargarcarusel
-    Bookstarzz.ws.WSLibros.getPopulares(cargarCaruserl, function (e) { });
+    Bookstarzz.ws.WSLibros.getPopulares(cargarCaruserl, function (e) {
 
+        $("#cntMsg").text("Error: no se ha podido cargar los libros en el carrucel");
+        $("#cntMsg").parent().show();
+
+    });
     $("verMas").click(function () {
         clic++
         TraerMasLibros(clic);
     });
-    
+
+    //analizamos si nuestro contenedor de erores trae uno
+    if ($("#txtError").val() != "nada") {
+        $("#cntMsg").text($("#txtError").val());
+        $("#cntMsg").parent().show();
+    } 
+      
 });
 
 
 
 function cargarCaruserl(result) {
-    Bookstarzz.ws.WSCategorias.getAll(crearSidebar, function (e) { });
+    Bookstarzz.ws.WSCategorias.getAll(crearSidebar, function (e) {
+
+        $("#cntMsg").text("Error: no se ha podido cargar la seccion de categorias de los libros");
+        $("#cntMsg").parent().show();
+
+    });
  //validamos si el web services nos regresa la cadena esperada
     if (result) {
         
@@ -77,16 +93,19 @@ function cargarCaruserl(result) {
         glide.mount()
 
     } else {       
-        alert("false");
-
-            window.location("FrmLogin.aspx");
         
+        $("#cntMsg").text("Error: no se ha podido cargar el carrusel");
+        $("#cntMsg").parent().show();  
     }
     
 }
 
 function crearSidebar(result) {
-    Bookstarzz.ws.WSLibros.getNuevos(crearLibrosNuevos, function (e) { });
+
+    Bookstarzz.ws.WSLibros.getNuevos(crearLibrosNuevos, function (e) {
+        $("#cntMsg").text("Error: no se ha podido cargar la seccion de los libros resientemente disponibles");
+        $("#cntMsg").parent().show();
+    });
     console.log(result);
     if (result) {
         let arreglo = JSON.parse(result);
@@ -97,7 +116,8 @@ function crearSidebar(result) {
             });
 
     } else {
-        alert("Regreso Vasio");
+        $("#cntMsg").text("Error: no se ha podido Cargar las categorias de los libros");
+        $("#cntMsg").parent().show();
 
     } 
 }
@@ -141,6 +161,7 @@ function crearLibrosNuevos( result ) {
                     debugger;
                     //alert($(this).attr("id"));
                     $("#contenidoVista").load("FrmLibro.aspx", { "id": id });
+
                 });
 
                 cont++;
@@ -148,8 +169,8 @@ function crearLibrosNuevos( result ) {
             });
 
     } else {
-        alert("Regreso Vasio");
-
+        $("#cntMsg").text("Error: no se ha podido cargar la seccion de los libros resientemente disponibles");
+        $("#cntMsg").parent().show();
     } 
 }
 

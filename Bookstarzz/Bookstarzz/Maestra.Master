@@ -47,11 +47,34 @@
                     <a class="nav-link" href="FrmConfiguracion.aspx">Configuracion <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
+
+            <!-- el boton de busqueda -->
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                <input class="form-control mr-sm-2" type="search" placeholder="nombre del libro" aria-label="Search" 
+                    list="listaLibros" id="paginaMaestra">
+                <button class="btn btn-info my-2 my-sm-0" type="button" onclick="btnBuscar()">Buscar</button>
             </form>
-        </div>
+
+
+            <datalist id="listaLibros">
+              <option value="Crepuscolo Eclipse">
+              <option value="Cars">
+              <option value="Cinco Minutos Mas">
+              <option value="Crepusculo Amanecer">
+              <option value=" Crepusculo Luna Nueva"> 
+              <option value=" Crepusculo un Amor Peligroso"> 
+              <option value="Desde mi Cielo">
+              <option value="Doctor Sueño">
+              <option value="Dracula">
+              <option value="EL caballero de la armadura oxidada">
+              <option value="El codigo DaVinci"> 
+              <option value="El Principito"> 
+              <option value="El Proceso">
+              <option value="El RayoVerde">
+              <option value="El Viaje">
+              <option value="En la Colonia Penitenciaria">
+            </datalist>
+                    </div>
     </nav>
     <!-- Final del Menu-->
 
@@ -212,7 +235,8 @@
 
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/bootstrap.js"></script>
-    <script src="FrmBookstarzz.js"></script> 
+    <script src="FrmBookstarzz.js"></script>
+    <script src="Maestra.js"></script>
     <!-- Parte del footer o pies de pagina dé las paginas-->
     <asp:ContentPlaceHolder ID="Script" runat="server">
     </asp:ContentPlaceHolder>

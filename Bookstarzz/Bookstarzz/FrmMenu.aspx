@@ -35,6 +35,16 @@
     
         <center>
             <h2 style="color:black">Mas populares <span class="badge badge-warning">Libros</span></h2>
+
+            <!-- El div para mostrar los errores y notificar al usuario-->
+            <div class="alert alert-danger hide" role="alert">
+                  <strong>Error:</strong> <span id="cntMsg">Sin errores</span>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+            </div>
+            <!-- sirve para contener el mensaje -->
+             <input type="hidden" id="txtError" value="<%= Request["typeError"] != null ? Request["typeError"] : "nada" %>"/>
         </center>
    
     <div class="container-fluid pl-0 pt-3">

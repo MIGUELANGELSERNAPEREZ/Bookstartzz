@@ -7,16 +7,65 @@
 
     } else {
 
+        if (($("#txtBuscar").val()) != 0) {
+            let titulo = $("#txtBusca").val();
+            llenarDatos(titulo);
+        } else {
+            $("#contenidoVista").load("FrmMenu.aspx", { "typeError": "Libro no disponible" });
+        }
+       
     }
 
-   /* $("leerLibro").click(function () {
-       // <embed type="application/pdf" width="100%" height="100%">
-        $(".container-pdf").css({ "width": "1000px", "heigth": "1000px" });
-        $(".container-pdf").append($("<embed\>").attr("type", "application/pdf").attr("src", $("titulo").text()));
-            
-             });
-   */
 });
+
+function llenarDatos(nombre) {
+
+    if (nombre != null) {
+        let libro = quitarEspacios(nombre);
+
+        Bookstarzz.ws.WSLibros.traerLibro(nombre, function (result) {
+
+            if (result) {
+
+                let arreglo = JSON.parse(result);
+                btnDescargar(arreglo.Nombre);
+                //llenamos los inputs con el libro traido
+                $("#titulo").html(arreglo.Nombre);
+                $("#ano").html(arreglo.FechaPublicacion);
+                $("#genero").html(arreglo.Nombre);
+                $("#autor").html(arreglo.Autor);
+                $("#sinopsis").html(arreglo.Descripcion);
+                $("#paginas").html(arreglo.NPaginas);
+                $("#presio").html(arreglo.Presio);
+
+                if (arreglo.Clasificacion == 1) {
+                    $("#clasificacion").html("Niños");
+                } else if (arreglo.Clasificacion == 2) {
+                    $("#clasificacion").html("Adolecentes");
+                } else if (arreglo.Clasificacion == 3) {
+                    $("#clasificacion").html("Adultos");
+                }
+
+                let nombre = quitarEspacios(arreglo.Nombre);
+
+                //agregamos un img con la portada del libro
+                $(".card-img-top").attr("src", "libros/" + nombre + ".jpg").attr("id", arreglo.IdLibro);
+            } else {
+                
+                window.location.replace("FrmLogin.aspx");
+            }
+
+        },
+
+            function (error) {
+                $("#contenidoVista").load("FrmMenu.aspx", { "typeError": "Libro no disponible" });
+            }
+        );
+    } else {
+        window.location.replace("FrmLogin.aspx");
+    }
+
+}
 
 
 var crear = false; // nos ayuda para saber si si o si no ha sido creado el elemento pata mostrar el pdf
@@ -103,13 +152,25 @@ function infoLibro(id) {
             $(".card-img-top").attr("src", "libros/" + nombre + ".jpg").attr("id", arreglo.IdLibro);
 
         } else {
-            alert("error");
+
+            $("#contenidoVista").load("FrmMenu.aspx", { "typeError": "Ha abido un error al extraer la informacion del libro"});
         }
 
-    });
+    },
+        function (error) {
+            $("#contenidoVista").load("FrmMenu.aspx", { "typeError": "Error: no se pudo llevar acavo la operacion" });
+        }
+    );
 }
 
 function btnDescargar(nombre) {
-    let ruta = quitarEspacios(nombre);
-    $("#btnDescargar").attr("download", ruta).attr("href", "pdfs/" + ruta + ".pdf");
+    if (nombre != null) {
+        let ruta = quitarEspacios(nombre);
+        $("#btnDescargar").attr("download", ruta).attr("href", "pdfs/" + ruta + ".pdf");
+    } else {
+        $("#cntMsg").text("Error: A ocurrido un error al realizar la descarga");
+        $("#cntMsg").parent().show();
+    }
+
+   
 }

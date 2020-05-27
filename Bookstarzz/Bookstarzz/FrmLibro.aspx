@@ -10,7 +10,7 @@
        <div class="row">
            <div class="col">
                <div class="card">
-                   <img class="card-img-top" alt="Card image cap">
+                   <img class="card-img-top img-fluid" alt="No se pudo Cargar imagen">
                     <div class="card-body">
                         <p class="card-text">Bookstarzz Librery</p>
                     </div>
@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col">
                 <div class="alert alert-danger hide" role="alert">
-                  <strong>Error:</strong> <span id="cntMsg"></span>
+                  <strong>Error:</strong> <span id="cntMsg">Sin errores</span>
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -43,8 +43,10 @@
                         </Services>
                     </asp:ScriptManager>
                </form>
-
+                <!-- uso normal del formulario-->
                   <input type="hidden" id="txtId" value="<%= Request["id"] != null ? Request["id"] : "0" %>"/>
+                  <!-- se usa cuando se esta utilizando el input de buqueda de la pagina--> 
+                 <input type="hidden" id="txtBuscar" value="<%= Request["nameBook"] != null ? Request["nameBook"] : "0" %>"/>
 
 
                  <div class="card" style="width: 100%;">

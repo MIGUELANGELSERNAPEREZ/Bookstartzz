@@ -24,17 +24,17 @@ namespace Bookstarzz.ws
         public String getOne(int idLibro)
         {
 
-            //if (Session["session"]!=null)
-            //{
-            //    string tipo = Session["session"].ToString();
-            //    if (tipo.Equals("usu") || tipo.Equals("admi"))
-            //    {
-            JavaScriptSerializer jss = new JavaScriptSerializer();
-            return jss.Serialize(new DaoLibros().getOne(idLibro));
-            //    }
+            if (Session["session"] != null)
+            {
+                string tipo = Session["session"].ToString();
+                if (tipo.Equals("usu") || tipo.Equals("admi"))
+                {
+                    JavaScriptSerializer jss = new JavaScriptSerializer();
+                    return jss.Serialize(new DaoLibros().getOne(idLibro));
+                }
 
-            //}
-            //return "";
+            }
+            return "";
         }
 
 
@@ -42,33 +42,34 @@ namespace Bookstarzz.ws
         public string getAll()
         {
 
-            //if (Session["session"] != null)
-            //{
-            //    string tipo = Session["session"].ToString();
-            //    if (tipo.Equals("usu") || tipo.Equals("admi"))
-            //    {
+            if (Session["session"] != null)
+            {
+                string tipo = Session["session"].ToString();
+                if (tipo.Equals("usu") || tipo.Equals("admi"))
+                {
                     JavaScriptSerializer jss = new JavaScriptSerializer();
                     return jss.Serialize(new DaoLibros().getAll());
-            //    }
+                }
 
-            //}
-            //return "";
+            }
+            return "";
         }
 
-        [WebMethod (EnableSession = true)]
-      public string getPopulares() {
+        [WebMethod(EnableSession = true)]
+        public string getPopulares()
+        {
 
-            //if (Session["session"]!=null)
-            //{
-            //    string tipo = Session["session"].ToString();
-            //    if (tipo.Equals("usu") || tipo.Equals("admi"))
-            //    {
+            if (Session["session"] != null)
+            {
+                string tipo = Session["session"].ToString();
+                if (tipo.Equals("usu") || tipo.Equals("admi"))
+                {
                     JavaScriptSerializer jss = new JavaScriptSerializer();
                     return jss.Serialize(new DaoLibros().getPopulares());
-            //    }
+                }
 
-            //}
-            //return "";
+            }
+            throw new SecurityException("Acceso restringido");
         }
 
 
@@ -76,17 +77,17 @@ namespace Bookstarzz.ws
         public string getNuevos()
         {
 
-            //if (Session["session"]!=null)
-            //{
-            //    string tipo = Session["session"].ToString();
-            //    if (tipo.Equals("usu") || tipo.Equals("admi"))
-            //    {
-            JavaScriptSerializer jss = new JavaScriptSerializer();
-            return jss.Serialize(new DaoLibros().getNuevos());
-            //    }
+            if (Session["session"] != null)
+            {
+                string tipo = Session["session"].ToString();
+                if (tipo.Equals("usu") || tipo.Equals("admi"))
+                {
+                    JavaScriptSerializer jss = new JavaScriptSerializer();
+                    return jss.Serialize(new DaoLibros().getNuevos());
+                }
 
-            //}
-            //return "";
+            }
+            throw new SecurityException("Acceso restringido");
         }
 
 
@@ -94,7 +95,7 @@ namespace Bookstarzz.ws
         public int insertLibro(String info)
         {
 
-            //if (Session["session"]!=null)
+            //if (Session["session"] != null)
             //{
             //    string tipo = Session["session"].ToString();
             //    if (tipo.Equals("usu") || tipo.Equals("admi"))
@@ -102,7 +103,7 @@ namespace Bookstarzz.ws
 
             JavaScriptSerializer jss = new JavaScriptSerializer();
             return new DaoLibros().insertLibro(jss.Deserialize<Libros>(info));
-            //    }
+            //}
 
             //}
             //return "";
@@ -143,5 +144,23 @@ namespace Bookstarzz.ws
             //return "";
         }
 
+        [WebMethod(EnableSession = true)]
+
+        public String traerLibro(string nombre)
+        {
+
+            if (Session["session"] != null)
+            {
+                string tipo = Session["session"].ToString();
+                if (tipo.Equals("usu") || tipo.Equals("admi"))
+                {
+                    JavaScriptSerializer jss = new JavaScriptSerializer();
+                    return jss.Serialize(new DaoLibros().traerLibro(nombre));
+                }
+
+            }
+            throw new SecurityException("Acceso restringido");
+        }
     }
 }
+

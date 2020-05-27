@@ -13,11 +13,13 @@ namespace Bookstarzz
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //divMensaje.Visible = false;
+            divMensaje.Visible = false;
         }
 
         protected void btnIniciarSesion_Click(object sender, EventArgs e)
         {
+           string mensaje = "";
+
             if (txtEmail.Text!="" && txtPassword.Text!="")
             {
                 Usuario objUser = new Usuario();
@@ -44,12 +46,20 @@ namespace Bookstarzz
                 }
                 else
                 {
+                    divMensaje.InnerHtml = "El Usuario no existe";
+                    divMensaje.Visible = true;
+                    return;
                     //el usuario no existe
                 }
             }
             else
             {
-                // es necesario agregar contenido a las cajas de texto
+                //agregar algo a las cajas estan vasias
+                mensaje += "El email es un dato obligatorio<br>";
+                mensaje += "El password es un dato obligatorio<br>";
+                divMensaje.InnerHtml = mensaje;
+                divMensaje.Visible = true;
+                return;
             }
         }
     }

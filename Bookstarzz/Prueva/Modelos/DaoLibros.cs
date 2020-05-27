@@ -17,6 +17,7 @@ namespace Backend.Modelos
     public class DaoLibros
     {
 
+
         public Libros getOne(int id)
         {
             try
@@ -258,6 +259,42 @@ namespace Backend.Modelos
             {
                 DaoConexion.desconectar();
             }
+
+        }
+
+
+
+        public Libros traerLibro(string nombre)
+        {
+                 
+            Libros obj = null;
+
+            try
+            {
+            MySqlCommand consulta = new MySqlCommand();
+            consulta.CommandText = "SELECT * FROM libros where Nombre = @nombre;";
+            consulta.Parameters.AddWithValue("@nombre", nombre);
+
+            DataTable tabla = DaoConexion.ejecutarConsulta(consulta);
+            if (tabla.Rows.Count > 0)
+            {
+                obj = new Libros(tabla.Rows[0].ItemArray);
+            }
+
+                
+            }
+            catch (MySqlException ex)
+            {
+                throw new Exception("Se ha presentado un problema al obtener los datos");
+            }
+
+            finally
+            {
+                DaoConexion.desconectar();
+
+            }
+
+            return obj;
 
         }
 

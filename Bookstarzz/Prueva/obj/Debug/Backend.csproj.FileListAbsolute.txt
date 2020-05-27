@@ -8,14 +8,6 @@ D:\web2\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.csproj.CoreCompileInputs
 D:\web2\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.csproj.CopyComplete
 D:\web2\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Prueva.dll
 D:\web2\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Prueva.pdb
-D:\web2\proyecto\Bookstartzz\Bookstarzz\Prueva\bin\Debug\Backend.dll.config
-D:\web2\proyecto\Bookstartzz\Bookstarzz\Prueva\bin\Debug\Backend.dll
-D:\web2\proyecto\Bookstartzz\Bookstarzz\Prueva\bin\Debug\Backend.pdb
-D:\web2\proyecto\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.csprojAssemblyReference.cache
-D:\web2\proyecto\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.csproj.CoreCompileInputs.cache
-D:\web2\proyecto\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.csproj.CopyComplete
-D:\web2\proyecto\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.dll
-D:\web2\proyecto\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.pdb
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\bin\Debug\Backend.dll.config
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\bin\Debug\Backend.dll
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\bin\Debug\Backend.pdb
@@ -24,3 +16,11 @@ C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\obj\Deb
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.csproj.CopyComplete
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.dll
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.pdb
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Prueva\bin\Debug\Backend.dll.config
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Prueva\bin\Debug\Backend.dll
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Prueva\bin\Debug\Backend.pdb
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.csproj.CoreCompileInputs.cache
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.csproj.CopyComplete
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.dll
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.pdb
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Prueva\obj\Debug\Backend.csprojAssemblyReference.cache

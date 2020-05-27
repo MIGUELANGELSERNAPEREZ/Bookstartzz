@@ -16,6 +16,7 @@ body{
     font-size: 1em;
     font-weight: 900;
     overflow: hidden;
+    background-image:url("libros/error.gif");
 }
 
 /*Cuando el cuadro obtiene el foco cambia el color*/
