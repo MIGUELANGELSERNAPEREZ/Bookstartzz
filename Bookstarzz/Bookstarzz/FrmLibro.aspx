@@ -86,8 +86,9 @@
                                 <p id="clasificacion" class="card-text"></p> 
                             </div>
                            <div class="card-columns">
-                                <Button type="button" id="btnLeer" name="btnLeer" class="btn btn-primary btn-lg btn-block" onclick="leerLibro()">Leer</Button>
-                                 <Button type="button" id="btnDescargar" name="btnDescargar" class="btn btn-success btn-lg btn-block" onclick="descargar()">Descargar</Button>
+                                  
+                                 <Button type="button" id="btnLeer" name="btnLeer" class="btn btn-primary btn-lg btn-block" onclick="leerLibro()">Leer</Button>
+                                 <a role="button" id="btnDescargar" class="btn btn-success btn-block btn-lg">Descargar Archivo</a>
                                  <Button type="button" id="btnAgregar" name="btnAgregar" class="btn btn-warning btn-lg btn-block" onclick="AgregarCarrito()">Agregar al Carrito</Button>
                            </div>
             

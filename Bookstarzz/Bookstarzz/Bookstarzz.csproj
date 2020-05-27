@@ -510,6 +510,7 @@
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="bin\Bookstarzz.dll.config" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <Content Include="libros\archivo.pdf" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
