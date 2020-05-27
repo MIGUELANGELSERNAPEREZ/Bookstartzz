@@ -9,8 +9,12 @@ $(document).ready(function () {
     //Se deshabilitan los botones
     deshabilitaBtn();
 
+    //Boton eliminar del modal
+    $("#btnConfirmarAccion").click(cofirmMoverEstatus);
+
     $("#btnEntregado").click(function () {
-        modificarEstatus("entregado");
+        const folio = $("#txtIdPedido").val();
+        moverEstatus(folio); //Primero pasa a este metodo para preactivar el modal
     });
 
     cargarPedidos(); //Llammamos el WebService que cargara el DataTable con los pedidos
@@ -29,12 +33,13 @@ function cargarPedidos() {
         } else {
             window.location.replace("FrmLogin.aspx");
         }
-    }
-        //}, //Este mensaje va para el Login
-        //    function (error) {
-        //        $("#cntMsg").text("Error: no se ha podido realizar la operación");
-        //        $("#cntMsg").parent().show();
-        //    }
+    },
+        function (error) {
+            //Mensaje de error lado servidor
+            window.scrollTo(0, 0);
+            $("#txtMsg").val("2");
+            mensaje();
+        }
     );
 }
 
@@ -105,6 +110,19 @@ function cargarDatos(datos) {
     });
 }
 
+//Funcion ubicada en el boton de la tabla
+function moverEstatus(folio) {
+    //Span
+    $("#spnFolio").text(folio);
+    //Modal ubicaco en FrmGestionTitulos
+    $("#mdlConfirmar").modal();
+}
+
+function cofirmMoverEstatus() {
+    $("#mdlConfirmar").modal('hide');
+    modificarEstatus("entregado")
+}
+
 //Funcion para deshabilitar el boton entregado
 function deshabilitaBtn() {
     $("#btnEntregado").attr("disabled", true);
@@ -124,8 +142,8 @@ function llenarDetallePedido(id) {
             let fechaCompra = objPedidos["fechaCompra"];
             let estatusPedido = objPedidos["estatusPedido"];
             //$("#body_bloque_2_txtDetallesPedido").append("<br>" + direccion);
-            $("#body_bloque_2_txtDetallesPedido").html("DIRECCION: "+direccion + saltoLinea +
-                "CIUDAD: "+ciudad + saltoLinea + "FORMATO: "+formato + saltoLinea + "FOLIO: "+idPedido + saltoLinea +
+            $("#body_bloque_2_txtDetallesPedido").html("DIRECCION: " + direccion + saltoLinea +
+                "CIUDAD: " + ciudad + saltoLinea + "FORMATO: " + formato + saltoLinea + "FOLIO: " + idPedido + saltoLinea +
                 "FECHA DE COMPRA: " + fechaCompra + saltoLinea + "ESTATUS DEL PEDIDO: " + estatusPedido);
 
             $("#txtIdPedido").val(id);//Asignamos aqui el id del pedido en este input oculto
@@ -133,14 +151,15 @@ function llenarDetallePedido(id) {
             window.location.replace("FrmLogin.aspx");
         }
 
-    }
+    },
+        function (error) {
+            //Mensaje de error lado servidor
+            window.scrollTo(0, 0);
+            $("#txtMsg").val("2");
+            mensaje();
+        }
     );
-        //let user = resultUser; /*result[0]['Nombre']*/
-        //var pedido = resultPedido;
-        //alert(n);
-        //$("#body_bloque_2_txtDetallesPedido").append(n);
- }
-
+}
 
 //Funcion usada para normalizar ciertos tipos de datos al momento de ser presentados
 function normalizar(datos) {
@@ -166,41 +185,63 @@ function modificarEstatus(estatus) {
             if (result == true) {
                 recargarDatos();
                 deshabilitaBtn();
+                window.scrollTo(0, 0);
+                $("#txtMsg").val("1");
+                mensaje();
             } else {
                 //Mensaje de error lado servidor
-                //window.scrollTo(0, 0);
-                //$("#txtInpMensaje").val("3");
-                //mensaje();
+                window.scrollTo(0, 0);
+                $("#txtMsg").val("2");
+                mensaje();
             }
         },
             function (error) {
-                ////Mensaje de error lado servidor
-                //window.scrollTo(0, 0);
-                //$("#txtInpMensaje").val("3");
-                //mensaje();
+                //Mensaje de error lado servidor
+                window.scrollTo(0, 0);
+                $("#txtMsg").val("2");
+                mensaje();
             }
         );
     }
 }
-
 
 function recargarDatos() {
     tablaPedidosDT.fnClearTable();
     Bookstarzz.ws.WSPedidos.getAllPedidos(function (result) {
         if (result) {
             let objJSON = JSON.parse(result);
-
+            const id = $("#txtIdPedido").val();
+            llenarDetallePedido(id);
             tablaPedidosDT.fnAddData(normalizar(objJSON));
         } else {
             window.location.replace("FrmLogin.aspx");
         }
     },
         function (error) {
-            //$("#cntMsg").text("Error: no se ha podido realizar la operación");
-            //$("#cntMsg").parent().show();
+            //Mensaje de error lado servidor
+            window.scrollTo(0, 0);
+            $("#txtMsg").val("2");
+            mensaje();
         }
     );
 }
 
-
-
+//Metodo utilizado para validar mensajes de exito y error
+function mensaje() {
+    //Codigos de mensaje: 0: no hay nada; 1 se modifico registro; 2 error lado servidor
+    const id = $("#txtMsg").val();
+    if (id == 1) {
+        $("#cntMsg").text("El pedido paso de PREPARADO a ENTREGADO con éxito"); //Se agrega el texto
+        $("#divMsg").addClass("alert-success"); //Se agrega la clase de success al div
+        $("#divMsg").css("display", "block"); //Se habilita el div para mostrarse
+        setTimeout(function () {
+            $("#divMsg").css("display", "none").fadeOut(); //Se asigna un tiempo de 3 segundos para cerrar automaticamente el div
+        }, 3000);
+    }
+    if (id == 2) {
+        $("#tipoMsg").text("Error: "); //Se agrega el texto
+        $("#cntMsg").text("Ha ocurrido un problema interno al intentar obtener la informacion"); //Se agrega el texto
+        $("#divMsg").addClass("alert-danger"); //Se agrega la clase de success al div
+        $("#divMsg").css("display", "block"); //Se habilita el div para mostrarse
+    }
+}

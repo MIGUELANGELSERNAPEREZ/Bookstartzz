@@ -7,29 +7,37 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body_bloque_1" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="body_bloque_2" runat="server">
+     <%--Div para mandar mensaje de exito/error--%>
+    <div id="divMsg" class="alert" style="display:none;" role="alert">
+      <input type="hidden" id="txtMsg" value="" />
+      <strong id="tipoMsg"></strong> <span id="cntMsg"></span>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <form id="formPedidos" runat="server">
-
-             <!-------------------INICIA MODAL---------------------->
+                     <!-------------------INICIA MODAL---------------------->
     <div class="modal" id="mdlConfirmar" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title">Confirmar eliminación</h5>
+                <h5 class="modal-title">Confirmar modificación de estatus</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 </div>
                 <div class="modal-body">
-                <p>¿Estás seguro que deseas eliminar el libro: <strong><span id="spnLibro"></span></strong>?</p>
+                <p>¿Estás seguro que deseas pasar de <strong>PREPARADO</strong> a <strong>ENTREGADO</strong> el pedido con #FOLIO <strong><span id="spnFolio"></span></strong>?</p>
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" id="btnConfirmarEliminar" class="btn btn-danger">Eliminar</button>
+                <button type="button" id="btnConfirmarAccion" class="btn btn-primary">SI, ESTOY SEGURO</button>
                 </div>
             </div>
         </div>
     </div>
     <!--Termina modal -->
+
         <%--Este input revibe el id del Libro para poder realizar las operaciones de editar y eliminar en la misma pagina o en otras--%>
         <input type="hidden" id="inpIdLibro"/>
         <%--Se incluye la referencia al WebService--%>
