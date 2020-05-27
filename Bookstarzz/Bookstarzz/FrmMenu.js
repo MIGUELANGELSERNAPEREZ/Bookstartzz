@@ -1,8 +1,14 @@
-﻿$(document).ready(function () {
+﻿let clic = 0;
+$(document).ready(function () {
     // traemos los dados del web service de Libros para 
     //de los 10 libros mas vistos hasta ahora como recomenadacion
     //al usuario. esta info la mandamos a la funcion cargarcarusel
     Bookstarzz.ws.WSLibros.getPopulares(cargarCaruserl, function (e) { });
+
+    $("verMas").click(function () {
+        clic++
+        TraerMasLibros(clic);
+    });
     
 });
 
@@ -16,6 +22,7 @@ function cargarCaruserl(result) {
         const ruta = "libros/"; // creamos una ruta donde se encuentran nuestras img
         let arreglo = JSON.parse(result); // hacemos un parse a json
         let nombre = "";
+        let contador = 1;
         
 
         //vamos a recorrer cada objeto que tiene el arreglo
@@ -35,22 +42,25 @@ function cargarCaruserl(result) {
                 // modificara su estructura
 
                 $(".glide__slides").append($("<img\>").attr("src", ruta + nombre + ".jpg").addClass("cuadros").attr("id", libro.IdLibro));
-
-                $("#" + libro.IdLibro).bind("click", function () {
-                    alert($(this).attr("id"));
-                });
                
                 nombre = "";
-               
+                let id = libro.IdLibro.toString();
+
+                $("#" + id).bind("click", function () {
+                    debugger;
+                    //alert($(this).attr("id"));
+                    $("#contenidoVista").load("FrmLibro.aspx", { "id": id });
+                });
+
+                $(".glide__bullets").append("<button/>").addClass(
+                    "glide__bullet");
+                $(".glide__bullets").attr("data-glide-dir", "cuadro"+contador); 
+
+                contador++;
                
             });
 
-        for (var i = 0; i < 10; i++) {
-            $(".glide__bullets").append("<button/>").addClass(
-                "glide__bullet");
-            $(".glide__bullets").attr("data-glide-dir",i);            
-
-        }
+       
 
         //iniciamos a crear la funcionalidad de nuestro carusel
         var glide = new Glide('.glide', {
@@ -141,6 +151,19 @@ function crearLibrosNuevos( result ) {
         alert("Regreso Vasio");
 
     } 
+}
+
+var NRows = 64; 
+
+function TraerMasLibros(num) {
+    if (num > 0) {
+
+        let nomFila = NRows + num;
+
+
+    } else {
+        //errro
+    }
 }
 
 

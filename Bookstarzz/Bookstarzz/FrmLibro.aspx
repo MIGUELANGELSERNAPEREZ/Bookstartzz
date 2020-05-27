@@ -8,8 +8,13 @@
 
     <div class="container-fluid" style="top: 70px;">
        <div class="row">
-           <div class="col-2">
-                
+           <div class="col">
+               <div class="card">
+                   <img class="card-img-top" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">Bookstarzz Librery</p>
+                    </div>
+               </div>
             </div>
        </div>
     </div>
@@ -19,53 +24,91 @@
     <div class="container-fluid pl-0 pt-3">
         <div class="row">
             <div class="col">
+                <div class="alert alert-danger hide" role="alert">
+                  <strong>Error:</strong> <span id="cntMsg"></span>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+
+                <center>
+                <h1>Bookstarzz</h1>
+                </center>
               <form id="FormLibro" runat="server">
+
                    <asp:ScriptManager ID="ScriptManagerLibro" runat="server">
                         <Services>
                             <asp:ServiceReference Path="~/ws/WSLibros.asmx" />
                             <asp:ServiceReference Path="~/ws/WSCategorias.asmx" />
                         </Services>
                     </asp:ScriptManager>
+               </form>
 
                   <input type="hidden" id="txtId" value="<%= Request["id"] != null ? Request["id"] : "0" %>"/>
 
-                <div class="form-group">
-                    <label>Titulo del Libro <input type="text" id="titulo" class="form-control" name="titulo" /></label>
-                </div>
-                <div class="form-group">
-                    <label>Año <input type="text" id="ano" class="form-control" name="ano" /></label>
-                </div>
-                <div class="form-group">
-                    <label> Genero <input type="text" id="genero" class="form-control" name="genero" /></label>
-                </div>
-                <div class="form-group">
-                    <label>N°Paginas <input type="text" id="paginas" name="paginas" class="form-control" /></label>
-                </div>
-                <div class="form-group">
-                    <label>Presio <input type="text" id="presio" name="presio" class="form-control" /></label>
-                </div>
-                <div class="form-group">
-                    <label>Autor <input type="text" id="autor" name="autor" class="form-control" /></label>
-                </div>
-                <div class="form-group">
-                    <label>Sinopsis <input type="text" id="sinopsis" name="sinopsis" class="form-control" /></label>
-                </div>
-                <div class="form-group">
-                    <label>Clasificacion <input type="text" id="clasificacion" name="clasificacion" class="form-control"/></label>
-                </div>
-                
-                  <br />
-                 
-                <Button type="button" id="btnLeer" name="btnLeer" class="btn btn-primary btn-lg">Leer</Button>
-                <Button type="button" id="btnDescargar" name="btnDescargar" class="btn btn-success btn-lg">Leer</Button>
-                <Button type="button" id="btnAgregar" name="btnAgregar" class="btn btn-warning btn-lg">Leer</Button>
-                  
-               
-              </form>
 
-               
+                 <div class="card" style="width: 100%;">
+                    <div class="card-body">
+                        <div class="card-header">
+                        <h2 class="card-title">Informacion del Libro</h2>
+                        </div>
+                        
+                            <div class="card-columns">
+                                <label>Titulo del Libro: </label>
+                                <p id="titulo" class="card-text"></p>
+                             </div>
+                             <div class="card-columns">
+                                <label>Año: </label>
+                                <p id="ano" class="card-text"></p> 
+                            </div>
+                            <div class="card-columns">
+                                <label> Genero: </label>
+                                <p id="genero" class="card-text"></p> 
+                            </div>
+                            <div class="card-columns">
+                                <label>N°Paginas: </label>
+                                <p id="paginas" class="card-text"></p> 
+                            </div>
+                            <div class="card-columns">
+                                <label>Presio:</label>
+                                <p id="presio" class="card-text"></p> 
+                            </div>
+                            <div class="card-columns">
+                                <label>Autor: </label>
+                                <p id="autor" class="card-text"></p> 
+                            </div>
+                            <div class="card-columns">
+                                <label>Sinopsis: </label>
+                                <p id="sinopsis" class="card-text"></p> 
+                            </div>
+                            <div class="card-columns">
+                                <label>Clasificacion </label>
+                                <p id="clasificacion" class="card-text"></p> 
+                            </div>
+                           <div class="card-columns">
+                                <Button type="button" id="btnLeer" name="btnLeer" class="btn btn-primary btn-lg btn-block" onclick="leerLibro()">Leer</Button>
+                                 <Button type="button" id="btnDescargar" name="btnDescargar" class="btn btn-success btn-lg btn-block" onclick="descargar()">Descargar</Button>
+                                 <Button type="button" id="btnAgregar" name="btnAgregar" class="btn btn-warning btn-lg btn-block" onclick="AgregarCarrito()">Agregar al Carrito</Button>
+                           </div>
+            
+                     </div>  <!--fin  card-body-->
+                  </div>  <!--fin card-->
+                               
+                  <br />
+                             
             </div> <!--fin col-->
         </div>  <!--fin row-->
+
+        <div class="row">
+            <div class="col">
+                <div class="container-pdf">
+                   <!-- va el pdf-->
+                </div>
+            </div>
+
+        </div>
+
+
      </div>  <!--fin container-->
 
     <br />

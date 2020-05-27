@@ -87,7 +87,7 @@
                 <div class="row tres"> </div> <!--fin de la fila-->
                 
                 <br />
-                <a href="#" type="button" class="btn btn-primary btn-lg btn-block"> Ver Mas</a>
+                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="verMas();"> Ver Mas</button>
 
                 <br />
 
