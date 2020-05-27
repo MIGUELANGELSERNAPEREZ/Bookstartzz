@@ -11,43 +11,25 @@ namespace Bookstarzz
 {
 
 
-    public partial class Maestra
+    public partial class FrmCarrito
     {
 
         /// <summary>
-        /// Control head.
+        /// Control formCarrito.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formCarrito;
 
         /// <summary>
-        /// Control txtTipo.
+        /// Control ScriptManagerLibro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTipo;
-
-        /// <summary>
-        /// Control contenidoFRMs.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder contenidoFRMs;
-
-        /// <summary>
-        /// Control Script.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder Script;
+        protected global::System.Web.UI.ScriptManager ScriptManagerLibro;
     }
 }
