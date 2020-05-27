@@ -21,18 +21,19 @@ namespace Bookstarzz.ws
     {
 
         [WebMethod(EnableSession = true)]
-        public List<Usuario> getAll()
+        public String getAll()
         {
             if (Session["session"] != null)
             {
                 string tipoUsuario = Session["session"].ToString();
                 if (tipoUsuario.Equals("usu") || tipoUsuario.Equals("admi"))
                 {
-                    return new DaoUsuario().getAll();
+                    JavaScriptSerializer jss = new JavaScriptSerializer();
+                    return jss.Serialize(new DaoUsuario().getAll());
                 }
             }
 
-            return null;
+            throw new SecurityException("Acceso restringido");
         }
 
         [WebMethod(EnableSession = true)]

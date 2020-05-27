@@ -1,8 +1,34 @@
 ﻿$(document).ready(function () {
-   
-    $("#BtnCancelar").click(function () {
-        window.location = "FrmLogin.aspx";
-    });
+    debugger
+    //si el administrador accede a la pagina debmos de validar que se redireccionara a la pagina correcta
+    if (parseInt( $("#txtSesion").val()) > 0) {
+
+        $("#BtnCancelar").click(function () {
+            $("#contenidoVista").load("FrmListaUsuarios.aspx");
+        });
+
+    } else {
+
+        $("#BtnCancelar").click(function () {
+            window.location = "FrmLogin.aspx";
+        });
+    }
+
+    // si el administrado quiere editar 
+    if (parseInt($("#txtEditar").val()) > 0) {
+
+        $("#BtnCancelar").click(function () {
+            $("#contenidoVista").load("FrmListaUsuarios.aspx");
+        });
+
+    } else {
+
+        $("#BtnCancelar").click(function () {
+            window.location = "FrmLogin.aspx";
+        });
+    }
+
+
 
     $("#BtnAgregar").click(function () {
         $("#FormMenu").data('bootstrapValidator').validate();
@@ -56,6 +82,9 @@
             }
         }
     }); //Aqui termina el click
+
+
+
 // validaciones en el formulario con bootstrapValidator
     $('#FormMenu').bootstrapValidator({
         framework: 'bootstrap',

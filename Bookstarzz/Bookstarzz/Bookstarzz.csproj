@@ -179,12 +179,14 @@
     <Content Include="FrmLibro.aspx" />
     <Content Include="FrmLibro.js" />
     <Content Include="FrmListaUsuarios.aspx" />
+    <Content Include="FrmListaUsuarios.js" />
     <Content Include="FrmLogin.aspx" />
     <Content Include="FrmLogin.js" />
     <Content Include="FrmMenu.aspx" />
     <Content Include="FrmMenu.js" />
     <Content Include="FrmPedidos.aspx" />
     <Content Include="FrmPedidos.js" />
+    <Content Include="FrmRegistrar.aspx" />
     <Content Include="FrmRegistrarUser.aspx" />
     <Content Include="FrmRegistrarUser.js" />
     <Content Include="glide-3.2.4\build\banner.js" />
@@ -427,6 +429,13 @@
     </Compile>
     <Compile Include="FrmPedidos.aspx.designer.cs">
       <DependentUpon>FrmPedidos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRegistrar.aspx.cs">
+      <DependentUpon>FrmRegistrar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmRegistrar.aspx.designer.cs">
+      <DependentUpon>FrmRegistrar.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmRegistrarUser.aspx.cs">
       <DependentUpon>FrmRegistrarUser.aspx</DependentUpon>

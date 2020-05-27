@@ -47,9 +47,7 @@
 
 </asp:ScriptManager>
       
-      
-      <input type="hidden" id="txtIdUsuario" value="<%= Request["session"] != null ? Request["session"] : "0" %>"/>
-
+     
 
       <div class="form-group">
         <asp:label text="Nombre" runat="server" class="labels"/> <br />

@@ -10,7 +10,16 @@
 namespace Bookstarzz {
     
     
-    public partial class FrmListaUsuarios {
+    public partial class FrmRegistrar {
+        
+        /// <summary>
+        /// FormMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm FormMenu;
         
         /// <summary>
         /// ScriptManager1 control.

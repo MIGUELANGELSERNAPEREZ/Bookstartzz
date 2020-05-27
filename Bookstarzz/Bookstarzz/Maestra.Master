@@ -52,6 +52,10 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#" id="cntPedidos">Pedidos <span class="sr-only">(current)</span></a>
                 </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" id="cntListaUsu">Gestion de Usuarios<span class="sr-only">(current)</span></a>
+                </li>
                  <%
                     }
                     

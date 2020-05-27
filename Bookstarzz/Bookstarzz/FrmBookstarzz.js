@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+    debugger;
     $("#contenidoVista").load("FrmMenu.aspx"); //Carga predeterminadamente dentro de  FrmBookstarzz el FrmMenu
 
     $("#cntFrmMenu").click(function () {
@@ -12,6 +13,11 @@
     $("#cntPedidos").click(function () {
         limpiar();
         $("#contenidoVista").load("FrmPedidos.aspx");
+    });
+    debugger;
+    $("#cntListaUsu").click(function () {
+        limpiar();
+        $("#contenidoVista").load("FrmListaUsuarios.aspx");
     });
 });
 

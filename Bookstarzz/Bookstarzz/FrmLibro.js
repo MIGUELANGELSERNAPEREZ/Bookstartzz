@@ -8,7 +8,7 @@
     } else {
 
         if (($("#txtBuscar").val()) != 0) {
-            let titulo = $("#txtBusca").val();
+            let titulo = $("#txtBuscar").val();
             llenarDatos(titulo);
         } else {
             $("#contenidoVista").load("FrmMenu.aspx", { "typeError": "Libro no disponible" });
@@ -74,8 +74,7 @@ function leerLibro() {
 
     // si ya fue creado el eleemento mostramos o ocultamos el pdf
     if (crear) {
-
-        $("#vista").toggle();
+        
         $(".container-pdf").slideToggle(1000);;
     } else {
        // si a un no a sido creado el elemento para mostrar el pdf lo creamos
