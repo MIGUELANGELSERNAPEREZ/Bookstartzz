@@ -19,6 +19,7 @@ $(document).ready(function () {
 
     //Boton eliminar del modal
     $("#btnConfirmarEliminar").click(cofirmEliminar);
+    mensaje();//Este metodo dispara un mensaje en caso de que su redireccion haya sido de CRUD a este formulario
 });
 
 //Funcion para limpiar el contenedor principal donde se carga la pagina
@@ -226,8 +227,18 @@ function recargarDatos() {
         }
     );
 }
-
-
+//Funcion que dispara un mensaje
+function mensaje() {
+    const id = $("#txtMsg").val();
+    if (id == "exito") {
+        $("#cntMsg").text("El registro se modificó exitosamente"); //Se agrega el texto
+        $("#divMsg").addClass("alert-success"); //Se agrega la clase de success al div
+        $("#divMsg").css("display", "block"); //Se habilita el div para mostrarse
+        setTimeout(function () {
+            $("#divMsg").css("display", "none").fadeOut(); //Se asigna un tiempo de 3 segundos para cerrar automaticamente el div
+        }, 3000);
+    }
+}
 //Esto comentado es sin AJAX(metodos en webservices)
 //function adecuarTabla() {
 //    let tabla = $('#body_bloque_2_grdVistaTitulos');

@@ -7,6 +7,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body_bloque_1" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="body_bloque_2" runat="server">
+    <%--Div para mandar mensaje de exito/error--%>
+    <div id="divMsg" class="alert" style="display:none;" role="alert">
+      <input type="hidden" id="txtMsg" value="<%= Request["txtMsg"] != null ? Request["txtMsg"] : "0" %>" />
+      <strong id="tipoMsg"></strong> <span id="cntMsg"></span>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <form id="formGestionT" runat="server">
 
              <!-------------------INICIA MODAL---------------------->

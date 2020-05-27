@@ -19,7 +19,7 @@
                 Bookstarzz.ws.WSLibros.updateLibro(llenarModelo(), function (result) {
                     if (result == true) {
                         limpiar();
-                        $("#contenidoVista").load("FrmGestionTitulos.aspx");
+                        $("#contenidoVista").load("FrmGestionTitulos.aspx", { "txtMsg": "exito"});
                     } else {
                         //Mensaje de error lado servidor
                         window.scrollTo(0, 0);
@@ -207,7 +207,7 @@ function validacionBootsVal() {
                         message: "El elemento debe tener entre 5 y 50 caracteres"
                     },
                     regexp: {
-                        regexp: /^[a-zA-Z0-9\s]+$/,
+                        regexp: /^[a-zA-ZñÑ0-9\s]+$/,
                         message: "El elemento debe contener caracteres alfanumericos"
                     }
                 }
@@ -224,7 +224,7 @@ function validacionBootsVal() {
                         message: "El elemento debe tener entre 5 y 50 caracteres"
                     },
                     regexp: {
-                        regexp: /^[a-zA-Z0-9\s]+$/,
+                        regexp: /^[a-zA-ZñÑ0-9\s]+$/,
                         message: "El elemento debe contener caracteres alfanumericos"
                     }
                 }
@@ -241,7 +241,7 @@ function validacionBootsVal() {
                         message: "El elemento debe tener entre 1 y 11 caracteres"
                     },
                     regexp: {
-                        regexp: /^[0-9]+$/,
+                        regexp: /^[1-9][0-9]*$/,
                         message: "El elemento debe contener solo caracteres numericos"
                     }
                 }
@@ -258,7 +258,7 @@ function validacionBootsVal() {
                         message: "El elemento debe tener entre 5 y 30 caracteres"
                     },
                     regexp: {
-                        regexp: /^[a-zA-Z0-9\s]+$/,
+                        regexp: /^[a-zA-ZñÑ0-9\s]+$/,
                         message: "El elemento debe contener caracteres alfanumericos"
                     }
                 }
@@ -275,7 +275,7 @@ function validacionBootsVal() {
                         message: "El elemento debe tener entre 5 y 30 caracteres"
                     },
                     regexp: {
-                        regexp: /^[a-zA-Z0-9]+$/,
+                        regexp: /^[a-zA-ZñÑ0-9]+$/,
                         message: "El elemento debe contener caracteres alfanumericos. No se admiten espacios"
                     }
                 }
@@ -320,7 +320,7 @@ function validacionBootsVal() {
                         message: "El elemento debe tener entre 5 y 300 caracteres"
                     },
                     regexp: {
-                        regexp: /^[a-zA-Z0-9\s]+$/,
+                        regexp: /^[a-zA-ZñÑ0-9\s]+$/,
                         message: "El elemento debe contener caracteres alfanumericos"
                     }
                 }
