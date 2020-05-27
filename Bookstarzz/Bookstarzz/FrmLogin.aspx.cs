@@ -41,6 +41,7 @@ namespace Bookstarzz
                     else
                     {
                         Session["session"] = "admi";
+                        Response.Redirect("FrmBookstarzz.aspx");
                         //es administrador
                     }
                 }

@@ -170,6 +170,7 @@
     <Content Include="css\main.css" />
     <Content Include="FrmBookstarzz.aspx" />
     <Content Include="FrmBookstarzz.js" />
+    <Content Include="FrmCentral.aspx" />
     <Content Include="FrmConfiguracion.aspx" />
     <Content Include="FrmGenerarReportes.aspx" />
     <Content Include="FrmGestionTitulos.aspx" />
@@ -361,6 +362,13 @@
     </Compile>
     <Compile Include="FrmBookstarzz.aspx.designer.cs">
       <DependentUpon>FrmBookstarzz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCentral.aspx.cs">
+      <DependentUpon>FrmCentral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmCentral.aspx.designer.cs">
+      <DependentUpon>FrmCentral.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmConfiguracion.aspx.cs">
       <DependentUpon>FrmConfiguracion.aspx</DependentUpon>
