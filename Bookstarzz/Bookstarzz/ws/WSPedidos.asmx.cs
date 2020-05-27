@@ -29,12 +29,19 @@ namespace Bookstarzz.ws
                 string tipo = Session["session"].ToString();
                 if (tipo.Equals("admi"))
                 {
-                    JavaScriptSerializer jss = new JavaScriptSerializer();
-                    return jss.Serialize(new DaoPedidos().getOne(idPedido));
+                    try {
+                        JavaScriptSerializer jss = new JavaScriptSerializer();
+                        return jss.Serialize(new DaoPedidos().getOne(idPedido));
+                    }
+                    catch
+                    {
+                        throw new Exception("Se ha presentado un problema al obtener los datos");
+                    }
+                    
                 }
 
             }
-            throw new SecurityException("Acceso restringido");
+            return null;
         }
 
 
@@ -47,12 +54,19 @@ namespace Bookstarzz.ws
                 string tipo = Session["session"].ToString();
                 if (tipo.Equals("admi"))
                 {
-                    JavaScriptSerializer jss = new JavaScriptSerializer();
-                    return jss.Serialize(new DaoPedidos().getAllPedidos());
+                    try
+                    {
+                        JavaScriptSerializer jss = new JavaScriptSerializer();
+                        return jss.Serialize(new DaoPedidos().getAllPedidos());
+                    }
+                    catch
+                    {
+                        throw new Exception("Se ha presentado un problema al obtener los datos");
+                    }
                 }
 
             }
-            throw new SecurityException("Acceso restringido");
+            return null;
         }
 
         [WebMethod(EnableSession = true)]
@@ -66,11 +80,36 @@ namespace Bookstarzz.ws
                 {
 
                     JavaScriptSerializer jss = new JavaScriptSerializer();
-                    return new DaoPedidos().updateEstatusPedido(jss.Deserialize<Pedidos>(info));
+                    Pedidos obj = jss.Deserialize<Pedidos>(info);
+                    if (valido(obj))
+                    {
+                        try
+                        {
+                            bool val = false;
+                            return val = new DaoPedidos().updateEstatusPedido(obj);
+                        }
+                        catch
+                        {
+                            throw new Exception("Se ha presentado un problema al obtener los datos");
+                        }
+                    }
                 }
 
             }
-            throw new SecurityException("Acceso restringido");
+            return false;
         }
+
+        public bool valido(Pedidos obj)
+        {
+
+            if (obj.estatusPedido == "")
+            {
+
+                return false;
+            }
+
+            return true;
+        }
+
     }
 }

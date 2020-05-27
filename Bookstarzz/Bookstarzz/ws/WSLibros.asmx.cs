@@ -35,13 +35,13 @@ namespace Bookstarzz.ws
                     }
                     catch
                     {
-                        return "";
+                        throw new Exception("Se ha presentado un problema al obtener los datos");
                     }
                     
                 }
 
             }
-            return "";
+            return null;
         }
 
 
@@ -54,12 +54,19 @@ namespace Bookstarzz.ws
                 string tipo = Session["session"].ToString();
                 if (tipo.Equals("usu") || tipo.Equals("admi"))
                 {
-                    JavaScriptSerializer jss = new JavaScriptSerializer();
-                    return jss.Serialize(new DaoLibros().getAll());
+                    try
+                    {
+                        JavaScriptSerializer jss = new JavaScriptSerializer();
+                        return jss.Serialize(new DaoLibros().getAll());
+                    }
+                    catch(Exception e)
+                    {
+                        throw new Exception("Se ha presentado un problema al obtener los datos");
+                    }
                 }
 
             }
-            return "";
+            return null;
         }
 
         [WebMethod(EnableSession = true)]
@@ -118,7 +125,7 @@ namespace Bookstarzz.ws
                         }
                         catch
                         {
-                            return 0;
+                            throw new Exception("Se ha presentado un problema en el acceso a los datos");
                         }
                     }
                 }
@@ -146,7 +153,7 @@ namespace Bookstarzz.ws
                         }
                         catch
                         {
-                            return false;
+                            throw new Exception("Se ha presentado un problema al obtener los datos");
                         }
                     }
                 }
@@ -170,7 +177,7 @@ namespace Bookstarzz.ws
                     }
                     catch
                     {
-                        return false;
+                        throw new Exception("Se ha presentado un problema al obtener los datos");
                     }
                 }
             }

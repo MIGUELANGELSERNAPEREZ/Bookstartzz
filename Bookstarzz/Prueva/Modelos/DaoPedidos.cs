@@ -68,7 +68,7 @@ namespace Backend.Modelos
                 }
                 return objPedidos;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return null;
             }
@@ -223,8 +223,6 @@ namespace Backend.Modelos
                 {
                     return false;
                 }
-
-
             }
             catch (Exception m)
             {

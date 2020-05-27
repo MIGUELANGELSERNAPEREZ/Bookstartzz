@@ -38,7 +38,7 @@ function cargarPedidos() {
         }
     },
         //Mensaje de error lado del servidor
-        function (error) {
+        function (e) {
             $("#txtMsg").val("2");
             window.scrollTo(0, 0);
             mensaje();
@@ -204,7 +204,7 @@ function cofirmEliminar() {
             window.location.replace("FrmLogin.aspx");
         }
     },
-        function (error) {
+        function (e) {
             $("#txtMsg").val("2");
             window.scrollTo(0, 0);
             mensaje();
@@ -222,7 +222,7 @@ function recargarDatos() {
             window.location.replace("FrmLogin.aspx");
         }
     },
-        function (error) {
+        function (e) {
             $("#txtMsg").val("2");
             window.scrollTo(0, 0);
             mensaje();
@@ -244,7 +244,7 @@ function mensaje() {
     }
     if (id == 2) {
         $("#tipoMsg").text("Error: "); //Se agrega el texto
-        $("#cntMsg").text("Ha ocurrido un problema interno al intentar obtener la informacion"); //Se agrega el texto
+        $("#cntMsg").text("Ha ocurrido un problema interno al intentar obtener/manipular la informacion"); //Se agrega el texto
         $("#divMsg").addClass("alert-danger"); //Se agrega la clase de success al div
         $("#divMsg").css("display", "block"); //Se habilita el div para mostrarse
     }
