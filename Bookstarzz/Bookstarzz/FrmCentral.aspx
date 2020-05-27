@@ -27,24 +27,19 @@
     </div>
 
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="body_bloque_2" runat="server">
-    
-    <div class="container-fluid pl-0 pt-3">
-        <div class="row">
-            <div class="col">
-       
-                <center>
-                    <h1>Perfil de Administrador</h1>
-                <center>
+<asp:Content ID="Content4" ContentPlaceHolderID="body_bloque_2" runat="server">
+    <center>
+        <h1>Perfil de Administrador</h1>
+    <center>
 
-                <div class="card" style="width: 18rem;">
-                  <img src="imagenes/usuarios.jpg" class="card-img-top" alt="Usuarios">
-                  <div class="card-body">
-                    <h5 class="card-title">Usuarios</h5>
-                    <p class="card-text">El administrador puede agregar,eliminar.editar, ver usuarios</p>
-                    <button type="button" class="btn btn-outline-primary" onclick="btnUsuarios()">Entrar</button>
-                  </div>
-                </div>
+    <div class="card" style="width: 18rem;">
+      <img src="..." class="card-img-top" alt="Usuarios">
+      <div class="card-body">
+        <h5 class="card-title">Usuarios</h5>
+        <p class="card-text">El administrador puede agregar,eliminar.editar usuarios</p>
+        <button type="button" id="btnEntrar" class="btn btn-outline-primary">Entrar</button>
+      </div>
+    </div>
 
             </div> <!--fin del col -->
             <div class="col">
@@ -62,6 +57,6 @@
           </div>  <!--fin del row --> 
       </div>  <!--fin del contenedor --> 
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="Script" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="Script" runat="server">
     <script src="FrmCentral.js"></script>
 </asp:Content>
