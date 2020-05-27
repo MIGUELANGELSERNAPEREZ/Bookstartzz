@@ -16,6 +16,11 @@ namespace Backend.clases
         public DateTime fechaCompra { get; set; }
         public string estatusPedido { get; set; }
 
+        public Pedidos()
+        {
+
+        }
+
         public Pedidos(int idPedido, int idUsuario, string direccion, string ciudad, string formato,
             DateTime fechaCompra, string estatusPedido)
         {
