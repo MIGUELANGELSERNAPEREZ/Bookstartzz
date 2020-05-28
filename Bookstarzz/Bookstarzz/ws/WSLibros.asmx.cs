@@ -33,9 +33,9 @@ namespace Bookstarzz.ws
                         JavaScriptSerializer jss = new JavaScriptSerializer();
                         return jss.Serialize(new DaoLibros().getOne(idLibro));
                     }
-                    catch
+                    catch (Exception e)
                     {
-                        throw new Exception("Se ha presentado un problema al obtener los datos");
+                        return ""; //Arreglar esta excepcion
                     }
                     
                 }
@@ -61,7 +61,7 @@ namespace Bookstarzz.ws
                     }
                     catch(Exception e)
                     {
-                        throw new Exception("Se ha presentado un problema al obtener los datos");
+                        throw;
                     }
                 }
 
