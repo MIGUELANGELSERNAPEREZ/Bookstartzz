@@ -16,7 +16,7 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <form id="formGestionT" runat="server">
+    <form id="formGestionT" class=" tblsDatatables" runat="server">
 
              <!-------------------INICIA MODAL---------------------->
     <div class="modal" id="mdlConfirmar" tabindex="-1" role="dialog">
@@ -48,7 +48,7 @@
             </Services>
         </asp:ScriptManager>
         <center>
-            <h1 id="h1GestionTitulos">GESTION DE TITULOS</h1>
+            <h1 class="h1TitulosFrm">GESTION DE TITULOS</h1>
         </center>
         <%--Los DataField son de la clase Libro, no de MySQL--%>
 <%--        <asp:GridView ID="grdVistaTitulos" CssClass="table table-bordered table-striped" runat="server">

@@ -158,7 +158,7 @@ function llenarModelo() {
 function llenarInterfaz() {
     const id = $("#txtIdLibro").val();
     if (id > 0) {
-        $("#tituloFRM").text("GESTION DE TITULOS - MODIFICAR");
+        $("#tituloFRM").text("MODIFICAR");
         $("#body_bloque_2_lblIDLib").attr("hidden", false); //Se habilita input de id para verse
         $("#body_bloque_2_txtIDLib").attr("hidden", false); //Se habilita input de id para verse
         Bookstarzz.ws.WSLibros.getOne(id, llenarUI, function (e) {
@@ -169,7 +169,7 @@ function llenarInterfaz() {
         });
     }
     else {
-        $("#tituloFRM").text("GESTION DE TITULOS - AGREGAR");
+        $("#tituloFRM").text("AGREGAR");
     }
 }
 

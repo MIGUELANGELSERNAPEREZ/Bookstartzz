@@ -1,4 +1,5 @@
 ﻿var tablaPedidosDT;
+var cadenaCliente; //Guarda el nombre del usuario
 $(document).ready(function () {
     //Reiniciamos los estilos para este Frm en especifico
     $("#divBloque2").removeClass("col-10");
@@ -107,6 +108,7 @@ function cargarDatos(datos) {
         if (estatus == "preparado") {
             $("#btnEntregado").attr("disabled", false); //Activamos el boton para entregar
         }
+        cadenaCliente = $(this).find('td:eq(1)').text();
         llenarDetallePedido(id);
     });
 }
@@ -143,7 +145,7 @@ function llenarDetallePedido(id) {
             let fechaCompra = objPedidos["fechaCompra"];
             let estatusPedido = objPedidos["estatusPedido"];
             //$("#body_bloque_2_txtDetallesPedido").append("<br>" + direccion);
-            $("#body_bloque_2_txtDetallesPedido").html("DIRECCION: " + direccion + saltoLinea +
+            $("#body_bloque_2_txtDetallesPedido").html(/*"CLIENTE: "+ cliente + saltoLinea + */"DIRECCION: " + direccion + saltoLinea +
                 "CIUDAD: " + ciudad + saltoLinea + "FORMATO: " + formato + saltoLinea + "FOLIO: " + idPedido + saltoLinea +
                 "FECHA DE COMPRA: " + fechaCompra + saltoLinea + "ESTATUS DEL PEDIDO: " + estatusPedido);
 
@@ -162,6 +164,7 @@ function llenarDetallePedido(id) {
         }
     );
 }
+
 
 //Funcion usada para normalizar ciertos tipos de datos al momento de ser presentados
 function normalizar(datos) {

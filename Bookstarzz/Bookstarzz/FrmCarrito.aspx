@@ -4,11 +4,18 @@
     <link href="css/estilo.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_bloque_1" runat="server">
+    <!-- Sidebar -->
+
+    <ul class="list-group">
+        <a class="list-group-item list-group-item-action active" style="font-size: 20px;">Categorias
+          </a>
+    </ul>
+    <!-- Fin del sidebar -->
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body_bloque_2" runat="server">
         <div class="container-fluid pl-0 pt-3">
         <div class="row">
-            <div class="col">
+            <div id="divTamano" class="col ajustarTamano">
                 <div id="divMsg" class="alert" style="display:none;" role="alert">
                     <strong>Error:</strong> <span id="cntMsg">Sin errores</span>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -17,7 +24,7 @@
                 </div>
 
                 <center>
-                <h1>CARRITO DE COMPRA</h1>
+                <h1 class="h1TitulosFrm">CARRITO DE COMPRA</h1>
                 </center>
                 <form id="formCarrito" runat="server">
                     
@@ -41,12 +48,13 @@
                             Response.Redirect("FrmLogin.aspx");
                         }
                     %>
+
                 <% //CODIGO PARA VERIFICAR SI HAY UN LIBRO EN EL CARRITO
                     if (Request.Form["rqtxtIdLibro"] != null)
                     {
 
                 %>
-                <div id="divCardLibros">
+                <div id="divCardLibros" class="tblsDatatables">
                     <div class="card" style="width: 97%;">
                         <div class="card-body">
 
@@ -68,7 +76,7 @@
                                 <div class="row no-gutters">
                                     <div class="col-md-8">
                                         <div class="card-body">
-                                            <h5 class="card-title">$<%=Request.Form["rqtxtPrecio"]%></h5><%--Asignamos directamente con codigo incrustado el precio del libro--%>
+                                            <h5 class="card-title precioLibro"><strong>$<%=Request.Form["rqtxtPrecio"]%></strong></h5><%--Asignamos directamente con codigo incrustado el precio del libro--%>
                                         </div>
                                     </div>
                                 </div>
@@ -86,7 +94,7 @@
                                     <div class="col-md-8">
                                         <div class="card-body">
                                             <h5 class="card-text">$<%=Request.Form["rqtxtPrecio"]%></h5><%--Asignamos directamente con codigo incrustado el precio del libro--%>
-                                        <p class="card-title" id="calculoPrecio"></p><%--Se llenara con codigo en base al calculo del precio realizado--%>
+                                        <p class="card-title precioLibro" id="calculoPrecio"><strong>100.00</strong></p><%--Se llenara con codigo en base al calculo del precio realizado--%>
                                         </div>
                                     </div>
                                 </div>

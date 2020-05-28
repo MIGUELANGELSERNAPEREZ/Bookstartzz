@@ -595,6 +595,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="fonts\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,23 +1,76 @@
+/*Resetenado estilo*/
+* {
+    margin: 0;
+    padding: 0;
+}
 
-.labels{
-	font-size:20px;
+/*Declaramos las fuentes personalizadas a usar*/
+@font-face {
+    font-family: NotoSans;
+    src: url(../fonts/NotoSansJP-Medium.otf);
+}
+@font-face {
+    font-family: Mallanna-Regular;
+    src: url(../fonts/Mallanna-Regular.ttf);
+}
+/*Fin declaracion fuentes*/
+
+.labels {
+    font-size: 20px;
 }
 
 #FormMenu {
     border: solid 3px black;
 	width:700px;
 }
-/*Resetenado estilo*/
-*{
-	margin: 0;
-	padding: 0;
+
+/*Estilos Titulos*/
+.h1TitulosFrm {
+	font-size: 3.93rem;
+    font-family: NotoSans; /*Usamos la fuente personalizada*/
 }
 
-/*Estilos FrmGestionTitulos*/
-#h1GestionTitulos {
-	font-size: 1.5rem;
-
+/*Estilos tablas de Frms*/
+.tblsDatatables{
+    font-family: Mallanna-Regular;
+    margin: auto;
+    padding: 1%;
+    width: 95%;
 }
+
+/*Estilos formularios CRUD*/
+.tblsDatatablesCRUD{
+    font-family: Mallanna-Regular;
+    font-size: 1.26rem;
+    margin: auto;
+    padding: 1%;
+    width: 75%;
+}
+
+/*INICIAN ESTILOS FrmPedido*/
+/*Estilo textArea FrmPedido*/
+#estiloInfoPedido{
+    padding-right: 16%;
+    margin-right: 3%;
+}
+/*Estilo boton entregado FrmPedido*/
+#btnEntregado {
+    position: absolute;
+    margin-left: 39%;
+    margin-bottom: -3%;
+}
+/*TERMINAN ESTILOS FrmPedido*/
+
+/*INICIAN ESTILOS FrmCarrito*/
+/*Estilo para ajustar tamaño del div en FrmCarrito [En caso de que no haya nada]*/
+.ajustarTamano{
+    padding-bottom: 40%;
+}
+/*Estilo para el precio del libro en FrmCarrito*/
+.precioLibro {
+    font-size: 3.4rem;
+}
+/*TERMINAN ESTILOS FrmCarrito*/
 
 #divBloque1 {
     top: 70px;
@@ -26,4 +79,6 @@
 label {
     font-size: 20px;
 }
+
+
 
