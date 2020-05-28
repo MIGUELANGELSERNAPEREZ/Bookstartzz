@@ -33,20 +33,33 @@
                     <input type="hidden" id="rqtxtTitulo" value="<%= Request["rqtxtTitulo"] != null ? Request["rqtxtTitulo"] : "0" %>"/>
                     <input type="hidden" id="rqtxtAutor" value="<%= Request["rqtxtAutor"] != null ? Request["rqtxtAutor"] : "0" %>"/>
                     <input type="hidden" id="rqtxtPrecio" value="<%= Request["rqtxtPrecio"] != null ? Request["rqtxtPrecio"] : "0" %>"/>
+                    
+                    <%--Si la sesion no existe, redirecciona al login--%>
+                    <%
+                        if (Session["session"] == null)
+                        {
+                            Response.Redirect("FrmLogin.aspx");
+                        }
+                    %>
+                <% //CODIGO PARA VERIFICAR SI HAY UN LIBRO EN EL CARRITO
+                    if (Request.Form["rqtxtIdLibro"] != null)
+                    {
 
+                %>
+                <div id="divCardLibros">
                     <div class="card" style="width: 97%;">
                         <div class="card-body">
 
                             <div class="card mb-3" style="max-width: 50%;">
                                 <div class="row no-gutters">
                                     <div class="col-md-4">
-                                        <img src="libros/<%=Request.Form["rqtxtTitulo"].Replace(" ", "")%>.jpg" class="card-img" alt="..."><%--Incrustamos la imagen. Quitamos los espacios en blanco entre la cadena para crear la ruta del libro--%>
+                                        <img id="imgPortada" src="..." class="card-img" alt="...">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
                                             <h5 class="card-title">Titulo: <%=Request.Form["rqtxtTitulo"]%></h5> <%--Asignamos directamente con codigo incrustado el titulo del libro--%>
                                             <p class="card-text">Autor: <%=Request.Form["rqtxtAutor"]%></p> <%--Asignamos directamente con codigo incrustado el autor del libro--%>
-                                            <a class="card-text"><small class="text-muted">Eliminar del carrito</small></a>
+                                            <a href="#" class="card-text eliminarCarrito"><small class="text-muted">Eliminar del carrito</small></a>
                                         </div>
                                     </div>
                                 </div>
@@ -83,18 +96,19 @@
                     </div>
                     <!--fin card-->       
                   <br />
+            </div> 
 
                   <div>
                       <Button type="button" id="btnCancelar" name="btnCancelar" class="btn btn-danger btn-lg btn-block">CANCELAR</Button>
                       <Button type="button" id="btnComprar" name="btnComprar" class="btn btn-primary btn-lg btn-block"">COMPRAR</Button>
                   </div>
-
-            </div> <!--fin col-->
-
+                <%
+                    } //NO BORRAR LLAVE DE CODIGO
+                %>
         </div>  <!--fin row-->
 
         </div>  <!--fin container-->
-
+      </div>
     <br />
     <br />
 </asp:Content>

@@ -19,8 +19,11 @@
         limpiar();
         $("#contenidoVista").load("FrmListaUsuarios.aspx");
     });
+    $("#cntCarrito").click(function () {
+        limpiar();
+        $("#contenidoVista").load("FrmCarrito.aspx");
+    });
 });
-
 //Funcion para limpiar el div#contenidoVista; en FrmBookstarzz
 function limpiar() {
     $("#contenidoVista").empty();
