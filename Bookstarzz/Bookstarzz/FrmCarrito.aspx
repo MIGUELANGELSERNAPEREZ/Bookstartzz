@@ -13,6 +13,8 @@
     <!-- Fin del sidebar -->
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body_bloque_2" runat="server">
+        <%--Este input valida que no se pueda acceder explicitamente a la URL FrmPedidos.aspx--%>
+    <input type="hidden" id="txtURL" value="<%= Request["txtURL"] != null ? Request["txtURL"] : "0" %>" />
         <div class="container-fluid pl-0 pt-3">
         <div class="row">
             <div id="divTamano" class="col ajustarTamano">

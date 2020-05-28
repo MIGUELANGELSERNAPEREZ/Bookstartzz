@@ -1,6 +1,7 @@
 ﻿var tablaPedidosDT;
 var cadenaCliente; //Guarda el nombre del usuario
 $(document).ready(function () {
+    validaURL(); //Validamos para que no acceda explicitamente a FrmPedidos.aspx
     //Reiniciamos los estilos para este Frm en especifico
     $("#divBloque2").removeClass("col-10");
     $("#divBloque1").removeClass("col-2 pr-0");
@@ -19,8 +20,17 @@ $(document).ready(function () {
     });
 
     cargarPedidos(); //Llammamos el WebService que cargara el DataTable con los pedidos
-
 });
+
+//Este metodo valida para que no se acceda explicitamente a la URL FrmPedidos.aspx
+function validaURL() {
+    debugger;
+    const id = $("#txtURL").val();
+    if (id != 1) {
+        //Redirecciona al login
+        window.location.replace("FrmBookstarzz.aspx");
+    }
+}
 
 //Funcion para limpiar el contenedor principal donde se carga la pagina
 function limpiar() {

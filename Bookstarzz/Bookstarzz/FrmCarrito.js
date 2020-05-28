@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+    validaURL(); //Validamos para que no acceda explicitamente a FrmPedidos.aspx
     let rutaImg = $("#rqtxtTitulo").val().replace(/\s/g, ''); //Quitamos espacios para poner la ruta de la imagen
     $("#imgPortada").attr("src", "libros/" + rutaImg+".jpg"); //Agregamos la ruta como valor de atributo del contenedor imagen
 
@@ -18,6 +19,16 @@
     });
     cargarCategorias(); //Carga el panel de categorias
 });
+
+//Este metodo valida para que no se acceda explicitamente a la URL FrmPedidos.aspx
+function validaURL() {
+    debugger;
+    const id = $("#txtURL").val();
+    if (id != 1) {
+        //Redirecciona al login
+        window.location.replace("FrmBookstarzz.aspx");
+    }
+}
 
 //Funcion para limpiar el div#contenidoVista; en FrmBookstarzz
 function limpiar() {

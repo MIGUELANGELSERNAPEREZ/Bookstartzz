@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    verificarSesion();
+    validaURL(); //Validamos para que no acceda explicitamente a FrmPedidos.aspx
     //Reiniciamos los estilos para este Frm en especifico
     $("#divBloque2").removeClass("col-10");
     $("#divBloque1").removeClass("col-2 pr-0");
@@ -12,7 +12,7 @@
 
     $("#btnCancelar").click(function () {
         limpiar();
-        $("#contenidoVista").load("FrmGestionTitulos.aspx");
+        $("#contenidoVista").load("FrmGestionTitulos.aspx", { "txtURL": 1 });
     });
 
     $("#btnAceptar").click(function () {
@@ -23,34 +23,32 @@
                     if (result == true) {
                         var idGlobal = $("#txtIdLibro").val();
                         limpiar();
-                        $("#contenidoVista").load("FrmGestionTitulos.aspx", { "txtMsg": 1, "txtIdGlobal": idGlobal });
+                        $("#contenidoVista").load("FrmGestionTitulos.aspx", { "txtMsg": 1, "txtIdGlobal": idGlobal, "txtURL": 1 }); //Le mando un valor para saber si esta direccionando desde FrmBookstarzz o escribiendo explicitamente la URL
                     } else {
-                        //Redirecciona al login
-                        window.location.replace("FrmLogin.aspx");
-                    }
-                },
-                    function (error) {
                         //Mensaje de error lado servidor
                         window.scrollTo(0, 0);
                         $("#txtInpMensaje").val("3");
                         mensaje();
+                    }
+                },
+                    function (error) {
+
                     }
                 );
             } else {
                 Bookstarzz.ws.WSLibros.insertLibro(llenarModelo(), function (result) {
                     if (parseInt(result) > 0) {
                         limpiar();
-                        $("#contenidoVista").load("FrmGestionTitulosCRUD.aspx", { "txtInpMensaje": "1" });
+                        $("#contenidoVista").load("FrmGestionTitulosCRUD.aspx", { "txtInpMensaje": "1", "txtURL": 1 }); //Le mando un valor para saber si esta direccionando desde FrmBookstarzz o escribiendo explicitamente la URL
                     } else {
-                        //Redirecciona al login
-                        window.location.replace("FrmLogin.aspx");
-                    }
-                },
-                    function (error) {
                         //Mensaje de error lado servidor
                         window.scrollTo(0, 0);
                         $("#txtInpMensaje").val("3");
                         mensaje();
+                    }
+                },
+                    function (error) {
+
                     }
                 );
             }
@@ -65,23 +63,14 @@
     validacionBootsVal(); //Activamos el plugin de Bootstrap validator
 });
 
-//Unicamente mandando llamar a getAll nos damos cuenta si hay sesion o no
-function verificarSesion() {
-    Bookstarzz.ws.WSLibros.getAll(function (result) {
-        if (result) {
-            cargarDatos(JSON.parse(result));
-        } else {
-            //Redirecciona al login
-            window.location.replace("FrmLogin.aspx");
-        }
-    },
-        //Mensaje de error lado del servidor
-        function (e) {
-            $("#txtMsg").val("2");
-            window.scrollTo(0, 0);
-            mensaje();
-        }
-    );
+//Este metodo valida para que no se acceda explicitamente a la URL FrmPedidos.aspx
+function validaURL() {
+    debugger;
+    const id = $("#txtURL").val();
+    if (id != 1) {
+        //Redirecciona al login
+        window.location.replace("FrmBookstarzz.aspx");
+    }
 }
 
 //Metodo utilizado para validar en caso de una insercion y enviar un mensaje
@@ -104,7 +93,7 @@ function mensaje() {
     }
     if (id == 3) {
         $("#tipoMsg").text("Error: "); //Se agrega el texto
-        $("#cntMsg").text("Ha ocurrido un problema interno al intentar obtener la informacion"); //Se agrega el texto
+        $("#cntMsg").text("Ha ocurrido un problema interno al intentar manipular/obtener la informacion"); //Se agrega el texto
         $("#divMsg").addClass("alert-danger"); //Se agrega la clase de success al div
         $("#divMsg").css("display", "block"); //Se habilita el div para mostrarse
     }
@@ -163,6 +152,7 @@ function llenarInterfaz() {
         $("#body_bloque_2_txtIDLib").attr("hidden", false); //Se habilita input de id para verse
         Bookstarzz.ws.WSLibros.getOne(id, llenarUI, function (e) {
             //Mensaje de error lado servidor
+            $("#btnAceptar").attr("disabled", true);
             window.scrollTo(0, 0);
             $("#txtInpMensaje").val("3");
             mensaje();

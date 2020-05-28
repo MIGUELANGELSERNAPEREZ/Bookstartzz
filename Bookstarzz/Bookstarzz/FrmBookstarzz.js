@@ -8,11 +8,11 @@
     });
     $("#cntGestionTitulos").click(function () {
         limpiar();
-        $("#contenidoVista").load("FrmGestionTitulos.aspx");
+        $("#contenidoVista").load("FrmGestionTitulos.aspx", { "txtURL": 1 }); //Le mando un valor para saber si esta direccionando desde FrmBookstarzz o escribiendo explicitamente la URL
     });
     $("#cntPedidos").click(function () {
         limpiar();
-        $("#contenidoVista").load("FrmPedidos.aspx");
+        $("#contenidoVista").load("FrmPedidos.aspx", {"txtURL": 1}); //Le mando un valor para saber si esta direccionando desde FrmBookstarzz o escribiendo explicitamente la URL
     });
     debugger;
     $("#cntListaUsu").click(function () {
@@ -21,7 +21,7 @@
     });
     $("#cntCarrito").click(function () {
         limpiar();
-        $("#contenidoVista").load("FrmCarrito.aspx");
+        $("#contenidoVista").load("FrmCarrito.aspx", { "txtURL": 1 }); //Le mando un valor para saber si esta direccionando desde FrmBookstarzz o escribiendo explicitamente la URL
     });
 });
 //Funcion para limpiar el div#contenidoVista; en FrmBookstarzz

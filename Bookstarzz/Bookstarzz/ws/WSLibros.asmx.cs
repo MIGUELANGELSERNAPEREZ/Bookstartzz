@@ -35,7 +35,7 @@ namespace Bookstarzz.ws
                     }
                     catch (Exception e)
                     {
-                        return ""; //Arreglar esta excepcion
+                        throw;
                     }
                     
                 }
@@ -125,7 +125,7 @@ namespace Bookstarzz.ws
                         }
                         catch
                         {
-                            throw new Exception("Se ha presentado un problema en el acceso a los datos");
+                            throw;
                         }
                     }
                 }
@@ -153,7 +153,7 @@ namespace Bookstarzz.ws
                         }
                         catch
                         {
-                            throw new Exception("Se ha presentado un problema al obtener los datos");
+                            throw;
                         }
                     }
                 }
@@ -177,7 +177,7 @@ namespace Bookstarzz.ws
                     }
                     catch
                     {
-                        throw new Exception("Se ha presentado un problema al obtener los datos");
+                        throw;
                     }
                 }
             }

@@ -17,6 +17,17 @@
       </button>
     </div>
     <form id="formGestionT" class=" tblsDatatables" runat="server">
+            <%--Este input valida que no se pueda acceder explicitamente a la URL FrmPedidos.aspx--%>
+    <input type="hidden" id="txtURL" value="<%= Request["txtURL"] != null ? Request["txtURL"] : "0" %>" />
+
+
+         <%--Si la sesion no existe, redirecciona al login--%>
+                    <%
+                        if (Session["session"] == null || Session["session"].Equals("usu"))
+                        {
+                            Response.Redirect("FrmLogin.aspx");
+                        }
+                    %>
 
              <!-------------------INICIA MODAL---------------------->
     <div class="modal" id="mdlConfirmar" tabindex="-1" role="dialog">
