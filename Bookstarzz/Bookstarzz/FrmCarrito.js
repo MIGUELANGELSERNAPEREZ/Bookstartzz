@@ -9,7 +9,7 @@
 
     $("#btnCancelar").click(function () {
         limpiar();
-        $("#contenidoVista").load("FrmBookstarzz.aspx");
+        $("#contenidoVista").load("FrmBookstarzz.aspx", { "txtURL": 1 });//Le mando un valor para saber si esta direccionando desde FrmBookstarzz o escribiendo explicitamente la URL
     });
 
     $(".eliminarCarrito").click(function () {
@@ -22,7 +22,6 @@
 
 //Este metodo valida para que no se acceda explicitamente a la URL FrmPedidos.aspx
 function validaURL() {
-    debugger;
     const id = $("#txtURL").val();
     if (id != 1) {
         //Redirecciona al login
