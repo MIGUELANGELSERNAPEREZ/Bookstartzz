@@ -169,6 +169,12 @@ function infoLibro(id) {
             $("#paginas").html(arreglo.NPaginas);
             $("#presio").html(arreglo.Presio);
 
+            idLibro = $("#txtId").val(); //Se asigna el valor a la variable global para mandarlo a FrmCarrito
+            titulo = arreglo.Nombre; //Se asigna el valor a la variable global para mandarlo a FrmCarrito
+            autor = arreglo.Autor; //Se asigna el valor a la variable global para mandarlo a FrmCarrito
+            precio = arreglo.Presio; //Se asigna el valor a la variable global para mandarlo a FrmCarrito
+
+
             if (arreglo.Clasificacion == 1) {
                 $("#clasificacion").html("Niños");
             } else if (arreglo.Clasificacion == 2) {
@@ -183,11 +189,6 @@ function infoLibro(id) {
                     nombre += arreglo.Nombre[i];
                 }
             }
-
-            idLibro = id; //Se asigna el valor a la variable global para mandarlo a FrmCarrito
-            titulo = arreglo.Nombre; //Se asigna el valor a la variable global para mandarlo a FrmCarrito
-            autor = arreglo.Autor; //Se asigna el valor a la variable global para mandarlo a FrmCarrito
-            precio = arreglo.Presio; //Se asigna el valor a la variable global para mandarlo a FrmCarrito
 
             //agregamos un img con la portada del libro
             $(".card-img-top").attr("src", "libros/" + nombre + ".jpg").attr("id", arreglo.IdLibro);
@@ -222,7 +223,33 @@ function limpiar() {
     $("#contenidoVista").empty();
 }
 
+
+//Esta funcion hace uso de localStorage para almacenar la informacion del libro
 function AgregarCarrito() {
-    limpiar();
-    $("#contenidoVista").load("FrmCarrito.aspx", { "rqtxtIdLibro": idLibro, "rqtxtTitulo": titulo, "rqtxtAutor": autor, "rqtxtPrecio": precio, "txtURL": 1 }); //Le mando un valor para saber si esta direccionando desde FrmBookstarzz o escribiendo explicitamente la URL
+    idUsuario = $("#txtIdUsuario").val(); //Guardams el id del usuario
+    if (typeof (Storage) !== "undefined") {
+        var libroArray = [];
+        var objLibro = {};
+        var bandera = false;
+        objLibro["idLibro"] = idLibro;
+        objLibro["titulo"] = titulo;
+        objLibro["autor"] = autor;
+        objLibro["precio"] = precio;
+        libroArray = JSON.parse(localStorage.getItem("USUARIO" + idUsuario)) || []; //Creamos/obtenemos el Usuario
+        //Este ciclo verifica que no se agregue dos veces el mismo libro
+        for (let i = 0; i < libroArray.length; i++) {
+            if (idLibro == libroArray[i]["idLibro"]) {
+                bandera = true;
+            }
+        }
+        if (!bandera) {
+            libroArray.push(objLibro); //Metemos el objeto en el arreglo
+            localStorage.setItem("USUARIO" + idUsuario, JSON.stringify(libroArray)); //Actualizamos el localStorage
+        }
+        limpiar();
+        $("#contenidoVista").load("FrmCarrito.aspx", { "rqtxtIdLibro": idLibro, "txtURL": 1 }); //Le mando un valor para saber si esta direccionando desde FrmBookstarzz o escribiendo explicitamente la URL
+        
+    } else {
+        // Código cuando Storage NO es compatible
+    }
 }

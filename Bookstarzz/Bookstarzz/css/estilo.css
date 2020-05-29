@@ -152,7 +152,7 @@ footer.nb-footer {
     padding-bottom: 40%;
 }
 /*Estilo para el precio del libro en FrmCarrito*/
-.precioLibro {
+.txtPrecio {
     font-size: 3.4rem;
 }
 /*TERMINAN ESTILOS FrmCarrito*/
