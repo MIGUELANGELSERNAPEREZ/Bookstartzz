@@ -1,23 +1,161 @@
+/*Resetenado estilo*/
+* {
+    margin: 0;
+    padding: 0;
+}
 
-.labels{
-	font-size:20px;
+/*Declaramos las fuentes personalizadas a usar*/
+@font-face {
+    font-family: NotoSans;
+    src: url(../fonts/NotoSansJP-Medium.otf);
+}
+
+@font-face {
+    font-family: Mallanna-Regular;
+    src: url(../fonts/Mallanna-Regular.ttf);
+}
+/*Fin declaracion fuentes*/
+
+/*INICIA CODIGO FOOTER*/
+footer.nb-footer {
+    background: #28a745;
+    border-top: 4px solid #28a745;
+}
+
+    footer.nb-footer .about {
+        margin: 0 auto;
+        margin-top: 5px;
+        max-width: 1170px;
+        text-align: center;
+    }
+
+        footer.nb-footer .about p {
+            font-size: 13px;
+            color: #ffffff;
+            margin-top: 30px;
+        }
+
+        footer.nb-footer .about .social-media {
+            margin-top: 15px;
+        }
+
+            footer.nb-footer .about .social-media xl lx a {
+                display: inline-block;
+                width: 45px;
+                height: 45px;
+                line-height: 45px;
+                border-radius: 50%;
+                font-size: 16px;
+                color: #ffffff;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
+
+                footer.nb-footer .about .social-media xl lx a:hover {
+                    background: #007bff;
+                    color: #fff;
+                    border-color: #007bff;
+                }
+
+    footer.nb-footer .footer-info-single {
+        margin-top: 30px;
+    }
+
+        footer.nb-footer .footer-info-single .title {
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 16px;
+            border-left: 4px solid #007bff;
+            padding-left: 5px;
+        }
+
+        footer.nb-footer .footer-info-single xl lx a {
+            display: block;
+            color: #fff;
+            padding: 2px 0;
+        }
+
+            footer.nb-footer .footer-info-single xl lx a:hover {
+                color: #fff;
+            }
+
+        footer.nb-footer .footer-info-single p {
+            font-family: Mallanna-Regular;
+            font-size: 17px;
+            line-height: 20px;
+            color: #fff;
+        }
+
+    footer.nb-footer .copyright {
+        margin-top: 15px;
+        background: #007bff;
+        padding: 7px 0;
+        color: #fff;
+    }
+
+        footer.nb-footer .copyright p {
+            margin: 0;
+            padding: 0;
+        }
+
+/*TERMINA CODIGO FOOTER*/
+
+
+.labels {
+    font-size: 20px;
 }
 
 #FormMenu {
     border: solid 3px black;
 	width:700px;
 }
-/*Resetenado estilo*/
-*{
-	margin: 0;
-	padding: 0;
+
+/*Estilos Titulos*/
+.h1TitulosFrm {
+	font-size: 3.93rem;
+    font-family: NotoSans; /*Usamos la fuente personalizada*/
 }
 
-/*Estilos FrmGestionTitulos*/
-#h1GestionTitulos {
-	font-size: 1.5rem;
-
+/*Estilos tablas de Frms*/
+.tblsDatatables{
+    font-family: Mallanna-Regular;
+    margin: auto;
+    padding: 1%;
+    width: 95%;
 }
+
+/*Estilos formularios CRUD*/
+.tblsDatatablesCRUD{
+    font-family: Mallanna-Regular;
+    font-size: 1.26rem;
+    margin: auto;
+    padding: 1%;
+    width: 75%;
+}
+
+/*INICIAN ESTILOS FrmPedido*/
+/*Estilo textArea FrmPedido*/
+#estiloInfoPedido{
+    padding-right: 16%;
+    margin-right: 3%;
+}
+/*Estilo boton entregado FrmPedido*/
+#btnEntregado {
+    position: absolute;
+    margin-left: 39%;
+    margin-bottom: -3%;
+}
+/*TERMINAN ESTILOS FrmPedido*/
+
+/*INICIAN ESTILOS FrmCarrito*/
+/*Estilo para ajustar tamaño del div en FrmCarrito [En caso de que no haya nada]*/
+.ajustarTamano{
+    padding-bottom: 40%;
+}
+/*Estilo para el precio del libro en FrmCarrito*/
+.precioLibro {
+    font-size: 3.4rem;
+}
+/*TERMINAN ESTILOS FrmCarrito*/
 
 #divBloque1 {
     top: 70px;
@@ -26,4 +164,6 @@
 label {
     font-size: 20px;
 }
+
+
 

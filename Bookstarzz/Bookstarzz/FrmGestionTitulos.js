@@ -2,6 +2,7 @@
 var libroMsgGeneral; //Se ocupa para mandarlo en el mnesaje de eliminar
 var idGlobal; //Se usa para imprimirse en los mensajes de exito enn caso de una actualizacion desde FRMGestionTitulosCRUD
 $(document).ready(function () {
+    validaURL(); //Validamos para que no acceda explicitamente a FrmPedidos.aspx
     //Reiniciamos los estilos para este Frm en especifico
     $("#divBloque2").removeClass("col-10");
     $("#divBloque1").removeClass("col-2 pr-0");
@@ -16,13 +17,23 @@ $(document).ready(function () {
     //Boton agregar titulo FrmGestionTitulosCRUD
     $("#btnAgregar").click(function () {
         limpiar();
-        $("#contenidoVista").load("FrmGestionTitulosCRUD.aspx");
+        $("#contenidoVista").load("FrmGestionTitulosCRUD.aspx", { "txtURL": 1 }); //Le mando un valor para saber si esta direccionando desde FrmBookstarzz o escribiendo explicitamente la URL
     });
 
     //Boton eliminar del modal
     $("#btnConfirmarEliminar").click(cofirmEliminar);
     mensaje();//Este metodo dispara un mensaje en caso de que su redireccion haya sido de CRUD a este formulario
 });
+
+//Este metodo valida para que no se acceda explicitamente a la URL FrmPedidos.aspx
+function validaURL() {
+    debugger;
+    const id = $("#txtURL").val();
+    if (id != 1) {
+        //Redirecciona al login
+        window.location.replace("FrmBookstarzz.aspx");
+    }
+}
 
 //Funcion para limpiar el contenedor principal donde se carga la pagina
 function limpiar() {
@@ -34,6 +45,7 @@ function cargarPedidos() {
         if (result) {
             cargarDatos(JSON.parse(result));
         } else {
+            //Redirecciona al login
             window.location.replace("FrmLogin.aspx");
         }
     },
@@ -174,7 +186,7 @@ function cargarDatos(datos) {
 
 function editar(id) {
     limpiar();
-    $("#contenidoVista").load("FrmGestionTitulosCRUD.aspx", { "inpIdLibro": id });
+    $("#contenidoVista").load("FrmGestionTitulosCRUD.aspx", { "inpIdLibro": id, "txtURL": 1 });//Le mando un valor para saber si esta direccionando desde FrmBookstarzz o escribiendo explicitamente la URL
 }
 
 
@@ -201,13 +213,14 @@ function cofirmEliminar() {
             mensaje();
 
         } else {
-            window.location.replace("FrmLogin.aspx");
-        }
-    },
-        function (e) {
             $("#txtMsg").val("2");
             window.scrollTo(0, 0);
             mensaje();
+        }
+    },
+        function (e) {
+            //Redirecciona al login
+            window.location.replace("FrmLogin.aspx");
         }
     );
 }
@@ -219,6 +232,7 @@ function recargarDatos() {
             let objJSON = JSON.parse(result);
             tablaPedidosDT.fnAddData(normalizar(objJSON));
         } else {
+            //Redirecciona al login
             window.location.replace("FrmLogin.aspx");
         }
     },
@@ -235,7 +249,7 @@ function mensaje() {
     const id = $("#txtMsg").val();
     if (id == 1) {
         idGlobal = $("#txtIdGlobal").val();
-        $("#cntMsg").text("El registro '"+ idGlobal+ "' se modificó exitosamente"); //Se agrega el texto
+        $("#cntMsg").text("El registro '" + idGlobal + "' se modificó exitosamente"); //Se agrega el texto
         $("#divMsg").addClass("alert-success"); //Se agrega la clase de success al div
         $("#divMsg").css("display", "block"); //Se habilita el div para mostrarse
         setTimeout(function () {

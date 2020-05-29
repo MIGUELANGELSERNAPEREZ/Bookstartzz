@@ -166,8 +166,9 @@
     <Content Include="css\bootstrapValidator.css" />
     <Content Include="css\datatables.css" />
     <Content Include="css\estilo.css" />
-    <Content Include="css\font-awesome.css" />
+    <Content Include="css\font-awesome.min.css" />
     <Content Include="css\main.css" />
+    <Content Include="fonts\fa-brands-400.svg" />
     <Content Include="FrmBookstarzz.aspx" />
     <Content Include="FrmBookstarzz.js" />
     <Content Include="FrmCarrito.aspx" />
@@ -535,6 +536,13 @@
     <Content Include="bin\Bookstarzz.dll.config" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <Content Include="libros\archivo.pdf" />
+    <Content Include="fonts\ArchivoBlack-Regular.ttf" />
+    <Content Include="fonts\fa-brands-400.eot" />
+    <Content Include="fonts\fa-brands-400.ttf" />
+    <Content Include="fonts\fa-brands-400.woff" />
+    <Content Include="fonts\fa-brands-400.woff2" />
+    <Content Include="fonts\Mallanna-Regular.ttf" />
+    <Content Include="fonts\NotoSansJP-Medium.otf" />
     <None Include="packages.config" />
     <Content Include="pdfs\Cars.pdf" />
     <Content Include="pdfs\CincoMinutosMas.pdf" />

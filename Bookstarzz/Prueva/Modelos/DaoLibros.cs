@@ -57,9 +57,9 @@ namespace Backend.Modelos
                 }
                 return objLibros;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return null;
+                throw e;
             }
             finally
             {
@@ -89,7 +89,7 @@ namespace Backend.Modelos
             }
             catch (MySqlException e)
             {
-                throw new Exception("Se ha presentado un problema al obtener los datos");
+                throw;
             }
             finally
             {

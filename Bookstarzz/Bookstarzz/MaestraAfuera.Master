@@ -8,6 +8,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link  href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>    
@@ -40,140 +41,82 @@
             </asp:ContentPlaceHolder>
         </div>
 
-        <!-- Footer -->
-    <footer class="page-footer font-small blue-grey lighten-5">
+    <!-- Footer -->
+        <footer class="nb-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="about">
 
-    <div style="background-color: #21d192;">
-        <div class="container">
+                            <div class="social-media">
+                                <xl class="list-inline">
+			<lx><a href="https://www.facebook.com.com/" title=""><i class="fa fa-facebook"></i></a></lx>
+			<lx><a href="https://www.twitter.com/" title=""><i class="fa fa-twitter"></i></a></lx>
+			<lx><a href="https://www.google.com/" title=""><i class="fa fa-google-plus"></i></a></lx>
+			<lx><a href="https://www.linkedin.com/" title=""><i class="fa fa-linkedin"></i></a></lx>
+		</xl>
+                            </div>
+                        </div>
+                    </div>
 
-      <!-- Grid row-->
-      <div class="row py-4 d-flex align-items-center">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="footer-info-single">
+                            <h2 class="title">CONTENIDO</h2>
+                            <xl class="list-unstyled">
+		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Acerca de Bookstarzz</a></lx>
+		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Nuestra mision</a></lx>
+		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Nuestra vision</a></lx>
+		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Nuestra historia</a></lx>
+	</xl>
+                        </div>
+                    </div>
 
-        <!-- Grid column -->
-        <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-          <h6 class="mb-0">Informacion de la Organizacion!</h6>
-        </div>
-        <!-- Grid column -->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="footer-info-single">
+                            <h2 class="title">INFORMACION</h2>
+                            <xl class="list-unstyled">
+		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Nuevos titulos</a></lx>
+		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Titulos recientes</a></lx>
+		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Ayuda</a></lx>
+		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Contactanos</a></lx>
+		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> RSS</a></lx>
+	</xl>
+                        </div>
+                    </div>
 
-        <!-- Grid column -->
-        <div class="col-md-6 col-lg-7 text-center text-md-right">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="footer-info-single">
+                            <h2 class="title">Privacidad y seguridad</h2>
+                            <xl class="list-unstyled">
+		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Terminos de privacidad</a></lx>
+		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Politica de privacidad</a></lx>
+		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Nuestras locaciones</a></lx>
+	</xl>
+                        </div>
+                    </div>
 
-          <!-- Facebook -->
-          <a class="fb-ic">
-            <i class="fab fa-facebook-f white-text mr-4"> </i>
-          </a>
-          <!-- Twitter -->
-          <a class="tw-ic">
-            <i class="fab fa-twitter white-text mr-4"> </i>
-          </a>
-          <!-- Google +-->
-          <a class="gplus-ic">
-            <i class="fab fa-google-plus-g white-text mr-4"> </i>
-          </a>
-          <!--Linkedin -->
-          <a class="li-ic">
-            <i class="fab fa-linkedin-in white-text mr-4"> </i>
-          </a>
-          <!--Instagram-->
-          <a class="ins-ic">
-            <i class="fab fa-instagram white-text"> </i>
-          </a>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="footer-info-single">
+                            <h2 class="title">CONOCENOS...</h2>
+                            <p>Bookstarzz nacio con la idea de una libreria digital como proyecto estudiantil para la materia de PROGRAMACION WEB II. Adentrate a nuestra pagina. Sabemos que te encantará</p>
 
-        </div>
-        <!-- Grid column -->
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-      </div>
-      <!-- Grid row-->
-
-    </div>
-  </div>
-
-  <!-- Footer Links -->
-  <div class="container text-center text-md-left mt-5">
-
-    <!-- Grid row -->
-    <div class="row mt-3 dark-grey-text">
-
-      <!-- Grid column -->
-      <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
-
-        <!-- Content -->
-        <h6 class="text-uppercase font-weight-bold">Instituto Tecnologico
-            Superior del Sur de Guanajuato
-        </h6>
-        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>El Instituto Tecnológico Superior del Sur de Guanajuato es un instituto
-            de nivel superior, descentralizado del gobierno estatal y localizado
-            en el Sur del Estado de Guanajuato, México..</p>
-
-      </div>
-      <!-- Grid column -->
-
-      <!-- Grid column -->
-      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-
-        <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Servicios</h6>
-        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>
-          <a class="dark-grey-text" href="#!">MDBootstrap</a>
-        </p>
-        <p>
-          <a class="dark-grey-text" href="#!">MDWordPress</a>
-        </p>
-        <p>
-          <a class="dark-grey-text" href="#!">BrandFlow</a>
-        </p>
-        <p>
-          <a class="dark-grey-text" href="#!">Bootstrap Angular</a>
-        </p>
-
-      </div>
-      <!-- Grid column -->
-
-   
-      <!-- Grid column -->
-
-      <!-- Grid column -->
-      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-
-        <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Contacto</h6>
-        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>
-          <i class="fas fa-home mr-3"></i>Dirección: 
-            <br /> 
-            Educación Superior 2000, Benito Juárez, 38980 Uriangato, Gto.</p>
-        <p>
-          <i class="fas fa-envelope mr-3"></i> <a href="http://www.itsur.edu.mx/home.php">Itsur.com</a></p>
-        <p>
-          <i class="fas fa-phone mr-3"></i> Teléfono:
-            <br />
-            445 457 7468
-
-        </p>
-        <p>
-          <i class="fas fa-print mr-3"></i>Fundación:
-            <br />
-            1 de agosto de 1997</p>
-
-      </div>
-      <!-- Grid column -->
-
-    </div>
-    <!-- Grid row -->
-
-  </div>
-  <!-- Footer Links -->
-
-  <!-- Copyright -->
-  <div class="footer-copyright text-center text-black-50 py-3">© 2020 Copyright:
-    <a class="dark-grey-text" href="#">Instituto Tecnológico Superior del Sur de Guanajuato</a>
-  </div>
-  <!-- Copyright -->
-
-</footer>
-<!-- Footer -->
+            <section class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p>Copyright © 2020. ING. EN SISTEMAS COMPUTACIONALES - ITSUR</p>
+                        </div>
+                        <div class="col-sm-6"></div>
+                    </div>
+                </div>
+            </section>
+        </footer>
+    <!-- Footer -->
 
 
      <!--    Scripts-->

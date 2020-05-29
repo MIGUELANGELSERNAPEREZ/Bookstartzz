@@ -15,7 +15,17 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <form id="formPedidos" runat="server">
+    <form id="formPedidos" class=" tblsDatatables" runat="server">
+        <%--Este input valida que no se pueda acceder explicitamente a la URL FrmPedidos.aspx--%>
+    <input type="hidden" id="txtURL" value="<%= Request["txtURL"] != null ? Request["txtURL"] : "0" %>" />
+                 <%--Si la sesion no existe, redirecciona al login--%>
+                    <%
+                        if ((Session["session"] == null || Session["session"].Equals("usu")))
+                        {
+                            Response.Redirect("FrmLogin.aspx");
+                        }
+                    %>
+
                      <!-------------------INICIA MODAL---------------------->
     <div class="modal" id="mdlConfirmar" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -43,25 +53,26 @@
         <%--Se incluye la referencia al WebService--%>
         <asp:ScriptManager ID="ScriptManager1" runat="server">
             <Services>
-                <%--<asp:ServiceReference Path="~/ws/WSUsuarios.asmx" />--%>
+                <asp:ServiceReference Path="~/ws/WSUsuarios.asmx" />
                 <asp:ServiceReference Path="~/ws/WSPedidos.asmx" />
             </Services>
         </asp:ScriptManager>
         <%--Este input guarda el id que servira para modificar el estatus del pedido--%>
         <input type="hidden" id="txtIdPedido" value="" />
         <center>
-            <h1 id="h1GestionTitulos">PEDIDOS</h1>
+            <h1 class="h1TitulosFrm">PEDIDOS</h1>
         </center>
 
         <%--Tabla que sera llenada con el script FrmGestionTitulos, usando el WebService--%>
         <div>
             <table id="tblPedidos" class="table table-striped table-bordered"></table>
         </div>
-        <div class="form-group">
-            <asp:TextBox class="form-control" ID="txtDetallesPedido" Readonly="true" TextMode="MultiLine" Rows="10" autocomplete="off" resize="none" runat="server"></asp:TextBox><br />
-        </div>
+        <br />
         <div class="row justify-content-center my-2">
             <button id="btnEntregado" type="button" class="btn btn-primary" >Marcar como entregado</button>
+        </div>
+        <div class="form-group" id="estiloInfoPedido">
+            <asp:TextBox class="form-control" ID="txtDetallesPedido" Readonly="true" TextMode="MultiLine" Rows="10" autocomplete="off" style="resize:none;" runat="server"></asp:TextBox><br />
         </div>
     </form>
 </asp:Content>

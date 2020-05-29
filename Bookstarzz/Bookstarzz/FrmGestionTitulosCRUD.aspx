@@ -15,7 +15,17 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <form id="formGestionTCRUD" runat="server">
+
+    <form id="formGestionTCRUD" class="tblsDatatablesCRUD" runat="server">
+     <%--Este input valida que no se pueda acceder explicitamente a la URL FrmPedidos.aspx--%>
+    <input type="hidden" id="txtURL" value="<%= Request["txtURL"] != null ? Request["txtURL"] : "0" %>" />
+         <%--Si la sesion no existe, redirecciona al login--%>
+                    <%
+                        if (Session["session"] == null || Session["session"].Equals("usu"))
+                        {
+                            Response.Redirect("FrmLogin.aspx");
+                        }
+                    %>
         <div class="container p-3 mb-2"> 
         <asp:ScriptManager ID="ScriptManager1" runat="server">
             <Services>
@@ -29,7 +39,7 @@
         <input type="hidden" id="txtInpMensaje" value="<%= Request["txtInpMensaje"] != null ? Request["txtInpMensaje"] : "0" %>" />
         <div>
             <center>
-                <h1 id="tituloFRM"></h1>
+                <h1 class="h1TitulosFrm" id="tituloFRM"></h1>
             </center>
             <div>
                 <div>
@@ -76,7 +86,7 @@
                     </div>
                     <div class="form-group">
                         <asp:Label ID="lblDescripcion" runat="server" Text="Descripcion"></asp:Label>
-                        <asp:TextBox class="form-control" ID="txtDescripcion" TextMode="MultiLine" Rows="10" autocomplete="off" resize="none" runat="server"></asp:TextBox><br />
+                        <asp:TextBox class="form-control" ID="txtDescripcion" TextMode="MultiLine" Rows="10" autocomplete="off" style="resize:none;" runat="server"></asp:TextBox><br />
                     </div>
                     <div class="form-row my-3  justify-content-around">
                         <button id="btnAceptar" type="button" class="btn btn-success btn-lg">Aceptar</button>

@@ -33,9 +33,9 @@ namespace Bookstarzz.ws
                         JavaScriptSerializer jss = new JavaScriptSerializer();
                         return jss.Serialize(new DaoLibros().getOne(idLibro));
                     }
-                    catch
+                    catch (Exception e)
                     {
-                        throw new Exception("Se ha presentado un problema al obtener los datos");
+                        throw;
                     }
                     
                 }
@@ -61,12 +61,12 @@ namespace Bookstarzz.ws
                     }
                     catch(Exception e)
                     {
-                        throw new Exception("Se ha presentado un problema al obtener los datos");
+                        throw;
                     }
                 }
 
             }
-            throw new SecurityException("Acceso restringido");
+            return null;
         }
 
         [WebMethod(EnableSession = true)]
@@ -125,12 +125,12 @@ namespace Bookstarzz.ws
                         }
                         catch
                         {
-                            throw new Exception("Se ha presentado un problema en el acceso a los datos");
+                            throw;
                         }
                     }
                 }
             }
-            throw new SecurityException("Acceso restringido");
+            return 0;
         }
 
         [WebMethod(EnableSession = true)]
@@ -153,13 +153,12 @@ namespace Bookstarzz.ws
                         }
                         catch
                         {
-                            throw new Exception("Se ha presentado un problema al obtener los datos");
+                            throw;
                         }
                     }
                 }
-                throw new SecurityException("Acceso restringido");
             }
-            throw new SecurityException("Acceso restringido");
+            return false;
         }
 
         [WebMethod(EnableSession = true)]
@@ -178,7 +177,7 @@ namespace Bookstarzz.ws
                     }
                     catch
                     {
-                        throw new Exception("Se ha presentado un problema al obtener los datos");
+                        throw;
                     }
                 }
             }

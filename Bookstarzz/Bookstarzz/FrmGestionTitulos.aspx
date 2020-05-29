@@ -16,7 +16,18 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <form id="formGestionT" runat="server">
+    <form id="formGestionT" class=" tblsDatatables" runat="server">
+            <%--Este input valida que no se pueda acceder explicitamente a la URL FrmPedidos.aspx--%>
+    <input type="hidden" id="txtURL" value="<%= Request["txtURL"] != null ? Request["txtURL"] : "0" %>" />
+
+
+         <%--Si la sesion no existe, redirecciona al login--%>
+                    <%
+                        if (Session["session"] == null || Session["session"].Equals("usu"))
+                        {
+                            Response.Redirect("FrmLogin.aspx");
+                        }
+                    %>
 
              <!-------------------INICIA MODAL---------------------->
     <div class="modal" id="mdlConfirmar" tabindex="-1" role="dialog">
@@ -48,7 +59,7 @@
             </Services>
         </asp:ScriptManager>
         <center>
-            <h1 id="h1GestionTitulos">GESTION DE TITULOS</h1>
+            <h1 class="h1TitulosFrm">GESTION DE TITULOS</h1>
         </center>
         <%--Los DataField son de la clase Libro, no de MySQL--%>
 <%--        <asp:GridView ID="grdVistaTitulos" CssClass="table table-bordered table-striped" runat="server">

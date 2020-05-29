@@ -7,7 +7,7 @@
     
     <center>
     <div class="container">
-        <h1>Iiniciar Sesion</h1>
+        <h1>Iniciar Sesion</h1>
     </div>
     </center>
     <div class="nav-scroller mb-2">

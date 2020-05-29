@@ -1,5 +1,7 @@
 ﻿var tablaPedidosDT;
+var cadenaCliente; //Guarda el nombre del usuario
 $(document).ready(function () {
+    validaURL(); //Validamos para que no acceda explicitamente a FrmPedidos.aspx
     //Reiniciamos los estilos para este Frm en especifico
     $("#divBloque2").removeClass("col-10");
     $("#divBloque1").removeClass("col-2 pr-0");
@@ -18,8 +20,17 @@ $(document).ready(function () {
     });
 
     cargarPedidos(); //Llammamos el WebService que cargara el DataTable con los pedidos
-
 });
+
+//Este metodo valida para que no se acceda explicitamente a la URL FrmPedidos.aspx
+function validaURL() {
+    debugger;
+    const id = $("#txtURL").val();
+    if (id != 1) {
+        //Redirecciona al login
+        window.location.replace("FrmBookstarzz.aspx");
+    }
+}
 
 //Funcion para limpiar el contenedor principal donde se carga la pagina
 function limpiar() {
@@ -31,6 +42,7 @@ function cargarPedidos() {
         if (result) {
             cargarDatos(JSON.parse(result));
         } else {
+            //Redirecciona al login
             window.location.replace("FrmLogin.aspx");
         }
     },
@@ -106,6 +118,7 @@ function cargarDatos(datos) {
         if (estatus == "preparado") {
             $("#btnEntregado").attr("disabled", false); //Activamos el boton para entregar
         }
+        cadenaCliente = $(this).find('td:eq(1)').text();
         llenarDetallePedido(id);
     });
 }
@@ -142,12 +155,13 @@ function llenarDetallePedido(id) {
             let fechaCompra = objPedidos["fechaCompra"];
             let estatusPedido = objPedidos["estatusPedido"];
             //$("#body_bloque_2_txtDetallesPedido").append("<br>" + direccion);
-            $("#body_bloque_2_txtDetallesPedido").html("DIRECCION: " + direccion + saltoLinea +
+            $("#body_bloque_2_txtDetallesPedido").html(/*"CLIENTE: "+ cliente + saltoLinea + */"DIRECCION: " + direccion + saltoLinea +
                 "CIUDAD: " + ciudad + saltoLinea + "FORMATO: " + formato + saltoLinea + "FOLIO: " + idPedido + saltoLinea +
                 "FECHA DE COMPRA: " + fechaCompra + saltoLinea + "ESTATUS DEL PEDIDO: " + estatusPedido);
 
             $("#txtIdPedido").val(id);//Asignamos aqui el id del pedido en este input oculto
         } else {
+            //Redirecciona al login
             window.location.replace("FrmLogin.aspx");
         }
 
@@ -160,6 +174,7 @@ function llenarDetallePedido(id) {
         }
     );
 }
+
 
 //Funcion usada para normalizar ciertos tipos de datos al momento de ser presentados
 function normalizar(datos) {
@@ -189,10 +204,8 @@ function modificarEstatus(estatus) {
                 $("#txtMsg").val("1");
                 mensaje();
             } else {
-                //Mensaje de error lado servidor
-                window.scrollTo(0, 0);
-                $("#txtMsg").val("2");
-                mensaje();
+                //Redirecciona al login
+                window.location.replace("FrmLogin.aspx");
             }
         },
             function (error) {
@@ -214,6 +227,7 @@ function recargarDatos() {
             llenarDetallePedido(id);
             tablaPedidosDT.fnAddData(normalizar(objJSON));
         } else {
+            //Redirecciona al login
             window.location.replace("FrmLogin.aspx");
         }
     },

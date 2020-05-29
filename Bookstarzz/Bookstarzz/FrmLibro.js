@@ -196,5 +196,5 @@ function limpiar() {
 
 function AgregarCarrito() {
     limpiar();
-    $("#contenidoVista").load("FrmCarrito.aspx", {"rqtxtIdLibro":idLibro, "rqtxtTitulo": titulo, "rqtxtAutor": autor, "rqtxtPrecio":precio});
+    $("#contenidoVista").load("FrmCarrito.aspx", { "rqtxtIdLibro": idLibro, "rqtxtTitulo": titulo, "rqtxtAutor": autor, "rqtxtPrecio": precio, "txtURL": 1 }); //Le mando un valor para saber si esta direccionando desde FrmBookstarzz o escribiendo explicitamente la URL
 }
