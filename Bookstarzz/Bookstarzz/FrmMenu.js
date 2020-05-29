@@ -1,10 +1,11 @@
-﻿let clic = 0;
+﻿var clic = 0;
 $(document).ready(function () {
     debugger;
     // traemos los dados del web service de Libros para 
     //de los 10 libros mas vistos hasta ahora como recomenadacion
     //al usuario. esta info la mandamos a la funcion cargarcarusel
     Bookstarzz.ws.WSLibros.getPopulares(cargarCaruserl, function (e) {
+
 
         $("#cntMsg").text("Error: no se ha podido cargar los libros en el carrucel");
         $("#cntMsg").parent().show();
@@ -19,6 +20,7 @@ $(document).ready(function () {
     if ($("#txtError").val() != "nada") {
         $("#cntMsg").text($("#txtError").val());
         $("#cntMsg").parent().show();
+        $("#txtError").val("nada");
     } 
       
 });
@@ -28,7 +30,7 @@ $(document).ready(function () {
 function cargarCaruserl(result) {
     Bookstarzz.ws.WSCategorias.getAll(crearSidebar, function (e) {
 
-        $("#cntMsg").text("Error: no se ha podido cargar la seccion de categorias de los libros");
+        $("#cntMsg").text(e.error._message);
         $("#cntMsg").parent().show();
 
     });

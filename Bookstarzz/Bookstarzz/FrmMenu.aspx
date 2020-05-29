@@ -37,8 +37,8 @@
             <h2 style="color:black">Mas populares <span class="badge badge-warning">Libros</span></h2>
 
             <!-- El div para mostrar los errores y notificar al usuario-->
-            <div class="alert alert-danger hide" role="alert">
-                  <strong>Error:</strong> <span id="cntMsg">Sin errores</span>
+            <div class="alert alert-danger" role="alert" id="divError" style="display:none">
+                  <strong>Error:</strong> <span id="cntMsg"></span>
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>

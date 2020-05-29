@@ -4,8 +4,7 @@ var autor; //Autor del libro global que se usara para mandarlo al FrmCarrito
 var precio; //Precio del libro global que se usara para mandarlo al FrmCarrito
 $(document).ready(function () {
     window.scrollTo(0, 0);
-    debugger;
-
+    
     // validamos que se haya enviado el id del libro FrmMenu a esta nueva
     if (parseInt($("#txtId").val()) > 0) {
         infoLibro($("#txtId").val());
@@ -23,16 +22,19 @@ $(document).ready(function () {
 
 });
 
+// el metodo de buscar un libro para el administrador
 function llenarDatos(nombre) {
 
     if (nombre != null) {
         let libro = quitarEspacios(nombre);
 
         Bookstarzz.ws.WSLibros.traerLibro(nombre, function (result) {
-
+            debugger;
+            $("#contenidoVista").load("FrmMenu.aspx", { "typeError": "Libro no disponible" });
             if (result) {
 
-                let arreglo = JSON.parse(result);
+                let arreglo = normalizar(JSON.parse(result)); //Mandamos el JSON al metodo normalizar, que devuelve el objeto con la fecha ya normalizada
+                
                 btnDescargar(arreglo.Nombre);
                 //llenamos los inputs con el libro traido
                 $("#titulo").html(arreglo.Nombre);
@@ -57,17 +59,19 @@ function llenarDatos(nombre) {
                 $(".card-img-top").attr("src", "libros/" + nombre + ".jpg").attr("id", arreglo.IdLibro);
             } else {
                 
-                window.location.replace("FrmLogin.aspx");
+                // window.location.replace("FrmLogin.aspx");
+                $("#contenidoVista").load("FrmMenu.aspx", { "typeError": "Libro no disponible" });
             }
 
         },
 
             function (error) {
-                $("#contenidoVista").load("FrmMenu.aspx", { "typeError": "Libro no disponible" });
+                $("#contenidoVista").load("FrmLogin.aspx", { "typeError": "Libro no disponible" });
             }
         );
     } else {
-        window.location.replace("FrmLogin.aspx");
+        $("#cntMsg").text("Error: No se pudo cargar la informacion del libro seleccionado");
+        $("#cntMsg").parent().show();
     }
 
 }
