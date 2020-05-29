@@ -198,6 +198,7 @@ namespace Bookstarzz.ws
                     return jss.Serialize(new DaoLibros().traerLibro(nombre));
                 }
 
+               
             }
             throw new SecurityException("Acceso restringido");
         }
@@ -240,6 +241,20 @@ namespace Bookstarzz.ws
             }
 
             return true;
+        }
+
+        [WebMethod(EnableSession = true)]
+        public int insertVisita(int id)
+        {
+            if (Session["session"] != null)
+            {
+
+                if (Session["session"].ToString().Equals("admi") || Session["session"].ToString().Equals("usu"))
+                {
+                    return new DaoLibros().insertVisita(id);
+                }
+            }
+            throw new SecurityException("No esta logiado");
         }
 
     }

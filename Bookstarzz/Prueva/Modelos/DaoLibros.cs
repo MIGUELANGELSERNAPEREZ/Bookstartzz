@@ -298,5 +298,48 @@ namespace Backend.Modelos
 
         }
 
+        public int insertVisita(int id)
+        {
+            int visitas = 0;
+            try
+            {
+                
+                MySqlCommand sentencia = new MySqlCommand();
+                sentencia.CommandText = "Select visitas from libros where idLibro = @id";
+                sentencia.Parameters.AddWithValue("@id", id);
+
+                DataTable table = DaoConexion.ejecutarConsulta(sentencia);
+                if (table.Rows.Count > 0)
+                {
+                    Object[] camp = table.Rows[0].ItemArray;
+                    visitas = int.Parse(camp[0].ToString());
+                }
+
+            }
+            catch (MySqlException e)
+            {
+                throw new Exception("Error en la conexion");
+            }
+
+            try
+            {
+                MySqlCommand consulta = new MySqlCommand();
+                consulta.CommandText = "UPDATE libros set visitas = @visita WHERE idLibro = @id";
+                consulta.Parameters.AddWithValue("@id", id);
+                consulta.Parameters.AddWithValue("@visita",  visitas + 1);
+
+                return DaoConexion.ejecutarSentencia(consulta, false);
+            }
+            catch (MySqlException n)
+            {
+                throw new Exception("Se ha presentado un problema al obtener los datos");
+            }
+
+            finally
+            {
+                DaoConexion.desconectar();
+            }
+        }
+
     }
 }

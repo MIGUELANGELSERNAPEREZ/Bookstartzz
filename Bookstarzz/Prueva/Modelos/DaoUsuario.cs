@@ -36,11 +36,11 @@ namespace Backend.Modelos
 
                 return objUsu;
             }
-            catch (Exception m)
+            catch (MySqlException m)
             {
-                Console.WriteLine(m);
-                return objUsu;
-            }  
+                throw new Exception("No hubo conexion a la base de datos");
+            }
+            
         }
 
         public Usuario userExist(Usuario obj)
@@ -62,15 +62,18 @@ namespace Backend.Modelos
                 {
                     objUsu = new Usuario(tabla.Rows[0].ItemArray);
                 }
-
-                DaoConexion.desconectar();
+              
 
                 return objUsu;
             }
-            catch (Exception m)
+            catch (MySqlException m)
             {
-                Console.WriteLine(m);
-                return objUsu;
+                throw new Exception("No hubo conexion a la base de datos");
+            }
+
+            finally
+            {
+                DaoConexion.desconectar();
             }
 
             
@@ -133,7 +136,7 @@ namespace Backend.Modelos
             }
             catch (Exception m)
             {
-                Console.WriteLine(m);
+               throw new Exception("Se ha presentado un problema al acceder a la base de datos");
             }
 
             return valor;
@@ -180,7 +183,7 @@ namespace Backend.Modelos
             }
             catch (MySqlException ex)
             {
-                throw new Exception("Se ha presentado un problema al obtener los datos");
+                throw new Exception("Se ha presentado un problema al acceder a la base de datos");
             }
 
 
@@ -217,7 +220,7 @@ namespace Backend.Modelos
             }
             catch (MySqlException ex)
             {
-                throw new Exception("Se ha presentado un problema al obtener los datos");
+                throw new Exception("Se ha presentado un problema al acceder a la base de datos");
             }
 
 
@@ -250,7 +253,7 @@ namespace Backend.Modelos
             }
             catch (MySqlException ex)
             {
-                throw new Exception("Se ha presentado un problema al obtener los datos");
+                throw new Exception("El usuario no existe");
             }
 
             finally

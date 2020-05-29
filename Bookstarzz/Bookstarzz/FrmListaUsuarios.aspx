@@ -31,7 +31,7 @@
                                     </button>
                                     </div>
                                     <div class="modal-body">
-                                    <p>¿Estás seguro que deseas eliminar el Usuario: <strong><span id="municipio"></span></strong>?</p>
+                                    <p>¿Estás seguro que deseas eliminar el Usuario: <strong><span id="nombre"></span></strong>?</p>
                                     </div>
                                     <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

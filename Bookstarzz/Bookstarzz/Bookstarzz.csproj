@@ -271,6 +271,7 @@
     <Content Include="imagenes\kitten-medium.png" />
     <Content Include="imagenes\kitten-small.png" />
     <Content Include="imagenes\logo.jpg" />
+    <Content Include="imagenes\pulgarArriba.jpg" />
     <Content Include="imagenes\usuario.png" />
     <Content Include="imagenes\usuarios.png" />
     <Content Include="js\bootstrap-datepicker.es.min.js" />

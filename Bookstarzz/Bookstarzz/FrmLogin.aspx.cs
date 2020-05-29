@@ -26,35 +26,46 @@ namespace Bookstarzz
                 objUser.Email = txtEmail.Text;
                 objUser.Password = txtPassword.Text;
 
-                Usuario IdUser = new DaoUsuario().getLogin(objUser);
-                if (IdUser!=null)
+                try
                 {
-                    Session["id_user"] = IdUser.IdUsuario;
-                    Session["session"] = null;
-                    //si es usuario
-                    if (IdUser.Tipo == 1)
+                    Usuario IdUser = new DaoUsuario().getLogin(objUser);
+
+
+                    if (IdUser != null)
                     {
-                        Session["session"] = "usu";
-                        Response.Redirect("FrmBookstarzz.aspx");
-                        
+                        Session["id_user"] = IdUser.IdUsuario;
+                        Session["session"] = null;
+                        //si es usuario
+                        if (IdUser.Tipo == 1)
+                        {
+                            Session["session"] = "usu";
+                            Response.Redirect("FrmBookstarzz.aspx");
+
+                        }
+                        else
+                        {
+                            Session["session"] = "admi";
+                            Response.Redirect("FrmBookstarzz.aspx");
+
+                            //es administrador
+
+
+                        }
                     }
                     else
                     {
-                        Session["session"] = "admi";
-                        Response.Redirect("FrmBookstarzz.aspx");
-
-                        //es administrador
-
-
+                        divMensaje.InnerHtml = "El Usuario no existe";
+                        divMensaje.Visible = true;
+                        return;
+                        //el usuario no existe
                     }
                 }
-                else
+                catch (Exception ex)
                 {
-                    divMensaje.InnerHtml = "El Usuario no existe";
+                    divMensaje.InnerHtml = "No se a podido realizar la conexion con el servidor";
                     divMensaje.Visible = true;
-                    return;
-                    //el usuario no existe
                 }
+
             }
             else
             {

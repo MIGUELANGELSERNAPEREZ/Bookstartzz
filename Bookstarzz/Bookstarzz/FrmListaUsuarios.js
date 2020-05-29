@@ -1,6 +1,5 @@
-﻿var tablaUsuarios;
-
-$(document).ready(function () {
+﻿$(document).ready(function () {
+    debugger;
     //Reiniciamos los estilos para este Frm en especifico
     $("#divBloque2").removeClass("col-10");
     $("#divBloque1").removeClass("col-2 pr-0");
@@ -103,17 +102,21 @@ function editar(id) {
     $("#contenidoVista").load("FrmRegistrar.aspx", { "editar": 1 });
 }
 
-function eliminar(id, mun) {
-    $("#IdMunicipio").val(id);
-    $("#municipio").text(mun);
+function eliminar(id, nom) {
+    debugger;
+    
+    $("#IdUsuario").val(id);
+    $("#nombre").text(nom);
     $("#mdlConfirmar").modal();
 }
 
 // toma el id y borra el elemento seleccionado
 function cofirmEliminar() {
+    debugger:
     $("#mdlConfirmar").modal('hide');
     let id = $("#IdUsuario").val();
     Bookstarzz.ws.WSUsuarios.delete(id, function (result) {
+
         if (result) {
 
             recargarDatos();
@@ -135,7 +138,7 @@ function cofirmEliminar() {
 
 //recarga los usuarios de la base de datos en la tabla
 function recargarDatos() {
-    tablaUsuarios.fnClearTable();
+     let tablaUsuarios.fnClearTable();
     Bookstarzz.ws.WSUsuarios.WSMunicipios.getAll(function (result) {
         if (result) {
             tablaUsuarios.fnAddData(JSON.parse(result));

@@ -92,7 +92,35 @@ function leerLibro() {
             let ruta = quitarEspacios(titulo);
         $(".container-pdf").css({ "width": "100%", "height": "900px" });
         $(".container-pdf").append($("<embed\>").attr("id", "vista").attr("type", "application/pdf").attr("src", "pdfs/" + ruta + ".pdf").css({ "width": "100%", "height": "100%" }));
+
+        // gacemos la actualisacion de la visita de este libro
+        debugger;
+        let id = 0;
+        if (parseInt($("#txtId").val()) > 0) {
+            id = parseInt($("#txtId").val())
+        } else if (parseInt($("#txtBuscar").val()) > 0){
+            id = parseInt($("#txtBuscar").val())
+        }
+        Bookstarzz.ws.WSLibros.insertVisita(id, function (result) {
+            if (result == 1) {
+                $('#toastMess').text("Gracias por leer el libro.");
+                $('#toastActivar').toast('show')
+
+            } else {
                
+            }
+        },
+            function (error) {
+                if (error._exceptionType == "System.Security.SecurityException") {
+                    window.location.replace("FrmLogin.aspx");
+                } else {
+
+                    $("#msgError").text(error._message);
+                    $("#mdlError").modal().show();
+                }
+            }
+        );
+        
     }
     
 }

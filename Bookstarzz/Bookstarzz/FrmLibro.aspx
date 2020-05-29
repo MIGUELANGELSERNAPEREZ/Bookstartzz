@@ -114,6 +114,21 @@
 
      </div>  <!--fin container-->
 
+
+          <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="toastActivar">
+           <div class="toast-header">
+                <img src="imagenes/pulgarArriba.jpg" class="rounded mr-2" alt="Pulgar arriba">
+                <strong class="mr-auto">Bookstarzz</strong>
+                <small class="text-muted">justo ahora</small>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+           </div>
+           <div class="toast-body">
+               <p id="toastMess">Gracias por leer el libro.</p> 
+           </div>
+        </div>
+
     <br />
     <br />
 </asp:Content>

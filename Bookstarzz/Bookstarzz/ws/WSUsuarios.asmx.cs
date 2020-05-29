@@ -153,5 +153,19 @@ namespace Bookstarzz.ws
             throw new SecurityException("Acceso restringido");
         }
 
+        [WebMethod(EnableSession = true)]
+        public bool delete(int id)
+        {
+            if (Session["session"] != null)
+            {
+
+                if (Session["session"].ToString().Equals("admi"))
+                {                  
+                    return new DaoUsuario().Delete(id);                      
+                }
+            }
+            throw new SecurityException("Acceso restringido");
+        }
+
     }
 }
