@@ -4,9 +4,10 @@ $(document).ready(function () {
     //Reiniciamos los estilos para este Frm en especifico
     $("#divBloque2").removeClass("col-10");
     $("#divBloque1").removeClass("col-2 pr-0");
+    $("#divBloque2").addClass("container-fluid");
+    $("#divBloque1").addClass("col");
 
     $("#btnAgregar").click(function () {
-        debugger;
         $("#contenidoVista").load("FrmRegistrar.aspx", { "session" : 1});
     });
 
@@ -42,7 +43,7 @@ function cargarMunicipios() {
 
 function cargarDatos(datos) {
     //Almacenamos la referencia a la tabla con el plugin aplicado, ya que la usaremos para los filtros
-    let tablaUsuarios = $('#tblUsuarios').dataTable({
+    tablaUsuarios = $('#tblUsuarios').dataTable({
         //Asignamos la colección de datos en JSON que se mostrarán en la tabla
         data: datos,
         //La tabla ajusta cada columna de acuerdo a los datos contenidos en ellas
@@ -50,25 +51,26 @@ function cargarDatos(datos) {
         //índices de las columnas a los que se les aplicará este tamaño
 
         columnDefs: [
-            { width: "10%", targets: [0] },
-            { width: "30%", targets: [1] },
-            { width: "25%", targets: [2, 3, 4, 5, 6, 7, 8, 9] }
+            { width: "5%", targets: [0, 1, 2, 3] },
+            { width: "10%", targets: [4] },
+            { width: "5%", targets: [5, 6] },
+            { width: "10%", targets: [7] },
+            { width: "25%", targets: [8, 9] }
            
         ],
         columns: [
 
             //el valor colocado en title es el texto que aparecerá en la columna y el valor colocado en 
             //data deberá ser el nombre de la propiedad del pojo que recibirémos en la colección de datos
-            { title: "IdUsuario", data: "IdUsuario" },
+            { title: "ID", data: "IdUsuario" },
             { title: "Nombre", data: "Nombre" }, //Si quiere mostrarse el id se descomenta esta linea
-            { title: "ApellidoP", data: "ApellidoP" },
-            { title: "ApellidoM", data: "ApellidoM" },
+            { title: "Apellido Paterno", data: "ApellidoP" },
+            { title: "Apellido Materno", data: "ApellidoM" },
             { title: "Email", data: "Email" }, //Si quiere mostrarse el id se descomenta esta linea
-            { title: "Password", data: "Password" },
             { title: "Tipo", data: "Tipo" },
             { title: "Usuario", data: "UsuarioN" }, //Si quiere mostrarse el id se descomenta esta linea
             { title: "Telefono", data: "Telefono" },
-            { title: "Targeta", data: "Targeta" },
+            { title: "Tarjeta", data: "Targeta" },
 
 
 
@@ -88,7 +90,7 @@ function cargarDatos(datos) {
                             '</div>';
                     }
             }
-        ],
+        ]
         //Cuando queremos hacer alguna adecuación del aspecto de la fila, por ejemplo, colorear una celda o 
         //toda la fila de acuerdo al valor de algún atributo
         //"fnRowCallback": function (row, data, displayIndex) {
@@ -113,7 +115,6 @@ function eliminar(id, nom) {
 
 // toma el id y borra el elemento seleccionado
 function cofirmEliminar() {
-    debugger;
     $("#mdlConfirmar").modal('hide');
     let id = $("#IdUsuario").val();
     Bookstarzz.ws.WSUsuarios.delete(id, function (result) {
@@ -139,9 +140,8 @@ function cofirmEliminar() {
 
 //recarga los usuarios de la base de datos en la tabla
 function recargarDatos() {
-
-     tablaUsuarios.fnClearTable();
-    Bookstarzz.ws.WSUsuarios.WSUsuarios.getAll(function (result) {
+    tablaUsuarios.fnClearTable();
+    Bookstarzz.ws.WSUsuarios.WSMunicipios.getAll(function (result) {
         if (result) {
             tablaUsuarios.fnAddData(JSON.parse(result));
         } else {
