@@ -24,11 +24,32 @@
     <div class="container-fluid pl-0 pt-3">
         <div class="row">
             <div class="col">
-                <div class="alert alert-danger hide" role="alert">
+                <div class="alert alert-danger hide" role="alert"  id="divError" style="display:none">
                   <strong>Error:</strong> <span id="cntMsg">Sin errores</span>
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
+                </div>
+
+                <div aria-live="polite" id="toastMostrar" data-delay="1000" aria-atomic="true" style="display:none" style="position: relative; min-height: 200px;" id="si">
+                    <!-- Position it -->
+                    <div style="position: absolute; top: 0; right: 0;">
+  
+                      <!-- Then put toasts within -->
+                      <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                          <img src="imagenes/pulgarArriba.jpg" class="rounded mr-2" alt="Es un pulgar arriba">
+                          <strong class="mr-auto">Bootstrap</strong>
+                          <small class="text-muted">just now</small>
+                          <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="toast-body">
+                            <p id="toastMess">Gracias por consultar este libro.</p>
+                        </div>
+                      </div>
+                    </div>
                 </div>
 
                 <center>
@@ -115,20 +136,6 @@
      </div>  <!--fin container-->
 
 
-          <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="toastActivar">
-           <div class="toast-header">
-                <img src="imagenes/pulgarArriba.jpg" class="rounded mr-2" alt="Pulgar arriba">
-                <strong class="mr-auto">Bookstarzz</strong>
-                <small class="text-muted">justo ahora</small>
-                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-           </div>
-           <div class="toast-body">
-               <p id="toastMess">Gracias por leer el libro.</p> 
-           </div>
-        </div>
-
     <br />
     <br />
 </asp:Content>
@@ -138,4 +145,5 @@
     <script src="js/moment.js"></script>
     <script src="js/moment-with-locales.js"></script>
     <script src="FrmLibro.js"></script>
+
 </asp:Content>

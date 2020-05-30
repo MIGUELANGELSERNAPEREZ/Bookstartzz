@@ -1,21 +1,24 @@
-﻿var clic = 0;
+﻿
 $(document).ready(function () {
     debugger;
     // traemos los dados del web service de Libros para 
     //de los 10 libros mas vistos hasta ahora como recomenadacion
     //al usuario. esta info la mandamos a la funcion cargarcarusel
-    Bookstarzz.ws.WSLibros.getPopulares(cargarCategorias, function (e) {
+    Bookstarzz.ws.WSLibros.getPopulares(cargarCategorias, function (error) {
 
+        if (error._exceptionType == "System.Security.SecurityException") {
+            
+            window.location.replace("FrmLogin.aspx");
 
-        $("#cntMsg").text("Error: no se ha podido cargar los libros en el carrucel");
-        $("#cntMsg").parent().show();
+        } else {
+
+            $("#cntMsg").text("Error: no se ha podido cargar los libros en el carrucel");
+            $("#cntMsg").parent().show();
+        }
+       
 
     });
-    $("verMas").click(function () {
-        clic++
-        TraerMasLibros(clic);
-    });
-
+    
     //analizamos si nuestro contenedor de erores trae uno
     if ($("#txtError").val() != "nada") {
         $("#cntMsg").text($("#txtError").val());
@@ -23,15 +26,118 @@ $(document).ready(function () {
         $("#txtError").val("nada");
     } 
       
-});
+}); // fin del ready
+
+var mas = 0;
+let cantidad = 9
+function verMas() {
+    let traer = true;
+    let total = 0;
+    if (mas == 0) {
+        cantidad += 9;
+    } else {
+
+        Bookstarzz.ws.WSLibros(function (result) {
+
+            if (result) {
+                total = JSON.parse(result);
+            
+            } else {
+                $("#cntMsg").text("Error: no se ha podido cargar los libros nuevos en existencia");
+                $("#cntMsg").parent().show();
+            }
+
+        }, function (error) {
+                if (error._exceptionType == "System.Security.SecurityException") {
+
+                    window.location.replace("FrmLogin.aspx");
+
+                } else {
+
+                    $("#cntMsg").text("Error: no se ha podido cargar los libros nuevos en existencia");
+                    $("#cntMsg").parent().show();
+                }
+
+            });
+
+        if (parseInt(total) > cantidad + 9) {           
+            cantidad += 9;
+        } else {
+            traer = false;
+        }
+       
+    }
+
+    if (traer) {
+
+        Bookstarzz.ws.WSLibros.getNuevos(cantidad, function (result) {
+
+            if (result) {
+                debugger;
+
+                let libros = JSON.parse(result);
+                let inicio = libros.length - 9;
+                var datos = [];
+                var objeto = {};
 
 
+                for (var i = inicio; i < libros.length; i++) {
+
+                    var nombre = libros[i];
+
+                    datos.push({
+                        "IdLibro": libros[i].IdLibro,
+                        "Nombre": libros[i].Nombre
+                    });
+                }
+
+                //objeto.datos = datos;
+             
+                //crearLibrosNuevos(JSON.stringify(objeto));
+                crearLibrosNuevos(JSON.stringify(datos));
+
+               
+
+            } else {
+                $("#cntMsg").text("Error: no se ha podido cargar los libros nuevos en existencia");
+                $("#cntMsg").parent().show();
+            }
+
+        }, function (error) {
+                if (error._exceptionType == "System.Security.SecurityException") {
+
+                    window.location.replace("FrmLogin.aspx");
+
+                } else {
+
+                    $("#cntMsg").text("Error: no se ha podido cargar los libros nuevos en existencia");
+                    $("#cntMsg").parent().show();
+                }
+
+        });
+
+    } else {
+        $("#cntMsg").text("Error: No hay mas libros para mostrar");
+        $("#cntMsg").parent().show();
+    }
+   
+
+}
 
 function cargarCategorias(result) {
-    Bookstarzz.ws.WSCategorias.getAll(crearSidebar, function (e) {
 
-        $("#cntMsg").text(e.error._message);
-        $("#cntMsg").parent().show();
+    Bookstarzz.ws.WSCategorias.getAll(crearSidebar, function (error) {
+
+        if (error._exceptionType == "System.Security.SecurityException") {
+
+            window.location.replace("FrmLogin.aspx");
+
+        } else {
+
+            $("#cntMsg").text("Error: no se ha podido cargar las categorias de los libros");
+            $("#cntMsg").parent().show();
+        }
+       
 
     });
  //validamos si el web services nos regresa la cadena esperada
@@ -102,19 +208,34 @@ function cargarCategorias(result) {
     
 }
 
+//se encarga de cargar en pantalla las distintas categorias
 function crearSidebar(result) {
 
-    Bookstarzz.ws.WSLibros.getNuevos(crearLibrosNuevos, function (e) {
-        $("#cntMsg").text("Error: no se ha podido cargar la seccion de los libros resientemente disponibles");
-        $("#cntMsg").parent().show();
+    Bookstarzz.ws.WSLibros.getNuevos(9,crearLibrosNuevos, function (error) {
+        if (error._exceptionType == "System.Security.SecurityException") {
+
+            window.location.replace("FrmLogin.aspx");
+
+        } else {
+
+            $("#cntMsg").text("Error: no se ha podido cargar los libros nuevos en existencia");
+            $("#cntMsg").parent().show();
+        }
     });
+
     console.log(result);
     if (result) {
         let arreglo = JSON.parse(result);
         arreglo.forEach(
             function (categoria) {
-                $(".list-group").append($("<a\>").addClass("list-group-item list-group-item-action").html(categoria.nombreCategoria).attr("href", "#"));          
+                $(".list-group").append($("<a\>").addClass("list-group-item list-group-item-action").html(categoria.nombreCategoria).attr("href", "#").attr("id",categoria.idCategoria));          
 
+                //le damos el evento clic
+                $("#" + categoria.idCategoria).bind("click", function () {
+                    debugger;
+                    cargarXCategoria(categoria.idCategoria);
+
+                });
             });
 
     } else {
@@ -125,15 +246,88 @@ function crearSidebar(result) {
 }
 
 
+function cargarXCategoria( id ) {
+
+    Bookstarzz.ws.WSCategorias.getCategoria(id, function (result) {
+
+        if (result) {
+            debugger;
+            const ruta = "libros/";
+            let arreglo = JSON.parse(result);
+            let cont = 0;
+            let nombre = "";
+            arreglo.forEach(
+                function (libro) {
+                    for (var i = 0; i < libro.Nombre.length; i++) {
+
+                        if (libro.Nombre[i] != " ") {
+                            nombre += libro.Nombre[i];
+                        }
+                    }
+                    //debugger;
+                    if (cont < 3) {
+                        debugger;
+
+                        $(".uno").append($("<div\>").addClass("col-4").append($("<img\>").attr("src", ruta + nombre + ".jpg").addClass("cuadros").attr("id", libro.IdLibro)));
+                        //img = $(".uno").append($("<div\>").addClass("col-4").append($("<img\>")));
+
+                    } else if (cont > 2 && cont < 6) {
+
+                        //img = $(".dos").append($("<div\>").addClass("col-4").append($("<img\>")));
+                        $(".dos").append($("<div\>").addClass("col-4").append($("<img\>").attr("src", ruta + nombre + ".jpg").addClass("cuadros").attr("id", libro.IdLibro)));
+                    } else {
+
+                        //img = $(".uno").append($("<div\>").addClass("col-4").append($("<img\>")));
+                        $(".tres").append($("<div\>").addClass("col-4").append($("<img\>").attr("src", ruta + nombre + ".jpg").addClass("cuadros").attr("id", libro.IdLibro)));
+                    }
+
+                    let id = libro.IdLibro.toString();
+
+                    $("#" + id).bind("click", function () {
+                        debugger;
+                        //alert($(this).attr("id"));
+                        $("#contenidoVista").load("FrmLibro.aspx", { "id": id });
+
+                    });
+
+                    cont++;
+                    nombre = "";
+                });
+
+        } else {
+            $("#cntMsg").text("Error: no se ha podido cargar la pagina con la categoria especificada");
+            $("#cntMsg").parent().show();
+        }
+    },
+
+        function (error) {
+
+            if (error._exceptionType == "System.Security.SecurityException") {
+
+                window.location.replace("FrmLogin.aspx");
+
+            } else {
+               
+                $("#cntMsg").text("No se ha podido cargar la pagina con la categoria especificada");
+                $("#cntMsg").parent().show();
+            }
+            
+        });
+
+}
+
 function crearLibrosNuevos( result ) {
     console.log(result);
     if (result) {
+        debugger;
         const ruta = "libros/";
         let arreglo = JSON.parse(result);
         let cont = 0;
         let nombre = "";
+        console.log(arreglo);
         arreglo.forEach(
             function (libro) {
+
                 for (var i = 0; i < libro.Nombre.length; i++) {
 
                     if (libro.Nombre[i] != " ") {

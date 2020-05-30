@@ -88,7 +88,7 @@ namespace Bookstarzz.ws
 
 
         [WebMethod(EnableSession = true)]
-        public string getNuevos()
+        public string getNuevos(int cantidad)
         {
 
             if (Session["session"] != null)
@@ -97,7 +97,7 @@ namespace Bookstarzz.ws
                 if (tipo.Equals("usu") || tipo.Equals("admi"))
                 {
                     JavaScriptSerializer jss = new JavaScriptSerializer();
-                    return jss.Serialize(new DaoLibros().getNuevos());
+                    return jss.Serialize(new DaoLibros().getNuevos(cantidad));
                 }
 
             }
@@ -257,6 +257,22 @@ namespace Bookstarzz.ws
             throw new SecurityException("No esta logiado");
         }
 
+
+        [WebMethod(EnableSession = true)]
+        public string getCantidadLibrosExistentes()
+        {
+            if (Session["session"] != null)
+            {
+                string tipo = Session["session"].ToString();
+                if (tipo.Equals("usu") || tipo.Equals("admi"))
+                {
+                    JavaScriptSerializer jss = new JavaScriptSerializer();
+                    return jss.Serialize(new DaoLibros().CantidadLibrosExistencia());
+                }
+
+            }
+            throw new SecurityException("Acceso restringido");
+        }
     }
 }
 

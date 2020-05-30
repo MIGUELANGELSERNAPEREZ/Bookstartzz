@@ -191,6 +191,7 @@ C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\obj
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.csproj.CopyComplete
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.dll
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.pdb
+D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.csproj.CoreCompileInputs.cache
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\Bookstarzz.dll.config
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\Bookstarzz.dll
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\Bookstarzz.pdb
@@ -262,7 +263,6 @@ D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\System.Memory.xml
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\System.Numerics.Vectors.xml
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\bin\System.Runtime.CompilerServices.Unsafe.xml
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.csprojAssemblyReference.cache
-D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.csproj.CoreCompileInputs.cache
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.csproj.CopyComplete
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.dll
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.pdb

@@ -50,7 +50,45 @@ namespace Backend.Modelos
 
         }
 
+        public List<Libros> getCategoria(int id)
+        {
+            List<Libros> lista = new List<Libros>();
+            Libros obj = new Libros();
 
+            try
+            {
+                MySqlCommand consulta = new MySqlCommand();
+                consulta.CommandText = "SELECT libros_categorias.idLibros , libros.Nombre FROM Libros LEFT JOIN " +
+                    "libros_categorias ON libros.idLibro = libros_categorias.idLibros where libros_categorias.idCategorias" +
+                    " = @id  ORDER BY idLibros desc LIMIT 9;";
+
+                consulta.Parameters.AddWithValue("@id", id);
+
+                DataTable tabla = DaoConexion.ejecutarConsulta(consulta);
+
+                if (tabla.Rows.Count > 0)
+                {
+                    for (int i = 0; i < tabla.Rows.Count; i++)
+                    {
+                        obj.Categorias(tabla.Rows[i].ItemArray);
+                        lista.Add(obj);
+                    }
+                    
+                }
+
+                return lista;
+
+            }
+            catch (MySqlException ex)
+            {
+                throw new Exception("No se a podido acceder a la informacion");
+            }
+
+            finally
+            {
+                DaoConexion.desconectar();
+            }
+        }
 
 
     }

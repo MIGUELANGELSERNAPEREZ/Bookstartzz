@@ -102,21 +102,26 @@ function leerLibro() {
             id = parseInt($("#txtBuscar").val())
         }
         Bookstarzz.ws.WSLibros.insertVisita(id, function (result) {
+            debugger;
             if (result == 1) {
-                $('#toastMess').text("Gracias por leer el libro.");
-                $('#toastActivar').toast('show')
+                debugger;
+                $('.toast').toast('show');
+                $('#toastMostrar').toast('show');
+               
 
             } else {
-               
+                $("#cntMsg").text("Error: No sea podido tomar encuenta su lectura");
+                $("#cntMsg").parent().show();
             }
         },
             function (error) {
+                debugger;
                 if (error._exceptionType == "System.Security.SecurityException") {
                     window.location.replace("FrmLogin.aspx");
                 } else {
 
-                    $("#msgError").text(error._message);
-                    $("#mdlError").modal().show();
+                    $("#cntMsg").text("Error: No se a podido encontrar el libro");
+                    $("#cntMsg").parent().show();
                 }
             }
         );
@@ -199,7 +204,15 @@ function infoLibro(id) {
 
     },
         function (error) {
-            $("#contenidoVista").load("FrmMenu.aspx", { "typeError": "Error: no se pudo llevar acavo la operacion" });
+            debugger;
+            if (error._exceptionType == "System.Security.SecurityException") {
+
+                window.location.replace("FrmLogin.aspx");
+            } else {
+                $("#contenidoVista").load("FrmMenu.aspx", { "typeError": "Error: El ejemplar no se encuentra disponible en estos momentos" });
+            }
+
+           
         }
 
     );

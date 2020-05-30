@@ -129,16 +129,18 @@ namespace Backend.Modelos
             return list;
         }
 
-        public List<Libros> getNuevos()
+        public List<Libros> getNuevos(int cantidad)
         {
             Libros obj = null;
             List<Libros> list = new List<Libros>();
             try
             {
                 MySqlCommand sentencia = new MySqlCommand();
-                sentencia.CommandText = "SELECT * FROM libros ORDER BY idLibro DESC LIMIT 9;";
+                sentencia.CommandText = "SELECT * FROM libros ORDER BY idLibro DESC LIMIT @cantidad;";
 
+                sentencia.Parameters.AddWithValue("@cantidad", cantidad);
                 DataTable tabla = DaoConexion.ejecutarConsulta(sentencia);
+
 
                 if (tabla.Rows.Count > 0 && tabla != null)
                 {
@@ -339,6 +341,31 @@ namespace Backend.Modelos
             {
                 DaoConexion.desconectar();
             }
+        }
+
+        public int CantidadLibrosExistencia()
+        {
+            int cantidad = 0;
+
+            try
+            {
+                MySqlCommand sentencia = new MySqlCommand();
+                sentencia.CommandText = "SELECT idLibro FROM libros ORDER BY idLibro desc LIMIT 1;";
+
+                DataTable table = DaoConexion.ejecutarConsulta(sentencia);
+
+                if (table.Rows.Count > 0)
+                {
+                    Object[] cam = table.Rows[0].ItemArray;
+                    cantidad = int.Parse(cam[0].ToString());
+                }
+                return cantidad;
+            }
+            catch (MySqlException ex)
+            {
+                throw new Exception("No se a tenido acceso a la base de datos");
+            }
+            
         }
 
     }

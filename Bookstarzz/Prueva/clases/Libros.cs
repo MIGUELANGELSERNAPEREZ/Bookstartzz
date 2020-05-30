@@ -76,5 +76,11 @@ namespace Backend.clases
             }
         }
 
+        public void Categorias(Object []campos)
+        {
+            IdLibro = int.Parse(campos[0].ToString());
+            Nombre = campos[1].ToString();
+        }
+
     }
 }

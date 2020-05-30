@@ -6,7 +6,7 @@ using System.Web.Services;
 using Backend.Modelos;
 using Backend.clases;
 using System.Web.Script.Serialization;
-
+using System.Security;
 
 namespace Bookstarzz.ws
 {
@@ -24,21 +24,37 @@ namespace Bookstarzz.ws
         [WebMethod (EnableSession = true)]
         public string getAll()
         {
-            //if (Session["session"]!=null)
-            //{
+            if (Session["session"]!=null)
+            {
 
-                //if (Session["session"].ToString().Equals("1") || Session["session"].ToString().Equals("2"))
-                //{
+                if (Session["session"].ToString().Equals("usu") || Session["session"].ToString().Equals("admi"))
+                {
                     JavaScriptSerializer jss = new JavaScriptSerializer();
-
                     return  jss.Serialize(new DaoCategorias().getAll());
 
-            //    }
+                }
 
-            //}
+            }
 
 
-            //return "";
+            throw new SecurityException("Acceso restringido");
+
+        }
+
+        [WebMethod(EnableSession = true)]
+        public string getCategoria(int id)
+        {
+            if (Session["session"] != null)
+            {
+                if (Session["session"].ToString().Equals("usu") || Session["session"].ToString().Equals("admi"))
+                {
+                    JavaScriptSerializer jss = new JavaScriptSerializer();
+                    return jss.Serialize(new DaoCategorias().getCategoria(id));
+                }
+            }
+
+            throw new SecurityException("Acceso restringido");
+
         }
     }
 }
