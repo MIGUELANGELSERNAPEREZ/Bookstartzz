@@ -206,6 +206,11 @@ namespace Bookstarzz.ws
         public bool valido(Libros obj)
         {
 
+            if(obj.IdLibro < 0)
+            {
+                return false;
+            }
+
             if (obj.Nombre == "" || obj.Nombre.Length > 50)
             {
 

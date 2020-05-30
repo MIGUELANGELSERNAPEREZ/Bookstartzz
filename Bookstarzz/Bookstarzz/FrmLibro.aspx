@@ -5,7 +5,8 @@
     <link href="css/estilo.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_bloque_1" runat="server">
-
+    <%--Input para obtener el id del usuario para agregar al carrito con localStorage--%>
+    <input type="hidden" id="txtIdUsuario" value="<%=Session["id_user"]%>">
     <div class="container-fluid" style="top: 70px;">
        <div class="row">
            <div class="col">

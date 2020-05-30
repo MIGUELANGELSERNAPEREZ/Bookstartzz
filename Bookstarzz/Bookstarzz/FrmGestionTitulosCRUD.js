@@ -156,7 +156,8 @@ function llenarInterfaz() {
             window.scrollTo(0, 0);
             $("#txtInpMensaje").val("3");
             mensaje();
-        });
+        }
+        );
     }
     else {
         $("#tituloFRM").text("AGREGAR");
@@ -190,6 +191,7 @@ function llenarUI(resul) {
         $("#body_bloque_2_txtCalendario").val(fecha);
         $("#body_bloque_2_txtPrecio").val(obj.Presio);
         $("#body_bloque_2_txtDescripcion").val(obj.Descripcion);
+
     } else {
         window.location.redirect("/");
     }
