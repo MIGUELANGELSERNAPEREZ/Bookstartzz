@@ -70,10 +70,7 @@
     </div>
 
 
-<div class="container">
 
-  <div class="row">
-    <div class="col">
            <form  runat="server" id="FormMenu">
 
               <!-- acceder al webService-->
@@ -153,11 +150,7 @@
  
            </center>
 
-     </div>
-   </div>
-</div>
- 
-        
+        <br />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Script" runat="server">
      <script src="validaciones/bootstrapValidator.js"></script>
