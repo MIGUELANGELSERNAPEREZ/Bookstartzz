@@ -3,6 +3,8 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_bloque_1" runat="server">
+        <link rel="stylesheet" href="css/main.css">
+        <link href="css/datatables.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body_bloque_2" runat="server">
                <div class="alert alert-danger" style="display:none" role="alert">
@@ -19,7 +21,7 @@
                   </button>
                 </div>   
 
-                <form runat="server">
+                <form runat="server" class=" tblsDatatables">
                             <!-------------------INICIA MODAL---------------------->
                         <div class="modal" id="mdlConfirmar" tabindex="-1" role="dialog">
                             <div class="modal-dialog" role="document">
@@ -71,13 +73,15 @@
                                 <asp:ServiceReference Path="ws/WSUsuarios.asmx" />
                             </Services>
                         </asp:ScriptManager>
-                    <h1>Usuarios Registrados</h1>
+                    <center>
+                    <h1 class="h1TitulosFrm">Usuarios Registrados</h1>
+                    </center>
                     <div class="row justify-content-center my-2">
                         <button id="btnAgregar" type="button" class="btn btn-primary">Agregar</button>    
                     </div>
-                    <div class="table">
+
                       <table id="tblUsuarios" class="table table-striped table-bordered"></table>
-                    </div>
+
             </form> 
                 <!-- fin form-->
            
