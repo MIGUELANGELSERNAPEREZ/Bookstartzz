@@ -1,17 +1,19 @@
 ﻿var idLibroGlobal; //se crea variable global para guardar el id del libro
+var idUsuario;
 $(document).ready(function () {
     validaURL(); //Validamos para que no acceda explicitamente a FrmPedidos.aspx
-    if (localStorage.length == 0) {
-        deshabilitaBtn();
-    }
     obtenerLibros(); //Verifica si hay libros relacionados con el usuario
     if ($("#rqtxtIdLibro").val() > 0 ) {
         $("#divTamano").removeClass("ajustarTamano"); //Remueve la clase para modificar tamaño en caso de que haya algo en el carrito
     }
 
+    if (localStorage.length == 0) {
+        deshabilitaBtn();
+    }
+
     $("#btnCancelar").click(function () {
         limpiar();
-        $("#contenidoVista").load("FrmBookstarzz.aspx", { "txtURL": 1 });//Le mando un valor para saber si esta direccionando desde FrmBookstarzz o escribiendo explicitamente la URL
+        window.location.replace("FrmBookstarzz.aspx", {"txtURL":1});//Le mando un valor para saber si esta direccionando desde FrmBookstarzz o escribiendo explicitamente la URL
     });
 
     //Boton eliminar del modal
@@ -126,7 +128,7 @@ function pintarPagina() {
             '<div class="card" style="width: 97%;">' +
             '<div class="card-body">' +
 
-            '<div class="mb-3" style="max-width: 67%;">' +
+            '<div class="mb-3" style="max-width: 80%;">' +
             '<div class="row no-gutters">' +
             '<div class="col-md-4">' +
             '<img id="imgPortada" src="libros/' + imagen + '" class="card-img" alt="...">' +
@@ -162,9 +164,15 @@ function obtenerLibros() {
     idUsuario = $("#txtIdUsuario").val(); //Guardams el id del usuario
     if (typeof (Storage) !== 'undefined') {
         if (localStorage.length > 0) {
-            $("#divTamano").removeClass("ajustarTamano");
-            $("#divTamano").addClass("ajustarTamanoSI");
-            pintarPagina();
+            //Validamos que haya un usuario especifico en localStorage
+            if (localStorage.getItem("USUARIO" + idUsuario) != null) {
+                $("#divTamano").removeClass("ajustarTamano");
+                $("#divTamano").addClass("ajustarTamanoSI");
+                pintarPagina();
+            }
+            else {
+                deshabilitaBtn();
+            }
         }
     }
     else {

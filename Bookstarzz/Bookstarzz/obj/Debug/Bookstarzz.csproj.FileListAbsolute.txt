@@ -191,6 +191,7 @@ D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.csproj.C
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.csproj.CopyComplete
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.dll
 D:\web2\proyecto\Bookstartzz\Bookstarzz\Bookstarzz\obj\Debug\Bookstarzz.pdb
+C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\Microsoft.CodeAnalysis.dll
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin\Bookstarzz.dll.config
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin\Bookstarzz.dll
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin\Bookstarzz.pdb
@@ -203,7 +204,6 @@ C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\Microsoft.CodeAnalysis.dll
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 C:\Users\guill\Desktop\Proyecto Bookstarzz\Bookstartzz\Bookstarzz\Bookstarzz\bin\roslyn\Microsoft.CSharp.Core.targets
