@@ -1,4 +1,5 @@
-﻿$(document).ready(function () {
+﻿var tablaUsuarios;
+$(document).ready(function () {
     debugger;
     //Reiniciamos los estilos para este Frm en especifico
     $("#divBloque2").removeClass("col-10");
@@ -112,7 +113,7 @@ function eliminar(id, nom) {
 
 // toma el id y borra el elemento seleccionado
 function cofirmEliminar() {
-    debugger:
+    debugger;
     $("#mdlConfirmar").modal('hide');
     let id = $("#IdUsuario").val();
     Bookstarzz.ws.WSUsuarios.delete(id, function (result) {
@@ -138,8 +139,9 @@ function cofirmEliminar() {
 
 //recarga los usuarios de la base de datos en la tabla
 function recargarDatos() {
-     let tablaUsuarios.fnClearTable();
-    Bookstarzz.ws.WSUsuarios.WSMunicipios.getAll(function (result) {
+
+     tablaUsuarios.fnClearTable();
+    Bookstarzz.ws.WSUsuarios.WSUsuarios.getAll(function (result) {
         if (result) {
             tablaUsuarios.fnAddData(JSON.parse(result));
         } else {
