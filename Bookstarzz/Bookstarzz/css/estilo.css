@@ -157,7 +157,10 @@ footer.nb-footer {
 }
 /*Estilo para el precio del libro en FrmCarrito*/
 .txtPrecio {
-    font-size: 3.4rem;
+    font-size: 3.7rem;
+}
+.card-body-carrito {
+    font-size: 2.1rem;
 }
 /*INICIAN ESTILOS BOTONES*/
 #btnCancelar.btn-block {

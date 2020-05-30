@@ -1,5 +1,9 @@
-﻿$(document).ready(function () {
+﻿var idLibroGlobal; //se crea variable global para guardar el id del libro
+$(document).ready(function () {
     validaURL(); //Validamos para que no acceda explicitamente a FrmPedidos.aspx
+    if (localStorage.length == 0) {
+        deshabilitaBtn();
+    }
     obtenerLibros(); //Verifica si hay libros relacionados con el usuario
     if ($("#rqtxtIdLibro").val() > 0 ) {
         $("#divTamano").removeClass("ajustarTamano"); //Remueve la clase para modificar tamaño en caso de que haya algo en el carrito
@@ -10,9 +14,12 @@
         $("#contenidoVista").load("FrmBookstarzz.aspx", { "txtURL": 1 });//Le mando un valor para saber si esta direccionando desde FrmBookstarzz o escribiendo explicitamente la URL
     });
 
+    //Boton eliminar del modal
+    $("#btnConfirmarEliminar").click(cofirmEliminar);
+
     $(".eliminarCarrito").click(function () {
-        id = $(this).attr("href");
-        eliminarLibro(id);
+        idLibroGlobal = $(this).attr("href");
+        $("#mdlConfirmar").modal();
     });
     cargarCategorias(); //Carga el panel de categorias
 });
@@ -60,12 +67,19 @@ function crearSidebar(result) {
     }
 }
 
+//Funcion que se activa al dar clic en aceptar del mdal
+function cofirmEliminar() {
+    $("#mdlConfirmar").modal('hide');
+    eliminarLibro(idLibroGlobal);
+}
+
+
 //Funcion que elimina el libro del carrito
 function eliminarLibro(idLibro) {
     var idUsuario = $("#txtIdUsuario").val(); //Guardams el id del usuario
     if (typeof (Storage) !== "undefined") {
         var libroArray = []; //Creamos un array dinamico
-        var regex = id.replace(/\#/g, ''); //cortamos la cadena para que id quede solo numerico
+        var regex = idLibro.replace(/\#/g, ''); //cortamos la cadena para que id quede solo numerico
         var idLibro = parseInt(regex.replace(/\./g, ',')); //Volveos a cortar y convertimos a entero el id
         libroArray = JSON.parse(localStorage.getItem("USUARIO" + idUsuario)) || []; //Creamos/obtenemos el Usuario
         //Este ciclo verifica que no se agregue dos veces el mismo libro
@@ -74,7 +88,7 @@ function eliminarLibro(idLibro) {
                 libroArray.splice(i, 1); //Quitamos el elemento del arreglo
                 break;
             }
-        var longitud = libroArray.length; //Guardamos la longitud del arreglo
+        longitud = libroArray.length; //Guardamos la longitud del arreglo
         localStorage.setItem("USUARIO" + idUsuario, JSON.stringify(libroArray)); //Actualizamos el localStorage
         //Validamos en caso de que se elimine el ultimo elemento del carrito
         if (longitud == 0) {
@@ -112,43 +126,25 @@ function pintarPagina() {
             '<div class="card" style="width: 97%;">' +
             '<div class="card-body">' +
 
-            '<div class="card mb-3" style="max-width: 50%;">' +
+            '<div class="mb-3" style="max-width: 67%;">' +
             '<div class="row no-gutters">' +
             '<div class="col-md-4">' +
             '<img id="imgPortada" src="libros/' + imagen + '" class="card-img" alt="...">' +
             '</div>' +
             '<div class="col-md-8">' +
-            '<div class="card-body">' +
-            '<h5 class="card-title" class="txtTitulo">' + titulo + '</h5>' +
-            '<p class="card-text" class="txtAutor">' + autor + '</p>' +
+            '<div class="card-body-carrito">' +
+            '<h5 class="card-text" class="txtTitulo">Titulo: ' + titulo + '</h5>' +
+            '<p class="card-text" class="txtAutor">Autor: ' + autor + '</p>' +
             '<a href="#' + idLibro + '" class="card-text eliminarCarrito"><small class="text-muted">Eliminar del carrito</small></a>' +
             '</div>' +
             '</div>' +
             '</div>' +
             '</div>' +
-            '<div class="card mb-3" style="max-width: 50%;" >' +
+            '<div class="mb-3" style="max-width: 100%;" >' +
             '<div class="row no-gutters">' +
             '<div class="col-md-8">' +
             '<div class="card-body">' +
-            '<h5 class="card-title precioLibro"><strong class="txtPrecio">' + precio + '</strong></h5>' +
-            '</div>' +
-            '</div>' +
-            '</div>' +
-            '</div>' +
-            '</div>' +
-
-            '</div>' +
-
-            '<br />' +
-
-            ' <div class="card" style="width: 97%;">' +
-            '<div class="card-body">' +
-            '<div class="card mb-3" style="max-width: 50%;">' +
-            '<div class="row no-gutters">' +
-            '<div class="col-md-8">' +
-            ' <div class="card-body">' +
-            '<h5 class="card-text" class="txtPrecio">' + precio + '</h5>' +
-            '<p class="card-title precioLibro"><strong class="txtTotal">' + precio + '</strong></p>' +
+            '<h5 class="card-title precioLibro"><strong class="txtPrecio">Precio c/u<br/>$' + precio + '</strong></h5>' +
             '</div>' +
             '</div>' +
             '</div>' +

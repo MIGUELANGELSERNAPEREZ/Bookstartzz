@@ -29,6 +29,30 @@
                 <h1 class="h1TitulosFrm">CARRITO DE COMPRA</h1>
                 </center>
                 <form id="formCarrito" runat="server">
+
+
+                                 <!-------------------INICIA MODAL---------------------->
+    <div class="modal" id="mdlConfirmar" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Confirmar accion</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                <p>¿Estás seguro que deseas quitar este libro del carrito?</p>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" id="btnConfirmarEliminar" class="btn btn-danger">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Termina modal -->
+
                      <%--Este input valida que no se pueda acceder explicitamente a la URL FrmPedidos.aspx--%>
                     <input type="hidden" id="txtURL" value="<%= Request["txtURL"] != null ? Request["txtURL"] : "0" %>" />
                     <asp:ScriptManager ID="ScriptManagerLibro" runat="server">
