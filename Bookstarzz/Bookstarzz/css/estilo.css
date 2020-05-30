@@ -151,10 +151,26 @@ footer.nb-footer {
 .ajustarTamano{
     padding-bottom: 40%;
 }
+/*Estilo para ajustar tamaño del div en FrmCarrito [cuando hay datos]*/
+.ajustarTamanoSI {
+    padding-bottom: 5%;
+}
 /*Estilo para el precio del libro en FrmCarrito*/
 .txtPrecio {
     font-size: 3.4rem;
 }
+/*INICIAN ESTILOS BOTONES*/
+#btnCancelar.btn-block {
+    display: inline-block;
+    width: 15%;
+    margin-left: 79%;
+}
+#btnComprar.btn-block {
+    display: inline-block;
+    width: 15%;
+    margin-left: 79%;
+}
+/*TERMINAN ESTILOS BOTONES*/
 /*TERMINAN ESTILOS FrmCarrito*/
 
 #divBloque1 {

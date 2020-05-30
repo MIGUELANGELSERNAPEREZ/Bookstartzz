@@ -54,8 +54,8 @@
 
 
                   <div>
+                      <Button type="button" id="btnComprar" name="btnComprar" class="btn btn-primary btn-lg btn-block">COMPRAR</Button>
                       <Button type="button" id="btnCancelar" name="btnCancelar" class="btn btn-danger btn-lg btn-block">CANCELAR</Button>
-                      <Button type="button" id="btnComprar" name="btnComprar" class="btn btn-primary btn-lg btn-block"">COMPRAR</Button>
                   </div>
 
 
