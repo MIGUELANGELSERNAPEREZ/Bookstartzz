@@ -140,8 +140,9 @@ function cofirmEliminar() {
 
 //recarga los usuarios de la base de datos en la tabla
 function recargarDatos() {
+    debugger;
     tablaUsuarios.fnClearTable();
-    Bookstarzz.ws.WSUsuarios.WSMunicipios.getAll(function (result) {
+    Bookstarzz.ws.WSUsuarios.getAll(function (result) {
         if (result) {
             tablaUsuarios.fnAddData(JSON.parse(result));
         } else {

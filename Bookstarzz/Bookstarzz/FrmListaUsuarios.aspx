@@ -15,7 +15,7 @@
                </div>
 
                 <div class="alert alert-success" style="display:none" role="alert">
-                  <strong>Error:</strong> <span id="cntMsgExito">El municipio se ha eliminado exitósamente</span>
+                  <strong>Error:</strong> <span id="cntMsgExito">El Usuario se ha eliminado exitósamente</span>
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>

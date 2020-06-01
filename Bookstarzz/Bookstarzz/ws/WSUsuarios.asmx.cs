@@ -39,8 +39,8 @@ namespace Bookstarzz.ws
         [WebMethod(EnableSession = true)]
         public string insert(string info)
         {
-            if (Session["session"] != null)
-            {
+            //if (Session["session"] != null)
+            //{
 
 
                 JavaScriptSerializer jss = new JavaScriptSerializer();
@@ -57,12 +57,18 @@ namespace Bookstarzz.ws
                     }
                     else
                     {
-                        return jss.Serialize(usu);
+
+                    Usuario existe = new Usuario();
+                    existe.Email = usu.Email;
+                    existe.UsuarioN = usu.UsuarioN;
+                    existe.Telefono = usu.Telefono;
+                        return jss.Serialize(existe);
                     }
                 }
+            return "";
 
-            }
-            throw new SecurityException("Acceso restringido");
+            //}
+            //throw new SecurityException("Acceso restringido");
         }
 
 
