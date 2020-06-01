@@ -178,11 +178,33 @@ function llenarDetallePedido(id) {
 
 //Funcion usada para normalizar ciertos tipos de datos al momento de ser presentados
 function normalizar(datos) {
+    var idUsuario = []; //Arreglo para guardar el id de usuario que sera transformado en el nombre
+    /*var objUsuario = {};*/ //Objeto que guarda el nombre del usuario especifico
     //Ciclo usado para transformar los milisegundos de DateTime en una Fecha normal
     //Metodo moment es de la libreria moment.js
     for (let i = 0; i < datos.length; i++) {
         datos[i]['fechaCompra'] = moment(datos[i]['fechaCompra']).format("YYYY-MM-DD");
+        idUsuario[i] = datos[i]['idUsuario'];
         //Ifs usados para transformar el numero de la clasificacion
+        //debugger;
+        //Bookstarzz.ws.WSUsuarios.getOne(idUsuario[i], function (result) {
+        //    if (result) {
+        //        objUsuario = JSON.parse(result);
+        //        //Guarda el nombre en un div oculto para que no se pierda
+        //        $("#divNombres").text(objUsuario["Nombre"] + " " + objUsuario["ApellidoP"] + " " + objUsuario["ApellidoM"]);
+        //    } else {
+        //        //Redirecciona al login
+        //        window.location.replace("FrmLogin.aspx");
+        //    }
+        //},
+        //    function (error) {
+        //        //Mensaje de error lado servidor
+        //        window.scrollTo(0, 0);
+        //        $("#txtMsg").val("2");
+        //        mensaje();
+        //    }
+        //);
+        //datos[i]["idUsuario"] = $("#divNombres").text();
     }
     //Linea para cuando entra desde metodo de llenarDetallePedido
     datos['fechaCompra'] = moment(datos['fechaCompra']).format("YYYY-MM-DD");

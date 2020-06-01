@@ -7,6 +7,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body_bloque_1" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="body_bloque_2" runat="server">
+    <%--Div oculto que guarda los nombres de clientes de los pedidos--%>
+    <div id="divNombres" style="display:none;"></div>
      <%--Div para mandar mensaje de exito/error--%>
     <div id="divMsg" class="alert" style="display:none;" role="alert">
       <input type="hidden" id="txtMsg" value="" />
