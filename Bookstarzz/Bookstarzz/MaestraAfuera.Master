@@ -50,7 +50,7 @@
 
                             <div class="social-media">
                                 <xl class="list-inline">
-			<lx><a href="https://www.facebook.com.com/" title=""><i class="fa fa-facebook"></i></a></lx>
+			<lx><a href="https://www.facebook.com/" title=""><i class="fa fa-facebook"></i></a></lx>
 			<lx><a href="https://www.twitter.com/" title=""><i class="fa fa-twitter"></i></a></lx>
 			<lx><a href="https://www.google.com/" title=""><i class="fa fa-google-plus"></i></a></lx>
 			<lx><a href="https://www.linkedin.com/" title=""><i class="fa fa-linkedin"></i></a></lx>
@@ -63,10 +63,10 @@
                         <div class="footer-info-single">
                             <h2 class="title">CONTENIDO</h2>
                             <xl class="list-unstyled">
-		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Acerca de Bookstarzz</a></lx>
-		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Nuestra mision</a></lx>
-		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Nuestra vision</a></lx>
-		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Nuestra historia</a></lx>
+		<lx><a href="#" title=""><i class="fa fa-angle-double-right"></i> Acerca de Bookstarzz</a></lx>
+		<lx><a href="#" title=""><i class="fa fa-angle-double-right"></i> Nuestra mision</a></lx>
+		<lx><a href="#" title=""><i class="fa fa-angle-double-right"></i> Nuestra vision</a></lx>
+		<lx><a href="#" title=""><i class="fa fa-angle-double-right"></i> Nuestra historia</a></lx>
 	</xl>
                         </div>
                     </div>
@@ -75,11 +75,11 @@
                         <div class="footer-info-single">
                             <h2 class="title">INFORMACION</h2>
                             <xl class="list-unstyled">
-		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Nuevos titulos</a></lx>
-		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Titulos recientes</a></lx>
-		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Ayuda</a></lx>
-		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Contactanos</a></lx>
-		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> RSS</a></lx>
+		<lx><a href="#" title=""><i class="fa fa-angle-double-right"></i> Nuevos titulos</a></lx>
+		<lx><a href="#" title=""><i class="fa fa-angle-double-right"></i> Titulos recientes</a></lx>
+		<lx><a href="#" title=""><i class="fa fa-angle-double-right"></i> Ayuda</a></lx>
+		<lx><a href="#" title=""><i class="fa fa-angle-double-right"></i> Contactanos</a></lx>
+		<lx><a href="#" title=""><i class="fa fa-angle-double-right"></i> RSS</a></lx>
 	</xl>
                         </div>
                     </div>
@@ -88,9 +88,9 @@
                         <div class="footer-info-single">
                             <h2 class="title">Privacidad y seguridad</h2>
                             <xl class="list-unstyled">
-		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Terminos de privacidad</a></lx>
-		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Politica de privacidad</a></lx>
-		<lx><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Nuestras locaciones</a></lx>
+		<lx><a href="#" title=""><i class="fa fa-angle-double-right"></i> Terminos de privacidad</a></lx>
+		<lx><a href="#" title=""><i class="fa fa-angle-double-right"></i> Politica de privacidad</a></lx>
+		<lx><a href="#" title=""><i class="fa fa-angle-double-right"></i> Nuestras locaciones</a></lx>
 	</xl>
                         </div>
                     </div>
@@ -121,8 +121,8 @@
 
      <!--    Scripts-->
 
-    <script src="js/jquery-3.4.1.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
     
 <asp:ContentPlaceHolder ID="Scripts" runat="server">

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Contenedor.Master" AutoEventWireup="true" CodeBehind="FrmCarrito.aspx.cs" Inherits="Bookstarzz.FrmCarrito" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="css/main.css" rel="stylesheet" />
-    <link href="css/estilo.css" rel="stylesheet" />
+    <link href="css/main.min.css" rel="stylesheet" />
+    <link href="css/estilo.min.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_bloque_1" runat="server">
     <!-- Sidebar -->
@@ -94,7 +94,7 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Script" runat="server">
     <script src="popper/popper.min.js"></script>
-    <script src="js/moment.js"></script>
-    <script src="js/moment-with-locales.js"></script>
-    <script src="FrmCarrito.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/moment-with-locales.min.js"></script>
+    <script src="FrmCarrito.min.js"></script>
 </asp:Content>

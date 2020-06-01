@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MaestraAfuera.Master" AutoEventWireup="true" CodeBehind="FrmRegistrarUser.aspx.cs" Inherits="Bookstarzz.FrmRegistrarUser" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="css/estilo.css" rel="stylesheet" />
+    <link href="css/estilo.min.css" rel="stylesheet" />
     <link href="validaciones/boostrapValidator.min.css" rel="stylesheet" />
 </asp:Content>
 
@@ -156,5 +156,5 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="Scripts" runat="server">
     <script src="validaciones/bootstrapValidator.js"></script>
-    <script src="FrmRegistrarUser.js"></script>
+    <script src="FrmRegistrarUser.min.js"></script>
 </asp:Content>

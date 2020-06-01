@@ -3,8 +3,8 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_bloque_1" runat="server">
-        <link rel="stylesheet" href="css/main.css">
-        <link href="css/datatables.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/main.min.css">
+        <link href="css/datatables.min.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body_bloque_2" runat="server">
                <div class="alert alert-danger" style="display:none" role="alert">
@@ -90,7 +90,7 @@
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Script" runat="server">
-    <script src="js/datatables.js"></script>
-    <script src="FrmListaUsuarios.js"></script>
+    <script src="js/datatables.min.js"></script>
+    <script src="FrmListaUsuarios.min.js"></script>
     
 </asp:Content>

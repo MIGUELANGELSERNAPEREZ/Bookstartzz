@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Contenedor.Master" AutoEventWireup="true" CodeBehind="FrmPedidos.aspx.cs" Inherits="Bookstarzz.FrmPedidos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link rel="stylesheet" href="css/main.css">
-    <link href="css/datatables.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/main.min.css">
+    <link href="css/datatables.min.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_bloque_1" runat="server">
 </asp:Content>
@@ -79,9 +79,9 @@
     </form>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Script" runat="server">
-    <script src="js/datatables.js"></script>
+    <script src="js/datatables.min.js"></script>
     <%--Librerias para transformar datos de objetos DateTime--%>
-    <script src="js/moment.js"></script>
-    <script src="js/moment-with-locales.js"></script>
-    <script src="FrmPedidos.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/moment-with-locales.min.js"></script>
+    <script src="FrmPedidos.min.js"></script>
 </asp:Content>

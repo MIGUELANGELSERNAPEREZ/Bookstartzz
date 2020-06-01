@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.min.css">
     <!-- Glide CSS -->
     <link rel="stylesheet" href="glide-3.2.4/dist/css/glide.core.min.css">
     <link rel="stylesheet" href="glide-3.2.4/dist/css/glide.theme.min.css">
@@ -117,5 +117,5 @@
     <!-- Glide JS -->
     <script src="glide-3.2.4/dist/glide.min.js"></script>
 
-    <script src="FrmMenu.js"></script>
+    <script src="FrmMenu.min.js"></script>
 </asp:Content>

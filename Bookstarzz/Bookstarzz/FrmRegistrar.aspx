@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Contenedor.Master" AutoEventWireup="true" CodeBehind="FrmRegistrar.aspx.cs" Inherits="Bookstarzz.FrmRegistrar" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-     <link href="css/estilo.css" rel="stylesheet" />
+     <link href="css/estilo.min.css" rel="stylesheet" />
     <link href="validaciones/boostrapValidator.min.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body_bloque_1" runat="server">
@@ -154,5 +154,5 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Script" runat="server">
      <script src="validaciones/bootstrapValidator.js"></script>
-    <script src="FrmRegistrarUser.js"></script>
+    <script src="FrmRegistrarUser.min.js"></script>
 </asp:Content>
