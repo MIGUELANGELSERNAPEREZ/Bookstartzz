@@ -20,11 +20,12 @@ namespace Backend.Modelos
                 if (conexion == null || conexion.State != ConnectionState.Open)
                 {
                     conexion = new MySqlConnection();
+                    //string connStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
                     conexion.ConnectionString = "Server=localhost;" +
                     "Database=bookstartzz;" +
                     "uid=root;" +
                     "pwd=root;";// sslmode=none";
-
+                    //conexion.ConnectionString = connStr; //Usamos la cadena de conexion general en Web.config para acceder al hostin remoto
                     conexion.Open();
                 }
                 return true;

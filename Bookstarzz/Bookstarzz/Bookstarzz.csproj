@@ -292,7 +292,7 @@
     <Content Include="libros\ElProceso.jpg" />
     <Content Include="libros\ElRayoVerde.jpg" />
     <Content Include="libros\ElViaje.jpg" />
-    <Content Include="libros\EnlaColoniaPenitenciaria.gif" />
+    <Content Include="libros\EnlaColoniaPenitenciaria.jpg" />
     <Content Include="libros\EnsayosobrelaCeguera.jpg" />
     <Content Include="libros\error.gif" />
     <Content Include="libros\FriosaurioRex.jpg" />
@@ -302,7 +302,6 @@
     <Content Include="libros\Harrypotterylaordendelfenix.jpg" />
     <Content Include="libros\HarryPotterylasreliquiasdelamuerte.jpg" />
     <Content Include="libros\HarryPotterylapiedrafilosofal.jpg" />
-    <Content Include="libros\harry potter 1.jpg" />
     <Content Include="libros\HarryPotteryelcalizdefuego.jpg" />
     <Content Include="libros\HarryPotteryelpricionerodeazkaban.jpg" />
     <Content Include="libros\It.jpg" />
